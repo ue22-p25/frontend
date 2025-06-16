@@ -9,5 +9,3 @@ NBNORMFLAGS = -l1 -L 'licen[cs]e' -s3 -S 'js/tools' -t h1
 include Makefile.norm
 
 include Makefile.book
-
-include Makefile.toc
