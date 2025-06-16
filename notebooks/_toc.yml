@@ -24,5 +24,5 @@ parts:
   - glob: 6*-nb
 - caption: supports Aurélien
   chapters:
-  - url: http://ue22-p24-web.surge.sh/
+  - url: http://ue22-p25-web.surge.sh/
     title: sur surge.sh

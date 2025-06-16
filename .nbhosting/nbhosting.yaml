@@ -29,4 +29,4 @@ builds:
 - id: readthedocs
   name: intro html, css, js
   description: HTML book
-  external_url: https://ue22-p24-web.readthedocs.io/
+  external_url: https://ue22-p25-web.readthedocs.io/

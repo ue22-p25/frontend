@@ -38,7 +38,7 @@ there is also a looooong list of examples here <https://reactjsexample.com>
 
 ## app #1: the dual-counters app
 
-the git repo for this app is <https://github.com/ue22-p24/web-react-counters>
+the git repo for this app is <https://github.com/ue22-p25/web-react-counters>
 
 ````{admonition} read the assignment first
 :class: warning
@@ -305,7 +305,7 @@ about this app:
 
 * [the presentation page](https://reactjsexample.com/simple-but-well-styled-calculator-made-by-using-hooks/)
 * the related git repo is here
-  <https://github.com/ue22-p24/web-react-calculator>
+  <https://github.com/ue22-p25/web-react-calculator>
   which I actually forked from
   <https://github.com/vasilykhromykh/React-Calculator-With-React-Hooks>
   with purely cosmetic changes
@@ -314,7 +314,7 @@ about this app:
 
 ### your assignment
 
-* clone the (ue22-p24) repo
+* clone the (ue22-p25) repo
 * get it to work on your laptop (see above)
 * implement a new feature
   * for example: add a (global) 'Clear' button that is missing  

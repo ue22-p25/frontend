@@ -5,7 +5,7 @@ this repo contains a very short introduction course on the 3 Web pillars : HTML 
 # how to read this course
 
 the recommended way to read this course is to use the readthedocs version,
-at <https://ue22-p24-web.readthedocs.io/>
+at <https://ue22-p25-web.readthedocs.io/>
 
 no sophisticated installation is required in this case, just a browser and a
 code editor, say chrome and vs-code

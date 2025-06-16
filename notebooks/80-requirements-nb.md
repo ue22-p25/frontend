@@ -28,7 +28,7 @@ tools = require('../js/tools'); tools.init()
 ```
 
 as usual you can enjoy this course with no local installation, and use the pure HTML version here  
-<https://ue22-p24-web.readthedocs.io/>
+<https://ue22-p25-web.readthedocs.io/>
 
 if however you plan on reading this course locally on your computer, there are a few specific requirements that need to be fulfilled
 

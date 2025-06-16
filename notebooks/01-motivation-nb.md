@@ -29,7 +29,7 @@ tools = require('../js/tools'); tools.init()
 :class: admonition-small
 
 the most comfortable way to read this content is on 
-<https://ue12-p24-web.readthedocs.io>  
+<https://ue12-p25-web.readthedocs.io>  
 it is also possible to run the notebooks locally, even if it does require a more complex setup than the usual Python notebooks (the notebook here use a node.js kernel)  
 anyway, if you do run this locally, make sure to always evaluate the initialization cells
 ```

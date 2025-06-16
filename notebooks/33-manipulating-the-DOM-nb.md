@@ -129,7 +129,7 @@ tools.sample_from_stem("_static/cheatsheet", {sources_show: false})
 
 ````{admonition} practice
 :class: seealso
-now could be a [right time to start the dynamic grid exercise](https://github.com/ue22-p24/web-grid)  
+now could be a [right time to start the dynamic grid exercise](https://github.com/ue22-p25/web-grid)  
 
 start with just Step 1:
 * write a function that adds a line, and

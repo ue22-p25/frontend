@@ -25,7 +25,7 @@ tools = require('../js/tools'); tools.init()
 
 ````{admonition} calculator:
 we give you the html and css, you have to write the JS:  
-see on github here: <https://github.com/ue22-p24/web-calculator>
+see on github here: <https://github.com/ue22-p25/web-calculator>
 
 here's what it should look like
 ````
