@@ -1,0 +1,7 @@
+.macnb
+_build
+.ipynb_checkpoints
+node_modules
+scratch
+web-homework
+.vite

@@ -1,0 +1,26 @@
+version: 2
+
+build:
+  os: ubuntu-24.04
+  tools:
+    python: "3.13"
+    # as of 2025 feb 09: upgrading to node22 breaks this
+    # https://github.com/n-riesco/ijavascript/issues/297
+    nodejs: "20"
+  jobs:
+    pre_build:
+      # using something already in the PATH
+      - npm config set prefix /home/docs/.asdf/
+      - npm install -g ijavascript
+      - ijsinstall
+      - jupyter-book config sphinx notebooks/
+
+sphinx:
+  fail_on_warning: false
+  builder: html
+  configuration: notebooks/conf.py
+
+python:
+  install:
+    - requirements: requirements.txt
+    - requirements: notebooks/requirements-rtd.txt

@@ -1,0 +1,33 @@
+h3 {
+    text-align: center;
+}
+
+#container-pythagore {
+    margin: auto;
+    font-family: 'Courier New', Courier, monospace
+}
+
+#container-pythagore svg {
+    margin: 30px;
+    padding: 3px;
+    border: solid 1px;
+}
+
+.background {
+    stroke: black;
+    stroke-width: 1px;
+    fill: #eee;
+}
+
+.triangle {
+    stroke: white;
+    stroke-width: 1px;
+    fill: #4b89d6;
+    opacity: 0.5;
+}
+
+text.legend {
+    font-size: 50px;
+    text-anchor: middle;
+    alignment-baseline: middle;
+}

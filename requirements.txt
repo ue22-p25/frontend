@@ -1,0 +1,7 @@
+jupyter
+jupytext
+jupyterlab-myst
+jupyterlab-gridwidth
+
+# for updating nbhosting toc from jupyter book
+ruamel.yaml

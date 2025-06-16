@@ -1,0 +1,32 @@
+tracks:
+- description: web intro
+  id: web
+  name: html + css + js
+  sections:
+  - name: intro - Web frontend
+    notebooks:
+    - notebooks/0*-nb
+  - name: HTML & CSS basics
+    notebooks:
+    - notebooks/1*-nb
+  - name: layout with CSS
+    notebooks:
+    - notebooks/2*-nb
+  - name: intro to JS
+    notebooks:
+    - notebooks/3*-nb
+  - name: practising JS
+    notebooks:
+    - notebooks/[45]*
+  - name: optional content
+    notebooks:
+    - notebooks/6*-nb
+static-mappings:
+- source: media
+  destination: media
+
+builds:
+- id: readthedocs
+  name: intro html, css, js
+  description: HTML book
+  external_url: https://ue22-p24-web.readthedocs.io/

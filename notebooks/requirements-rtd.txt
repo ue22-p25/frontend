@@ -1,0 +1,7 @@
+# generic deps
+sphinx
+sphinx-rtd-theme
+jupyter-book
+
+# toggable left sidebar
+pydata-sphinx-theme<0.16
