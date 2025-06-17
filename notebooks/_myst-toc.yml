@@ -11,11 +11,11 @@ version: 1
 project:
   toc:
 
-    - file: 01-motivation-nb.md
+    - file: 00-introduction-nb.md
 
-    - title: intro - Web Frontend
+    - title: Intro
       children:
-        - pattern: 0[2-9]*-nb.md
+        - pattern: 0[1-9]*-nb.md
 
     - title: HTML & CSS basics
       children:

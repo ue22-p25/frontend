@@ -15,22 +15,11 @@ nbhosting:
   title: motivation
 ---
 
-# web frontend pillars : HTML/CSS/JS
+# motivation
 
 ```{code-cell}
 tools = require('../js/tools'); tools.init()
 ```
-
-```{admonition} running locally ?
-:class: admonition-small
-
-the most comfortable way to read this content is on 
-<https://ue12-p25-web.readthedocs.io>  
-it is also possible to run the notebooks locally, even if it does require a more complex setup than the usual Python notebooks (the notebook here use a node.js kernel)  
-anyway, if you do run this locally, make sure to always evaluate the initialization cells
-```
-
-+++
 
 ## why a course on web frontend pillars&nbsp;?
 
@@ -124,7 +113,7 @@ this means that we will **not** address :
 
 * keep in mind that web frontend techologies
   * go way beyond the browsers per se
-* there are many options to build a **standalone** app (that runs **outside of the browser**)  
+* there are many options to build a **standalone** app (that runs **outside of the browser**)
   * leveraging the same core technos (again, HTML, CSS and JavaScript)
   * as a native mobile app (IOS or Android)
   * and/or on traditional computers - **like e.g. vs-code**
