@@ -419,8 +419,8 @@ function init(options) {
   // undefined means not specified, so for compat it means true
   // set to null or false in the options to disable
   if ((init_style === undefined) || init_style) {
-    embedded += read_style('../notebooks/_static/style_common.css')
-    embedded += read_style('../notebooks/_static/style_local.css')
+    // this file is loaded by mystmd, but within jupyterlab we need to load it
+    embedded += read_style('../notebooks/_static/style.css')
   }
   // ditto
   if ((init_script === undefined) || init_script) {
