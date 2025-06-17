@@ -15,11 +15,11 @@ nbhosting:
   title: JS by examples
 ---
 
-Licence CC BY-NC-ND, Thierry Parmentelat
+# JavaScript by examples
 
 +++
 
-# JavaScript by examples
+Licence CC BY-NC-ND, Thierry Parmentelat
 
 ```{code-cell}
 tools = require('../js/tools'); tools.init()
@@ -122,6 +122,7 @@ Devel Tools can visualize the actual loading workflow
   * complex dependency that can rise in real code  
     typically, you need module X, that in turns needs module Y, etc…  
     just like when a Python module does `import another`
+
   * the evolutions of the language over time: proper modules are available only since ES2015  
     and that takes time to get widely adopted
 
@@ -137,6 +138,7 @@ we will come back later on this topic, but for now let's keep it simple
 
 for our use case, it's simple: a single HTML page needs to load one JS fragment  
 there is one simple way : the `<script>` tag, that comes in 2 flavours:
+
 * whether code is in a separate location (recommended)
 * or inline (occasionnally handy)
 
@@ -145,10 +147,12 @@ there is one simple way : the `<script>` tag, that comes in 2 flavours:
 ### `<script src="...">` : load a URL
 
 most often though, code is stored in a **separate location**
+
 * either as a companion to the HTML page
 * or in a remote location
 
 for that, use `<script src="some-url"></script>`
+
 * so e.g. to load a JS file **in the same folder**, simply do  
   `<script src="foo.js"></script>`
   ````{admonition} reminder
@@ -156,6 +160,7 @@ for that, use `<script src="some-url"></script>`
 
   remember the slides on relative and absolute URLs
   ````
+
 * we can also use any URL in the `src` attribute to load from other folders or locations  
   see for example <https://cdnjs.org/>
 
@@ -201,6 +206,7 @@ be aware that by using `<script defer>`, you can ensure that the script runs **o
   console.log('loading.js')
   console.log(`body has ${document.body.childElementCount} children`)  
   ```
+
 * tweak the html header so that `loading.js` gets loaded
 * open the html page, look at the console
 * check that the message properly displays the number of children of your `<body>` tag
@@ -255,6 +261,7 @@ about visibility of symbols (variable and function names) :
 * **global** variables `document` and `console` allow to access browser components
 * **local** variables inside `toggle` are declared with `let`  
   (there's a `const` too, and in fact here we could have declared our variables with `const`)
+
 * the `function toggle() ..` statement defines a **global** variable `toggle`
 * in HTML, we set the `onclick` property on `#button`  
   it is a JavaScript fragment that refers to the global `toggle` function
@@ -278,10 +285,6 @@ tags: [remove-input]
 tools.sample_from_stem("../samples/30-js-intro-02-svgcircles",  {height: "30em"})
 ```
 
-```{code-cell}
-
-```
-
 +++ {"slideshow": {"slide_type": "slide"}}
 
 ### ex2 - takeaways (1)
@@ -289,6 +292,7 @@ tools.sample_from_stem("../samples/30-js-intro-02-svgcircles",  {height: "30em"}
 * we can also define **classes** in JS
 * instances are built with `new Board(...)` which in turn calls `constructor()`
   much alike Python's `__init__()`
+
 * `the_board` is a JavaScript *object*, i.e. composite data keyed on `w`, `h`, etc…
 * methods do not need to define a `self` parameter
   instead the object to which the method was sent can be accessed through the magical `this` variable
@@ -324,6 +328,7 @@ tools.sample_from_stem("../samples/30-js-intro-02-svgcircles",  {height: "30em"}
 ## example #3
 
 in this further example :
+
 * we create two visible elements: a `<div>` label, and this time a `<canvas>` graphic area
 * clicking in the canvas causes it to randomize itself
 

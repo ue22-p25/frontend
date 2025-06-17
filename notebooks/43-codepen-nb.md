@@ -15,10 +15,6 @@ nbhosting:
   title: 'practice : on codepen'
 ---
 
-Licence CC BY-NC-ND, Thierry Parmentelat
-
-+++
-
 # practice : on codepen
 
 ## miscellaneous practise on codepen
@@ -30,3 +26,7 @@ see a collection of assignments here <https://codepen.io/collection/YyapER?grid_
 
 do not forget to create an account and to log in `codepen.io` **for your progress to be saved**
 ````
+
++++
+
+Licence CC BY-NC-ND, Thierry Parmentelat

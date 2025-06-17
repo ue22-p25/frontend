@@ -15,11 +15,11 @@ nbhosting:
   title: css @media rules
 ---
 
-Licence CC BY-NC-ND, Thierry Parmentelat
+# CSS `@media` rules
 
 +++
 
-# CSS `@media` rules
+Licence CC BY-NC-ND, Thierry Parmentelat
 
 ```{code-cell}
 tools = require('../js/tools'); tools.init()
@@ -170,8 +170,10 @@ remember that `<html>` contains 2 sons, a `<head>` and a `<body>`
 ## practice
 
 1. open the example below in a separate window
+
   * observe behaviour on narrow, mid-size, and large viewport
 1. write an HTML document and related CSS that mimicks it
+
   * at least for viewports smaller and larger than 512px
 
 ```{code-cell}

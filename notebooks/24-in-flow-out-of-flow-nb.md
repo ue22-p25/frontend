@@ -15,13 +15,11 @@ nbhosting:
   title: in / out-of flow
 ---
 
+# in-flow and out-of-flow
+
 +++ {"tags": ["remove-input"]}
 
 Licence CC BY-NC-ND, Thierry Parmentelat
-
-+++
-
-# in-flow and out-of-flow
 
 ```{code-cell}
 tools = require('../js/tools'); tools.init()

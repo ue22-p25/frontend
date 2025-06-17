@@ -15,13 +15,11 @@ nbhosting:
   title: asynchronism
 ---
 
+# asynchronous behaviour
+
 +++ {"slideshow": {"slide_type": "slide"}}
 
 Licence CC BY-NC-ND, Thierry Parmentelat
-
-+++
-
-# asynchronous behaviour
 
 ```{code-cell}
 tools = require('../js/tools'); tools.init()
@@ -106,6 +104,7 @@ typically, the page sends back API calls to its server over HTTPS
 
 so far we have seen one tool to deal with concurrency: *callbacks*  
 however the code can quickly become the *callback hell* by cascading callbacks  
+
 * which does not scale very well, because an essentially **sequential** business ends up creating a **deeply nested** program structure  
 
 ```{image} media/callback-hell.png
@@ -232,6 +231,7 @@ where
 * `function_ko` is triggered otherwise - note that this *second argument is optional*
 * `function_ok` is a function that consumes the output of the promise (once it is complete)  
   and **produces** (returns) the **output of the `.then()` call**
+
 * so in other words, the `.then()` expression also returns .. a promise
   whose result is the result of `function_ok`
 ````
@@ -567,6 +567,7 @@ the remainder of this notebook is for advanced readers
 * let us observe what happens if we create several promises at the same time
 * remember that promise creation returns *immediately*  
   (we've seen the REPL working right after we had created our promise earlier)
+
 * for example here is how we could fetch these 3 URLs **simultaneously**
 * that's the main point of promises
 
@@ -583,6 +584,7 @@ for (let url of [URL_broken, URL_small, URL_large])
 
 * but now, when running several things in parallel like this,
   we may need to **also retrieve their results**
+
 * that is the point of `Promise.all()` - [and similar](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise#static_methods)
 * that create a promise from a collection of promises
 * and wait for some/all of them to complete

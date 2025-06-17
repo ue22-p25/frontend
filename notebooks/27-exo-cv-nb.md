@@ -15,11 +15,11 @@ nbhosting:
   title: 'practice: your resume'
 ---
 
-Licence CC BY-NC-ND, Thierry Parmentelat
+# putting it all together
 
 +++
 
-# putting it all together
+Licence CC BY-NC-ND, Thierry Parmentelat
 
 ```{code-cell}
 tools = require('../js/tools'); tools.init()
@@ -63,6 +63,7 @@ tools.sample_from_stem("../samples/26-monarque/resume", {sources_show: false})
 * previous example can be found together with the course   
   in the git repo
   <https://github.com/ue22-p25/web>
+
 * specifically in the `samples/26-monarque` folder
 * note that some of the other examples of the course  
   can be found in the `samples/` folder

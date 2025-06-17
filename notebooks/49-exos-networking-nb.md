@@ -15,11 +15,11 @@ nbhosting:
   title: 'practice : networking apps'
 ---
 
-Licence CC BY-NC-ND, Thierry Parmentelat
+# practice : networking apps
 
 +++
 
-# practice : networking apps
+Licence CC BY-NC-ND, Thierry Parmentelat
 
 ```{code-cell}
 tools = require('../js/tools'); tools.init()

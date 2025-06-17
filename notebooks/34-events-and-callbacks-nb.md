@@ -15,13 +15,11 @@ nbhosting:
   title: events & callbacks
 ---
 
+# events and callbacks
+
 +++ {"slideshow": {"slide_type": "slide"}}
 
 Licence CC BY-NC-ND, Thierry Parmentelat
-
-+++
-
-# events and callbacks
 
 ```{code-cell}
 tools = require('../js/tools'); tools.init()
@@ -52,6 +50,7 @@ tools = require('../js/tools'); tools.init()
 ## callbacks
 
 events are handled using **callbacks**
+
 * callbacks are functions that are triggered when an event occur
 * to get a function to be called on a given event, you have to use the `addEventListener`
 * the callback function typically receives an **event** object as a parameter
@@ -205,6 +204,7 @@ for this reason, JavaScript has 2 convenient ways to create anonymous functions:
   ```javascript
   const mylambda0 = (arg0, arg1) => { /* some code here */ }
   ```
+
 * the legacy one:
   ```javascript
   const mylambda0 = function (arg0, arg1) { /* some code here */ }
@@ -356,6 +356,7 @@ ok()
 
 * take home message is: **never use `var` declarations**
 * it is old-fashioned and **badly broken**
+
 +++ {"slideshow": {"slide_type": "slide"}}
 
 ## see also

@@ -15,11 +15,11 @@ nbhosting:
   title: 'practice : games'
 ---
 
-Licence CC BY-NC-ND, Thierry Parmentelat
+# practice : games
 
 +++
 
-# practice : games
+Licence CC BY-NC-ND, Thierry Parmentelat
 
 ```{code-cell}
 tools = require('../js/tools'); tools.init()

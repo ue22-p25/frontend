@@ -15,13 +15,11 @@ nbhosting:
   title: blinking colors (& devel tools)
 ---
 
+# practice : blinking background
+
 +++ {"slideshow": {"slide_type": "slide"}}
 
 Licence CC BY-NC-ND, Thierry Parmentelat
-
-+++
-
-# practice : blinking background
 
 ```{code-cell}
 tools = require('../js/tools'); tools.init()
@@ -43,6 +41,7 @@ create or reuse a HTML document as a collection of 3 files; it can be your resum
 1. make sure the html `<head>` loads **both** the css and js companions
 2. then edit the JavaScript code, so that the **background alternates** every 1 second between 2 different colours  
    note that there are many approaches to achieving this, and at least 2:
+
      * either changing properties directly on the DOM,
      * or messing with CSS classes  
    and early finisher should give both angles a go  

@@ -15,13 +15,13 @@ nbhosting:
   title: CSS variables
 ---
 
-Licence CC BY-NC-ND, Thierry Parmentelat
-
-+++
-
 # CSS variables
 
 the official name for this feature is ***CSS custom properties***, but we'll call them variables because that's the closest thing CSS has to offer that looks like variables in a traditional language
+
++++
+
+Licence CC BY-NC-ND, Thierry Parmentelat
 
 ```{code-cell}
 tools = require('../js/tools'); tools.init()
@@ -96,5 +96,6 @@ tools.sample_from_stem('../samples/25-dashed-headers', {'start_with': 'css', hei
 
 * CSS-tricks' excellent summary on custom properties  
   <https://css-tricks.com/a-complete-guide-to-custom-properties/>
+
 * the original codepen that implements parametrized underlined headers  
   <https://codepen.io/t_afif/pen/bGYEMgG>

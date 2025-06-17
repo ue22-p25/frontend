@@ -15,11 +15,11 @@ nbhosting:
   title: id and class
 ---
 
-Licence CC BY-NC-ND, Thierry Parmentelat
+# HTML ids and classes
 
 +++
 
-# HTML ids and classes
+Licence CC BY-NC-ND, Thierry Parmentelat
 
 ```{code-cell}
 tools = require('../js/tools'); tools.init()
@@ -150,8 +150,10 @@ let's summarize
 
 * cascading : what happens if **several rules** define,  
   say, the 'color' property on one element ?
+
 * inheritance : what happens if **no rule** defines  
   the 'color' property on an element ?
+
 * in a nutshell :
 
 | cascading | inheritance |

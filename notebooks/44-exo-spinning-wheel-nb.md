@@ -15,11 +15,11 @@ nbhosting:
   title: exo - spinning wheel
 ---
 
-Licence CC BY-NC-ND, Thierry Parmentelat
+# practice : a spinning wheel
 
 +++
 
-# practice : a spinning wheel
+Licence CC BY-NC-ND, Thierry Parmentelat
 
 ```{code-cell}
 tools = require('../js/tools'); tools.init()

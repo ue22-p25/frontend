@@ -14,11 +14,11 @@ nbhosting:
   title: grid layout
 ---
 
-Licence CC BY-NC-ND, Thierry Parmentelat
+# `display: grid`
 
 +++
 
-# `display: grid`
+Licence CC BY-NC-ND, Thierry Parmentelat
 
 ```{code-cell}
 tools = require('../js/tools'); tools.init()
@@ -32,6 +32,7 @@ tools = require('../js/tools'); tools.init()
 ````{admonition} historical note
 
 creating this kind of layout has been historically a challenging task
+
 * the `<table>` tag has long been overused to address that sort of needs
 * twitter's `bootstrap` has been used for this too at some point
 * **do not use** these tools for that in 202x !
@@ -48,6 +49,7 @@ next snippet demontrates:
 * a proportional grid of [3 rows ⨉ 4 columns]
 * with 4 areas defined, based on that tiling
   `header`, `main`, `sidebar`, and `footer`
+
 * and 4 `<div>`s that are mapped on these areas
   *e.g.*  `grid-area: header`
 
@@ -188,6 +190,7 @@ in the previous examples :
 * each box gets its height based on its content
 * it is also possible - although less often needed  
   to fix a height globally and arrange the rows accordingly
+
 * only change is to add on the grid:
   * `height: 100vh` to say we want to use all viewport height
   * `grid-template-rows: 50px 1fr 100px;`  
@@ -257,6 +260,7 @@ to do this easily under vs-code :
 * select the text you want to wrap
 * enter the palette - the swiss knife in vs-code  
   (mac: ⌘-⇧-p - Windows ⌃-⇧-p - in doubt, ask google)
+
 * type `Emmet wrap with abbreviation`
 * enter the tag name
 

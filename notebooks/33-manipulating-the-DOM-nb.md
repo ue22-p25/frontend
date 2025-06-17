@@ -15,13 +15,13 @@ nbhosting:
   title: messing with the DOM
 ---
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
-Licence CC BY-NC-ND, Thierry Parmentelat
-
 +++ {"slideshow": {"slide_type": "-"}}
 
 # manipulating the DOM
+
++++ {"slideshow": {"slide_type": "slide"}}
+
+Licence CC BY-NC-ND, Thierry Parmentelat
 
 ```{code-cell}
 tools = require('../js/tools'); tools.init()
@@ -82,6 +82,7 @@ tools = require('../js/tools'); tools.init()
   the CSS property is called **`background-color`** but in this context it becomes **`backgroundColor`**  
   can you figure out why the original name could not be used ?
   ````
+
 * **set** an element property  
   several angles are possible, here we are writing directly in the `style=` part of the element  
   and so, in line with the specificity rules, this will win over all other applicable settings
@@ -108,6 +109,7 @@ tools = require('../js/tools'); tools.init()
 * mind you, sometimes - like for svg elements for example
   you need to specify a namespace with `createElementNS()`  
   see the cheatsheet for an example
+
 * in any case, **don't forget to add** the new element somewhere in the tree  
   `father.appendChild(new_node)`
 
@@ -132,6 +134,7 @@ tools.sample_from_stem("_static/cheatsheet", {sources_show: false})
 now could be a [right time to start the dynamic grid exercise](https://github.com/ue22-p25/web-grid)  
 
 start with just Step 1:
+
 * write a function that adds a line, and
 * and see the initial examples on how to attach that function to the button
 ````

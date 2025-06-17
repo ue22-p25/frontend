@@ -15,13 +15,11 @@ nbhosting:
   title: course requirements
 ---
 
+# run this course locally ?
+
 +++ {"slideshow": {"slide_type": "slide"}}
 
 Licence CC BY-NC-ND, Thierry Parmentelat
-
-+++
-
-# run this course locally ?
 
 ```{code-cell}
 tools = require('../js/tools'); tools.init()
@@ -39,10 +37,12 @@ if however you plan on reading this course locally on your computer, there are a
 * **PREREQUISITES**  
   the instructions below assume you have installed the common stack used for the
   S1 courses, namely `miniconda` + `bash` + `git` + `vs-code`
+
 * **WARNING**  
   note that on Windows, the installation instructions below involve the
   installation of some Visual-Studio components, which is a little intrusive and
   take a looonng time...
+
 * do all the installs as **a regular user**  
   the commands below should be as far as possible run as a regular user  
   if however, depending on your setup, they fail to complete because of a lack of permissions, you may need to invoke them as super-user  

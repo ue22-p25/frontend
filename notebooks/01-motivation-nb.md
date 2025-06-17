@@ -15,11 +15,11 @@ nbhosting:
   title: motivation
 ---
 
-Licence CC BY-NC-ND, Thierry Parmentelat
+# web frontend pillars : HTML/CSS/JS
 
 +++
 
-# web frontend pillars : HTML/CSS/JS
+Licence CC BY-NC-ND, Thierry Parmentelat
 
 ```{code-cell}
 tools = require('../js/tools'); tools.init()
@@ -150,4 +150,5 @@ this means that we will **not** address :
 * make sure you are aware of the **enormous potential**
 * outline some specific problems  
   esp. **asynchroneous** / non-sequential nature of user interaction and network activity
+
 * start to build a **mental map** where you can place the current buzzwords

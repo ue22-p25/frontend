@@ -15,13 +15,11 @@ nbhosting:
   title: bootstrap
 ---
 
+# bootstrap
+
 +++ {"slideshow": {"slide_type": "slide"}}
 
 Licence CC BY-NC-ND, Thierry Parmentelat
-
-+++
-
-# bootstrap
 
 ```{code-cell}
 tools = require('../js/tools'); tools.init()

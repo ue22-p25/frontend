@@ -14,11 +14,11 @@ nbhosting:
   title: html basics
 ---
 
-Licence CC BY-NC-ND, Thierry Parmentelat
+# HTML basics & devel tools
 
 +++
 
-# HTML basics & devel tools
+Licence CC BY-NC-ND, Thierry Parmentelat
 
 ```{code-cell}
 tools = require('../js/tools'); tools.init()
@@ -318,4 +318,5 @@ tools.sample_from_strings({html: fragment_closed}, {separate_show: false})
   * typically with `⌘-tab` (or `⌥-tab` or `⌃-tab` depending on your environment)
 * also make sure to know the keyboard shortcut  
   for your browser to reload a page
+
   * typically `⌘-r` (or `⌃-r` on Windows...)

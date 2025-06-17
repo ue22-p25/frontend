@@ -15,16 +15,16 @@ nbhosting:
   title: vscode extensions
 ---
 
-Licence CC BY-NC-ND, Thierry Parmentelat
-
-+++
-
 # vscode extensions
 
 based on my experience and on this youtube video
 https://www.youtube.com/watch?v=Z5RkLrSDlFA
 
 in an opinionated order of usefulness
+
++++
+
+Licence CC BY-NC-ND, Thierry Parmentelat
 
 ```{code-cell}
 tools = require('../js/tools'); tools.init()

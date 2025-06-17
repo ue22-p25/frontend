@@ -15,12 +15,6 @@ nbhosting:
   title: exo - calculator
 ---
 
-Licence CC BY-NC-ND, Thierry Parmentelat
-
-```{code-cell}
-tools = require('../js/tools'); tools.init()
-```
-
 # practice : a calculator
 
 ````{admonition} calculator:
@@ -29,6 +23,14 @@ see on github here: <https://github.com/ue22-p25/web-calculator>
 
 here's what it should look like
 ````
+
++++
+
+Licence CC BY-NC-ND, Thierry Parmentelat
+
+```{code-cell}
+tools = require('../js/tools'); tools.init()
+```
 
 ```{code-cell}
 ---

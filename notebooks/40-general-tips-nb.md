@@ -15,13 +15,11 @@ nbhosting:
   title: coding tips
 ---
 
+# how to code: general tips
+
 +++ {"slideshow": {"slide_type": "slide"}}
 
 Licence CC BY-NC-ND, Thierry Parmentelat
-
-+++
-
-# how to code: general tips
 
 ```{code-cell}
 tools = require('../js/tools'); tools.init()
@@ -30,6 +28,7 @@ tools = require('../js/tools'); tools.init()
 * first do not think on coding, but think about what do you want to achieve
 * decompose the thing you are trying to achieve into smaller things  
   e.g. in the case of the spinning wheel, you need:
+
   * a button
   * circles
   * to change the color of a circle

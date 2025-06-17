@@ -15,11 +15,11 @@ nbhosting:
   title: css properties
 ---
 
-Licence CC BY-NC-ND, Thierry Parmentelat
+# CSS main properties
 
 +++
 
-# CSS main properties
+Licence CC BY-NC-ND, Thierry Parmentelat
 
 ```{code-cell}
 tools = require('../js/tools'); tools.init()
@@ -74,6 +74,7 @@ tools.sample_from_stem("../samples/15-font-demo")
 
 * observe **the single CSS** rule here, that allows to apply the font **to the whole document**  
   this is an example of *inheritance*
+
 * btw, it is strongly recommended to avoid mixing fonts in a document
 
 +++

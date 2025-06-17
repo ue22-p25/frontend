@@ -15,13 +15,11 @@ nbhosting:
   title: jQuery
 ---
 
+# jQuery
+
 +++ {"slideshow": {"slide_type": "slide"}}
 
 Licence CC BY-NC-ND, Thierry Parmentelat
-
-+++
-
-# jQuery
 
 ```{code-cell}
 tools = require('../js/tools'); tools.init()

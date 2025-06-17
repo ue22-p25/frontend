@@ -15,13 +15,11 @@ nbhosting:
   title: bultin types
 ---
 
+# JS builtin types
+
 +++ {"slideshow": {"slide_type": "slide"}}
 
 Licence CC BY-NC-ND, Thierry Parmentelat
-
-+++
-
-# JS builtin types
 
 ```{code-cell}
 tools = require('../js/tools'); tools.init()
@@ -342,6 +340,7 @@ that we'll see in the next chapter, but it's worth outlining this already - [see
   `.sort()`, `.reverse()`  
   `.join()`, `.slice()`, `.splice()`,  
   `.shift()`, `.unshift()`
+
 * for more details, see on *javascript.info* [this article on Arrays](https://javascript.info/array) and [this one on related methods](https://javascript.info/array-methods)
 
 +++

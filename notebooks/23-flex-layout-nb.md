@@ -15,11 +15,11 @@ nbhosting:
   title: flex layout
 ---
 
-Licence CC BY-NC-ND, Thierry Parmentelat
+# `display: flex`
 
 +++
 
-# `display: flex`
+Licence CC BY-NC-ND, Thierry Parmentelat
 
 ```{code-cell}
 tools = require('../js/tools'); tools.init()
@@ -139,8 +139,10 @@ tools.sample_from_strings({html: flex2_html, css: flex2_css}, {id: 'flex2', star
 * [supported in all modern browsers](https://caniuse.com/#feat=flexbox)
 * the `flex` display is an extremely powerful tool
   for fine-grained control over your layout
+
 * it could clearly be the default behaviour
   (but is not just for **legacy**)
+
 * when writing a new page from scratch,
   using `flex` is almost always a good idea
 

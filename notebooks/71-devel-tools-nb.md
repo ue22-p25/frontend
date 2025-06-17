@@ -15,13 +15,11 @@ nbhosting:
   title: build & devel tools
 ---
 
+# build and devel tools
+
 +++ {"slideshow": {"slide_type": "slide"}}
 
 Licence CC BY-NC-ND, Thierry Parmentelat
-
-+++
-
-# build and devel tools
 
 ```{code-cell}
 tools = require('../js/tools'); tools.init()

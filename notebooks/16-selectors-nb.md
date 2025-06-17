@@ -15,11 +15,11 @@ nbhosting:
   title: more selectors
 ---
 
-Licence CC BY-NC-ND, Thierry Parmentelat
+# more elaborate selectors
 
 +++
 
-# more elaborate selectors
+Licence CC BY-NC-ND, Thierry Parmentelat
 
 ```{code-cell}
 tools = require('../js/tools'); tools.init()
@@ -129,6 +129,7 @@ tools.sample_from_strings({html: sibling_html, css: sibling_css}, {start_with: '
 
 * pseudo-classes are set by the browser to expose  
   the status of some elements
+
 * e.g. `a:hover` allows to match `<a>` links  
   but only when the mouse is hovering above them
 

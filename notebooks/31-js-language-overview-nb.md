@@ -15,13 +15,11 @@ nbhosting:
   title: 30,000 ft overview
 ---
 
+# 30,000 ft overview of JS
+
 +++ {"slideshow": {"slide_type": "slide"}, "tags": []}
 
 Licence CC BY-NC-ND, Thierry Parmentelat
-
-+++
-
-# 30,000 ft overview of JS
 
 ```{code-cell}
 tools = require('../js/tools'); tools.init()
@@ -256,6 +254,7 @@ console.log(height, width)
 
 * like in all other languages, there is a need to limit the scope of a variable  
   so that variable `x` in 2 distinct functions do not clash
+
 * JS uses **lexical nested scope**:
   a variable is visible only within its **code block** (the stuff within `{}`)
 
@@ -333,6 +332,7 @@ this is like in C/C++, and unlike Python where a variable's scope is the whole f
 ## globals
 
 context (browser components mostly) is exposed to programer through a set of **global variables**, e.g.
+
 * `document` to access the DOM
 * `window`, remember `setTimeout()`
 * `console` like in `console.log()`
@@ -505,8 +505,10 @@ this is because, just like with `let`, the language **won't let** you define the
 * `constructor` is very much alike `__init__` in Python
 * the **implicit** `this` variable refers to the current object  
   it is very much alike the traditional `self` argument in Python, except that it is **not mentioned** as a method parameter
+
 * objects get created with `new Vector()` - Java and C++ style  
   and **not** just plain Python-style `Vector()`
+
 * of course, inheritance is supported too; see `extends` and `super()` for details
 
 ````{admonition} old-school classes

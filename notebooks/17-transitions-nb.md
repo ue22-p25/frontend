@@ -15,11 +15,11 @@ nbhosting:
   title: CSS animations
 ---
 
-Licence CC BY-NC-ND, Thierry Parmentelat
+# CSS transitions and animations
 
 +++
 
-# CSS transitions and animations
+Licence CC BY-NC-ND, Thierry Parmentelat
 
 ```{code-cell}
 tools = require('../js/tools'); tools.init()
@@ -55,10 +55,13 @@ tools.sample_from_stem("../samples/17-transition1", {start_with: 'css'})
 * you need to define a `transition` property on the element
 * e.g. the `<section>` element has  
   `transition: all 0.4s ease-in-out`
+
 * then its `background-color` property changes somehow  
   here due to the `section:hover` selector
+
 * the transition is requested to apply to `all` properties  
   so here it triggers to implement the color change
+
 * and the `ease-in-out` algorithm is used  
   over a `0.4s` duration
 
@@ -69,6 +72,7 @@ tools.sample_from_stem("../samples/17-transition1", {start_with: 'css'})
 * is a **shorthand** property for setting in one rule
   * `transition-property` : comma separated names of properties  
      here we could/should have used `background-color` instead of `all`
+
   * `transition-duration`
   * `transition-timing-function`
   * `transition-delay` that we leave unchanged here (i.e. 0s)

@@ -15,11 +15,11 @@ nbhosting:
   title: html tags
 ---
 
-Licence CC BY-NC-ND, Thierry Parmentelat
+# most common HTML tags
 
 +++
 
-# most common HTML tags
+Licence CC BY-NC-ND, Thierry Parmentelat
 
 ```{code-cell}
 tools = require('../js/tools'); tools.init()

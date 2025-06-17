@@ -15,11 +15,11 @@ nbhosting:
   title: css basics
 ---
 
-Licence CC BY-NC-ND, Thierry Parmentelat
+# CSS basics
 
 +++
 
-# CSS basics
+Licence CC BY-NC-ND, Thierry Parmentelat
 
 ```{code-cell}
 tools = require('../js/tools'); tools.init()
@@ -98,6 +98,7 @@ tools.sample_from_strings({html: link_html, css: link_css}, {start_with: "css"})
 
 * the names that appear on the left hand side of the `:` colon   
   like `color`, `font-family`, …
+
 * are called **properties**
 * also listed in the `Elements` tab of the devel tools,  in the `Computed` pane
 * [several hundreds of them](https://css-tricks.com/how-many-css-properties-are-there/)
@@ -132,7 +133,3 @@ to do that you need to go in this area of the *Devel Tools*
 
 this way you can quickly decide what works best; note that these changes are volatile of course, so you will still need to put the change in your sources somewhere, if that deserves to remain permanent
 ````
-
-```{code-cell}
-
-```

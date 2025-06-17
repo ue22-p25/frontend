@@ -15,11 +15,11 @@ nbhosting:
   title: loading css
 ---
 
-Licence CC BY-NC-ND, Thierry Parmentelat
+# URLs and how to apply CSS
 
 +++
 
-# URLs and how to apply CSS
+Licence CC BY-NC-ND, Thierry Parmentelat
 
 ```{code-cell}
 tools = require('../js/tools'); tools.init()
@@ -97,6 +97,7 @@ where
 
   the final `s` in `https` stands for **secure**; indeed `https` is mostly `http`, 
   but with 
+
   * an encryption layer (to avoid man-in-the-middle attacks), 
   * and also certificates to make sure that you really talk to whom you intend to
   ````
@@ -200,6 +201,7 @@ tools.sample_from_strings({html: embedded_html})
 
 * we recommend you use a local git repo all along  
   i.e. create a new folder and `git init`
+
 * copy `hello.html` into `mycv.html`
 * create a more realistic skeleton for a résumé
   * with 4 sections *Experience*, *Education*, *Skills* and *Languages*

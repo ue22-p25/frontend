@@ -15,11 +15,11 @@ nbhosting:
   title: responsiveness
 ---
 
-Licence CC BY-NC-ND, Thierry Parmentelat
+# responsiveness
 
 +++
 
-# responsiveness
+Licence CC BY-NC-ND, Thierry Parmentelat
 
 ```{code-cell}
 tools = require('../js/tools'); tools.init()
@@ -85,6 +85,7 @@ more modern values include :
 
 * `grid` (**2-dimensional**) like the name suggests,  
   allows to define a **rectangular area** as an array of rows and columns
+
 * `flex` (**1-dimensional**) a flexible layout,  
   with more control on how children will **fill the available space**
 
