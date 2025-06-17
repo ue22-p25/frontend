@@ -15,12 +15,6 @@ nbhosting:
   title: vite
 ---
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
-Licence CC BY-NC-ND, Thierry Parmentelat
-
-+++
-
 (label-vite)=
 
 # vite

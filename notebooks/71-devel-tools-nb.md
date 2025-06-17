@@ -17,10 +17,6 @@ nbhosting:
 
 # build and devel tools
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
-Licence CC BY-NC-ND, Thierry Parmentelat
-
 ```{code-cell}
 tools = require('../js/tools'); tools.init()
 ```

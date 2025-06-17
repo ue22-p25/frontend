@@ -17,10 +17,6 @@ nbhosting:
 
 # web frontend pillars : HTML/CSS/JS
 
-+++
-
-Licence CC BY-NC-ND, Thierry Parmentelat
-
 ```{code-cell}
 tools = require('../js/tools'); tools.init()
 ```

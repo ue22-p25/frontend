@@ -15,12 +15,6 @@ nbhosting:
   title: jQuery
 ---
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
-Licence CC BY-NC-ND, Thierry Parmentelat
-
-+++
-
 (cheatsheet)=
 # cheatsheet
 

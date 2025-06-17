@@ -26,10 +26,6 @@ in this notebook we will see 2 small React apps
 
 there is also a looooong list of examples here <https://reactjsexample.com>
 
-+++ {"slideshow": {"slide_type": "-"}}
-
-Licence CC BY-NC-ND, Thierry Parmentelat
-
 ```{code-cell}
 tools = require('../js/tools'); tools.init()
 ```

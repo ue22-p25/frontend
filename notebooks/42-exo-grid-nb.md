@@ -23,7 +23,3 @@ nbhosting:
 clone the repo below and follow instructions  
 see on github here: <https://github.com/ue22-p25/web-grid>
 ````
-
-+++
-
-Licence CC BY-NC-ND, Thierry Parmentelat

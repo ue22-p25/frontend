@@ -18,10 +18,6 @@ nbhosting:
 
 a very useful tool to keep - at least to try and keep - your CSS code from ending up as a bowl of  spaguettis
 
-+++
-
-Licence CC BY-NC-ND, Thierry Parmentelat
-
 ```{code-cell}
 tools = require('../js/tools'); tools.init()
 ```

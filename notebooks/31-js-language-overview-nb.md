@@ -17,10 +17,6 @@ nbhosting:
 
 # 30,000 ft overview of JS
 
-+++ {"slideshow": {"slide_type": "slide"}, "tags": []}
-
-Licence CC BY-NC-ND, Thierry Parmentelat
-
 ```{code-cell}
 tools = require('../js/tools'); tools.init()
 ```

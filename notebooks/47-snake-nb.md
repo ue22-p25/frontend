@@ -19,10 +19,6 @@ nbhosting:
 
 +++
 
-Licence CC BY-NC-ND, Thierry Parmentelat
-
-+++
-
 ````{admonition} the snake in JS
 :class: seealso
 

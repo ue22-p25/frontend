@@ -17,10 +17,6 @@ nbhosting:
 
 # HTML ids and classes
 
-+++
-
-Licence CC BY-NC-ND, Thierry Parmentelat
-
 ```{code-cell}
 tools = require('../js/tools'); tools.init()
 ```
