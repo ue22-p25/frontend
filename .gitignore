@@ -5,3 +5,7 @@ node_modules
 scratch
 web-homework
 .vite
+
+# MyST build outputs
+_build
+node_modules
