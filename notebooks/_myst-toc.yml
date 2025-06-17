@@ -11,9 +11,11 @@ version: 1
 project:
   toc:
 
-    - title: intro - Web DFfrontend
+    - file: 01-motivation-nb.md
+
+    - title: intro - Web Frontend
       children:
-        - pattern: 0*-nb.md
+        - pattern: 0[2-9]*-nb.md
 
     - title: HTML & CSS basics
       children:
@@ -29,7 +31,7 @@ project:
 
     - title: practising JS
       children:
-        - pattern: "[45]-*-nb.md"
+        - pattern: "[45]*-nb.md"
 
     - title: optional content
       children:
