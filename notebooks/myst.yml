@@ -33,11 +33,11 @@ site:
   #     url: https://mystmd.org/guide
   domains: []
   options:
-    favicon: media/favicon-p25.svg
+    favicon: media/favicon-p25.svg.ico
     logo: media/logo-frontend.svg
     # very visible in the header
     logo_text: "UE22: Web frontend"
     style: "_static/style.css"
 
 extends:
-  - _myst-toc.yml
+  - myst-toc.yml
