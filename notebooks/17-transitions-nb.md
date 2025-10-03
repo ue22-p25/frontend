@@ -27,7 +27,7 @@ tools = require('../js/tools'); tools.init()
 * either on events (e.g. a hyperlink, when you hover on it, or click it)
 * or programmatically (typically through JavaScript)
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 * the browser has the ability to perform those changes **smoothly**
   * over a certain duration
@@ -36,7 +36,7 @@ tools = require('../js/tools'); tools.init()
 * anything that can be mapped to a **continuous** space,
   so that one can do **interpolation**, between the beginning and ending states
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### transition example 1
 
@@ -83,16 +83,13 @@ tools.sample_from_stem("../samples/17-transition1", {start_with: 'css'})
 
 * see a more detailed explanation from the *see also* section below
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### transition example 2
 
 ```{code-cell}
----
-slideshow:
-  slide_type: '-'
-tags: [remove-input]
----
+:tags: [remove-input]
+
 tools.sample_from_stem("../samples/17-transition2", {separate_width: '800px'})
 ```
 
@@ -120,11 +117,8 @@ here we use JavaScript (studied later) to alter a `<div>`'s size
 with e.g. `growing.style.width = '200px'`
 
 ```{code-cell}
----
-slideshow:
-  slide_type: '-'
-tags: [remove-input]
----
+:tags: [remove-input]
+
 tools.sample_from_stem("../samples/17-transition3", {start_with: 'js'})
 ```
 
@@ -152,7 +146,7 @@ for example :
 * **WARNING** like with transitions, and fun as they are,  
   these techniques should be used with extreme circumspection
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## see also
 

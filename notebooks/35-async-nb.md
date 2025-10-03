@@ -48,7 +48,7 @@ try {
 ````
 `````
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ##  problem statement
 
@@ -65,7 +65,7 @@ try {
 
 but seriously though, let us consider some typical situations where concurrency is key
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### page loading issue
 
@@ -74,7 +74,7 @@ but seriously though, let us consider some typical situations where concurrency 
   * for instance your code cannot spot an element in the DOM if it was not yet created
   * you cannot use a given JavaScript library if its code has not finished loading
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### networking from JS
 
@@ -150,7 +150,7 @@ URL_large = 'https://www.ebi.ac.uk/ena/browser/api/embl/CP010053?download=true'
 URL_broken = 'http://some-invalid/web/site'
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### fetching a small file
 
@@ -172,7 +172,7 @@ as you can see, this causes 2 things:
 next, we'll redo it with a larger file,
 that takes a longer time, to get a better understanding
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### again with a larger file
 
@@ -273,7 +273,7 @@ the reason for splitting the process in two is for more flexibility
 this way we could inspect the HTTP headers without the need to wait for the whole response  
 ````
 
-+++ {"tags": []}
++++
 
 ````{admonition} another chaining example
 :class: seealso dropdown admonition-smaller
@@ -309,7 +309,7 @@ URL_large = 'https://www.ebi.ac.uk/ena/browser/api/embl/CP010053?download=true'
 URL_broken = 'http://some-invalid/web/site'
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### without error management
 
@@ -360,7 +360,7 @@ but when called on a broken URL, this code raises an exception:
 get_url1(URL_broken)
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 so we need some tool to handle errors, and that's the purpose of `.catch()`
 
@@ -467,7 +467,7 @@ doSomething()
 ```
 ````
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## `async` / `await`
 
@@ -533,7 +533,7 @@ and here is how we would use this code
 console.log(`first 20 characters >${text.slice(0, 20)}<...`)
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## see also
 
@@ -552,7 +552,7 @@ this is just an overview, refer to
 the remainder of this notebook is for advanced readers
 ````
 
-+++ {"slideshow": {"slide_type": "slide"}, "tags": ["level_advanced"]}
++++ {"tags": ["level_advanced"]}
 
 ## optional (advanced) features
 

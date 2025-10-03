@@ -38,7 +38,7 @@ find out more on these by yourselves
 * [and much more on css-tricks](https://css-tricks.com/svg-properties-and-css/)  
   (very advanced, including animations)
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### svg example
 
@@ -93,7 +93,7 @@ out of scope for this course though, as it involves a backend
   * `<nav>`
   * [and a few others as described here](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Using_HTML_sections_and_outlines)
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### sectioning example
 

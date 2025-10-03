@@ -29,7 +29,7 @@ tools = require('../js/tools'); tools.init()
 * a responsive page **adapts** its layout to the **device size**
   * technically the visible area is called the **viewport**
 
-+++ {"tags": []}
++++
 
 this means that for example, we want to obtain different layouts for the same content, depending on the screen size  
 
@@ -49,7 +49,7 @@ the same content seen through different viewport geometries
 * this also triggers changes, to which
   **responsive** pages are expected to **react** properly
 
-+++ {"tags": []}
++++
 
 ## default layout policy
 
@@ -96,16 +96,13 @@ we will study these 2 policies in separate notebooks
 * in that case the element is present in the DOM
 * but it does not show up at all in the rendered page
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### `display: none` illustrated
 
 ```{code-cell}
----
-slideshow:
-  slide_type: ''
-tags: [remove-input]
----
+:tags: [remove-input]
+
 display_none_html = `<p> an element can easily be 'hidden' from the output </p>
 
 <p id="do-not-show"> let us hide this part altogether </p>

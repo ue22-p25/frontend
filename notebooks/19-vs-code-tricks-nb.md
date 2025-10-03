@@ -40,7 +40,7 @@ bound to `⌘ [` et `⌘ ]` respectively
 
 select a block, these keys will help you move the code left or right
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## emmet
 

@@ -52,7 +52,7 @@ for instance
   * that are all *frontends*
   * in the sense that they face the end user
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## scope
 
@@ -88,7 +88,7 @@ this means that we will **not** address :
   * like http(s), websockets, and similar
 * those will be touched on later this year in a separate course
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## why are web technos so cool ?
 

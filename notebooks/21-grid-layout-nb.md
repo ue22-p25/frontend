@@ -34,7 +34,7 @@ creating this kind of layout has been historically a challenging task
 * **do not use** these tools for that in 202x !
 ````
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## ex1 - proportional columns
 
@@ -59,11 +59,8 @@ all this in one property:
 ```
 
 ```{code-cell}
----
-slideshow:
-  slide_type: slide
-tags: [remove-input]
----
+:tags: [remove-input]
+
 grid_html = `<div class="container">
   <div id="item-a">
     the header<br>blabla
@@ -143,11 +140,8 @@ and now
 * and columns 2 and 4 equally share whatever is left in width
 
 ```{code-cell}
----
-slideshow:
-  slide_type: slide
-tags: [remove-input]
----
+:tags: [remove-input]
+
 grid2_css = `.container {
   display: grid;
   grid-template-columns:
@@ -193,11 +187,8 @@ in the previous examples :
     which specifies how to use vertical space
 
 ```{code-cell}
----
-slideshow:
-  slide_type: slide
-tags: [remove-input]
----
+:tags: [remove-input]
+
 grid3_css = `.container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -241,7 +232,7 @@ so as to get a good grip of what's achievable
 you may also complete this game  <https://cssgridgarden.com/> at home if you feel like it
 ````
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## more vs-code tricks
 
@@ -260,7 +251,7 @@ to do this easily under vs-code :
 * type `Emmet wrap with abbreviation`
 * enter the tag name
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 in pictures: if you need to add a wrapping `<div>` / `</div>` around some text, select it
 
@@ -269,7 +260,7 @@ in pictures: if you need to add a wrapping `<div>` / `</div>` around some text, 
 :width: 500px
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 then activate the palette and search for 'emmet: wrap with abbreviation'
 
@@ -278,7 +269,7 @@ then activate the palette and search for 'emmet: wrap with abbreviation'
 :width: 500px
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 select that function, you will be prompted for the name of the wrapping tag
 
@@ -287,7 +278,7 @@ select that function, you will be prompted for the name of the wrapping tag
 :width: 500px
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### custom keybinding
 
@@ -299,7 +290,7 @@ start with .. the palette, of course
 :width: 500px
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 for example here, we just type 'Alt-o' and the shortcut gets recorded from now on
 

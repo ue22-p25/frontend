@@ -45,15 +45,10 @@ create or reuse a HTML document as a collection of 3 files; it can be your resum
 in any case you should obtain something like this
 
 ```{code-cell}
----
-slideshow:
-  slide_type: ''
-tags: [remove-input]
----
+:tags: [remove-input]
+
 tools.sample_from_stem("../samples/41-resume-blinking", {sources_show: false})
 ```
-
-+++ {"slideshow": {"slide_type": "slide"}}
 
 ## tip #1 : run code upon load
 
@@ -96,7 +91,7 @@ document.addEventListener(
 
 this time, `start()` will get **called later** at a time where you can be sure the document is entirely **loaded**
 
-+++ {"tags": []}
++++
 
 ## tip #2: implementing a cyclic task
 
@@ -199,7 +194,7 @@ as mentioned earlier already, you can
 :width: 500px
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Devel Tools : the *Console* REPL
 
@@ -209,35 +204,35 @@ as mentioned earlier already, you can
 * **and** that lets you **run JavaScript** on the fly much like the Python interpreter does  
   (this is known as a REPL = Read Eval Print Loop)
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ```{image} media/devel-tools-console-1.png
 :align: center
 :width: 500px
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ```{image} media/devel-tools-console-2.png
 :align: center
 :width: 500px
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ```{image} media/devel-tools-console-3.png
 :align: center
 :width: 500px
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ```{image} media/devel-tools-console-4.png
 :align: center
 :width: 500px
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Devel Tools : *Sources*
 
@@ -252,7 +247,7 @@ occasionnally useful to browse the code actually loaded
 :width: 500px
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### Devel Tools : debugger
 

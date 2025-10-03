@@ -26,7 +26,7 @@ as usual you can enjoy this course with no local installation, and use the pure 
 
 if however you plan on reading this course locally on your computer, there are a few specific requirements that need to be fulfilled
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## foreword
 
@@ -51,7 +51,7 @@ if however you plan on reading this course locally on your computer, there are a
   npm install -g ijavascript
   ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## create a virtualenv
 
@@ -62,7 +62,7 @@ conda create -n web python=3.11 nodejs=20
 conda activate web
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## install Python requirements
 
@@ -84,7 +84,7 @@ npm install -g ijavascript
 ijsinstall
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## read the course
 

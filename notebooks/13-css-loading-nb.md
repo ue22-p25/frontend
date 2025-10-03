@@ -40,12 +40,9 @@ this is the preferred method
 * in the `<head>` part of your html
 
 ```{code-cell}
----
-cell_style: center
-slideshow:
-  slide_type: ''
-tags: [remove-input]
----
+:cell_style: center
+:tags: [remove-input]
+
 separate_html = `
 <html>
   <head>
@@ -64,8 +61,6 @@ separate_html = `
 
 tools.sample_from_strings({html: separate_html, css: separate_css})
 ```
-
-+++ {"slideshow": {"slide_type": "slide"}}
 
 ````{admonition} self-closing tags
 :class: warning
@@ -117,7 +112,7 @@ there are many variants in the way to build a URL, and we'll touch on that durin
 - `https://hostname.io/the/path/to/content#some-section` would allow to point to the named anchor `some-section` in the page, i.e. a `<a name="some-section"> element, instead of the top of the page
 ````
 
-+++ {"slideshow": {"slide_type": "slide"}, "tags": []}
++++
 
 ### relative URLs
 
@@ -146,11 +141,8 @@ back to the topic of injecting CSS in the page
   **separation** between **contents** and **presentation**
 
 ```{code-cell}
----
-slideshow:
-  slide_type: ''
-tags: [remove-input]
----
+:tags: [remove-input]
+
 embedded_html = `<div> CSS can be inlined right into the HTML
     as a &amp;lt;style&amp;gt; tag
 </div>

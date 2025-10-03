@@ -35,7 +35,7 @@ as per [this article on w3schools](https://www.w3schools.com/cssref/css3_pr_medi
 > * resolution
 > * printing, ...
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## example - width
 
@@ -80,7 +80,7 @@ tools.sample_from_strings({html: media_width_html, css: media_width_css}, {start
 * so it is a good practice to use **more specific rules** in a media clause  
   hence our `html>body` (for instance)
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## example - print
 
@@ -140,21 +140,21 @@ remember that `<html>` contains 2 sons, a `<head>` and a `<body>`
 
 * the devel tools - on chrome at least allow to simulate other devices - like popular phones and tablets
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ```{image} media/devel-tools-devices.png
 :align: center
 :width: 500px
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ```{image} media/devel-tools-phone.png
 :align: center
 :width: 500px
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## see also
 

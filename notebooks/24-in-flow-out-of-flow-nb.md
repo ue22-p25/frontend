@@ -43,7 +43,7 @@ here we demonstrate the use of `position: sticky` to achieve this *pinned header
 there is also a  - very **old-school** - `position: fixed` that can be used, but it has only drawbacks, so we'll stay away from that
 ````
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## `sticky` example : a pinned header
 

@@ -21,8 +21,6 @@ nbhosting:
 tools = require('../js/tools'); tools.init()
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 ## preamble
 
 +++
@@ -32,7 +30,7 @@ tools = require('../js/tools'); tools.init()
 * as we go, we will point at a selection of chapters in that tuto
 * students interested should probably read it through
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## various runtimes
 
@@ -124,8 +122,6 @@ while (a >= 5) {
 }
 ```
 
-+++ {"tags": []}
-
 ###   switch
 
 the switch statement in JavaScript
@@ -136,8 +132,6 @@ location that depends on the subject's value
 **do not forget** the `break` statements !
 
 ```{code-cell}
-:tags: []
-
 switch (a) {
     case 0:
         console.log("ZERO")
@@ -260,16 +254,13 @@ console.log(height, width)
 this is unlike Python, where a variable scope is the **function**
 ````
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### scope illustrated
 
 ```{code-cell}
----
-slideshow:
-  slide_type: ''
-tags: [raises-exception]
----
+:tags: [raises-exception]
+
 // this is a global variable
 let variable = "global"
 
@@ -353,7 +344,7 @@ the `document` or `window` variables from right here
 but of course you can do so from the browser's console though
 ````
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## formatting with backticks
 
@@ -492,7 +483,7 @@ here again, when executing this under Jupyter, running this cell twice will caus
 this is because, just like with `let`, the language **won't let** you define the same `Vector` class **twice** in the same scope
 ````
 
-+++ {"tags": []}
++++
 
 ### notes on classes
 
@@ -523,7 +514,7 @@ just stay awy from that when you write new code,and just stick to the new idiom
 * through **getter** and **setter** functions
 * that intercept read/write attempts on the attribute
 
-+++ {"slideshow": {"slide_type": "slide"}, "tags": ["level_intermediate"]}
++++ {"tags": ["level_intermediate"]}
 
 ### get / set example
 

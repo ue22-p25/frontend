@@ -55,8 +55,6 @@ fragment1 = `<html>
 tools.sample_from_strings({html: fragment1}, {separate_show: false})
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 ## browser and server
 
 +++ {"tags": ["gridwidth-1-2"]}
@@ -93,7 +91,7 @@ please note that, as time goes by, using `file:` URLs for development is becomin
 for more serious work, see [the page on setting up `vite` for a more realistic setup](label-vite)
 ````
 
-+++ {"tags": []}
++++
 
 ## practice
 
@@ -150,7 +148,7 @@ it should look like `file:///the/path/to/your/current/directory/hello.html`
 :align: center
 ```
 
-+++ {"tags": []}
++++
 
 ```{admonition} devel tools
 :class: note
@@ -176,7 +174,7 @@ we recommend using Chrome in case it is not working as expected
  * on ***Firefox***: you should have a ***Web Developer*** entry  
    in the *Tools* menu in the main menubar
 
-+++ {"tags": []}
++++
 
 ## the *Elements* tab
 
@@ -196,7 +194,7 @@ we recommend using Chrome in case it is not working as expected
 from that view you can navigate the elements tree, although in this case it is very simple, with just 3 nodes
 ```
 
-+++ {"tags": []}
++++
 
 ## the *Console* tab
 
@@ -207,7 +205,7 @@ this is where **debug messages** end up (if any; here of course there are none)
 :align: center
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}, "tags": []}
++++
 
 ### the REPL
 
@@ -227,7 +225,7 @@ where you can type and run your first JavaScript code
 * unambiguously maps to a tree structure known as an Abstract Syntax Tree (AST)
 * referred to in all documentation as "*the DOM* "
 
-+++ {"slideshow": {"slide_type": "slide"}, "tags": ["gridwidth-1-2"]}
++++ {"tags": ["gridwidth-1-2"]}
 
 this HTML fragment
 ```html
@@ -250,7 +248,7 @@ will result in this tree
 :align: center
 ```
 
-+++ {"cell_style": "center", "tags": []}
++++ {"cell_style": "center"}
 
 ```{admonition} elements
 
@@ -267,16 +265,13 @@ nodes in this tree are called **Elements**; it is the basis for navigating the d
 * and this may cause **huge headaches** down the road
 * so make sure to **always *close your tags* properly**
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### do not do this !!
 
 ```{code-cell}
----
-slideshow:
-  slide_type: ''
-tags: [remove-input]
----
+:tags: [remove-input]
+
 fragment_unclosed = `<p> do not do this
 <ul>
 <li> unclosed tags <b>look like</b> they work
@@ -285,8 +280,6 @@ fragment_unclosed = `<p> do not do this
 
 tools.sample_from_strings({html: fragment_unclosed}, {separate_show: false})
 ```
-
-+++ {"slideshow": {"slide_type": "slide"}}
 
 ### do this instead
 

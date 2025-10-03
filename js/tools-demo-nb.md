@@ -1,9 +1,7 @@
 ---
 jupyter:
   jupytext:
-    cell_metadata_filter: all,-hidden,-heading_collapsed,-run_control,-trusted
     formats: md
-    notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
     text_representation:
       extension: .md
       format_name: markdown
@@ -13,17 +11,10 @@ jupyter:
     name: javascript
   nbhosting:
     title: js intro
-  rise:
-    autolaunch: true
-    slideNumber: c/t
-    start_slideshow_at: selected
-    theme: sky
-    transition: cube
 ---
 
-<!-- #region slideshow={"slide_type": ""} -->
 # displaying code samples
-<!-- #endregion -->
+
 
 ## init()
 
@@ -138,7 +129,7 @@ tools = require('../js/tools')
 undefined
 ```
 
-```javascript slideshow={"slide_type": ""} scrolled=true
+```javascript scrolled=true
 // in general, no need to worry about sizes, provided that the sources
 // take a reasonable space
 tools.sample_from_stem(
@@ -155,7 +146,7 @@ tools = require('../js/tools')
 undefined
 ```
 
-```javascript slideshow={"slide_type": ""} scrolled=false
+```javascript scrolled=false
 // here the autosizing mode would pick a very high window
 // because the JS script is very large
 // so we keep this under control
@@ -173,7 +164,7 @@ tools = require('../js/tools')
 undefined
 ```
 
-```javascript slideshow={"slide_type": ""} scrolled=true
+```javascript scrolled=true
 // the default is separate_show = true
 
 tools.sample_from_stem(
@@ -215,7 +206,7 @@ tools = require('../js/tools')
 undefined
 ```
 
-```javascript slideshow={"slide_type": ""} scrolled=false
+```javascript scrolled=false
 tools.sample_from_stem(
     "../samples/46-calculator",
     {sources_show: false, separate_show: false, height: '500px'})

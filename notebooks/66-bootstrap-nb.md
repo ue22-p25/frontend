@@ -46,11 +46,8 @@ note that bootstrap depends on jQuery
 like for jQuery, the hype is on the wane, so learning bootstrap in 2024 or later makes little sense; however you may come across a code that uses it, and in that case the information below may still be helpful.
 
 ```{code-cell}
----
-slideshow:
-  slide_type: slide
-tags: [remove-input]
----
+:tags: [remove-input]
+
 tools.sample_from_stem("../samples/62-bootstrap", {height: "30em"})
 ```
 

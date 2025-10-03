@@ -37,7 +37,7 @@ a {
 }
 ```
 
-+++ {"tags": []}
++++
 
 however it will apply the settings *on **ALL `<a>` elements***  
 that may be what we want, but in some cases we also need **more selective** mechanisms
@@ -67,8 +67,6 @@ p#only-me {
 }`
 tools.sample_from_strings({html: id_html, css: id_css}, {start_with: 'html'})
 ```
-
-+++ {"slideshow": {"slide_type": "slide"}}
 
 ````{admonition} no need for the tag
 :class: note admonition-small
@@ -198,7 +196,7 @@ in the 4 examples below, the CSS is unchanged throughout; we will see
 1. and finally when we drop the `class` attribute  
    there is only one rule left to apply
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### #(1) embedded `style=` wins
 
@@ -232,8 +230,6 @@ specificity_css = `p {
 tools.sample_from_strings({html: specificity1_html, css: specificity_css})
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 ### #(2) then `id=` wins
 
 ```{code-cell}
@@ -253,8 +249,6 @@ Lorem ipsum dolor sit amet.
 tools.sample_from_strings({html: specificity2_html, css: specificity_css})
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 ### #(3) then `class=` wins
 
 ```{code-cell}
@@ -273,8 +267,6 @@ Lorem ipsum dolor sit amet.
 tools.sample_from_strings({html: specificity3_html, css: specificity_css})
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 ### #(4) then the element's tag wins
 
 ```{code-cell}
@@ -290,8 +282,6 @@ Lorem ipsum dolor sit amet.
 `
 tools.sample_from_strings({html: specificity4_html, css: specificity_css})
 ```
-
-+++ {"slideshow": {"slide_type": "slide"}}
 
 ## inheritance
 

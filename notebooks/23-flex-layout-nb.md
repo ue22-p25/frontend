@@ -29,7 +29,7 @@ the obvious deficiencies of the old-school `block` model and related tools
 * as opposed to grids, it is concerned with **1-dimension** flow of data
 * it **complements nicely** what is doable with grids
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ````{admonition} as per MDN
 :class: admonition-small
@@ -43,7 +43,7 @@ as per [this article on MDN](https://developer.mozilla.org/en-US/docs/Learn/CSS/
 > * Making all columns in a multiple column layout adopt the same height even if they contain a different amount of content.
 ````
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## ex1 - default behaviour
 
@@ -81,18 +81,13 @@ body {
 tools.sample_from_strings({html: flex1_html, css: flex1_css}, {id: 'flex1', start_with: 'css'})
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 ## ex2 - wrap mode
 
 identical except that we specify `flex-wrap: wrap`
 
 ```{code-cell}
----
-slideshow:
-  slide_type: slide
-tags: [remove-input]
----
+:tags: [remove-input]
+
 flex2_html = `<div class="container">
 <div class="item"> Dolor quiquia </div>
 <div class="item"> aliquam </div>
@@ -119,8 +114,6 @@ body { border: none; }
 
 tools.sample_from_strings({html: flex2_html, css: flex2_css}, {id: 'flex2', start_with: 'css'})
 ```
-
-+++ {"slideshow": {"slide_type": "slide"}}
 
 ## assignment
 
@@ -155,7 +148,7 @@ tools.sample_from_strings({html: flex2_html, css: flex2_css}, {id: 'flex2', star
 
 * this is why the `<div>` tag is so all over the place
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## practice
 
@@ -172,8 +165,6 @@ in addition to using a `flex` display, you will probably need to set `width: 100
 
 tools.sample_from_stem("../samples/23-exo-flex", {sources_show: false})
 ```
-
-+++ {"slideshow": {"slide_type": "slide"}}
 
 ### optional activity
 

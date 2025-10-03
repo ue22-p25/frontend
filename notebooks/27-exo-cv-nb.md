@@ -31,7 +31,7 @@ tools = require('../js/tools'); tools.init()
   * the **content** is always the same
   * but the arrangement of the various pieces changes with the viewport width
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## a sample cv
 
@@ -44,15 +44,10 @@ tools = require('../js/tools'); tools.init()
     and observe its responsive behaviour
 
 ```{code-cell}
----
-slideshow:
-  slide_type: slide
-tags: [remove-input]
----
+:tags: [remove-input]
+
 tools.sample_from_stem("../samples/26-monarque/resume", {sources_show: false})
 ```
-
-+++ {"slideshow": {"slide_type": "slide"}}
 
 ## where to find the example
 
@@ -64,7 +59,7 @@ tools.sample_from_stem("../samples/26-monarque/resume", {sources_show: false})
 * note that some of the other examples of the course  
   can be found in the `samples/` folder
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## publishing
 
@@ -73,7 +68,7 @@ tools.sample_from_stem("../samples/26-monarque/resume", {sources_show: false})
 * you can **easily publish it on `github.io`** (see next slide)
 * plus tons of other opportunities around as well
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### publishing on github.io
 
@@ -90,7 +85,7 @@ assuming your github slug is `myid`
 
 see <https://pages.github.com/> for details
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## another example
 

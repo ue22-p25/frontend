@@ -47,11 +47,8 @@ here the `div` and the `p` parts are selectors themselves, they can be any more 
 ````
 
 ```{code-cell}
----
-slideshow:
-  slide_type: slide
-tags: [remove-input]
----
+:tags: [remove-input]
+
 under_html = `<div>
   <span>
     <p> at level 2 under div </p>
@@ -89,11 +86,8 @@ two elements are siblings iff they have the same parent
 ````
 
 ```{code-cell}
----
-slideshow:
-  slide_type: slide
-tags: [remove-input]
----
+:tags: [remove-input]
+
 sibling_html = `<div>
   <p>paragraph 1</p>
   <div>
@@ -200,8 +194,6 @@ a {
 tools.sample_from_strings({html: hover2_html, css: hover2_css}, {start_with: 'css'})
 ```
 
-+++ {"tags": []}
-
 ````{admonition} 2 pseudo-classes
 :class: note
 
@@ -219,7 +211,7 @@ note that here we build a selector that applies on elements that have **both** p
   but also more usefully even/odd ranked  
   [see this page for details](https://css-tricks.com/useful-nth-child-recipies/)
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### `nth-child() example`
 
@@ -248,8 +240,6 @@ li {
 }`;
 tools.sample_from_strings({html: rank_html, css: rank_css}, {start_with: 'css'})
 ```
-
-+++ {"slideshow": {"slide_type": "slide"}}
 
 ### pseudo-class selectors (continued)
 

@@ -49,13 +49,13 @@ tools = require('../js/tools'); tools.init()
 * `text-decoration` : e.g. underline
 * … and a whole many more
 
-+++ {"cell_style": "center", "slideshow": {"slide_type": "slide"}}
++++ {"cell_style": "center"}
 
 ```{image} media/list-properties-all.png
 :align: center
 ```
 
-+++ {"cell_style": "center", "slideshow": {"slide_type": "slide"}}
++++ {"cell_style": "center"}
 
 ```{image} media/list-properties-filtered.png
 :align: center

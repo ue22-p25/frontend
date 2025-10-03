@@ -21,8 +21,6 @@ nbhosting:
 tools = require('../js/tools'); tools.init()
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 ## events
 
 * due to the specificity of the browser and the network, JavaScript within the browser is not driven like other languages
@@ -41,7 +39,7 @@ tools = require('../js/tools'); tools.init()
 * for more details, see [this section in javascript.info](https://javascript.info/event-details) on all the available events
 ````
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## callbacks
 
@@ -86,24 +84,19 @@ this is possible because JS is so flexible/lenient with respect to argument pass
 * available on most objects (not only `window`, often used on a DOM element)
 * again, observe on the example below, how the callback **receives the event** in parameter
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### example: `load`, `click` and `keydown
 
 in this first version we are going to use globally defined functions
 
 ```{code-cell}
----
-slideshow:
-  slide_type: ''
-tags: [remove-input]
----
+:tags: [remove-input]
+
 tools.sample_from_stem("../samples/34-events-and-callbacks-01",
                        {separate_show: true, start_with: 'js', 
                         separate_width: "600px", height: 'js'})
 ```
-
-+++ {"slideshow": {"slide_type": "slide"}}
 
 here's a timeline of what is going on
 
@@ -111,7 +104,7 @@ here's a timeline of what is going on
 :align: center
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### example - observations
 
@@ -145,7 +138,7 @@ and so here, we'd be in trouble if our application used another library that def
 we will see in a moment how to rewrite this example into a code that **leaks no global variable**  
 ````
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## other types of events
 
@@ -173,7 +166,7 @@ so if you have a big chunk of code to run, you can use this to avoid blocking th
 you will have to explicity split your code into chunks, though
 ````
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### code-generated events
 
@@ -189,7 +182,7 @@ document.body.addEventListener('myevent', foo, false)
 document.body.dispatchEvent(event)
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## anonymous functions
 
@@ -216,7 +209,7 @@ for this reason, JavaScript has 2 convenient ways to create anonymous functions:
 * also, there are subtle differences about the `this` variable, not covered here
 ````
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### anonymous function usage
 
@@ -230,7 +223,7 @@ document.addEventListener(
 )
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## previous example using arrow functions
 
@@ -304,7 +297,7 @@ try {
 // it means that the 'context' variable somehow is still alive
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### takeaway
 
@@ -313,7 +306,7 @@ try {
 * but it is still reachable from the callback
 * as it was *captured* in the closure
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## `let` *vs* `var`
 
@@ -353,7 +346,7 @@ ok()
 * take home message is: **never use `var` declarations**
 * it is old-fashioned and **badly broken**
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## see also
 

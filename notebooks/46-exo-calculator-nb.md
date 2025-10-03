@@ -29,10 +29,7 @@ tools = require('../js/tools'); tools.init()
 ```
 
 ```{code-cell}
----
-slideshow:
-  slide_type: ''
-tags: [remove-input]
----
+:tags: [remove-input]
+
 tools.sample_from_stem("../samples/46-calculator", {sources_show: false})
 ```

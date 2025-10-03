@@ -208,8 +208,6 @@ console.log(array2)
 array2.pop()
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 ### common operations on arrays
 
 ```{code-cell}
@@ -267,15 +265,11 @@ console.log(array.indexOf(3))
 console.log(array.indexOf("absent"))
 ```
 
-+++ {"tags": []}
-
 ### iterating over values of an array
 
 * using **`for .. of`** it is possible to iterate through an array like in Python:
 
 ```{code-cell}
-:tags: []
-
 for (let x of array1) {
     console.log(x)
 }
@@ -290,7 +284,7 @@ actually there is also a ~~`for .. in`~~ statement (see below), but beware that 
 and for this reason we recommend against it for beginners 
 ````
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### iterating using indices, aka. `enumerate` in python
 
@@ -381,8 +375,6 @@ ref2
 ref1
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 ### pythontutor illustration
 
 ```{image} media/references-shared.png
@@ -409,8 +401,6 @@ function side_effect(arg) {
 side_effect(list)
 list
 ```
-
-+++ {"slideshow": {"slide_type": "slide"}}
 
 ### arguments passing is loosely checked
 
@@ -465,10 +455,6 @@ bar(1, 2, 3, 4)
 ```
 
 ```{code-cell}
----
-slideshow:
-  slide_type: slide
----
 // and the other way around
 // with the so-called spread operator
 
@@ -513,8 +499,6 @@ for (let k of map.keys()) {
 }
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 **see also**
 
 * read the [section on maps and sets on javascript.info](https://javascript.info/map-set)
@@ -557,7 +541,7 @@ the syntax for JavaScript objects, as well as the *key/value* vocabulary, make t
 **do not get confused though**, JavaScript objects are much more alike Python class instances
 ````
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### more examples
 
@@ -598,8 +582,6 @@ the syntax for JavaScript objects, as well as the *key/value* vocabulary, make t
     z: 30
 }
 ```
-
-+++ {"slideshow": {"slide_type": "slide"}}
 
 ### more examples (2)
 
@@ -684,8 +666,6 @@ and also, because there is no difference between
 obj
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 ### unpacking objects
 
 there are a lot of fancy ways to deal with objects; this is also known as deconstructing / reconstructing
@@ -700,8 +680,6 @@ and these are truly all over the place in modern JavScript code, so you'd better
     console.log(`a1 now is ${a1}, a2 is ${a2}`)
 }
 ```
-
-+++ {"slideshow": {"slide_type": "slide"}}
 
 there a similar destructuring assignment on objects
 
@@ -722,18 +700,12 @@ function demo() {
 demo()
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 ### typical usage for optional parameters
 
 the parameter-passing mechanism is not as powerful as Python  
 but here's a common pattern to define optional parameters with default values
 
 ```{code-cell}
----
-slideshow:
-  slide_type: ''
----
 // one mandatory parameter, the other ones
 // - say width and height - are optional
 
@@ -746,11 +718,8 @@ function foo(mandatory, options) {
 ```
 
 ```{code-cell}
----
-slideshow:
-  slide_type: ''
-tags: [gridwidth-1-2]
----
+:tags: [gridwidth-1-2]
+
 foo("something")
 ```
 
@@ -765,11 +734,8 @@ foo("else", {height: 800})
 **TIP** about debugging JS objects :
 
 ```{code-cell}
----
-slideshow:
-  slide_type: ''
-tags: [gridwidth-1-2]
----
+:tags: [gridwidth-1-2]
+
 vector = {x: 1, y: 2}
 
 // it may be tempting to write
@@ -777,11 +743,8 @@ console.log(`vector = ${vector}`)
 ```
 
 ```{code-cell}
----
-slideshow:
-  slide_type: ''
-tags: [gridwidth-1-2]
----
+:tags: [gridwidth-1-2]
+
 // but it is a lot better like this
 console.log("vector = ", vector)
 ```
@@ -795,7 +758,7 @@ and observe that you can navigate the inner structure of the object
 rather than a flat text representation that traditional languages have used us to
 ````
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### class instances are objects
 
@@ -815,11 +778,8 @@ typeof(person)
 ```
 
 ```{code-cell}
----
-slideshow:
-  slide_type: ''
-tags: [gridwidth-1-2]
----
+:tags: [gridwidth-1-2]
+
 // objects are passed by reference too
 // so this function can modify its object argument
 

@@ -21,8 +21,6 @@ nbhosting:
 tools = require('../js/tools'); tools.init()
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 ## text tags `<p>` and `<br>`
 
 ```{code-cell}
@@ -40,8 +38,6 @@ instead using the &amp;lt;br&amp;gt; tag
 `
 tools.sample_from_strings({html: text_fragment})
 ```
-
-+++ {"slideshow": {"slide_type": "slide"}}
 
 ## lists with `<ul>`  and `<li>`
 
@@ -74,8 +70,6 @@ ol_fragment = `<div><p> the same with a &amp;lt;ol&amp;gt; tag instead</p>
 tools.sample_from_strings({html: ol_fragment})
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 ## styling tags
 
 * a handful of convenience tags for quick styling
@@ -104,8 +98,6 @@ that of course <u><b><i>can be combined</i></b></u>
 </p>`
 tools.sample_from_strings({html: styling_fragment})
 ```
-
-+++ {"slideshow": {"slide_type": "slide"}}
 
 ## code-like
 
@@ -159,7 +151,7 @@ tools.sample_from_strings({html: hyperlink_fragment})
 
 if you need a hyperlink to point, not at the beginning of this page, but somewhere in the middle, then create an anchor at that location
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### URL to an anchor
 
@@ -168,7 +160,7 @@ if you need a hyperlink to point, not at the beginning of this page, but somewhe
 * then you can create a direct access to *the magic location*
 * with a `<a href="https://example.com/some/page.html#the-anchor-name">`
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### local URL
 
@@ -203,8 +195,6 @@ and then some more text
 tools.sample_from_strings({html: redirect_fragment})
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 ## grouping with `<div>` and `<span>`
 
 +++
@@ -216,7 +206,7 @@ tools.sample_from_strings({html: redirect_fragment})
   * except for the linebreaking behaviour
 * an **essential tool** in any page design
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### `<div>` and `<span>` example
 
@@ -247,7 +237,7 @@ this example uses styling - that we have not studied yet - to outline the <code>
 elements by changing their background color
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### second example of `<div>`
 
@@ -267,8 +257,6 @@ the &amp;lt;div&amp;gt; tag is an essential unit brick for creating a page layou
 tools.sample_from_strings({html: group2_html})
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 ## a word on tables
 
 +++
@@ -284,11 +272,8 @@ especially if your goal is to create  grid-based layouts, that we will cover lat
 ### `<table>` in action
 
 ```{code-cell}
----
-slideshow:
-  slide_type: slide
-tags: [remove-input]
----
+:tags: [remove-input]
+
 table_html = `Use a &amp;lt;table&amp;gt; tag <b>only for data</b>
 and not for layouts, there are other,
 and much better tools, for creating fancy layouts
@@ -316,8 +301,6 @@ td {
 
 tools.sample_from_strings({html: table_html, css: table_css})
 ```
-
-+++ {"slideshow": {"slide_type": "slide"}}
 
 ## header tags `<h1>` .. `<h5>`
 

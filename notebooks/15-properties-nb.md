@@ -26,7 +26,7 @@ tools = require('../js/tools'); tools.init()
 * more than 100 properties defined in the standard ([see full list here](https://www.w3schools.com/cssref/))
 * we just mention the most obviously needed
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## text properties
 
@@ -58,11 +58,8 @@ tools.sample_from_strings({html: text_html, css: text_css})
 the example below illustrates how to load and use them in your page
 
 ```{code-cell}
----
-slideshow:
-  slide_type: slide
-tags: [remove-input]
----
+:tags: [remove-input]
+
 tools.sample_from_stem("../samples/15-font-demo")
 ```
 
@@ -294,7 +291,7 @@ one trick is to remember this figure
 * `padding: 10px` will set all 4 *padding* properties
 * `margin: 10px 20px` will set top *and bottom* to `10px`, and *both* sides to `20px`
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### more shorthands
 
@@ -398,7 +395,7 @@ also note that background
 * that is thus essentially transparent
 * and styled by parent
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### `background` and margins (demo)
 
@@ -439,8 +436,6 @@ p {
 
 tools.sample_from_strings({html: background_html, css: background_css})
 ```
-
-+++ {"slideshow": {"slide_type": "slide"}}
 
 ### `background` - demo explained
 

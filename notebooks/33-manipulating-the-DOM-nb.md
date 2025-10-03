@@ -15,15 +15,11 @@ nbhosting:
   title: messing with the DOM
 ---
 
-+++ {"slideshow": {"slide_type": "-"}}
-
 # manipulating the DOM
 
 ```{code-cell}
 tools = require('../js/tools'); tools.init()
 ```
-
-+++ {"slideshow": {"slide_type": "slide"}}
 
 ## about the DOM
 
@@ -109,7 +105,7 @@ tools = require('../js/tools'); tools.init()
 * in any case, **don't forget to add** the new element somewhere in the tree  
   `father.appendChild(new_node)`
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## summary / cheatsheet
 

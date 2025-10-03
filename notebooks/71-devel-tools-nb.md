@@ -21,8 +21,6 @@ nbhosting:
 tools = require('../js/tools'); tools.init()
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 ## pretty low level
 
 +++
@@ -35,7 +33,7 @@ with the large number of browsers that need to follow up
 fuel for the proliferations of tools "on top of"   
 some features sometimes make it to the core 3 pillars
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 for example : **CSS variables**   
 i.e. ability to define a symbolic name for, say, a color  
@@ -61,8 +59,6 @@ p {
 tools.sample_from_strings({html: cssvar_html, css: cssvar_css})
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 ## filling the void
 
 during the time it was not available, such a lacking feature has been taken care of through tooling   
@@ -83,7 +79,7 @@ specifically with CSS variables, a preprocessor like `Sass`</code>` or
 variables, and will rewrite the human-written code into CSS
 ````
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## the importance of `node.js`
 
@@ -94,7 +90,7 @@ variables, and will rewrite the human-written code into CSS
 * unlike what the name suggests, it is **not** a library
 * and btw it what the notebook uses to evaluate code
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## digression : dependencies
 
@@ -109,7 +105,7 @@ what with all this dependencies business ?
 
 so transitively you end up needing **quite a lot** of libraries you are not even aware of
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## `npm`
 
@@ -120,7 +116,7 @@ so transitively you end up needing **quite a lot** of libraries you are not even
 * and that is also able to take care of your dependencies
 * you can use `npm` to install a specific module, and its dependencies
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### `npm` use case
 
@@ -142,7 +138,7 @@ with `npm`, we could instead
 * optionnally by pinning a version number for that
 * and let `npm` go fetch all the dependencies by itself
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## tooling areas
 
@@ -152,7 +148,7 @@ several other areas where tooling is important :
 * **minimizing** : you want to make your code smaller, and less readable
 * **bundling** : you need a tool to automate your dependencies
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## some names
 

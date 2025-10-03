@@ -34,7 +34,7 @@ tools = require('../js/tools'); tools.init()
   * <https://codepen.io>
   * also <https://jsfiddle.net> for collaborative work
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## codepen
 

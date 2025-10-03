@@ -52,7 +52,7 @@ JavaScript
 (♡) as mentioned earlier, one can also write "regular" programs in JS using the `node.js` &nbsp;runtime
 ````
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## page loading - asynchronism
 
@@ -72,7 +72,7 @@ JavaScript
   * bottom line: more in the **several 100s of ms**
   * frequently several seconds
 
-+++ {"tags": []}
++++
 
 ### a simple page
 
@@ -83,7 +83,7 @@ when loading the simplest possible page, contents get scattered into packets, so
 :width: 500px
 ```
 
-+++ {"tags": []}
++++
 
 ### a page with a nested page
 
@@ -105,7 +105,7 @@ Devel Tools can visualize the actual loading workflow
 :width: 500px
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## JS loading - howto
 
@@ -226,11 +226,8 @@ in the following example :
   (using the `onclick` property)
 
 ```{code-cell}
----
-slideshow:
-  slide_type: slide
-tags: [remove-input]
----
+:tags: [remove-input]
+
 tools.sample_from_stem("../samples/30-js-intro-01-on-off", {start_with: 'js'})
 ```
 
@@ -248,7 +245,7 @@ using `onclick` is the quick, but dirty, way to attach an event handler to an el
 a cleaner way is to use `addEventListener` from the JS side, as we will see later on
 ````
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### ex1 - takeaways (2)
 
@@ -273,15 +270,10 @@ in this further example :
 * click the button to start / suspend
 
 ```{code-cell}
----
-slideshow:
-  slide_type: slide
-tags: [remove-input]
----
+:tags: [remove-input]
+
 tools.sample_from_stem("../samples/30-js-intro-02-svgcircles",  {height: "30em"})
 ```
-
-+++ {"slideshow": {"slide_type": "slide"}}
 
 ### ex2 - takeaways (1)
 
@@ -293,7 +285,7 @@ tools.sample_from_stem("../samples/30-js-intro-02-svgcircles",  {height: "30em"}
 * methods do not need to define a `self` parameter
   instead the object to which the method was sent can be accessed through the magical `this` variable
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### ex2 - takeaways (2)
 
@@ -301,7 +293,7 @@ tools.sample_from_stem("../samples/30-js-intro-02-svgcircles",  {height: "30em"}
 * here we attach a callback from JS using `object.addEventListener(event, function)`  
   (using another global objects `window`)
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### ex2 - takeaways (3)
 
@@ -310,7 +302,7 @@ tools.sample_from_stem("../samples/30-js-intro-02-svgcircles",  {height: "30em"}
 * in JS the program flow is made of **several** actions taking place **at the same time** with no clear starting point
 * so for example here in addition to the callbacks, we use `setInterval()` to register a cyclic task
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### ex2 - takeaways (4)
 
@@ -319,7 +311,7 @@ tools.sample_from_stem("../samples/30-js-intro-02-svgcircles",  {height: "30em"}
 * consequently, we need to ensure that init code is executed **after** html elements are created
 * this is the purpose of `load` event sent to the global `window` object; it gets fired once the entire document is loaded
 
-+++ {"slideshow": {"slide_type": "-"}}
++++
 
 ## example #3
 
@@ -329,16 +321,11 @@ in this further example :
 * clicking in the canvas causes it to randomize itself
 
 ```{code-cell}
----
-slideshow:
-  slide_type: slide
-tags: [remove-input]
----
+:tags: [remove-input]
+
 tools.sample_from_stem("../samples/30-js-intro-03-canvas",
                        {separate_show: true, start_with: 'js'})
 ```
-
-+++ {"slideshow": {"slide_type": "slide"}}
 
 ### ex3 - takeaways (1)
 
@@ -389,7 +376,7 @@ as far as Web frontend, JavaScript :
 * some globals are specific to web pages in the browser, such as `document`, `window`, `console`
 * highly influenced by **asynchronicity** / reactive programming
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ### see also: JS *vs* Python
 

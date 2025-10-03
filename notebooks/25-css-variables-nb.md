@@ -23,8 +23,6 @@ the official name for this feature is ***CSS custom properties***, but we'll cal
 tools = require('../js/tools'); tools.init()
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
-
 ## why
 
 * DRY: don't repeat yourself
@@ -32,7 +30,7 @@ tools = require('../js/tools'); tools.init()
 * i.e. to use what other languages call *variables*
 * and which btw, CSS calls *custom properties*
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## example 1: DRY
 
@@ -45,14 +43,8 @@ imagine you'd like to define a custom class:
 let's see how that can be done
 
 ```{code-cell}
----
-slideshow:
-  slide_type: slide
----
 tools.sample_from_stem('../samples/25-simple-vars', {'start_with': 'css'})
 ```
-
-+++ {"slideshow": {"slide_type": "slide"}}
 
 ## example 2 (advanced)
 
@@ -67,15 +59,10 @@ so in other words, write a kind-of *parameterized* class, that can be tweaked fr
 let's see how that can be done
 
 ```{code-cell}
----
-slideshow:
-  slide_type: slide
-tags: [remove-input]
----
+:tags: [remove-input]
+
 tools.sample_from_stem('../samples/25-dashed-headers', {'start_with': 'css', height: '35em'})
 ```
-
-+++ {"slideshow": {"slide_type": "slide"}}
 
 ## how it works
 
@@ -86,7 +73,7 @@ tools.sample_from_stem('../samples/25-dashed-headers', {'start_with': 'css', hei
 * you can use `var()` to get the value of such a property
 * and - among others - `calc()` to perform computations
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++
 
 ## see also
 
