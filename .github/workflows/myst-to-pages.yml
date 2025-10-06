@@ -26,8 +26,8 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
-# publish on info-mines.paris
-# # required for MyST
+# this is no longer needed as we serve from info-mines.paris
+# required for MyST
 # env:
 #   # `BASE_URL` determines the website is served from, including CSS & JS assets
 #   # You may need to change this to `BASE_URL: ''`
@@ -45,10 +45,10 @@ jobs:
           # as of 2025 feb 09: upgrading to node22 breaks this
           # https://github.com/n-riesco/ijavascript/issues/297
           node-version: 20
-      - name: Install requirements.txt
-        run: pip install -r requirements.txt
       - name: Install MyST Markdown
         run: npm install -g mystmd
+      - name: Install requirements.txt
+        run: "if [ -f requirements.txt ]; then pip install -r requirements.txt; fi"
       - name: Install JS kernel
         run: npm install -g ijavascript && ijsinstall
       - name: Build HTML Assets
