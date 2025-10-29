@@ -369,12 +369,22 @@ creates the scaffolding for you:
 
 ### create project skeleton
 
-this requires a network connection and may take a while...
+this requires a network connection (and may take a little while...)  
 it will also download a rather huge amount of libraries and dependencies, that go into the `node_modules` folder
+
+```shell
+npm create vite@latest react-myapp -- --template react
+```
+
+::::{admonition} alternative with `create-react-app` (CRA)
+:class: tip dropdown small
+
+note that the `create-react-app` tool is now deprecated in favor of `vite` as above, however you may still find references to it in various places; if you want to use it anyway, the command would have been instead
 
 ```shell
 npx create-react-app react-myapp
 ```
+::::
 
 +++
 
@@ -387,7 +397,8 @@ cd react-myapp
 npm start
 ```
 
-and, after a while again, you get a message that reads `Edit src/App.js and save
-to reload.` with a spinning react logo on top: you're ready to code !   
-try it: change this message with vs-code (it appears in `src/App.js`) and save
-the file, you will see the changes have been taken into account
+and, after a while again, you get a message that reads  
+`Edit src/App.jsx and save to reload.`  
+with a spinning react logo on top: you're ready to code !   
+try it: change this message with vs-code (it appears in `src/App.jsx`)  
+and then save the file, you will see the changes have been taken into account !
