@@ -100,11 +100,11 @@ tools.sample_from_strings({html: link_html, css: link_css}, {start_with: "css"})
 * [several hundreds of them](https://css-tricks.com/how-many-css-properties-are-there/)
   * note that not all properties are relevant on all elements
 
-```{figure} media/vocabulary-html.svg
+```{figure} media/vocabulary-html.excalidraw.svg
 recap on HTML
 ```
 
-```{figure} media/vocabulary-css.svg
+```{figure} media/vocabulary-css.excalidraw.svg
 recap on CSS
 ```
 

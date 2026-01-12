@@ -32,7 +32,7 @@ tools = require('../js/tools'); tools.init()
   * runs on your laptop
   * runs **frontend** code (even though that code is fetched at the backend)
 
-```{image} media/client-server.svg
+```{image} media/browser-server-http.excalidraw.svg
 :width: 600px
 :align: center
 ```
