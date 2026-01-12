@@ -11,8 +11,7 @@ kernelspec:
   name: javascript
 language_info:
   name: javascript
-nbhosting:
-  title: exo - calculator
+short_title: "a calculator"
 ---
 
 # practice : a calculator

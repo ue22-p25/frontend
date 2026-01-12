@@ -11,8 +11,7 @@ kernelspec:
   name: javascript
 language_info:
   name: javascript
-nbhosting:
-  title: flex layout
+short_title: flex layout
 ---
 
 # `display: flex`

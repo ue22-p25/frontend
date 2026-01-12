@@ -10,8 +10,7 @@ kernelspec:
   name: javascript
 language_info:
   name: javascript
-nbhosting:
-  title: html basics
+short_title: HTML basics
 ---
 
 # HTML basics & devel tools

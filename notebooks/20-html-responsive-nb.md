@@ -11,8 +11,7 @@ kernelspec:
   name: javascript
 language_info:
   name: javascript
-nbhosting:
-  title: responsiveness
+short_title: responsiveness
 ---
 
 # responsiveness

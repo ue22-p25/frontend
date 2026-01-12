@@ -11,8 +11,7 @@ kernelspec:
   name: javascript
 language_info:
   name: javascript
-nbhosting:
-  title: course requirements
+short_title: course requirements
 ---
 
 # run this course locally ?

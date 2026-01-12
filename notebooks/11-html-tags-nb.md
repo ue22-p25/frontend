@@ -11,8 +11,7 @@ kernelspec:
   name: javascript
 language_info:
   name: javascript
-nbhosting:
-  title: html tags
+short_title: HTML tags
 ---
 
 # most common HTML tags

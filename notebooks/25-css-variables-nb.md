@@ -11,8 +11,7 @@ kernelspec:
   name: javascript
 language_info:
   name: javascript
-nbhosting:
-  title: CSS variables
+short_title: CSS variables
 ---
 
 # CSS variables

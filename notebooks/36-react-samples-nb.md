@@ -11,8 +11,7 @@ kernelspec:
   name: javascript
 language_info:
   name: javascript
-nbhosting:
-  title: React apps basics
+short_title: React apps basics
 ---
 
 # simple React apps

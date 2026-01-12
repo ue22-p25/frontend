@@ -10,8 +10,7 @@ kernelspec:
   name: javascript
 language_info:
   name: javascript
-nbhosting:
-  title: grid layout
+short_title: grid layout
 ---
 
 # `display: grid`

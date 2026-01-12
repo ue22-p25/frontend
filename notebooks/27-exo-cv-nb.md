@@ -11,8 +11,7 @@ kernelspec:
   name: javascript
 language_info:
   name: javascript
-nbhosting:
-  title: 'practice: your resume'
+short_title: 'practice: your resume'
 ---
 
 # putting it all together

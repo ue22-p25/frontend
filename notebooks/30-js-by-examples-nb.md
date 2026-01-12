@@ -11,8 +11,7 @@ kernelspec:
   name: javascript
 language_info:
   name: javascript
-nbhosting:
-  title: JS by examples
+short_title: JS by examples
 ---
 
 # JavaScript by examples

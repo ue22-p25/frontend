@@ -11,8 +11,7 @@ kernelspec:
   name: javascript
 language_info:
   name: javascript
-nbhosting:
-  title: asynchronism
+short_title: asynchronism
 ---
 
 # asynchronous behaviour

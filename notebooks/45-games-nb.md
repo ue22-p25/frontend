@@ -11,8 +11,7 @@ kernelspec:
   name: javascript
 language_info:
   name: javascript
-nbhosting:
-  title: 'practice : games'
+short_title: "tic-tac-toe + minesweeper"
 ---
 
 # practice : games

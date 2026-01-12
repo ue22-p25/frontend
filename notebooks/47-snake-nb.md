@@ -11,8 +11,7 @@ kernelspec:
   name: javascript
 language_info:
   name: javascript
-nbhosting:
-  title: 'practice : a snake'
+short_title: "a snake"
 ---
 
 # practice : a snake

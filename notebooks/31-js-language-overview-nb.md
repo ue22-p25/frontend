@@ -11,11 +11,10 @@ kernelspec:
   name: javascript
 language_info:
   name: javascript
-nbhosting:
-  title: 30,000 ft overview
+short_title: 30,000 ft overview
 ---
 
-# 30,000 ft overview of JS
+# 30,000 ft overview of JavaScript
 
 ```{code-cell}
 tools = require('../js/tools'); tools.init()

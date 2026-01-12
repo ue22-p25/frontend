@@ -11,8 +11,7 @@ kernelspec:
   name: javascript
 language_info:
   name: javascript
-nbhosting:
-  title: exo - spinning wheel
+short_title: "a spinning wheel"
 ---
 
 # practice : a spinning wheel

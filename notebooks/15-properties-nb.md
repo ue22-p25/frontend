@@ -11,8 +11,7 @@ kernelspec:
   name: javascript
 language_info:
   name: javascript
-nbhosting:
-  title: css properties
+short_title: CSS properties
 ---
 
 # CSS main properties

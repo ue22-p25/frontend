@@ -11,8 +11,7 @@ kernelspec:
   name: javascript
 language_info:
   name: javascript
-nbhosting:
-  title: messing with the DOM
+short_title: messing with the DOM
 ---
 
 # manipulating the DOM

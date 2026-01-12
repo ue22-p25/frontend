@@ -11,8 +11,7 @@ kernelspec:
   name: javascript
 language_info:
   name: javascript
-nbhosting:
-  title: CSS animations
+short_title: CSS transitions
 ---
 
 # CSS transitions and animations

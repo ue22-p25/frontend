@@ -11,8 +11,7 @@ kernelspec:
   name: javascript
 language_info:
   name: javascript
-nbhosting:
-  title: motivation
+short_title: introduction
 ---
 
 # web frontend pillars : HTML/CSS/JS

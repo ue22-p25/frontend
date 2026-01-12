@@ -11,8 +11,7 @@ kernelspec:
   name: javascript
 language_info:
   name: javascript
-nbhosting:
-  title: onliine tools
+short_title: onliine tools
 ---
 
 # online tools

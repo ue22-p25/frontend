@@ -11,8 +11,7 @@ kernelspec:
   name: javascript
 language_info:
   name: javascript
-nbhosting:
-  title: vite
+short_title: vite
 ---
 
 (label-vite)=
@@ -25,41 +24,54 @@ tools = require('../js/tools'); tools.init()
 
 ## what is vite ?
 
-are you tired of reloading the browser page after each and every single change in your sources ?
-
+are you **tired of reloading** the browser page after each and every single change in your sources ?  
 `vite` is what you're looking for ...
 
-with `vite`, you typically have your two windows side by side: an editor - say, vscode - and your browser  
-and you just need to save your input - be it .html, .css or .js - and the browser automatically picks up on your changes and re-renders the current code  
-is that cool or what ?
+with `vite`: 
+- you typically have your two windows side by side: an editor - say, vscode - and your browser
+- then you just need to save your input - be it `.html`, `.css` or `.js`
+- and the browser **automatically picks up** on your changes and re-renders the current code
+
+so, no more back and forth switching between applications; is that cool or what ?
+
+```{admonition} autosave
+:class: dropdown tip
+
+again, we recommend you to enable autosave in your editor of choice, so that you don't even need to think about saving your changes; just edit, and the rest is automatic
+
+under vs-code, you can enable autosave through the `File` -> `Auto Save` menu entry
+```
 
 +++
 
-## a local web server
+## how it works
 
-### no `file:///` URL 
+### no `file:///` URL
 
-for that to work, you can no longer open in your broswer a file URL like `file:///Users/jeanmineur/the-webc-course/cv.html`  
+for that to work, you can **no longer** open in your browser a file URL like `file:///Users/jeanmineur/the-webc-course/cv.html`
 
 ### how to open a file then ?
 
 the way it's going to work with vite is:
 
-- `vite` runs as a local web server
-- you typically launch it in the same folder as your inputs, say
-  `/Users/jeanmineur/the-web-course/`
-- and upon startup the `vite` process will display the **port number** that the vite server has bound to, say `5173`
+- you typically launch it in **the same folder** as your inputs,  
+  say in `/Users/jeanmineur/cours-info/frontend/`
+- `vite` runs as a local web server  
+  and on startup will display the **port number** it has bound to, typically `5173`
 - so in your browser:
-  - instead of opening the `file:///Users/jeanmineur/the-webc-course/cv.html`
+  - instead of opening the `file:///Users/jeanmineur/cours-info/frontend/cv.html`
   - you will instead open `http://localhost:5173/cv.html`
 
-and that's it  
-from then on, any change done in `cv.html` will automatically refresh in the browser  
+and that's it !  
+from then on, any change done in `cv.html` will automatically refresh in the browser
 
-```{admonition} third party cookies
+```{admonition} third party cookies and CORS
 :class: dropdown tip
 
-in addition, be aware that, with respect to recent changes in the "third-party cookies" policies, it is almost always a **good idea to use a local web server** in development, regardless of the comfort brought by vite
+in addition, be aware that, with respect to recent changes in CORS (Cross Origin Resource Sharing)
+and "third-party cookies" policies,
+it is almost always a **good idea to use a local web server** in development (as opposed to using `file:///` URLs),
+regardless of the extra convenience brought by vite
 ```
 
 +++
@@ -74,7 +86,7 @@ just like a Python install comes with `pip`, `node` will come with `npm` and `np
 
 +++
 
-### installing `node` and `npx` 
+### installing `node` and `npx`
 
 
 ````{admonition} option 1: you already have a conda env
@@ -90,8 +102,12 @@ conda activate my-web-conda
 
 ```bash
 # and then
-conda install -c conda-forge nodejs
+conda install conda-forge::nodejs
+
+# or if you want a specific version
+# conda install conda-forge::nodejs=24
 ```
+
 ````
 
 +++
@@ -99,18 +115,18 @@ conda install -c conda-forge nodejs
 ````{admonition} option 2: you do not yet have a conda env:
 :class: dropdown seealso
 
-in this case you can install node **directly** in the conda env when you create it
+in this case you can install node in the conda env in one go, i.e. right when you create it:
 
 
 ```bash
-conda create -n my-web-conda python=3.13 nodejs=22
+conda create -n my-web-conda python conda-forge::nodejs
+
+# or if you want specific versions:
+# conda create -n my-web-conda python=3.13 conda-forge::nodejs=24
 ```
 
 ```bash
-# and then
-conda install -c conda-forge nodejs
-
-# after which you must activate, as always
+# after which you must activate it, of course, as always
 conda activate my-web-conda
 ```
 ````
@@ -124,6 +140,7 @@ regardless of the option you choose, remember to activate your conda env
 
 ```bash
 conda activate my-web-conda
+
 node --version
 npx --version
 ```
@@ -159,7 +176,7 @@ which as part of its display will show a line like
   ➜  Local:   http://localhost:5173/
 ```
 
-and now, you know which port number to use
+and now, you know which port number to use; read on though...
 
 +++
 
@@ -170,16 +187,24 @@ and now, you know which port number to use
 
 i.e. if you just point your browser at  
 `http://localhost:5173/`  
-you **won't get an answer**
+you **won't get an answer**, unless you have a file named `index.html` in that folder
 
-so **you need to say e.g. `http://localhost:5173/cv.html`**  
-this is because the web server does not provide indexing (it does list the content of the folder)
+so **you may need to say e.g. `http://localhost:5173/cv.html`**; pointing your browser at the root path will **not** display a list of available files in the folder - it returns 404 instead
+````
+
+````{admonition} open the URL from the terminal
+:class: tip
+
+most terminal applications will let you click on that URL directly from the terminal display, using a modifier key like `Cmd` or `Ctrl` or `Alt`, depending on your OS and terminal application; under "Git Bash" on Windows for instance, just `Ctrl+Click` will do
+```
+
+however, this will work only if your file is named `index.html`,  
 ````
 
 ````{admonition} your terminal will hang
 :class: warning
 
-also, as usual, **that terminal will become unusable**  
+also, as usual, beware that **the terminal**  where you start `vite` **will become unusable**  
 so if there's anything else you need a terminal for, just create another one
 ````
 

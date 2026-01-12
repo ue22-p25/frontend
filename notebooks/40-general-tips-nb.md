@@ -11,8 +11,7 @@ kernelspec:
   name: javascript
 language_info:
   name: javascript
-nbhosting:
-  title: coding tips
+short_title: coding tips
 ---
 
 # how to code: general tips

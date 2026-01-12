@@ -11,8 +11,7 @@ kernelspec:
   name: javascript
 language_info:
   name: javascript
-nbhosting:
-  title: events & callbacks
+short_title: events & callbacks
 ---
 
 # events and callbacks

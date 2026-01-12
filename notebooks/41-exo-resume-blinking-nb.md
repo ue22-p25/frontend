@@ -11,8 +11,7 @@ kernelspec:
   name: javascript
 language_info:
   name: javascript
-nbhosting:
-  title: blinking colors (& devel tools)
+short_title: "blinking + develtools"
 ---
 
 # practice : blinking background

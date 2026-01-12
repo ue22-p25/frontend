@@ -11,8 +11,7 @@ kernelspec:
   name: javascript
 language_info:
   name: javascript
-nbhosting:
-  title: loading css
+short_title: loading CSS
 ---
 
 # URLs and how to apply CSS

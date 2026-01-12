@@ -11,8 +11,7 @@ kernelspec:
   name: javascript
 language_info:
   name: javascript
-nbhosting:
-  title: bootstrap
+short_title: bootstrap
 ---
 
 # bootstrap

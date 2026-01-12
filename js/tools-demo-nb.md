@@ -9,8 +9,7 @@ jupyter:
     display_name: JavaScript (Node.js)
     language: javascript
     name: javascript
-  nbhosting:
-    title: js intro
+  short_title: "JS intro"
 ---
 
 # displaying code samples

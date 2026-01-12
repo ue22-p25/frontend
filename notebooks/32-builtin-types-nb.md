@@ -11,8 +11,7 @@ kernelspec:
   name: javascript
 language_info:
   name: javascript
-nbhosting:
-  title: bultin types
+short_title: bultin types
 ---
 
 # JS builtin types

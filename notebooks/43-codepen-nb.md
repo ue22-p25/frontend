@@ -11,8 +11,7 @@ kernelspec:
   name: javascript
 language_info:
   name: javascript
-nbhosting:
-  title: 'practice : on codepen'
+short_title: "miscell on codepen"
 ---
 
 # practice : on codepen

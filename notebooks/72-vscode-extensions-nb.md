@@ -11,8 +11,7 @@ kernelspec:
   name: javascript
 language_info:
   name: javascript
-nbhosting:
-  title: vscode extensions
+short_title: vscode extensions
 ---
 
 # vscode extensions

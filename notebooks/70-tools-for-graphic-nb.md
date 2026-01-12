@@ -11,8 +11,7 @@ kernelspec:
   name: javascript
 language_info:
   name: javascript
-nbhosting:
-  title: user tools
+short_title: user tools
 ---
 
 # visualization tools

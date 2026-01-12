@@ -11,8 +11,7 @@ kernelspec:
   name: javascript
 language_info:
   name: javascript
-nbhosting:
-  title: more selectors
+short_title: more selectors
 ---
 
 # more elaborate selectors

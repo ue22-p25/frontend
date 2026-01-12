@@ -11,11 +11,10 @@ kernelspec:
   name: javascript
 language_info:
   name: javascript
-nbhosting:
-  title: 'practice : additional assignments'
+short_title: "fun with maths"
 ---
 
-# practice : additional assignments
+# practice : Pythoagore and Fibonacci
 
 ```{code-cell}
 tools = require('../js/tools'); tools.init()

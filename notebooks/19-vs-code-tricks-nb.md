@@ -11,8 +11,7 @@ kernelspec:
   name: javascript
 language_info:
   name: javascript
-nbhosting:
-  title: other html tags
+short_title: other html tags
 ---
 
 # vs-code tricks

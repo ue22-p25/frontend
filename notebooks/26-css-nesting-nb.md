@@ -10,8 +10,7 @@ kernelspec:
   name: javascript
 language_info:
   name: javascript
-nbhosting:
-  title: CSS nesting
+short_title: CSS nesting
 ---
 
 # CSS nesting

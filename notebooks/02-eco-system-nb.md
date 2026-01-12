@@ -11,8 +11,7 @@ kernelspec:
   name: javascript
 language_info:
   name: javascript
-nbhosting:
-  title: web frontend ecosystem
+short_title: web frontend ecosystem
 ---
 
 # web ecosystem

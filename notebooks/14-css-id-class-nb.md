@@ -11,8 +11,7 @@ kernelspec:
   name: javascript
 language_info:
   name: javascript
-nbhosting:
-  title: id and class
+short_title: id and class
 ---
 
 # HTML ids and classes

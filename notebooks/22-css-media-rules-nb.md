@@ -11,8 +11,7 @@ kernelspec:
   name: javascript
 language_info:
   name: javascript
-nbhosting:
-  title: css @media rules
+short_title: css @media rules
 ---
 
 # CSS `@media` rules

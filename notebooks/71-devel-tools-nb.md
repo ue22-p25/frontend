@@ -11,8 +11,7 @@ kernelspec:
   name: javascript
 language_info:
   name: javascript
-nbhosting:
-  title: build & devel tools
+short_title: build & devel tools
 ---
 
 # build and devel tools

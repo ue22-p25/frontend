@@ -11,8 +11,7 @@ kernelspec:
   name: javascript
 language_info:
   name: javascript
-nbhosting:
-  title: jQuery
+short_title: jQuery
 ---
 
 (cheatsheet)=

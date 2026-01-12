@@ -11,8 +11,7 @@ kernelspec:
   name: javascript
 language_info:
   name: javascript
-nbhosting:
-  title: vite
+short_title: vite
 ---
 
 (label-livepreview)=

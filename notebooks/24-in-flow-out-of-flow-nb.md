@@ -11,8 +11,7 @@ kernelspec:
   name: javascript
 language_info:
   name: javascript
-nbhosting:
-  title: in / out-of flow
+short_title: in / out-of flow
 ---
 
 # in-flow and out-of-flow

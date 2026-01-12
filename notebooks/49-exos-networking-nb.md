@@ -11,8 +11,7 @@ kernelspec:
   name: javascript
 language_info:
   name: javascript
-nbhosting:
-  title: 'practice : networking apps'
+short_title: "networking apps"
 ---
 
 # practice : networking apps
