@@ -17,6 +17,7 @@ short_title: in / out-of flow
 # in-flow and out-of-flow
 
 ```{code-cell}
+:tags: [remove-cell]
 tools = require('../js/tools'); tools.init()
 ```
 

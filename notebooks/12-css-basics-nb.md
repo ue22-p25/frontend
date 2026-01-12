@@ -16,6 +16,7 @@ language_info:
 # CSS basics
 
 ```{code-cell}
+:tags: [remove-cell]
 tools = require('../js/tools'); tools.init()
 ```
 

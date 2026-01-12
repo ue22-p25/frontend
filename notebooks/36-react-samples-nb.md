@@ -26,6 +26,7 @@ in this notebook we will see 2 small React apps
 there is also a looooong list of examples here <https://reactjsexample.com>
 
 ```{code-cell}
+:tags: [remove-cell]
 tools = require('../js/tools'); tools.init()
 ```
 

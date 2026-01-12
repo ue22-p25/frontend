@@ -17,6 +17,7 @@ short_title: CSS transitions
 # CSS transitions and animations
 
 ```{code-cell}
+:tags: [remove-cell]
 tools = require('../js/tools'); tools.init()
 ```
 

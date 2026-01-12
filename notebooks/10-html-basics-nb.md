@@ -16,6 +16,7 @@ short_title: HTML basics
 # HTML basics & devel tools
 
 ```{code-cell}
+:tags: [remove-cell]
 tools = require('../js/tools'); tools.init()
 ```
 

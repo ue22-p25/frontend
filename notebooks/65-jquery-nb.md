@@ -17,6 +17,7 @@ short_title: jQuery
 # jQuery
 
 ```{code-cell}
+:tags: [remove-cell]
 tools = require('../js/tools'); tools.init()
 ```
 

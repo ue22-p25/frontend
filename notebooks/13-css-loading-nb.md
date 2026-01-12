@@ -17,6 +17,7 @@ short_title: loading CSS
 # URLs and how to apply CSS
 
 ```{code-cell}
+:tags: [remove-cell]
 tools = require('../js/tools'); tools.init()
 ```
 

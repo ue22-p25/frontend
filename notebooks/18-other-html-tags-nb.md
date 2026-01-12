@@ -17,6 +17,7 @@ short_title: other HTML tags
 # more HTML tags
 
 ```{code-cell}
+:tags: [remove-cell]
 tools = require('../js/tools'); tools.init()
 ```
 

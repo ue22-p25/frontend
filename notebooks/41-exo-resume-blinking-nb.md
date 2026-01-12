@@ -17,6 +17,7 @@ short_title: "blinking + develtools"
 # practice : blinking background
 
 ```{code-cell}
+:tags: [remove-cell]
 tools = require('../js/tools'); tools.init()
 ```
 

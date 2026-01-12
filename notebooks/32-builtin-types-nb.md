@@ -17,6 +17,7 @@ short_title: bultin types
 # JS builtin types
 
 ```{code-cell}
+:tags: [remove-cell]
 tools = require('../js/tools'); tools.init()
 ```
 

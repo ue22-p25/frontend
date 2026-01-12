@@ -17,6 +17,7 @@ short_title: HTML tags
 # most common HTML tags
 
 ```{code-cell}
+:tags: [remove-cell]
 tools = require('../js/tools'); tools.init()
 ```
 

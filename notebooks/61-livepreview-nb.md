@@ -19,6 +19,7 @@ short_title: vite
 # vscode livepreview
 
 ```{code-cell}
+:tags: [remove-cell]
 tools = require('../js/tools'); tools.init()
 ```
 

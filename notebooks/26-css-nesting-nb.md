@@ -18,6 +18,7 @@ short_title: CSS nesting
 a very useful tool to keep - at least to try and keep - your CSS code from ending up as a bowl of  spaguettis
 
 ```{code-cell}
+:tags: [remove-cell]
 tools = require('../js/tools'); tools.init()
 ```
 

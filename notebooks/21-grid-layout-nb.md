@@ -16,6 +16,7 @@ short_title: grid layout
 # `display: grid`
 
 ```{code-cell}
+:tags: [remove-cell]
 tools = require('../js/tools'); tools.init()
 ```
 

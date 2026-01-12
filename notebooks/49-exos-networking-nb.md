@@ -17,6 +17,7 @@ short_title: "networking apps"
 # practice : networking apps
 
 ```{code-cell}
+:tags: [remove-cell]
 tools = require('../js/tools'); tools.init()
 ```
 

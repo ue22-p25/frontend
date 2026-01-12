@@ -19,6 +19,7 @@ short_title: CSS variables
 the official name for this feature is ***CSS custom properties***, but we'll call them variables because that's the closest thing CSS has to offer that looks like variables in a traditional language
 
 ```{code-cell}
+:tags: [remove-cell]
 tools = require('../js/tools'); tools.init()
 ```
 

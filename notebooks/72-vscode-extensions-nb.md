@@ -22,6 +22,7 @@ https://www.youtube.com/watch?v=Z5RkLrSDlFA
 in an opinionated order of usefulness
 
 ```{code-cell}
+:tags: [remove-cell]
 tools = require('../js/tools'); tools.init()
 ```
 

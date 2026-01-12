@@ -17,6 +17,7 @@ short_title: bootstrap
 # bootstrap
 
 ```{code-cell}
+:tags: [remove-cell]
 tools = require('../js/tools'); tools.init()
 ```
 

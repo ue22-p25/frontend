@@ -17,6 +17,7 @@ short_title: more selectors
 # more elaborate selectors
 
 ```{code-cell}
+:tags: [remove-cell]
 tools = require('../js/tools'); tools.init()
 ```
 

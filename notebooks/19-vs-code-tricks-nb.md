@@ -17,6 +17,7 @@ short_title: other html tags
 # vs-code tricks
 
 ```{code-cell}
+:tags: [remove-cell]
 tools = require('../js/tools'); tools.init()
 ```
 

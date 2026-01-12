@@ -17,6 +17,7 @@ short_title: JS by examples
 # JavaScript by examples
 
 ```{code-cell}
+:tags: [remove-cell]
 tools = require('../js/tools'); tools.init()
 ```
 

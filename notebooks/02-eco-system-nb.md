@@ -17,6 +17,7 @@ short_title: web frontend ecosystem
 # web ecosystem
 
 ```{code-cell}
+:tags: [remove-cell]
 tools = require('../js/tools'); tools.init()
 ```
 

@@ -17,6 +17,7 @@ short_title: 'practice: your resume'
 # putting it all together
 
 ```{code-cell}
+:tags: [remove-cell]
 tools = require('../js/tools'); tools.init()
 ```
 

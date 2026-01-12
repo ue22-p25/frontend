@@ -17,6 +17,7 @@ short_title: css @media rules
 # CSS `@media` rules
 
 ```{code-cell}
+:tags: [remove-cell]
 tools = require('../js/tools'); tools.init()
 ```
 

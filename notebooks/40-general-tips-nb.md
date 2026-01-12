@@ -17,6 +17,7 @@ short_title: coding tips
 # how to code: general tips
 
 ```{code-cell}
+:tags: [remove-cell]
 tools = require('../js/tools'); tools.init()
 ```
 

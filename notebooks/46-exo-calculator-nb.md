@@ -24,6 +24,7 @@ here's what it should look like
 ````
 
 ```{code-cell}
+:tags: [remove-cell]
 tools = require('../js/tools'); tools.init()
 ```
 

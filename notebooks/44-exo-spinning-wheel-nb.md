@@ -17,6 +17,7 @@ short_title: "a spinning wheel"
 # practice : a spinning wheel
 
 ```{code-cell}
+:tags: [remove-cell]
 tools = require('../js/tools'); tools.init()
 ```
 

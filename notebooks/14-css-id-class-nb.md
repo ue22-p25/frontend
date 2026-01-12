@@ -17,6 +17,7 @@ short_title: id and class
 # HTML ids and classes
 
 ```{code-cell}
+:tags: [remove-cell]
 tools = require('../js/tools'); tools.init()
 ```
 

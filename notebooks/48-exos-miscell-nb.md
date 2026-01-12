@@ -17,6 +17,7 @@ short_title: "fun with maths"
 # practice : Pythoagore and Fibonacci
 
 ```{code-cell}
+:tags: [remove-cell]
 tools = require('../js/tools'); tools.init()
 ```
 

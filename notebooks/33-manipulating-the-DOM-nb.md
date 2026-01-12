@@ -17,6 +17,7 @@ short_title: messing with the DOM
 # manipulating the DOM
 
 ```{code-cell}
+:tags: [remove-cell]
 tools = require('../js/tools'); tools.init()
 ```
 

@@ -17,6 +17,7 @@ short_title: "tic-tac-toe + minesweeper"
 # practice : games
 
 ```{code-cell}
+:tags: [remove-cell]
 tools = require('../js/tools'); tools.init()
 ```
 

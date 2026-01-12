@@ -17,6 +17,7 @@ short_title: "worth reading"
 # practice : worth reading
 
 ```{code-cell}
+:tags: [remove-cell]
 tools = require('../js/tools'); tools.init()
 ```
 

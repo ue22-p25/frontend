@@ -17,6 +17,7 @@ short_title: CSS properties
 # CSS main properties
 
 ```{code-cell}
+:tags: [remove-cell]
 tools = require('../js/tools'); tools.init()
 ```
 

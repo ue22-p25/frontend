@@ -17,6 +17,7 @@ short_title: 30,000 ft overview
 # 30,000 ft overview of JavaScript
 
 ```{code-cell}
+:tags: [remove-cell]
 tools = require('../js/tools'); tools.init()
 ```
 

@@ -17,6 +17,7 @@ short_title: events & callbacks
 # events and callbacks
 
 ```{code-cell}
+:tags: [remove-cell]
 tools = require('../js/tools'); tools.init()
 ```
 
