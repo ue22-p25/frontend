@@ -39,5 +39,5 @@ project:
 
     - title: handouts Aurélien
       children:
-        - url: http://ue22-p25-web.surge.sh/
+        - url: http://ue22-p24-web.surge.sh/
           title: sur surge.sh
