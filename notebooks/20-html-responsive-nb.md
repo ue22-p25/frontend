@@ -33,7 +33,7 @@ tools = require('../js/tools'); tools.init()
 
 this means that for example, we want to obtain different layouts for the same content, depending on the screen size  
 
-```{figure} media/responsive-wide-narrow.svg
+```{figure} media/responsive-layouts.excalidraw.svg
 :align: center
 :width: 600px
 

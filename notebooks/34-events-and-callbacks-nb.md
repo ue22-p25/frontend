@@ -100,7 +100,7 @@ tools.sample_from_stem("../samples/34-events-and-callbacks-01",
 
 here's a timeline of what is going on
 
-```{image} media/callbacks-chain.svg
+```{image} media/callbacks-chain.excalidraw.svg
 :align: center
 ```
 
