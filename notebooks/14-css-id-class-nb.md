@@ -286,7 +286,7 @@ tools.sample_from_strings({html: specificity4_html, css: specificity_css})
 
 ```{code-cell}
 :cell_style: center
-:tags: [remove-inputut, remove-input]
+:tags: [remove-input]
 
 inherit_html = `<div class="inheritance">
   <p> You can use inheritance to avoid setting</p>

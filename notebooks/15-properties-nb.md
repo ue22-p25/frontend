@@ -399,7 +399,7 @@ also note that background
 ### `background` and margins (demo)
 
 ```{code-cell}
-:tags: [remove-inputut, remove-input]
+:tags: [remove-input]
 
 background_html = `<div>
   <section>
