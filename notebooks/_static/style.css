@@ -329,3 +329,8 @@ div.CodeMirror-lines div.CodeMirror-code pre.CodeMirror-line {
     line-height: 1.1em;
     background-color: unset;
 }
+
+/* stolen from backend - outline horizontal rules */
+hr.py-2.my-5.translate-y-2 {
+  border-top-width: 15px;
+}
