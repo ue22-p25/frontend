@@ -11,7 +11,7 @@ kernelspec:
   name: javascript
 language_info:
   name: javascript
-short_title: onliine tools
+short_title: online tools
 ---
 
 # online tools
