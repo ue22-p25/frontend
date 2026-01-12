@@ -64,7 +64,7 @@ tools.sample_from_strings({html: fragment1}, {separate_show: false})
 usually the content gets fetched on the Internet  
 with the `http://` protocol (or https..)
 
-```{image} media/client-server.svg
+```{image} media/browser-server-http.excalidraw.svg
 :width: 600px
 :align: center
 ```
@@ -76,7 +76,7 @@ with the `http://` protocol (or https..)
 but today, we will instruct the browser to get files from our laptop  
 hence the use of the `file://` protocol
 
-```{image} media/local-file.svg
+```{image} media/browser-file.excalidraw.svg
 :width: 600px
 :align: center
 ```
@@ -243,7 +243,7 @@ this HTML fragment
 +++ {"cell_style": "center", "tags": ["gridwidth-1-2"]}
 
 will result in this tree
-```{image} media/abstract-syntax.svg
+```{image} media/abstract-syntax.excalidraw.svg
 :width: 400px
 :align: center
 ```
