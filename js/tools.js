@@ -186,7 +186,7 @@ function sample_from_strings(code, options) {
     <div id="btns_left_${id}" class="tools_btns_left"
       style="display: ${sources_show ? 'flex' : 'none'};"></div>
 	  <div id="btns_right_${id}" class="tools_btns_right"
-      style="display: flex; justify-content: flex-end; ${sources_show ? '' : height_style}"></div>
+      style="display: flex; justify-content: flex-start; ${sources_show ? '' : height_style}"></div>
 	  <div id="codemirror_${id}" class="tools_codemirror"
       style="display:${sources_show ? 'grid' : 'none'}; grid-template-columns: 1fr; grid-template-rows: 1fr;
              overflow: auto; resize: both; z-index: 100; ${width_style}; ${height_style};" >
