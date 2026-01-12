@@ -24,3 +24,9 @@ We'll touch on React as well, but the goal is to give you a solid foundation in 
 [![GitHub Repo](https://img.shields.io/badge/GitHub-Repository-blue?logo=github)](https://github.com/ue22-p25/frontend)
 
 [![License: CC BY-NC-ND](https://img.shields.io/badge/License-CC%20BY--NC--ND-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-nd/4.0/) *Thierry Parmentelat*
+
+```{admonition} Developer guide
+:class: tip dropdown
+This course is intended to be read online as a static website (see link above);
+for making changes to the source code, please refer to the [developer guide](80-develop-setup-nb.md), on how to set up a local environment.
+```

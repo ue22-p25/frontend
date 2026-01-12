@@ -12,6 +12,8 @@ project:
   toc:
 
     - file: 00-introduction-nb.md
+    - file: 80-develop-setup-nb.md
+      hidden: true
 
     - title: Intro
       children:
@@ -41,3 +43,4 @@ project:
       children:
         - url: http://ue22-p24-web.surge.sh/
           title: sur surge.sh
+
