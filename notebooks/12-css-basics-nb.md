@@ -20,7 +20,11 @@ language_info:
 tools = require('../js/tools'); tools.init()
 ```
 
-## purpose of style sheet
+CSS = Cascading Style Sheets
+
+---
+
+## purpose of a style sheet
 
 * keep contents and presentation separate
 * allow to adapt same contents
@@ -30,14 +34,12 @@ tools = require('../js/tools'); tools.init()
 
   * engineers *vs* designers
 
-+++
-
-## what can be styled ?
+### what can be styled ?
 
 * short answer : virtually everything
 * let's start with the obvious
 
-+++
+---
 
 ## text properties
 
@@ -48,19 +50,19 @@ tools = require('../js/tools'); tools.init()
 * `text-decoration` : e.g. underline
 * … and a whole many more
 
-+++ {"cell_style": "center"}
-
-```{image} media/list-properties-all.png
+```{figure} media/list-properties-all.png
 :align: center
+
+how to inspect an element's properties
 ```
 
-+++ {"cell_style": "center"}
-
-```{image} media/list-properties-filtered.png
+```{figure} media/list-properties-filtered.png
 :align: center
+
+you can also filter the list of properties
 ```
 
-+++ {"raw_mimetype": ""}
+---
 
 ## first example
 
@@ -89,6 +91,12 @@ a {
 tools.sample_from_strings({html: link_html, css: link_css}, {start_with: "css"})
 ```
 
+::::{admonition} what with `target` thing ?
+:class: tip admonition-smaller dropdown
+here we also set `target="_"` so that the link opens in another tab (or window) - instead of replacing the current page !
+::::
+---
+
 ## vocabulary: properties
 
 * the names that appear on the left hand side of the `:` colon   
@@ -100,13 +108,17 @@ tools.sample_from_strings({html: link_html, css: link_css}, {start_with: "css"})
   * note that not all properties are relevant on all elements
 
 ```{figure} media/vocabulary-html.excalidraw.svg
-recap on HTML
+:class: figure-outline admonition-smaller
+recap vocabulary on HTML
 ```
 
 ```{figure} media/vocabulary-css.excalidraw.svg
-recap on CSS
+:class: figure-outline admonition-smaller
+recap vocabulary on CSS
 ```
 
+---
+ 
 ## how to locally override properties
 
 ````{admonition} practice
