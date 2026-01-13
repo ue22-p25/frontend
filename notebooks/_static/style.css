@@ -334,3 +334,10 @@ div.CodeMirror-lines div.CodeMirror-code pre.CodeMirror-line {
 hr.py-2.my-5.translate-y-2 {
   border-top-width: 15px;
 }
+
+.figure-outline {
+  background-color: #f8f9fa;
+  border-radius: 15px;
+  border: 1px solid #dee2e6;
+  padding: 10px;
+}

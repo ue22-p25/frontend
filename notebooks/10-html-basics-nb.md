@@ -66,9 +66,12 @@ tools.sample_from_strings({html: fragment1}, {separate_show: false})
 usually the content gets fetched on the Internet  
 with the `http://` protocol (or https..)
 
-```{image} media/browser-server-http.excalidraw.svg
+```{figure} media/browser-server-http.excalidraw.svg
+:class: figure-outline
 :width: 600px
 :align: center
+
+the usual browser-server setup
 ```
 
 ### our setup today
@@ -76,9 +79,12 @@ with the `http://` protocol (or https..)
 but today, we will instruct the browser to get files from our laptop  
 hence the use of the `file://` protocol
 
-```{image} media/browser-file.excalidraw.svg
+```{figure} media/browser-file.excalidraw.svg
+:class: figure-outline
 :width: 600px
 :align: center
+
+the browser fetching files directly from the local filesystem
 ```
 
 ````{admonition} file: and CORS
@@ -250,8 +256,10 @@ will result in this tree
 `````
 
 ```{admonition} elements
+:class: admonition-smaller
 
-nodes in this tree are called **Elements**; it is the basis for navigating the document in the ***Elements*** devel tools tab
+nodes in this tree are called **Elements**  
+it is the basis for navigating the document in the ***Elements*** devel tools tab
 ```
 
 ---

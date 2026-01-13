@@ -33,6 +33,7 @@ tools = require('../js/tools'); tools.init()
   * runs **frontend** code (even though that code is fetched at the backend)
 
 ```{image} media/browser-server-http.excalidraw.svg
+:class: figure-outline
 :width: 600px
 :align: center
 ```
