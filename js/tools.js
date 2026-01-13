@@ -213,7 +213,7 @@ function sample_from_strings(code, options) {
     grid_template_columns,
   }
 
-  const embedded = render("embedded-template.html", context)
+  const embedded = render("template-grid.html", context)
 
   // for debug purposes
   // fs.writeFileSync(`embedded_${id}.html`, embedded, 'utf-8')
@@ -235,111 +235,9 @@ function init(options) {
   }
   // ditto
   if ((init_script === undefined) || init_script) {
-    embedded += `
-<script>
-// Run this script imediatly
-
-function run_when_codemirror_is_ready(f) {
-	if ('CodeMirror' in globalThis) {
-		// Run immediatly
-		f(globalThis.CodeMirror);
-	} else {
-		window.addEventListener('codemirror_is_ready', e => f(e.detail));
-	}
-}
-
-function append_css(url) {
-	const link = document.createElement('link');
-	link.setAttribute('rel', 'stylesheet');
-	link.setAttribute('href', url);
-	document.getElementsByTagName('head')[0].appendChild(link);
-}
-
-
-function initialize_codemirror() {
-
-	if ('Jupyter' in globalThis) {
-		// Require should be available, and already setup
-
-		// Load missing peace of codemirror from Jupyter
-		require([
-			'codemirror/lib/codemirror',
-			'codemirror/mode/htmlmixed/htmlmixed',
-			'codemirror/mode/css/css',
-			'codemirror/mode/javascript/javascript'
-		], (CodeMirror) => {
-			// Tell waiting script that CodeMirror is ready
-			const e = new CustomEvent('codemirror_is_ready', { detail: CodeMirror });
-			window.dispatchEvent(e);
-		});
-	} else {
-
-		// Inject css only if we are in jupyter-book that do not load codemirror
-		append_css('https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.10/codemirror.min.css');
-		append_css('https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.10/theme/elegant.min.css');
-
-		require.config({
-		  packages: [{
-			name: "codemirror",
-			location: 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.10',
-			main: "codemirror.min"
-		  }],
-		  map: {
-			'*': { 'codemirror/lib/codemirror': 'codemirror' }
-		  }
-		});
-
-		require([
-			'codemirror',
-			'codemirror/mode/htmlmixed/htmlmixed.min',
-			'codemirror/mode/css/css.min',
-			'codemirror/mode/javascript/javascript.min'
-		], (CodeMirror) => {
-			// Tell waiting script that CodeMirror is ready
-			globalThis.CodeMirror = CodeMirror;
-			const e = new CustomEvent('codemirror_is_ready', { detail: CodeMirror });
-			window.dispatchEvent(e);
-		});
-	}
-
-}
-
-</script>
-<script defer>
-// Run this script when the entire page was loaded
-
-// we may be in a Jupyter runtime, or not (think, jupyter book)
-
-if ('require' in globalThis) {
-	initialize_codemirror();
-} else {
-
-	const script = document.createElement('script');
-	script.setAttribute('src', 'https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js');
-	script.setAttribute('crossorigin', 'anonymous');
-	script.setAttribute('referrerpolicy', 'no-referrer');
-	script.setAttribute('integrity', 'sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==');
-
-	// when require is loaded , ensure code mirror
-	script.addEventListener('load', () => {
-		initialize_codemirror();
-	});
-	document.getElementsByTagName('head')[0].appendChild(script);
-}
-
-// Run all cells below the last selected cell, i.e. this cell
-if ('Jupyter' in globalThis) {
-    // if Jupyter is available, run all cells below
-    const notebook = globalThis.Jupyter.notebook;
-    const current_selected = notebook.get_selected_cell();
-    // execute_cells_below() would execute the current cell,
-    // thus going into an infinite loop
-    notebook.execute_cell_range(notebook.get_selected_index()+1, notebook.ncells());
-    current_selected.ensure_focused();
-    console.log("all cells below - current one excluded - have been executed");
-}
-
-</script>`
+    const context = {}
+    embedded += `<script>${render("template-init-codemirror.js", context)}</script>`
+    embedded += `<script defer>${render("template-init-codemirror-defer.js", context)}</script>`
   }
   $$.html(embedded)
 }
