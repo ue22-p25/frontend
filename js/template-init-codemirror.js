@@ -37,13 +37,13 @@ function initialize_codemirror() {
 	} else {
 
 		// Inject css only if we are in jupyter-book that do not load codemirror
-		append_css('https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.10/codemirror.min.css');
-		append_css('https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.10/theme/elegant.min.css');
+		append_css('https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.css');
+		append_css('https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/theme/elegant.min.css');
 
 		require.config({
 		  packages: [{
 			name: "codemirror",
-			location: 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.10',
+			location: 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7',
 			main: "codemirror.min"
 		  }],
 		  map: {
