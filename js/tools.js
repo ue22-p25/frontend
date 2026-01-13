@@ -12,6 +12,26 @@
 
 "use strict"
 
+const { sep } = require('path')
+const { text } = require('stream/consumers')
+
+
+const fs = require('fs')
+const { start } = require('repl')
+function render(template_name, context) {
+  // find a template in the same folder as this file
+  // and replace  ${key} by context[key]
+  const path = require('path')
+  const fullname = path.join(__dirname, template_name)
+  let template = fs.readFileSync(fullname, 'utf-8')
+  return template.replace(/\$\{(\w+)\}/g, (_, k) => {
+    if (!(k in context)) {
+      console.error(`Missing template variable: ${k}`);
+    }
+    return context[k];
+  });
+}
+
 function hash(word) {
   const crypto = require('crypto')
   const sha1 = crypto.createHash('sha1')
@@ -170,264 +190,33 @@ function sample_from_strings(code, options) {
 	let width_style = output_show ? `width: ${width}; min-width: ${min_width};` : ``
 	let height_style = `height: ${height}; min-height: ${min_height};`
   let font_size_style = `font-size: ${font_size};`
-	let embedded = `<style>
-    #btns_left_${id} {
-      margin-top: 8px;
-      border-bottom: 3px solid #88f;
-    }
-		span.${id}_btn {
-			font-family: Courier;
-			border: 0px;
-			padding: 6px 12px 4px 12px;
-      border-top-left-radius: 6px;
-      border-top-right-radius: 6px;
-		}
-		span.${id}_selected {
-			background-color: #ccf;
-		}
-		button.${id}_btn {
-			border: 1px solid #88f;
-			border-radius: 5px;
-			background-color: #eef;
-			margin-right: 10px;
-			margin-bottom: 0px;
-			padding: 4px 20px;
-			height: fit-content;
-		}
-		#btns_right_${id} {
-			align-items: center;
-		}
-    #output_${id} {
-      min-width: ${output_min_width}
-    }
-	</style>
+  const btns_left_style = sources_show ? 'display: flex' : 'display: none'
+  const btns_right_style = sources_show ? '' : height_style
+  const display_style = `display:${sources_show ? 'grid' : 'none'}`
+  const start_with_html = (start_with === 'html')
+  const start_with_html_display = start_with_html ? '' : 'none'
+  const start_with_css = (start_with === 'css')
+  const start_with_css_display = start_with_css ? '' : 'none'
+  const start_with_js = (start_with === 'js')
+  const start_with_js_display = start_with_js ? '' : 'none'
+  const grid_template_columns = output_show ? 'auto 1fr' : '1fr'
 
-	<div class="tools-grid" style="display: grid; grid-template-columns: ${output_show ? 'auto 1fr' : '1fr'}; grid-template-rows: auto 1fr;">
-    <div id="btns_left_${id}" class="tools_btns_left"
-      style="display: ${sources_show ? 'flex' : 'none'};"></div>
-	  <div id="btns_right_${id}" class="tools_btns_right"
-      style="display: flex; justify-content: flex-start; ${sources_show ? '' : height_style}"></div>
-	  <div id="codemirror_${id}" class="tools_codemirror"
-      style="display:${sources_show ? 'grid' : 'none'}; grid-template-columns: 1fr; grid-template-rows: 1fr;
-             overflow: auto; resize: both; z-index: 100; ${width_style}; ${height_style}; ${font_size_style};" >
-	  ${textareas}
-	  </div>
-	  <div id="output_${id}" class="tools_output"
-      style="display: grid; grid-template-columns: 1fr; grid-template-rows: 1fr;"></div>
-	</div>
-
-	<script>
-	run_when_codemirror_is_ready(
-    (CodeMirror) => {
-
-	let all_src = { }
-
-	let output = document.getElementById("output_${id}")
-
-	let get_samples = () => {
-		let html = ''
-		let css = ''
-		let js = ''
-
-		if (all_src.hasOwnProperty('html')) {
-			html = all_src.html.getValue()
-		}
-
-		if (all_src.hasOwnProperty('css')) {
-			css = all_src.css.getValue()
-		}
-
-		if (all_src.hasOwnProperty('js')) {
-			js = all_src.js.getValue()
-		}
-
-
-		let template = "&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;style&gt;__css__&lt;/style&gt;&lt;script defer&gt;__js__&lt;/script&gt;&lt;/head&gt;&lt;body&gt;__html__&lt;/body&gt;&lt;/html&gt;";
-		// escape trick
-		let escape_trick = document.createElement("textarea")
-		escape_trick.innerHTML = template
-		template = escape_trick.textContent
-
-		template = template.replace("__html__", html)
-		template = template.replace("__css__", css)
-		template = template.replace("__js__", js)
-
-		return template
-	}
-
-	let update_iframe = () => {
-
-    console.log("update_iframe called")
-
-    if (! ${output_show}) return
-
-		let template = get_samples()
-
-		let iframe = document.createElement("iframe")
-		while (output.firstChild) {
-			output.removeChild(output.lastChild)
-		}
-
-		output.appendChild(iframe)
-    iframe.width = "100%"
-    iframe.height = "100%"
-
-		if (iframe.contentWindow) {
-			iframe = iframe.contentWindow
-		} else if (iframe.contentDocument.document) {
-      iframe = iframe.contentDocument.document
-    } else {
-      iframe = iframe.contentDocument
-		}
-
-		iframe.document.open()
-		iframe.document.write(template)
-		iframe.document.close()
-
-		return false
-
-	}
-
-  if (${html_show}) {
-    const html_src = document.getElementById("html_${id}")
-    all_src.html = CodeMirror.fromTextArea(html_src, {
-      lineNumbers: true,
-      mode: "htmlmixed"
-    })
-    all_src.html.getWrapperElement().style['min-height'] = '${height}'
-    all_src.html.getWrapperElement().style.display = ${start_with == 'html'} ? "block" : "none"
+  const context = {
+    id, width, height, output_min_width,
+    btns_left_style, btns_right_style,
+    display_style, width_style, height_style, font_size_style,
+    textareas, output_show, html_show, css_show, js_show,
+    start_with, start_with_html, start_with_css, start_with_js,
+    start_with_html_display, start_with_css_display, start_with_js_display,
+    sources_show, update_show, separate_show, update_label, separate_label,
+    separate_height, separate_width,
+    grid_template_columns,
   }
 
-  if (${css_show}) {
-    const css_src = document.getElementById("css_${id}")
-    all_src.css = CodeMirror.fromTextArea(css_src, {
-      lineNumbers: true,
-      mode: "css"
-    })
-    all_src.css.getWrapperElement().style['min-height'] = '${height}'
-    all_src.css.getWrapperElement().style.display = ${start_with == 'css'} ? "block" : "none"
-  }
+  const embedded = render("embedded-template.html", context)
 
-  if (${js_show}) {
-    const js_src = document.getElementById("js_${id}")
-    all_src.js = CodeMirror.fromTextArea(js_src, {
-      lineNumbers: true,
-      mode: "javascript"
-    })
-    all_src.js.getWrapperElement().style['min-height'] = '${height}'
-    all_src.js.getWrapperElement().style.display = ${start_with == 'js'} ? "block" : "none"
-  }
-
-	const codemirror = document.getElementById("codemirror_${id}")
-	/* Trick to update the codemirror layout when resized */
-	function update_codemirror() {
-		if (! ${sources_show}) return
-		if (${html_show}) all_src.html.refresh()
-		if (${css_show}) all_src.css.refresh()
-		if (${js_show}) all_src.js.refresh()
-	}
-	codemirror.addEventListener("mouseup", update_codemirror)
-
-
-	let btns_left = document.getElementById("btns_left_${id}")
-
-  let btn_html, btn_css, btn_js
-
-  if (${html_show}) {
-	  btn_html = document.createElement("span")
-	  btn_html.textContent = "HTML"
-	  btn_html.classList.add("${id}_btn")
-	  if (${start_with == 'html'}) btn_html.classList.add("${id}_selected")
-	  btns_left.appendChild(btn_html)
-  }
-	if (${css_show}) {
-    btn_css = document.createElement("span")
-    btn_css.textContent = "CSS"
-    btn_css.classList.add("${id}_btn")
-    if (${start_with == 'css'}) btn_css.classList.add("${id}_selected")
-    btns_left.appendChild(btn_css)
-  }
-  if (${js_show}) {
-    btn_js = document.createElement("span")
-    btn_js.textContent = "JS"
-    btn_js.classList.add("${id}_btn")
-    if (${start_with == 'js'}) btn_js.classList.add("${id}_selected")
-    btns_left.appendChild(btn_js)
-  }
-	let btn_fill = document.createElement("span")
-//	btn_fill.classList.add("${id}_btn")
-	btn_fill.style['flex-grow'] = '1'
-	btns_left.appendChild(btn_fill)
-
-  if (${html_show}) {
-    btn_html.addEventListener("click", () => {
-      if (btn_css) btn_css.classList.remove("${id}_selected")
-      if (btn_js) btn_js.classList.remove("${id}_selected")
-      btn_html.classList.add("${id}_selected")
-      if (btn_css) all_src.css.getWrapperElement().style.display = "none"
-      if (btn_js) all_src.js.getWrapperElement().style.display = "none"
-      all_src.html.getWrapperElement().style.display = "block"
-      all_src.html.refresh()
-  	})
-  }
-
-  if (${css_show}) {
-    btn_css.addEventListener("click", () => {
-      if (btn_html) btn_html.classList.remove("${id}_selected")
-      if (btn_js) btn_js.classList.remove("${id}_selected")
-      btn_css.classList.add("${id}_selected")
-      if (btn_html) all_src.html.getWrapperElement().style.display = "none"
-      if (btn_js) all_src.js.getWrapperElement().style.display = "none"
-      all_src.css.getWrapperElement().style.display = "block"
-      all_src.css.refresh()
-    })
-  }
-
-  if (${js_show}) {
-    btn_js.addEventListener("click", () => {
-      if (btn_css) btn_css.classList.remove("${id}_selected")
-      if (btn_html) btn_html.classList.remove("${id}_selected")
-      btn_js.classList.add("${id}_selected")
-      if (btn_html) all_src.html.getWrapperElement().style.display = "none"
-      if (btn_css) all_src.css.getWrapperElement().style.display = "none"
-      all_src.js.getWrapperElement().style.display = "block"
-      all_src.js.refresh()
-    })
-  }
-
-	if (${update_show}) {
-    let btn_update = document.createElement("button")
-    btn_update.textContent = "${update_label}"
-    btn_update.classList.add("${id}_btn")
-    btns_left.appendChild(btn_update)
-    btn_update.addEventListener("click", update_iframe)
-  }
-
-	let btns_right = document.getElementById("btns_right_${id}")
-
-	if (${separate_show}) {
-		let btn_window = document.createElement("button")
-		btn_window.textContent = "${separate_label}"
-		btn_window.classList.add("${id}_btn")
-		btn_window.addEventListener("click", () => {
-			let template = get_samples()
-
-			let w = window.open('', '_blank', 'height=${separate_height},width=${separate_width}')
-			w.document.open()
-			w.document.write(template)
-			w.document.close()
-
-		})
-		btns_right.appendChild(btn_window)
-	}
-
-	update_iframe()
-
-	all_src['${start_with}'].refresh()
-
-	}); /* End of all requirements */
-  </script>
-	`
+  // for debug purposes
+  // fs.writeFileSync(`embedded_${id}.html`, embedded, 'utf-8')
 
 	$$.html(embedded)
 }
