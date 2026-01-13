@@ -21,13 +21,17 @@ short_title: loading CSS
 tools = require('../js/tools'); tools.init()
 ```
 
+how can we attach CSS styling to a HTML document ?
+
+---
+
 ## 3 ways to apply CSS
 
 * located in a **separate CSS file** - via its own URL
 * embedded in HTML within a `<style>` tag
 * hard-attached to an element itself with `style=`
 
-+++
+---
 
 ## method 1 : a separate CSS
 
@@ -47,7 +51,7 @@ separate_html = `
 <html>
   <head>
     <!-- this is the line that matters -->
-    <link rel="stylesheet" href="hello.css">  
+    <link rel="stylesheet" href="hello.css">
   </head>
   <body>
      Hello
@@ -71,7 +75,7 @@ tools.sample_from_strings({html: separate_html, css: separate_css})
 * among others : `<br>`, `<hr>`, `<link>`, `<img>`, ...
 ````
 
-+++
+---
 
 ## URLs
 
@@ -83,7 +87,7 @@ tools.sample_from_strings({html: separate_html, css: separate_css})
 
 where
 - `https://` is a indication of the **protocol** to use; it is very often `https://` indeed
-  ````{admonition} what does the s stand for ?
+  ::::{admonition} what does the `s` stand for ?
   :class: info dropdown admonition-small
 
   the final `s` in `https` stands for **secure**; indeed `https` is mostly `http`, 
@@ -91,28 +95,27 @@ where
 
   * an encryption layer (to avoid man-in-the-middle attacks), 
   * and also certificates to make sure that you really talk to whom you intend to
-  ````
+  ::::
 - `hostname.io` is a **hostname**; before the browser can actually send a packet to that host,
   it first needs to find **its IP address** - and for that purpose it asks the DNS service (Domain Name System)
 
 - `/the/path/to/content` is a path relative to the web server root
   it may represent an actual path in the server's file system (for static pages)  
-  but most often it is relative to virtual namespace, i.e. it is interpreted by the server as a way to identify what is requested; for example, `/book/52` could be a way to ask information about book number 52
+  but most often it is relative to virtual namespace, i.e. it is interpreted by the server as a way to identify what is requested  
+  for example, `/book/52` could be a way to ask information about book number 52
 
-+++
+---
 
-````{admonition} lots of variants
-:class: tip dropdown admonition-smaller
+### URL variants
 
 there are many variants in the way to build a URL, and we'll touch on that during the course, but for example
 
 - `mailto:someone@example.com` would use another protocol entirely - here it just opens a mail message
 - `https://hostname.io:999/the/path/to/content` would mean to use an alternative port number 999
 - `https://username:password@hostname.io/the/path/to/content` would specify an authentication method
-- `https://hostname.io/the/path/to/content#some-section` would allow to point to the named anchor `some-section` in the page, i.e. a `<a name="some-section"> element, instead of the top of the page
-````
+- `https://hostname.io/the/path/to/content#some-section` would allow to point to the named anchor `some-section` in the page, i.e. some &lt;a name="some-section"&gt; element, instead of the top of the page
 
-+++
+---
 
 ### relative URLs
 
@@ -122,14 +125,18 @@ and that's exactly what we've done when we wrote `href="hello.css"` in our `<hea
 imagine if you have loaded a document as, say `https://hostname.io/the/path/to/content`  
 then **from within that document**:
 
-* `href="to.css"` is interpreted as `href="http://hostname.io/the/path/to.css"`
-* `href="/to.css"` is interpreted as `href="http://hostname.io/to.css"`
-* `href="/other/path/to.css"` is interpreted as `href="http://hostname.io/other/path/to.css"`
-* `href="other/path/to.css"` is interpreted as `href="http://hostname.io/the/path/other/path/to.css"`
+* `href="to.css"` is interpreted as  
+  → `href="http://hostname.io/the/path/to.css"`
+* `href="/to.css"` is interpreted as  
+  → `href="http://hostname.io/to.css"`
+* `href="/other/path/to.css"` is interpreted as  
+  → `href="http://hostname.io/other/path/to.css"`
+* `href="other/path/to.css"` is interpreted as  
+  → `href="http://hostname.io/the/path/other/path/to.css"`
 
-and the same goes with the <code>file:///</code> URL scheme
+(and the same goes with the <code>file:///</code> URL scheme of course)
 
-+++
+---
 
 ## method 2 : inline in html
 
@@ -137,8 +144,7 @@ back to the topic of injecting CSS in the page
 
 * you can also insert a `<style>` tag in your HTML
 * and mention the CSS code there directly
-* it is **less recommended** as it kind of ruins the  
-  **separation** between **contents** and **presentation**
+* it is **less recommended** as it kind of ruins **separation** between **contents** and **presentation**
 
 ```{code-cell}
 :tags: [remove-input]
@@ -157,6 +163,8 @@ div {
 
 tools.sample_from_strings({html: embedded_html})
 ```
+
+---
 
 ## method 3: hardwired with `style=`
 
@@ -185,34 +193,41 @@ more on this later on
 tools.sample_from_strings({html: embedded_html})
 ```
 
+---
+
 ## practice
 
 * we recommend you use a local git repo all along  
   i.e. create a new folder and `git init`
 
-* copy `hello.html` into `mycv.html`
+* create a file named `mycv.html`
 * create a more realistic skeleton for a résumé
-  * with 4 sections *Experience*, *Education*, *Skills* and *Languages*
+  * with a header section (name, photo, mail, etc...)
+  * and 4 sections *Experience*, *Education*, *Skills* and *Languages*
   * **keep it simple** for now, nothing too elaborate
   * make sure all the text gets attached to adapted tags like `<div>` or `<li>`
   * and **not** directly under `<body>` - like it was done in `hello.html`
   * make sure to insert at least one `<a href=...>` hyperlink
 
-+++
+---
 
 ### practice (continued)
 
 * create a CSS file `mycv.css`
   * with some settings that should apply to `mycv.html`
-* add a `<link>` tag in the html `<head>` area
-  * so the css is loaded by the html
+* add a `<link>` tag so the CSS is loaded by the HTML
 * load `mycv.html` in a browser
   * change the CSS and reload the browser page
   * to see the effect of your changes
 
-+++
+::::{admonition} important: setup `vite` !
+[make sure to setup `vite`](vite-nb#label-vite)  
+  so you don't need to reload the browser page all the time...
+::::
 
-## the browser cache
+---
+
+### the browser cache
 
 for performance reasons primarily :
 
@@ -226,7 +241,7 @@ for performance reasons primarily :
 * reloading the html file
 * may **not reload** the css because it is cached
 
-+++
+---
 
 ### how to deal with it
 
