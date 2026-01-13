@@ -23,7 +23,7 @@ project:
       children:
         - pattern: 1*-nb.md
 
-    - title: layout with CSS
+    - title: Layout with CSS
       children:
         - pattern: 2*-nb.md
 
@@ -31,15 +31,15 @@ project:
       children:
         - pattern: 3*-nb.md
 
-    - title: practising JS
+    - title: Practising JS
       children:
         - pattern: "[45]*-nb.md"
 
-    - title: optional content
+    - title: Optional content
       children:
         - pattern: 6*-nb.md
 
-    - title: handouts Aurélien
+    - title: Handouts Aurélien
       children:
         - url: http://ue22-p24-web.surge.sh/
           title: sur surge.sh

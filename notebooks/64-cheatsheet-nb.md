@@ -11,7 +11,6 @@ kernelspec:
   name: javascript
 language_info:
   name: javascript
-short_title: jQuery
 ---
 
 (cheatsheet)=

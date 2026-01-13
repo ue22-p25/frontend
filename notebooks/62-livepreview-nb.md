@@ -11,7 +11,7 @@ kernelspec:
   name: javascript
 language_info:
   name: javascript
-short_title: vite
+short_title: vscode preview
 ---
 
 (label-livepreview)=
@@ -43,7 +43,7 @@ when ran this way, the devel tools will show your document but **within the vsco
 this is described in greater length [in this SO answer](https://stackoverflow.com/questions/73406192/vs-codes-live-preview-extension-element-section-doesnt-seems-to-work-properly), but in a nutshell this is because vscode is a web app in itself, and so you're going to inspect the full vscode elements, of which your document is just a fragment  
 
 and it can make navigating through the DOM a little confusing  
-if that's an issue [you can also use `vite`](label-vite)=
+if that's an issue [you can also use `vite`](vite-nb#label-vite)
 
 +++
 

@@ -11,7 +11,7 @@ kernelspec:
   name: javascript
 language_info:
   name: javascript
-short_title: vite
+short_title: surge.sh
 ---
 
 (label-surge)=

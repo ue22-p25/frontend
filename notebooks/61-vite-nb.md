@@ -14,9 +14,10 @@ language_info:
 short_title: vite
 ---
 
-(label-vite)=
 
 # vite
+
+(label-vite)=
 
 ```{code-cell}
 :tags: [remove-cell]

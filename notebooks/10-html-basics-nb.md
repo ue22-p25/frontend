@@ -92,7 +92,7 @@ the browser fetching files directly from the local filesystem
 
 please note that, as time goes by, using `file:` URLs for development is becoming less and less workable; notably because of new policies related to Cross-Origin cookies; but let's not get ahead of ourselves, this will work just fine for now
 
-for more serious work, see [the page on setting up `vite` for a more realistic setup](label-vite)
+for more serious work, see [the page on setting up `vite` for a more realistic setup](vite-nb#label-vite)
 ````
 
 ---
