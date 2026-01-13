@@ -1,48 +1,40 @@
 ---
-jupyter:
-  jupytext:
-    formats: md
-    text_representation:
-      extension: .md
-      format_name: markdown
-  kernelspec:
-    display_name: JavaScript (Node.js)
-    language: javascript
-    name: javascript
-  short_title: "JS intro"
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: JavaScript (Node.js)
+  language: javascript
+  name: javascript
+language_info:
+  name: javascript
+short_title: JS intro
 ---
 
 # displaying code samples
 
+---
 
 ## init()
 
-```javascript
+```{code-cell}
 // the code to force a reload
 delete require.cache[require.resolve('../js/tools')]
 ```
 
-```javascript
+```{code-cell}
 // this will evaluate all cells, and inject the global css style
 tools = require('../js/tools'); tools.init()
 ```
 
-```javascript
+```{code-cell}
 /* customized look for output cells */
 20 * 300
 ```
 
-<!-- #region -->
-for convenience (and to reduce the footprint of the recurring init cell), init() does also load the style sheets `style_common.css` and `style_local.css` located in `notebooks/_static`
-
-the code for doing so is - could be useful for some simpler js-based course `.style` file -
-```js
-$$.html(require('fs').readFileSync('../notebooks/_static/style.html', 'utf8'))
-```
-<!-- #endregion -->
-
-<div class="red-pill">is this a red pill</div>
-
+---
 
 ## sample_from_strings()
 
@@ -57,27 +49,28 @@ sample_from_strings(
 )
 ```
 
+---
 
 by default, the `id` option is computed from `html` - be wary to specify different `id`s if you display the same html code several times
 
++++
 
 ### select which source to display (html, css, js)
 
-
-```javascript
+```{code-cell}
 // clean up and reload
 delete require.cache[require.resolve('../js/tools')]
 tools = require('../js/tools')
 undefined
 ```
 
-```javascript
+```{code-cell}
 // by default, all 3 even if void
 
 tools.sample_from_strings({'html': 'HELLO'}, {id: 'id1'})
 ```
 
-```javascript
+```{code-cell}
 // use the options to remove one of the 3
 // btw here the html is off so nothing shows up at all
 
@@ -86,22 +79,33 @@ tools.sample_from_strings({html: 'HELLO'}, {id: 'id2', html_show: false})
 
 ### start with another view
 
-```javascript
+```{code-cell}
 // we can start on something else than html
 tools.sample_from_strings(
-    {html: 'HELLO', js: 'console.log("Hi")'}, {id: 'id3', css_show: false, start_with: 'js'})
+    {html: 'HELLO', js: 'console.log("Hi")'}, 
+    {id: 'id3', css_show: false, start_with: 'js'})
+```
+
+### specifying sizes
+
+```{code-cell}
+// can set: width - min_width - height - min_height - font_size
+// or     : output_min_width  
+tools.sample_from_strings(
+    {html: 'HELLO'}, 
+    {id: 'id4', 'font_size': '30px'})
 ```
 
 # from plain strings
 
-```javascript scrolled=false
+```{code-cell}
 // clean up and reload
 delete require.cache[require.resolve('../js/tools')]
 tools = require('../js/tools')
 undefined
 ```
 
-```javascript
+```{code-cell}
 fragment1 = `<html>
   <head>
      <!-- various document-wide declarations -->
@@ -118,17 +122,20 @@ tools.sample_from_strings({html: fragment1})
 
 # from files
 
++++
 
 ## without the separate button
 
-```javascript
+```{code-cell}
 // clean up and reload
 delete require.cache[require.resolve('../js/tools')]
 tools = require('../js/tools')
 undefined
 ```
 
-```javascript scrolled=true
+```{code-cell}
+:scrolled: true
+
 // in general, no need to worry about sizes, provided that the sources
 // take a reasonable space
 tools.sample_from_stem(
@@ -138,14 +145,14 @@ tools.sample_from_stem(
 
 ## with the separate button
 
-```javascript
+```{code-cell}
 // clean up and reload
 delete require.cache[require.resolve('../js/tools')]
 tools = require('../js/tools')
 undefined
 ```
 
-```javascript scrolled=false
+```{code-cell}
 // here the autosizing mode would pick a very high window
 // because the JS script is very large
 // so we keep this under control
@@ -156,14 +163,16 @@ tools.sample_from_stem(
 
 ## no code, just the result - with separate
 
-```javascript
+```{code-cell}
 // clean up and reload
 delete require.cache[require.resolve('../js/tools')]
 tools = require('../js/tools')
 undefined
 ```
 
-```javascript scrolled=true
+```{code-cell}
+:scrolled: true
+
 // the default is separate_show = true
 
 tools.sample_from_stem(
@@ -176,17 +185,18 @@ tools.sample_from_stem(
 
 ## no code, just the result - truly basic, no separate
 
++++
 
 **beware** because we re-use the same stem twice, we need to provide our own id
 
-```javascript
+```{code-cell}
 // clean up and reload
 delete require.cache[require.resolve('../js/tools')]
 tools = require('../js/tools')
 undefined
 ```
 
-```javascript scrolled=false
+```{code-cell}
 // here because we use the same code exactly
 // we need to provide a unique id
 // otherwise we mess with the previous sample
@@ -198,14 +208,14 @@ tools.sample_from_stem(
 
 ## the calculator
 
-```javascript
+```{code-cell}
 // clean up and reload
 delete require.cache[require.resolve('../js/tools')]
 tools = require('../js/tools')
 undefined
 ```
 
-```javascript scrolled=false
+```{code-cell}
 tools.sample_from_stem(
     "../samples/46-calculator",
     {sources_show: false, separate_show: false, height: '500px'})
@@ -213,14 +223,14 @@ tools.sample_from_stem(
 
 # escaping
 
-```javascript
+```{code-cell}
 // clean up and reload
 delete require.cache[require.resolve('../js/tools')]
 tools = require('../js/tools')
 undefined
 ```
 
-```javascript
+```{code-cell}
 // NOT WORKING
 
 html_with_tags = `<b>NOT WORKING</b>
@@ -235,7 +245,9 @@ tools.sample_from_strings(
 )
 ```
 
-```javascript tags=["raises-exception"]
+```{code-cell}
+:tags: [raises-exception]
+
 html_with_tags = `<b> YES ! - need to double escape like this:</b>
 <p> a paragraph with a &amp;lt;tag&amp;gt; tag inside </p>
 `

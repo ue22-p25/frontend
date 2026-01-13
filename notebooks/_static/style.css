@@ -315,8 +315,21 @@ as the code cell is then part of the list item, in markdown, and is no longer de
 *:has(+div.group\/block>div.myst-code) {
     margin-bottom: 0.3em;
 }
+/* stolen from backend - outline horizontal rules */
+hr.py-2.my-5.translate-y-2 {
+  border-top-width: 15px;
+}
+
+.figure-outline {
+  background-color: #f8f9fa;
+  border-radius: 15px;
+  border: 1px solid #dee2e6;
+  padding: 10px;
+}
+
+
 /* goes with the local tool.js
- * deep selection to take precedence from sphinx 
+ * deep selection to take precedence from sphinx
  */
 div.CodeMirror-lines div.CodeMirror-code pre.CodeMirror-line {
     border: unset;
@@ -330,14 +343,16 @@ div.CodeMirror-lines div.CodeMirror-code pre.CodeMirror-line {
     background-color: unset;
 }
 
-/* stolen from backend - outline horizontal rules */
-hr.py-2.my-5.translate-y-2 {
-  border-top-width: 15px;
-}
+/* add a separator between sources and output */
+.tools-grid {
+  column-gap: 10px;
 
-.figure-outline {
-  background-color: #f8f9fa;
-  border-radius: 15px;
-  border: 1px solid #dee2e6;
-  padding: 10px;
+  &>:nth-child(2),
+  &>:nth-child(4) {
+    padding-left: 10px;
+    border-left-style: solid;
+    border-left-width: 3px;
+    border-left-color: #d4e8fc;
+  }
+
 }

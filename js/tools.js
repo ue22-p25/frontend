@@ -130,6 +130,10 @@ function sample_from_strings(code, options) {
   const default_height = (sources_show ? `${number_lines(code_height)+4}em` : "300px")
   let height = options.height || default_height
 
+  // font_size is now an option
+  const default_font_size = "10px"
+  let font_size = options.font_size || default_font_size
+
   // default width
   // compute from content, but cap to - arbitrarily - 55 chars
   const computed_width = Math.min(max_line_width_s(code), 55)
@@ -151,6 +155,7 @@ function sample_from_strings(code, options) {
 
 	let width_style = output_show ? `width: ${width}; min-width: ${min_width};` : ``
 	let height_style = `height: ${height}; min-height: ${min_height};`
+  let font_size_style = `font-size: ${font_size};`
 	let embedded = `<style>
     #btns_left_${id} {
       margin-top: 8px;
@@ -182,14 +187,14 @@ function sample_from_strings(code, options) {
       min-width: ${output_min_width}
     }
 	</style>
-	<div style="display: grid; grid-template-columns: ${output_show ? 'auto 1fr' : '1fr'}; grid-template-rows: auto 1fr;">
+	<div class="tools-grid" style="display: grid; grid-template-columns: ${output_show ? 'auto 1fr' : '1fr'}; grid-template-rows: auto 1fr;">
     <div id="btns_left_${id}" class="tools_btns_left"
       style="display: ${sources_show ? 'flex' : 'none'};"></div>
 	  <div id="btns_right_${id}" class="tools_btns_right"
       style="display: flex; justify-content: flex-start; ${sources_show ? '' : height_style}"></div>
 	  <div id="codemirror_${id}" class="tools_codemirror"
       style="display:${sources_show ? 'grid' : 'none'}; grid-template-columns: 1fr; grid-template-rows: 1fr;
-             overflow: auto; resize: both; z-index: 100; ${width_style}; ${height_style};" >
+             overflow: auto; resize: both; z-index: 100; ${width_style}; ${height_style}; ${font_size_style};" >
 	  ${textareas}
 	  </div>
 	  <div id="output_${id}" class="tools_output"

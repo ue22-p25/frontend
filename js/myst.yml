@@ -1,0 +1,15 @@
+# See docs at: https://mystmd.org/guide/frontmatter
+version: 1
+project:
+  id: b05b6dc1-ac0d-42b7-8f7d-c9d7370474db
+  # title:
+  # description:
+  # keywords: []
+  # authors: []
+  github: https://github.com/ue22-p25/frontend
+  # To autogenerate a Table of Contents, run "myst init --write-toc"
+site:
+  template: book-theme
+  # options:
+  #   favicon: favicon.ico
+  #   logo: site_logo.png
