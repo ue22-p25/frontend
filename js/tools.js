@@ -86,6 +86,20 @@ function sample_from_stem(stem, options) {
   return sample_from_strings({html:html, css: css, js: js}, options)
 }
 
+let default_options = {
+  font_size: "12px",
+  width: "400px",
+  height: "300px",
+  // these ones are maybe less useful...
+  min_height: undefined,
+  min_width: undefined,
+  output_min_width: "300px",
+}
+
+function set_options(user_options) {
+  default_options = {...default_options, ...user_options}
+}
+
 function sample_from_strings(code, options) {
   options = options || {}
   let {html, css, js} = code
@@ -127,21 +141,21 @@ function sample_from_strings(code, options) {
     delete options.height
   }
   // header is approx. 4 lignes
-  const default_height = (sources_show ? `${number_lines(code_height)+4}em` : "300px")
+  const default_height = (sources_show ? `${number_lines(code_height)+4}ch` : default_options.height)
   let height = options.height || default_height
 
   // font_size is now an option
-  const default_font_size = "10px"
+  const default_font_size = default_options.font_size
   let font_size = options.font_size || default_font_size
 
   // default width
   // compute from content, but cap to - arbitrarily - 55 chars
   const computed_width = Math.min(max_line_width_s(code), 55)
   // here again we need more space for the decoration
-  const default_width = (sources_show ? `${computed_width+8}ch` : "400px")
+  const default_width = (sources_show ? `${computed_width+8}ch` : default_options.width)
   let width = options.width || default_width
-  let min_width = options.min_width || csslength_fraction(width, 0.5)
-  let min_height = options.min_height || csslength_fraction(height, 0.5)
+  let min_width = options.min_width || default_options.min_width || csslength_fraction(width, 0.5)
+  let min_height = options.min_height || default_options.min_height || csslength_fraction(height, 0.5)
 
   const output_min_width = options.output_min_width || "300px"
 
@@ -187,6 +201,7 @@ function sample_from_strings(code, options) {
       min-width: ${output_min_width}
     }
 	</style>
+
 	<div class="tools-grid" style="display: grid; grid-template-columns: ${output_show ? 'auto 1fr' : '1fr'}; grid-template-rows: auto 1fr;">
     <div id="btns_left_${id}" class="tools_btns_left"
       style="display: ${sources_show ? 'flex' : 'none'};"></div>
@@ -200,8 +215,8 @@ function sample_from_strings(code, options) {
 	  <div id="output_${id}" class="tools_output"
       style="display: grid; grid-template-columns: 1fr; grid-template-rows: 1fr;"></div>
 	</div>
-	<script>
 
+	<script>
 	run_when_codemirror_is_ready(
     (CodeMirror) => {
 
@@ -209,7 +224,7 @@ function sample_from_strings(code, options) {
 
 	let output = document.getElementById("output_${id}")
 
-	let get_example_content = () => {
+	let get_samples = () => {
 		let html = ''
 		let css = ''
 		let js = ''
@@ -242,9 +257,11 @@ function sample_from_strings(code, options) {
 
 	let update_iframe = () => {
 
+    console.log("update_iframe called")
+
     if (! ${output_show}) return
 
-		let template = get_example_content()
+		let template = get_samples()
 
 		let iframe = document.createElement("iframe")
 		while (output.firstChild) {
@@ -393,7 +410,7 @@ function sample_from_strings(code, options) {
 		btn_window.textContent = "${separate_label}"
 		btn_window.classList.add("${id}_btn")
 		btn_window.addEventListener("click", () => {
-			let template = get_example_content()
+			let template = get_samples()
 
 			let w = window.open('', '_blank', 'height=${separate_height},width=${separate_width}')
 			w.document.open()
@@ -541,3 +558,4 @@ if ('Jupyter' in globalThis) {
 exports.init = init
 exports.sample_from_strings = sample_from_strings
 exports.sample_from_stem = sample_from_stem
+exports.set_options = set_options

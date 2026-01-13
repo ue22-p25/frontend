@@ -50,11 +50,9 @@ sample_from_strings(
 )
 ```
 
----
-
 by default, the `id` option is computed from `html` - be wary to specify different `id`s if you display the same html code several times
 
-+++
+---
 
 ### select which source to display (html, css, js)
 
@@ -82,6 +80,8 @@ tools.sample_from_strings({'html': 'HELLO'}, {id: 'hello'})
 
 tools.sample_from_strings({html: 'HELLO'}, {id: 'empty', html_show: false})
 ```
+
+---
 
 ### start with another view
 
@@ -124,6 +124,8 @@ tools.sample_from_strings(
 )
 ```
 
+---
+
 ### specifying sizes
 
 ```{code-cell}
@@ -134,7 +136,9 @@ tools.sample_from_strings(
     {id: 'font_size', 'font_size': '30px'})
 ```
 
-# from plain strings
+---
+
+## from plain strings
 
 ```{code-cell}
 // clean up and reload
@@ -158,11 +162,11 @@ fragment1 = `<html>
 tools.sample_from_strings({html: fragment1})
 ```
 
-# from files
+---
 
-+++
+## from files
 
-## without the separate button
+### without the separate button
 
 ```{code-cell}
 // clean up and reload
@@ -181,7 +185,9 @@ tools.sample_from_stem(
     {id: 'separate_off', start_with: 'css', separate_show: false})
 ```
 
-## with the separate button
+---
+
+### with the separate button
 
 ```{code-cell}
 // clean up and reload
@@ -201,6 +207,8 @@ tools.sample_from_stem(
      start_with: 'js',
      height: '22em'})
 ```
+
+---
 
 ## no code, just the result - with separate
 
@@ -225,9 +233,9 @@ tools.sample_from_stem(
 })
 ```
 
-## no code, just the result - truly basic, no separate
+---
 
-+++
+## no code, just the result - truly basic, no separate
 
 **beware** because we re-use the same stem twice, we need to provide our own id
 
@@ -248,6 +256,8 @@ tools.sample_from_stem(
     {id: 'duplicate', height: '20em', sources_show: false, separate_show: false})
 ```
 
+---
+
 ## the calculator
 
 ```{code-cell}
@@ -263,7 +273,9 @@ tools.sample_from_stem(
     {sources_show: false, separate_show: false, height: '500px'})
 ```
 
-# escaping
+---
+
+## escaping
 
 ```{code-cell}
 // clean up and reload
@@ -300,4 +312,26 @@ tools.sample_from_strings(
 )
 ```
 
-***
+---
+
+## setting options globally
+
+this function allows to set default options globally
+
+```{code-cell}
+
+tools.set_options({
+    font_size: '6px',
+    min_width: '200px',
+    min_height: '0px',
+    height: '400px',
+})
+```
+
+and then the defaults will be used in subsequent calls
+
+```{code-cell}
+tools.sample_from_strings(
+    {html: '<p> this sample uses the global options set previously </p>'},
+    {id: 'global-options-sample'})
+```
