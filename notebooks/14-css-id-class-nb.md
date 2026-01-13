@@ -21,33 +21,32 @@ short_title: id and class
 tools = require('../js/tools'); tools.init()
 ```
 
-+++ {"tags": ["gridwidth-1-2"]}
+---
 
 ## the need for selectors
 
 there is a need for more accurate / selective settings  
 remember when we styled our first hyperlink ? our CSS clause was something like this:
 
-+++ {"tags": ["gridwidth-1-2"]}
+::::{grid} 2
 
-```
+```css
 a {
     color: red;
     font-family: times;
 }
 ```
 
-+++
-
-however it will apply the settings *on **ALL `<a>` elements***  
+```{div}
+but the settings apply *on **ALL `<a>` elements***  
 that may be what we want, but in some cases we also need **more selective** mechanisms
-
-+++
+```
+::::
+---
 
 ## `id=` : assign a unique identifier
 
-* an element that is unique in your document
-* can be attached a unique identifier
+an element that is unique in your document can be attached a **unique** identifier
 
 ```{code-cell}
 :tags: [remove-input]
@@ -74,26 +73,7 @@ tools.sample_from_strings({html: id_html, css: id_css}, {start_with: 'html'})
 note that we have written `p#only-me`, but in this case `#only-me` would be quite enough
 ````
 
-```{code-cell}
-:tags: [remove-input]
-
-id2_html = `<div id="an-id">
-This div element has its id set to <code>an-id</code>
-<br>
-and the css selector here does not need the html tag at all
-</div>`
-
-id2_css = `/* applies to elements
- * whose id is 'an-id'
- * regardless of the tag */
-
-#an-id {
-    background-color: blue;
-    color: white;
-}`
-
-tools.sample_from_strings({html: id2_html, css: id2_css}, {start_with: 'css'})
-```
+---
 
 ## `class=` : styling elements by class
 
@@ -125,6 +105,8 @@ p.no {
 tools.sample_from_strings({html: class_html, css: class_css})
 ```
 
+---
+
 ## summary of basic selectors
 
 let's summarize
@@ -134,46 +116,49 @@ let's summarize
 | `p`      |  any element tagged `<p>` |
 | `#someident` | that have `id='someident'` |
 | `.someclass` |  that have `someclass` in their `class` attribute |
+
+and you can create combinations, e.g.
+
+| selector | applies to elements |
+|----------|:------------|
 | `h1.someclass` | tagged `<h1>` **and** of class `someclass` |
 | `h1.someclass#someid` | tagged `<h1>` **and** of class `someclass` **and** with `id='someid'` |
 | `.yes.no` | any element that has class `yes` **and** class `no` |
 
-+++
+---
 
 ## cascading and inheritance
 
-* cascading : what happens if **several rules** define,  
-  say, the 'color' property on one element ?
+* cascading:  
+  what happens if **several rules** define, say, the `color` property on an element ?
+* inheritance:  
+  what happens if **no rule** defines the `color` property on an element ?
 
-* inheritance : what happens if **no rule** defines  
-  the 'color' property on an element ?
-
-* in a nutshell :
+in a nutshell :
 
 | cascading | inheritance |
 |-|-|
 | the **most specific** rule wins | if not set on me, take the value **from my parent** |
 
-+++
+---
 
 ## cascading  & specificity
 
-in a nutshell, the intuition behind the actual rules is that
+in a nutshell, the intuition behind the specificity rules is
 
-* if you have defined a property in a `style` attribute, i.e. in the very node, it means you want this property to apply
-* otherwise if the selector specifies an `id`, this means you expect this setting to be valid on that node
-* otherwise if you have specified a `class`, it should apply
-* otherwise if the rule is based on the element's *tag*, it should apply
-* otherwise, if it is a wildcard rule (you can use `*` as the selector)
+* the `style` attributealways wins
+* otherwise if the selector specifies an `id`, it wins
+* otherwise if you have specified a `class`, it will apply
+* otherwise rules based on the element's *tag* will apply
+* otherwise, use wildcard rules (you can use `*` as the selector)
+* and finally, use the browser's default properties if set
 
-+++
+---
 
-````{admonition} how to compute  specificity
+````{admonition} how to compute specificity for combined selectors
 :class: dropdown info
 
-selectors can be more convoluted than what we've seen so far,  
-(more on this later on) but the logic to compare  
-specificity can be reasonably approximated as follows :
+for combined selectors, specificity can be reasonably approximated as follows :
 
 * for each property setting, compute a tuple with
   * 1 or 0 whether the property setting is in a `style=` attribute
@@ -183,20 +168,19 @@ specificity can be reasonably approximated as follows :
 * compare the tuples - like Python would do
 ````
 
-+++
+---
 
 ## specificity example
 
 in the 4 examples below, the CSS is unchanged throughout; we will see
 
 1. the `<p>` element with a `style`, an `id` and a `class` attributes  
-   so it would match all the CSS rules
-1. then we drop the `style` attribute
-1. and then the `id` attribute
-1. and finally when we drop the `class` attribute  
-   there is only one rule left to apply
+   so all the CSS rules match, but the `style=` clause wins
+2. then we drop the `style` attribute, and the `id` rule wins
+3. and we drop the `id` attribute, so the `class` rule wins
+4. and finally when we drop the `class` attribute, and there is only one rule left to apply
 
-+++
+---
 
 ### #(1) embedded `style=` wins
 
@@ -230,6 +214,8 @@ specificity_css = `p {
 tools.sample_from_strings({html: specificity1_html, css: specificity_css})
 ```
 
+---
+
 ### #(2) then `id=` wins
 
 ```{code-cell}
@@ -249,6 +235,8 @@ Lorem ipsum dolor sit amet.
 tools.sample_from_strings({html: specificity2_html, css: specificity_css})
 ```
 
+---
+
 ### #(3) then `class=` wins
 
 ```{code-cell}
@@ -267,6 +255,8 @@ Lorem ipsum dolor sit amet.
 tools.sample_from_strings({html: specificity3_html, css: specificity_css})
 ```
 
+---
+
 ### #(4) then the element's tag wins
 
 ```{code-cell}
@@ -282,6 +272,8 @@ Lorem ipsum dolor sit amet.
 `
 tools.sample_from_strings({html: specificity4_html, css: specificity_css})
 ```
+
+---
 
 ## inheritance
 
@@ -305,32 +297,33 @@ inherit_css = `.inheritance {
 tools.sample_from_strings({html: inherit_html, css: inherit_css})
 ```
 
+---
+
 ### inheritance - why
 
-the point is that
+the point is that we **do not** style the `<p>` and `<li>` elements specifically
 
-* we **do not** style the `<p>` and `<li>` elements specifically
-* so in this case the properies are fetched
-  * from their parent (the `<div>` element)
-  * that **is targetted** by our CSS rule
-* note that not all properties behave that way though
+so in this case the properies are fetched from their parent (the `<div>` element)
 
-+++
+(note that not all properties behave that way though)
+
+---
 
 ### inheritance & the `body` rule
 
-* however, it is common practice to create a rule  
-  whose selector targets the `body` element  
-  to tweak the global style (typically `font-family` and `font-size`)
-  
-```css
+so, it is common practice to create a rule for the `body` element  
+this way we can tweak the global style of the page
+
+```{code} css
+:linenos:
+:emphasize-lines: 1
 body {
     font-family: Times;
     font-size: 18px;
 }
 ```
 
-+++
+---
 
 ## see also
 
