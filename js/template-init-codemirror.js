@@ -63,5 +63,4 @@ function initialize_codemirror() {
 			window.dispatchEvent(e);
 		});
 	}
-
 }

@@ -1,4 +1,5 @@
-// this script must when the entire page was loaded
+// this script must load when the entire page was loaded
+// it is embedded in script defer tag from tools.js
 
 // we may be in a Jupyter runtime, or not (think, jupyter book)
 

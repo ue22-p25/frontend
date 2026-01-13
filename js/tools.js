@@ -12,12 +12,13 @@
 
 "use strict"
 
-const { sep } = require('path')
-const { text } = require('stream/consumers')
+// const { sep } = require('path')
+// const { text } = require('stream/consumers')
 
 
+// a micro-templating engine - only supports ${variable}
 const fs = require('fs')
-const { start } = require('repl')
+
 function render(template_name, context) {
   // find a template in the same folder as this file
   // and replace  ${key} by context[key]
@@ -107,7 +108,7 @@ function sample_from_stem(stem, options) {
 }
 
 let default_options = {
-  font_size: "12px",
+  font_size: "11px",
   width: "400px",
   height: "300px",
   // these ones are maybe less useful...
@@ -124,28 +125,28 @@ function sample_from_strings(code, options) {
   options = options || {}
   let {html, css, js} = code
   // the default for showing pieces is, are they present at all
-  let html_show = (options.html_show !== undefined) ? options.html_show : (html !== undefined)
-  let css_show = (options.css_show !== undefined) ? options.css_show : (css !== undefined)
-  let js_show = (options.js_show !== undefined) ? options.js_show : (js !== undefined)
+  const html_show = (options.html_show !== undefined) ? options.html_show : (html !== undefined)
+  const css_show = (options.css_show !== undefined) ? options.css_show : (css !== undefined)
+  const js_show = (options.js_show !== undefined) ? options.js_show : (js !== undefined)
   html = html || "<!-- empty -->"
   css = css || "/* empty */"
   js = js || "// empty"
   options = options || {}
-  let sources_show = (options.sources_show !== undefined) ? options.sources_show : true
+  const sources_show = (options.sources_show !== undefined) ? options.sources_show : true
+  const separate_width = options.separate_width || "400px"
+  const separate_height = options.separate_height || "400px"
+  const separate_label = options.separate_label || "Open in new window"
+  const update_label = options.update_label || "Update →"
+  const output_show = (options.output_show !== undefined) ? options.output_show : true
   let separate_show = (options.separate_show !== undefined) ? options.separate_show : true
-  let separate_width = options.separate_width || "400px"
-  let separate_height = options.separate_height || "400px"
-  let separate_label = options.separate_label || "Open in new window"
-  let update_label = options.update_label || "Update →"
-  let output_show = (options.output_show !== undefined) ? options.output_show : true
   let update_show = true
   if (! output_show) {
     separate_show = false
     update_show = false
   }
   // either html or css or js
-  let start_with = options.start_with || "html"
-  // fallback if not in allowed range
+  let start_with = (options.start_with !== undefined) ? options.start_with : "html"
+  // fallback if not in specified range
   let formats = []
   if (html_show) formats.push('html')
   if (css_show) formats.push('css')
@@ -161,12 +162,12 @@ function sample_from_strings(code, options) {
     delete options.height
   }
   // header is approx. 4 lignes
-  const default_height = (sources_show ? `${number_lines(code_height)+4}ch` : default_options.height)
-  let height = options.height || default_height
+  const default_height = (sources_show ? `${number_lines(code_height)}cap` : default_options.height)
+  const height = options.height || default_height
 
   // font_size is now an option
   const default_font_size = default_options.font_size
-  let font_size = options.font_size || default_font_size
+  const font_size = options.font_size || default_font_size
 
   // default width
   // compute from content, but cap to - arbitrarily - 55 chars
@@ -174,9 +175,8 @@ function sample_from_strings(code, options) {
   // here again we need more space for the decoration
   const default_width = (sources_show ? `${computed_width+8}ch` : default_options.width)
   let width = options.width || default_width
-  let min_width = options.min_width || default_options.min_width || csslength_fraction(width, 0.5)
-  let min_height = options.min_height || default_options.min_height || csslength_fraction(height, 0.5)
-
+  let min_width = options.min_width || default_options.min_width || '100px'
+  let min_height = options.min_height || default_options.min_height || '80px'
   const output_min_width = options.output_min_width || "300px"
 
   let id = options.id || hash(html)
@@ -187,36 +187,39 @@ function sample_from_strings(code, options) {
   if (js_show) textareas += `<textarea id="js_${id}">${js}</textarea>`
 
 
-	let width_style = output_show ? `width: ${width}; min-width: ${min_width};` : ``
-	let height_style = `height: ${height}; min-height: ${min_height};`
-  let font_size_style = `font-size: ${font_size};`
-  const btns_left_style = sources_show ? 'display: flex' : 'display: none'
-  const btns_right_style = sources_show ? '' : height_style
-  const display_style = `display:${sources_show ? 'grid' : 'none'}`
+	let width_prop = output_show ? `width: ${width}; min-width: ${min_width};` : ``
+	let height_prop = `height: ${height}; min-height: ${min_height};`
+  let font_size_prop = `font-size: ${font_size};`
+  const btns_left_display_prop = sources_show ? 'display: flex;' : 'display: none;'
+  const btns_right_height_prop = sources_show ? '' : height_prop
+  const left_display_prop = `display: ${sources_show ? 'grid' : 'none'};`
   const start_with_html = (start_with === 'html')
-  const start_with_html_display = start_with_html ? '' : 'none'
+  const html_display = start_with_html ? '' : 'none'
   const start_with_css = (start_with === 'css')
-  const start_with_css_display = start_with_css ? '' : 'none'
+  const css_display = start_with_css ? '' : 'none'
   const start_with_js = (start_with === 'js')
-  const start_with_js_display = start_with_js ? '' : 'none'
-  const grid_template_columns = output_show ? 'auto 1fr' : '1fr'
+  const js_display = start_with_js ? '' : 'none'
+  const grid_template_columns_prop = `grid-template-columns: ${output_show ? 'auto 1fr' : '1fr'};`
+  const debug = options.debug !== undefined ? options.debug : default_options.debug
 
   const context = {
     id, width, height, output_min_width,
-    btns_left_style, btns_right_style,
-    display_style, width_style, height_style, font_size_style,
+    btns_left_display_prop, btns_right_height_prop,
+    left_display_prop, width_prop, height_prop, font_size_prop,
     textareas, output_show, html_show, css_show, js_show,
     start_with, start_with_html, start_with_css, start_with_js,
-    start_with_html_display, start_with_css_display, start_with_js_display,
+    html_display, css_display, js_display,
     sources_show, update_show, separate_show, update_label, separate_label,
     separate_height, separate_width,
-    grid_template_columns,
+    grid_template_columns_prop,
+    debug,
   }
 
   const embedded = render("template-grid.html", context)
 
   // for debug purposes
-  // fs.writeFileSync(`embedded_${id}.html`, embedded, 'utf-8')
+  if (options.debug)
+     fs.writeFileSync(`embedded_${id}.html`, embedded, 'utf-8')
 
 	$$.html(embedded)
 }
