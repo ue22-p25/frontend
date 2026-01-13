@@ -111,7 +111,7 @@ however the code can quickly become the *callback hell* by cascading callbacks
 * (and it gets even worse if any kind of logic is involved)
 
 ````{admonition} we have seen an example already
-:class: smaller
+:class: admonition-smaller
 
 remember the example on catching key and mouse events ?  
 we have a set of **linear** tasks (load page, arm callbacks, trigger callbacks)

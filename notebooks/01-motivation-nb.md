@@ -21,6 +21,8 @@ short_title: motivation
 tools = require('../js/tools'); tools.init()
 ```
 
+---
+
 ## why a course on web frontend pillars&nbsp;?
 
 * with traditional languages like Python, C++, and Java  
@@ -32,7 +34,7 @@ tools = require('../js/tools'); tools.init()
 * as of 202x, **everything** runs on the Web
 * so this simply **cannot be ignored**
 
-+++
+---
 
 ## vocabulary
 
@@ -52,7 +54,7 @@ for instance
   * that are all *frontends*
   * in the sense that they face the end user
 
-+++
+---
 
 ## scope
 
@@ -65,7 +67,7 @@ for instance
   * like *e.g.* react, angular, ...  
   * way too numerous to list at this point
 
-+++
+---
 
 ## the root trio
 
@@ -76,7 +78,7 @@ for instance
 * `JavaScript`: ***behaviour***
   * full-fledged programming language, suitable to customize, well, everything really
 
-+++
+---
 
 ## the "backend" course
 
@@ -86,28 +88,25 @@ this means that we will **not** address :
   * like e.g. apache, nginx, django, REST apis, …
 * nor the network protocols involved  
   * like http(s), websockets, and similar
-* those will be touched on later this year in a separate course
+* those will be touched on later this year [in a separate course](https://backend.info-mines.paris/)
 
-+++
+---
 
 ## why are web technos so cool ?
 
-+++
-
-* so-called *GUI*-oriented tools (Graphical User Interfaces)
+* old-school so-called *GUI*-oriented tools (Graphical User Interfaces)
   * like .net, Java Swing, Qt, …
   * based on an anachronic and rigid widget-based mental model
 
-***
-
-* web allows for much cooler and more flexible interaction
+more modern web technos allow for
+* much cooler and more flexible interaction
   * any part of the screen can be part of the UI
 * plus, thanks to a clear **separation** between **content** and **styling**
   * they allow designers to fruitfully collaborate with engineers
 * as a bonus, super-portable with **zero installation**
   * across the whole range of **computers** and **mobile devices**
 
-+++
+---
 
 ## wider than just the browser
 
@@ -118,7 +117,7 @@ this means that we will **not** address :
   * as a native mobile app (IOS or Android)
   * and/or on traditional computers - **like e.g. vs-code**
 
-+++
+---
 
 ## even wider than just the frontend
 
@@ -128,7 +127,7 @@ this means that we will **not** address :
   * so it can be, and actually is, more and more used for writing backends as well
   * and even for traditional computing
 
-+++
+---
 
 ## objectives
 

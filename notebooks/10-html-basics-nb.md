@@ -20,6 +20,8 @@ short_title: HTML basics
 tools = require('../js/tools'); tools.init()
 ```
 
+---
+
 ## HTML is based on tags
 
 the HTML language structures the content of a web page
@@ -33,7 +35,7 @@ an **element** (a section, a header, ...) is composed by
 * a content that can be empty
 * a closing tag e.g. `</head>`
 
-+++
+---
 
 ## HTML document structure
 
@@ -55,9 +57,9 @@ fragment1 = `<html>
 tools.sample_from_strings({html: fragment1}, {separate_show: false})
 ```
 
-## browser and server
+---
 
-+++ {"tags": ["gridwidth-1-2"]}
+## browser and server
 
 ### regular setup
 
@@ -69,8 +71,6 @@ with the `http://` protocol (or https..)
 :align: center
 ```
 
-+++ {"tags": ["gridwidth-1-2"]}
-
 ### our setup today
 
 but today, we will instruct the browser to get files from our laptop  
@@ -81,8 +81,6 @@ hence the use of the `file://` protocol
 :align: center
 ```
 
-+++
-
 ````{admonition} file: and CORS
 :class: danger dropdown
 
@@ -91,12 +89,12 @@ please note that, as time goes by, using `file:` URLs for development is becomin
 for more serious work, see [the page on setting up `vite` for a more realistic setup](label-vite)
 ````
 
-+++
+---
 
 ## practice
 
 ```{admonition} a git repo for your first practice ?
-:class: seealso
+:class: seealso dropdown
 
 follow your teacher's instructions as to where to create your practice folder  
 e.g. now might be a good time for creating a git repo so you can expose your work to them
@@ -110,6 +108,10 @@ e.g. now might be a good time for creating a git repo so you can expose your wor
   * or use the *File → Open File* menu
   * or directly type a URL like  
     `file:///the/complete/path/to/hello.html`
+
+---
+
+### your goal
 
 you need to reproduce this:
 - your `hello.html` should look like this (left hand side)  
@@ -132,9 +134,9 @@ also observe the URL that the browser has used to fetch your file <br>
 it should look like `file:///the/path/to/your/current/directory/hello.html`
 ```
 
-+++ {"tags": ["gridwidth-1-2"]}
+---
 
-## accessing your browser's devel tools
+### accessing your browser's devel tools
 
 * all browsers come with development tools for debugging
 * as a first contact with these,  let us inspect the content of our HTML document
@@ -148,18 +150,14 @@ it should look like `file:///the/path/to/your/current/directory/hello.html`
 :align: center
 ```
 
-+++
-
-```{admonition} devel tools
+````{admonition} devel tools
 :class: note
 
 this should open your browser's **devel tools**, which depending on your browser, may require additional preparation or installation steps  
 we recommend using Chrome in case it is not working as expected
-```
 
-+++
-
-## check for devel tools
+```{admonition} cannot find the devel tools ?
+:class: tip dropdown
 
 * if you cannot see the devel tools (see next slide for a glimpse)
   it means your browser may need additional installation (google for how to do that)
@@ -173,8 +171,10 @@ we recommend using Chrome in case it is not working as expected
 
  * on ***Firefox***: you should have a ***Web Developer*** entry  
    in the *Tools* menu in the main menubar
+```
+````
 
-+++
+---
 
 ## the *Elements* tab
 
@@ -186,15 +186,13 @@ we recommend using Chrome in case it is not working as expected
 * right pane, visualize the selected element's applicable *Styles* and *Computed* properties
   (more on this later)
 
-+++
-
 ```{admonition} navigating the elements tree
 :class: note
 
 from that view you can navigate the elements tree, although in this case it is very simple, with just 3 nodes
 ```
 
-+++
+---
 
 ## the *Console* tab
 
@@ -205,7 +203,7 @@ this is where **debug messages** end up (if any; here of course there are none)
 :align: center
 ```
 
-+++
+---
 
 ### the REPL
 
@@ -217,7 +215,7 @@ where you can type and run your first JavaScript code
 :width: 600px
 ```
 
-+++
+---
 
 ## DOM = Document Object Model
 
@@ -225,8 +223,9 @@ where you can type and run your first JavaScript code
 * unambiguously maps to a tree structure known as an Abstract Syntax Tree (AST)
 * referred to in all documentation as "*the DOM* "
 
-+++ {"tags": ["gridwidth-1-2"]}
+`````{grid} 2
 
+````{card}
 this HTML fragment
 ```html
 <html>
@@ -239,23 +238,23 @@ this HTML fragment
  </body>
 </html>
 ```
+````
 
-+++ {"cell_style": "center", "tags": ["gridwidth-1-2"]}
-
+````{card}
 will result in this tree
 ```{image} media/abstract-syntax.excalidraw.svg
 :width: 400px
 :align: center
 ```
-
-+++ {"cell_style": "center"}
+````
+`````
 
 ```{admonition} elements
 
 nodes in this tree are called **Elements**; it is the basis for navigating the document in the ***Elements*** devel tools tab
 ```
 
-+++
+---
 
 ## be rigourous
 
@@ -264,8 +263,6 @@ nodes in this tree are called **Elements**; it is the basis for navigating the d
 * **however** there's only so much that can be guessed
 * and this may cause **huge headaches** down the road
 * so make sure to **always *close your tags* properly**
-
-+++
 
 ### do not do this !!
 
@@ -295,6 +292,8 @@ fragment_closed = `<p> do this instead </p>
 
 tools.sample_from_strings({html: fragment_closed}, {separate_show: false})
 ```
+
+---
 
 ## a few tips
 

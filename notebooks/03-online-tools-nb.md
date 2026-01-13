@@ -21,6 +21,8 @@ short_title: online tools
 tools = require('../js/tools'); tools.init()
 ```
 
+---
+
 ## many great online tools
 
 * it is sometimes unconvenient to deal with  
@@ -34,7 +36,7 @@ tools = require('../js/tools'); tools.init()
   * <https://codepen.io>
   * also <https://jsfiddle.net> for collaborative work
 
-+++
+---
 
 ## codepen
 

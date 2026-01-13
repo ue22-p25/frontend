@@ -21,7 +21,7 @@ short_title: web frontend ecosystem
 tools = require('../js/tools'); tools.init()
 ```
 
-+++ {"tags": ["gridwidth-1-2"]}
+---
 
 ## backend *vs* frontend
 
@@ -37,7 +37,7 @@ tools = require('../js/tools'); tools.init()
 :align: center
 ```
 
-+++
+---
 
 ## evolution speed
 
@@ -55,7 +55,7 @@ tools = require('../js/tools'); tools.init()
   * tools for mobile depl. [expo](https://expo.io),
     [svelte](https://svelte.dev), [ionic](https://ionicframework.com) …
 
-+++
+---
 
 ##  focus on HTML - CSS - JavaScript
 
@@ -64,7 +64,7 @@ tools = require('../js/tools'); tools.init()
 * versions for our focus
   * HTML-5, CSS-3, ECMAScript-6
 
-+++
+---
 
 ## you may have heard of
 

@@ -21,25 +21,110 @@ short_title: HTML tags
 tools = require('../js/tools'); tools.init()
 ```
 
-## text tags `<p>` and `<br>`
+---
+
+## text tags: `<p>` and `<br>`
 
 ```{code-cell}
 :tags: [remove-input]
 
-text_fragment = `<p> it is wise to always embed your text
+text_fragment = `<p>
+it is wise to always embed your text
 in a text tag like &amp;lt;p&amp;gt;,
 that stands for paragraph, and that of course gets justified
-when the text is too wide to fit within the available space.</p>
+when the text is too wide to fit within the available space.
+</p>
 
-<p>Sometimes the separation between paragraphs is too much,
-<br> and in this case you can insert a simple linebreak
+<p>
+Sometimes the separation between paragraphs is too much,
+<br> 
+and in this case you can insert a simple linebreak
 instead using the &amp;lt;br&amp;gt; tag
 </p>
 `
 tools.sample_from_strings({html: text_fragment})
 ```
 
-## lists with `<ul>`  and `<li>`
+---
+
+## grouping: `<div>` and `<span>`
+
++++
+
+* one **very common** tag is `<div>`
+  * it is used to group together elements inside a single node
+  * `<div>` stands for *division*
+* there is also `<span>` that serves a similar purpose
+  * except for the linebreaking behaviour
+* they are an **essential tool** in any page design
+
+---
+
+### `<div>` and `<span>` example
+
+```{code-cell}
+:tags: [remove-input]
+
+group_html = `<p> a paragraph may  
+<span style="background-color: #ddd;">
+      contain a fragment
+</span>
+that we want to keep together,
+typically for styling purposes,
+but that is inline (no linebreak),
+and for that use a &lt;span&gt; tag.</p>
+
+<div style="background-color: #ddd;">
+  <p> when you need to create a group that
+      contain several paragraphs</p>
+  <p> then a "div" tag is more suitable</p>
+</div>`
+tools.sample_from_strings({html: group_html})
+```
+
+:::{admonition} what with the `style` thing ?
+:class: seealso dropdown
+
+this example uses styling - that we have not studied yet - to outline the <code>&lt;span&gt;</code> and <code>&lt;div&gt;</code>
+elements by changing their background color
+:::
+
+---
+
+### second example of `<div>`
+
+```{code-cell}
+:tags: [remove-input]
+
+group2_html = `<div>
+the &amp;lt;div&amp;gt; tag is an essential unit brick for creating a page layout
+</div>
+<div style="position: absolute;
+            bottom: 20px; right: 20px;
+            background-color: aquamarine;">
+  <div style="margin: 20px">if you inspect a real page, you will see </div>
+  <div style="padding: 10px">that <b>div</b> elements are
+     typically all over the place</div>
+</div>`;
+tools.sample_from_strings({html: group2_html})
+```
+
+---
+
+### there is also `<section>`
+
+the `<section>` tag also provides grouping capabilities, but with a more semantic meaning  
+for example your CV will probably end up with e.g. 5 sections (header, education, experience, skills, languages)  
+however if your layout is sophisticated enough, you will probably end up with more than 5 divs, that are just there for layout purposes
+
+:::{admonition} other semantic sectioning tags
+:class: tip dropdown admonition-smaller
+ other tags related to semantic sectioning: `<body>`, `<nav>`, `<article>`, `<aside>`, `<hgroup>`, `<header>`, `<footer>`, `<address>`, as well as `<h1>`, `<h2>`, `<h3>`, `<h4>`, `<h5>`, `<h6>`, that we will see later on
+:::
+
+---
+
+## lists: `<ul>`  `<li>` and `<ol>`
 
 ```{code-cell}
 :tags: [remove-input]
@@ -56,50 +141,16 @@ ul_fragment = `<div><p> a typical bullet list with a &amp;lt;ul&amp;gt; tag</p>
 tools.sample_from_strings({html: ul_fragment})
 ```
 
-```{code-cell}
-:tags: [remove-input]
+```{admonition} ordered list
+:class: tip
 
-ol_fragment = `<div><p> the same with a &amp;lt;ol&amp;gt; tag instead</p>
-<br> <code>ol</code> stands for "ordered list"
-<ol>
-<li> the first bullet </li>
-<li> the second bullet </li>
-</ol>
-</div>
-`;
-tools.sample_from_strings({html: ol_fragment})
+in the code above, replace `<ul>` by `<ol>`  
+and observe that the bullets become numbered
 ```
 
-## styling tags
+---
 
-* a handful of convenience tags for quick styling
-  * like bold, italics, underline and similar
-
-```{admonition} warning: do not overuse !
-:class: warning admonition-small
-
-however as we will see later on, there are **much more powerful** mechanisms  
-so **don't use this at scale**, they are just conveniences  
-the right way to go is often **to use classes**, that we study later on
-```
-
-```{code-cell}
-:tags: [remove-input]
-
-styling_fragment = `<p>
-there are tags for direct styling but <b>please note that their usage is discouraged</b> as generally you will style your own classes instead
-</p>
-
-<p>
-tags for <b>bold</b> or <i>italics</i>
-or <u>underline</u> or <s>strike-through</s>
-<br>
-that of course <u><b><i>can be combined</i></b></u>
-</p>`
-tools.sample_from_strings({html: styling_fragment})
-```
-
-## code-like
+## code-like: `<pre>` and `<code>`
 
 * `<pre>` stands for preformatted
 * `<code>` is for a terminal-like font and style
@@ -121,7 +172,9 @@ plt.plot(X, Y)
 tools.sample_from_strings({html: code_fragment})
 ```
 
-## hyperlinks, and the anchor tag `<a>`
+---
+
+## links and anchors: the `<a>` tag 
 
 the anchor tag `<a>` serves two purposes :
 
@@ -134,18 +187,22 @@ the anchor tag `<a>` serves two purposes :
 
 typical **hyperlink** reads like this  
 
-````{admonition} opening in another tab
-:class: note
-
-here we also set `target="_"` so that the link opens in another tab (or window)
-````
-
 ```{code-cell}
 :tags: [remove-input]
 
-hyperlink_fragment = `<a href="https://www.google.com/" target="_">the hyperlink</a>`;
+hyperlink_fragment = `some text with 
+<a href="https://www.google.com/" target="_">
+  a hyperlink
+</a>
+in the middle`;
 tools.sample_from_strings({html: hyperlink_fragment})
 ```
+
+````{admonition} opening in another tab
+:class: note admonition-smaller
+
+here we also set `target="_"` so that the link opens in another tab (or window)
+````
 
 ### name anchor `<a name="some-name">`
 
@@ -195,81 +252,11 @@ and then some more text
 tools.sample_from_strings({html: redirect_fragment})
 ```
 
-## grouping with `<div>` and `<span>`
+---
 
-+++
+## `<table>`, `<tr>`, `<th>`, `<td>`...
 
-* one **very common** tag is `<div>`
-  * it is used to group together elements inside a single tree
-  * `<div>` stands for *division*
-* there is also `<span>` that serves a similar purpose
-  * except for the linebreaking behaviour
-* an **essential tool** in any page design
-
-+++
-
-### `<div>` and `<span>` example
-
-```{code-cell}
-:tags: [remove-input]
-
-group_html = `<p> a paragraph may  
-<span style="background-color: #ddd;">
-      contain a fragment
-</span>
-that we want to keep together,
-typically for styling purposes,
-but that is inline (no linebreak),
-and for that use a &lt;span&gt; tag.</p>
-
-<div style="background-color: #ddd;">
-  <p> when you need to create a group that
-      contain several paragraphs</p>
-  <p> then a "div" tag is more suitable</p>
-</div>`
-tools.sample_from_strings({html: group_html})
-```
-
-```{admonition} note on styling
-:class: seealso
-
-this example uses styling - that we have not studied yet - to outline the <code>&lt;span&gt;</code> and <code>&lt;div&gt;</code>
-elements by changing their background color
-```
-
-+++
-
-### second example of `<div>`
-
-```{code-cell}
-:tags: [remove-input]
-
-group2_html = `<div>
-the &amp;lt;div&amp;gt; tag is an essential unit brick for creating a page layout
-</div>
-<div style="position: absolute;
-            bottom: 20px; right: 20px;
-            background-color: aquamarine;">
-  <div style="margin: 20px">if you inspect a real page, you will see </div>
-  <div style="padding: 10px">that <b>div</b> elements are
-     typically all over the place</div>
-</div>`;
-tools.sample_from_strings({html: group2_html})
-```
-
-## a word on tables
-
-+++
-
-there indeed is a `<table>` tag in html;  
-in the early ages of HTML, tables were present everywhere, for creating fancy layouts
-
-however, we strongly recommend that you stay away from that for the moment,  
-especially if your goal is to create  grid-based layouts, that we will cover later on
-
-+++
-
-### `<table>` in action
+use the `<table>` tag in to display tabular data (think, *e.g.* a spreadsheet)
 
 ```{code-cell}
 :tags: [remove-input]
@@ -302,7 +289,21 @@ td {
 tools.sample_from_strings({html: table_html, css: table_css})
 ```
 
-## header tags `<h1>` .. `<h5>`
+```{admonition} historical note
+:class: warning dropdown
+
+in the early ages of HTML, tables were a;; over the place, for creating fancy layouts 
+(e.g., a page that has several columns, side by side)
+
+however, we strongly recommend that you stay away from that for the moment,  
+especially if your goal is to create  grid-based layouts, that we will cover later on
+```
+
+---
+
+## legacy tags
+
+### header tags `<h1>` .. `<h5>`
 
 ```{code-cell}
 :tags: [remove-input]
@@ -316,9 +317,58 @@ headers_fragment = `<h1> toplevel title </h1>
 tools.sample_from_strings({html: headers_fragment}, {height: '18em'})
 ```
 
-```{admonition} these tags are old-school
-:class: note
+```{admonition} use together with semantic tags
+So wrapping up, you will often find structures like this in real-world pages:
+
+```{code-cell}
+:tags: [remove-input]
+
+section_fragment = `<section>
+  <header>
+    <h2> section title </h2>
+  </header>
+  <p> section content </p>
+  <p> another paragraph ...</p>
+</section>`
+tools.sample_from_strings({html: section_fragment})
+```
+
+```{admonition} these tags are a bit old-school
+:class: warning admonition-smaller dropdown
 
 these tags are essentially <b>a legacy thing</b>; they are convenient, but not quite necessary,  
 you can easily write your own classes (more about classes later on) to get a similar outcome, with more control on the result.
+```
+
+---
+
+### styling tags: `<b>`, `<i>`, `<u>`, `<s>`
+
+for the record only (these dates back to the old days when HTML was mimicking a word processor...)
+
+* a handful of convenience tags for quick styling
+  * like bold, italics, underline and similar
+
+```{admonition} warning: do not overuse !
+:class: warning admonition-small
+
+however as we will see later on, there are **much more powerful** mechanisms  
+so **don't use this at scale**, they are just conveniences  
+the right way to go is often **to use classes**, that we study later on
+```
+
+```{code-cell}
+:tags: [remove-input]
+
+styling_fragment = `<p>
+there are tags for direct styling but <b>please note that their usage is discouraged</b> as generally you will style your own classes instead
+</p>
+
+<p>
+tags for <b>bold</b> or <i>italics</i>
+or <u>underline</u> or <s>strike-through</s>
+<br>
+that of course <u><b><i>can be combined</i></b></u>
+</p>`
+tools.sample_from_strings({html: styling_fragment})
 ```
