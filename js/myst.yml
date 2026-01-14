@@ -9,7 +9,5 @@ project:
   github: https://github.com/ue22-p25/frontend
   # To autogenerate a Table of Contents, run "myst init --write-toc"
 site:
-  template: book-theme
-  # options:
-  #   favicon: favicon.ico
-  #   logo: site_logo.png
+  #template: book-theme
+  template: https://github.com/flotpython/myst-theme/releases/download/custom/book-theme.zip

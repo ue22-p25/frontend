@@ -27,6 +27,7 @@ delete require.cache[require.resolve('../js/tools')]
 ```{code-cell}
 // this will evaluate all cells, and inject the global css style
 tools = require('../js/tools'); tools.init()
+undefined
 ```
 
 ```{code-cell}
@@ -61,20 +62,25 @@ by default, the `id` option is computed from `html` - be wary to specify differe
 // clean up and reload
 delete require.cache[require.resolve('../js/tools')]
 tools = require('../js/tools')
+
+tools.set_options({
+    debug: true,
+})
+
 undefined
 ```
 
 ```{code-cell}
 // by default, all 3 even if void
 
-tools.sample_from_strings({'html': 'HELLO'}, {id: 'id1'})
+tools.sample_from_strings({'html': 'HELLO'}, {id: 'hello'})
 ```
 
 ```{code-cell}
 // use the options to remove one of the 3
 // btw here the html is off so nothing shows up at all
 
-tools.sample_from_strings({html: 'HELLO'}, {id: 'id2', html_show: false})
+tools.sample_from_strings({html: 'HELLO'}, {id: 'empty', html_show: false})
 ```
 
 ### start with another view
@@ -82,18 +88,50 @@ tools.sample_from_strings({html: 'HELLO'}, {id: 'id2', html_show: false})
 ```{code-cell}
 // we can start on something else than html
 tools.sample_from_strings(
-    {html: 'HELLO', js: 'console.log("Hi")'}, 
-    {id: 'id3', css_show: false, start_with: 'js'})
+    {html: 'HELLO', js: 'console.log("Hi")'},
+// one could also say css_show: false to hide the css tab, but it's inferred here
+    {id: 'id3', start_with: 'js'})
+```
+
+---
+
+### high left (1)
+
+```{code-cell}
+tools.sample_from_strings(
+    {html: 'HELLO\n'.repeat(20)},
+    {id: 'high-input'})
+```
+
+---
+
+### high left with height (11)
+
+```{code-cell}
+tools.sample_from_strings(
+    {html: 'HELLO\n'.repeat(20)},
+    {id: 'high-input-height', height: '15cap'})
+```
+
+---
+
+### high right (2)
+
+```{code-cell}
+tools.sample_from_strings(
+    {html: '<p>HELLO</p>'.repeat(20)},
+    {id: 'high-output', width: '69%'}
+)
 ```
 
 ### specifying sizes
 
 ```{code-cell}
 // can set: width - min_width - height - min_height - font_size
-// or     : output_min_width  
+// or     : output_min_width
 tools.sample_from_strings(
-    {html: 'HELLO'}, 
-    {id: 'id4', 'font_size': '30px'})
+    {html: 'HELLO'},
+    {id: 'font_size', 'font_size': '30px'})
 ```
 
 # from plain strings
@@ -140,7 +178,7 @@ undefined
 // take a reasonable space
 tools.sample_from_stem(
     "../samples/30-js-intro-01-on-off",
-    {start_with: 'css', separate_show: false})
+    {id: 'separate_off', start_with: 'css', separate_show: false})
 ```
 
 ## with the separate button
@@ -158,7 +196,10 @@ undefined
 // so we keep this under control
 tools.sample_from_stem(
     "../samples/30-js-intro-02-svgcircles",
-    {separate_label: 'In new window', separate_show: true, start_with: 'js', height: '22em'})
+    {id: 'separate_on',
+     separate_label: 'In new window', separate_show: true,
+     start_with: 'js',
+     height: '22em'})
 ```
 
 ## no code, just the result - with separate
@@ -177,7 +218,8 @@ undefined
 
 tools.sample_from_stem(
     "../samples/44-spinning-wheel/spinning-wheel",
-    {sources_show: false,
+    {id: 'spinning-wheel',
+     sources_show: false,
 //     height: '300px',  // not really needed
      separate_label: 'In new window',
 })
