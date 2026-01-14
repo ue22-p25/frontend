@@ -115,6 +115,9 @@ let default_options = {
   min_height: undefined,
   min_width: undefined,
   output_min_width: "300px",
+  iframe_min_height: 50,
+  iframe_max_height: 300,
+  debug: false,
 }
 
 function set_options(user_options) {
@@ -202,6 +205,9 @@ function sample_from_strings(code, options) {
   const grid_template_columns_prop = `grid-template-columns: ${output_show ? 'auto 1fr' : '1fr'};`
   const debug = options.debug !== undefined ? options.debug : default_options.debug
 
+  const iframe_min_height = options.iframe_min_height || default_options.iframe_min_height
+  const iframe_max_height = options.iframe_max_height || default_options.iframe_max_height
+
   const context = {
     id, width, height, output_min_width,
     btns_left_display_prop, btns_right_height_prop,
@@ -212,6 +218,7 @@ function sample_from_strings(code, options) {
     sources_show, update_show, separate_show, update_label, separate_label,
     separate_height, separate_width,
     grid_template_columns_prop,
+    iframe_min_height, iframe_max_height,
     debug,
   }
 

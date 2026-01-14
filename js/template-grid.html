@@ -132,7 +132,7 @@
                 "computed iframe heights", body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight)
               const contentHeight = Math.max(
                 body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight )
-              const [min_height, max_height] = [50, 300]
+              const [min_height, max_height] = [${iframe_min_height}, ${iframe_max_height}]
               iframe.style.height = Math.min(Math.max(contentHeight, min_height), max_height) + "px"
               debug_message(
                 "contentHeight =", contentHeight, "iframe height = ", iframe.style.height)
