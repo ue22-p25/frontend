@@ -162,7 +162,7 @@ function sample_from_strings(code, options) {
     delete options.height
   }
   // header is approx. 4 lignes
-  const default_height = (sources_show ? `${number_lines(code_height)}cap` : default_options.height)
+  const default_height = (sources_show ? `${number_lines(code_height)+4}em` : default_options.height)
   const height = options.height || default_height
 
   // font_size is now an option
