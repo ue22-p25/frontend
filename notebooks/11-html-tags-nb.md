@@ -25,24 +25,28 @@ tools = require('../js/tools'); tools.init()
 
 ## text tags: `<p>` and `<br>`
 
+observe that newlines do not matter in HTML source code, usually they are treated as spaces
+
 ```{code-cell}
 :tags: [remove-input]
 
 text_fragment = `<p>
 it is wise to always embed your text
 in a text tag like &amp;lt;p&amp;gt;,
-that stands for paragraph, and that of course gets justified
-when the text is too wide to fit within the available space.
+that stands for paragraph,
+and that of course gets justified
+when the text is too wide to
+fit within the available space.
 </p>
 
 <p>
 Sometimes the separation between paragraphs is too much,
-<br> 
+<br>
 and in this case you can insert a simple linebreak
 instead using the &amp;lt;br&amp;gt; tag
 </p>
 `
-tools.sample_from_strings({html: text_fragment})
+tools.sample_from_strings({html: text_fragment}, {id: 'hello'})
 ```
 
 ---
@@ -97,14 +101,17 @@ elements by changing their background color
 :tags: [remove-input]
 
 group2_html = `<div>
-the &amp;lt;div&amp;gt; tag is an essential unit brick for creating a page layout
+the &amp;lt;div&amp;gt; tag is an essential unit brick
+for creating a page layout<br>
+if you inspect a real page, 
+you will find &amp;lt;div&amp;gt; elements all over the place
 </div>
+
 <div style="position: absolute;
-            bottom: 20px; right: 20px;
-            background-color: aquamarine;">
-  <div style="margin: 20px">if you inspect a real page, you will see </div>
-  <div style="padding: 10px">that <b>div</b> elements are
-     typically all over the place</div>
+            bottom: 5px; right: 20px;
+            background-color: aquamarine;
+            font-size: x-small;">
+  bottom<br>right
 </div>`;
 tools.sample_from_strings({html: group2_html})
 ```
