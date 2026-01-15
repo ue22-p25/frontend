@@ -11,59 +11,76 @@ kernelspec:
   name: javascript
 language_info:
   name: javascript
-short_title: CSS transitions
 ---
 
-# CSS transitions and animations
+# CSS transitions
 
 ```{code-cell}
 :tags: [remove-cell]
 tools = require('../js/tools'); tools.init()
 ```
 
-## transitions
+---
 
-* properties can change over time
+(label-transitions)=
+
+## what are transitions
+
+properties can change over time
+
 * either on events (e.g. a hyperlink, when you hover on it, or click it)
 * or programmatically (typically through JavaScript)
 
-+++
+the browser has the ability to perform those changes **smoothly**
 
-* the browser has the ability to perform those changes **smoothly**
-  * over a certain duration
-  * in a continuous way
-* of course this applies to some properties only, e.g. **lengths** or **colors**
-* anything that can be mapped to a **continuous** space,
-  so that one can do **interpolation**, between the beginning and ending states
+* over a certain duration
+* in a continuous way
 
-+++
+of course this applies to some properties only, e.g. **lengths** or **colors**:  
 
-### transition example 1
+* anything that can be mapped to a **continuous** space
+* so that one can do **interpolation**
+
+---
+
+## transition example 1
 
 ```{code-cell}
 :tags: [remove-input]
+:label: transition-code
 
-tools.sample_from_stem("../samples/17-transition1", {start_with: 'css'})
+tools.sample_from_stem(
+  "../samples/17-transition1", 
+  {
+    start_with: 'css',
+    separate_width: '1000px',
+    separate_height: '800px',
+})
 ```
 
-### how transitions work
+---
 
-* you need to define a `transition` property on the element
-* e.g. the `<section>` element has  
-  `transition: all 0.4s ease-in-out`
+## how transitions work
 
-* then its `background-color` property changes somehow  
+* you define a `transition` property on the element; e.g. on `<section>` here we have  
+  `transition: all 0.4s ease-in-out`  
+
+* then whenever its `background-color` property changes somehow  
   here due to the `section:hover` selector
 
-* the transition is requested to apply to `all` properties  
-  so here it triggers to implement the color change
+* the transition triggers, and **the change occurs smoothly**
 
-* and the `ease-in-out` algorithm is used  
-  over a `0.4s` duration
+* and the `ease-in-out` interpolation function is used over a `0.4s` duration  
+  more on those below
 
-+++
+::::{admonition} `all`
+because we have specified `all`, the transition will apply to **all** properties that change  
+it's possible to be more specific here of course
+::::
 
-### the `transition` property
+---
+
+## the `transition` property
 
 * is a **shorthand** property for setting in one rule
   * `transition-property` : comma separated names of properties  
@@ -73,27 +90,35 @@ tools.sample_from_stem("../samples/17-transition1", {start_with: 'css'})
   * `transition-timing-function`
   * `transition-delay` that we leave unchanged here (i.e. 0s)
 
-+++
+---
 
-### most common timing functions
+## most common timing functions
 
 * `linear` is, well of course, linear interpolation
 * the other 3: `ease-in`, `ease-out`, and `ease-in-out` make the move
   smoother at one or two ends of the duration range
 
-* see a more detailed explanation from the *see also* section below
+* see a more detailed explanation from [the *see also* section below](#label-see-also-transitions)
 
-+++
+---
 
-### transition example 2
+## transition example 2
 
 ```{code-cell}
 :tags: [remove-input]
 
-tools.sample_from_stem("../samples/17-transition2", {separate_width: '800px'})
+tools.sample_from_stem(
+  "../samples/17-transition2", 
+  {
+    separate_width: '1200px',
+    separate_height: '600px',
+    font_size: '8px',
+  })
 ```
 
-### do not overuse !
+---
+
+## do not overuse !
 
 as a piece of advice
 
@@ -107,9 +132,9 @@ also notice that this starts to have to do with **responsiveness**
 * that we will cover later on
 * here for example we have used `flex` (more on this later)
 
-+++
+---
 
-### transition example 3 (advanced)
+## transition example 3 (advanced)
 
 transitions apply **to all** changes, not only triggered by a user
 
@@ -122,35 +147,33 @@ with e.g. `growing.style.width = '200px'`
 tools.sample_from_stem("../samples/17-transition3", {start_with: 'js'})
 ```
 
-## animations
+---
+
+## animations (optional)
 
 * there is also a notion of **animations** in CSS
-* simply put, an animation allows to define a succession of states  
+* simply put, an animation allows to define a **succession of states**
 * each state being a collection of CSS properties
 * together with the point in time where they should apply
 
-for example :
-
-* at the beginning of the duration (0%) background-color is red and color is blue
-* somewhere in the middle, say at (25%) of the duration, they become green and yellow
-* then at the end of the period (100%) they become black and white
-
-+++
-
-### more on animations
+to go further:
 
 * see [one example on codepen](https://codepen.io/team/css-tricks/pen/EjaJNd) for a better idea of what can be achived
-* extracted [from this blog on CSS-Tricks](https://css-tricks.com/almanac/properties/a/animation/)  
-  that is left to the interested reader as an exercise
 
-* **WARNING** like with transitions, and fun as they are,  
-  these techniques should be used with extreme circumspection
+::::{admonition} use with parcimony
+:class: warning
 
-+++
+like with transitions, and fun as they are, these techniques should be used with extreme circumspection
+::::
+
+---
+
+(label-see-also-transitions)=
 
 ## see also
 
 * [transitions on css-tricks](https://css-tricks.com/almanac/properties/t/transition/)
-* [animations on css-tricks](https://css-tricks.com/almanac/properties/a/animation/)
-* an explanation, among other things,  
+* [easing functions on css-tricks](https://css-tricks.com/ease-out-in-ease-in-out/)
+* an explanation, among other things,
  [about `linear`, `ease-in`, `ease-out`, and `ease-in-out`](https://www.freecodecamp.org/news/css-transitions-explained-d67ab9a02049/)
+* [animations on css-tricks](https://css-tricks.com/almanac/properties/a/animation/)

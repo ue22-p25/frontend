@@ -1,5 +1,5 @@
-WIDTH = 50
-STEP = 10
+const STEP = 10
+let WIDTH = 50
 
 function grow() {
     let growing = document.getElementById("growing")
