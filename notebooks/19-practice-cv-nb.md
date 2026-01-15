@@ -37,6 +37,8 @@ to artificially zoom out if you need to observe how your page behaves in some 'l
 this way you can keep both windows from overlapping too much
 ```
 
+---
+
 ## assignment
 
 as a conclusion of this first basic course, write your complete resume  
