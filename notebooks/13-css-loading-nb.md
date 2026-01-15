@@ -221,7 +221,7 @@ tools.sample_from_strings({html: embedded_html})
   * to see the effect of your changes
 
 ::::{admonition} important: setup `vite` !
-[make sure to setup `vite`](vite-nb#label-vite)  
+[make sure to setup `vite`](62-vite-nb#label-vite)  
   so you don't need to reload the browser page all the time...
 ::::
 
