@@ -23,6 +23,10 @@ short_title: vscode preview
 tools = require('../js/tools'); tools.init()
 ```
 
+::::{admonition} it's better to use `vite`
+The tool described here can come in handy in some situations, but for a more robust and flexible development workflow, we recommend using `vite` as described in the [vite notebook](62-vite-nb#label-vite).
+::::
+
 ## vscode's livepreview
 
 instead of switching constantly between vscode and your browser, you can use vs-code's livepreview extension
@@ -43,7 +47,7 @@ when ran this way, the devel tools will show your document but **within the vsco
 this is described in greater length [in this SO answer](https://stackoverflow.com/questions/73406192/vs-codes-live-preview-extension-element-section-doesnt-seems-to-work-properly), but in a nutshell this is because vscode is a web app in itself, and so you're going to inspect the full vscode elements, of which your document is just a fragment  
 
 and it can make navigating through the DOM a little confusing  
-if that's an issue [you can also use `vite`](vite-nb#label-vite)
+if that's an issue [you can also use `vite`](62-vite-nb#label-vite)
 
 +++
 

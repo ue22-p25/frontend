@@ -11,10 +11,10 @@ kernelspec:
   name: javascript
 language_info:
   name: javascript
-short_title: other html tags
+short_title: VS-code tricks
 ---
 
-# vs-code tricks
+# VS-code tricks
 
 ```{code-cell}
 :tags: [remove-cell]

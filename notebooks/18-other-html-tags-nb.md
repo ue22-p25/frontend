@@ -11,7 +11,6 @@ kernelspec:
   name: javascript
 language_info:
   name: javascript
-short_title: other HTML tags
 ---
 
 # more HTML tags
@@ -21,6 +20,29 @@ short_title: other HTML tags
 tools = require('../js/tools'); tools.init()
 ```
 
+---
+
+## sectioning
+
+* `<h1>` .. `<h6>` are only meaningful for the title line
+* but are too poor to actually convey sectioning information
+* so in addition to these, there are also more "semantic" tags
+  * `<section>`
+  * `<nav>`
+  * [and a few others as described here](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Using_HTML_sections_and_outlines)
+
+---
+
+### sectioning example
+
+```{code-cell}
+:tags: [remove-input]
+
+tools.sample_from_stem("../samples/18-sections", {separate_width: '1000px', separate_height: '800px'})
+```
+
+---
+
 ## multimedia
 
 * [`<img>`](https://www.w3schools.com/tags/tag_img.asp)
@@ -29,7 +51,7 @@ tools = require('../js/tools'); tools.init()
 
 find out more on these by yourselves
 
-+++
+---
 
 ## graphics and `<svg>`
 
@@ -38,7 +60,7 @@ find out more on these by yourselves
 * [and much more on css-tricks](https://css-tricks.com/svg-properties-and-css/)  
   (very advanced, including animations)
 
-+++
+---
 
 ### svg example
 
@@ -72,6 +94,28 @@ circle {
 tools.sample_from_strings({html: svg_html, css: svg_css})
 ```
 
+---
+
+## graphics and `<canvas>`
+
+the `canvas` tag is a more modern alternative to SVG for graphics  
+it is a **programming-only** interface, so accessible via JavaScript  
+don't panic, we'll cover that later on :)  
+here's a simple example - just for a glimpse
+
+```{code-cell}
+:tags: [remove-input]
+
+tools.sample_from_stem("../samples/18-canvas-basic",
+  {
+    start_with: 'js',
+    separate_width: '700px',
+    separate_height: '500px',
+    })
+```
+
+---
+
 ## form-oriented
 
 for building forms :
@@ -82,26 +126,7 @@ for building forms :
 
 out of scope for this course though, as it involves a backend
 
-+++
-
-## sectioning
-
-* `<h1>` .. `<h6>` are only meaningful for the title line
-* but are too poor to actually convey sectioning information
-* so in addition to these, there are also
-  * `<section>`
-  * `<nav>`
-  * [and a few others as described here](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Using_HTML_sections_and_outlines)
-
-+++
-
-### sectioning example
-
-```{code-cell}
-:tags: [remove-input]
-
-tools.sample_from_stem("../samples/18-sections")
-```
+---
 
 ## miscell others
 
@@ -110,27 +135,4 @@ in a jumble :
 * `<br>` to insert a linebreak
 * `<hr>` to insert a horizontal line
 * `<iframe>` to insert another web page
-* `<canvas>` is a more recent alternative to SVG for graphics,  
-  [see more on css-tricks](https://css-tricks.com/learn-canvas-snake-game/)
-
-+++ {"cell_style": "center"}
-
-## practice
-
-* before you start, make sure to read **next section on vs-code tricks**
-* and then, as a conclusion of this first basic course, write your complete resume; you should have 2 files
-  * `resume.html`
-  * `resume.css`
-* at this point, you may think of it as (if it were) a word document
-  * with a header that has your details and photo
-  * and the 4 well structured sections,
-  * again *Experience*, *Education*, *Skills* and *Languages*
-* try to print it in a PDF file, to evaluate how it fits with respect to an A4 page
-
-````{admonition} do not worry about the layout for now
-:class: tip
-
-our next course will address overall layout in greater details  
-(i.e. the relative place of all pieces wrt one another)  
-so do not spend too much time on trying to make best usage of space at this point
-````
+* and plenty more actually, but you can get started with these :)

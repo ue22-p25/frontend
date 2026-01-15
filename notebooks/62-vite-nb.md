@@ -11,25 +11,26 @@ kernelspec:
   name: javascript
 language_info:
   name: javascript
-short_title: vite
 ---
 
-
 # vite
-
-(label-vite)=
 
 ```{code-cell}
 :tags: [remove-cell]
 tools = require('../js/tools'); tools.init()
 ```
 
+---
+
+(label-vite)=
+
 ## what is vite ?
 
 are you **tired of reloading** the browser page after each and every single change in your sources ?  
 `vite` is what you're looking for ...
 
-with `vite`: 
+with `vite`:
+
 - you typically have your two windows side by side: an editor - say, vscode - and your browser
 - then you just need to save your input - be it `.html`, `.css` or `.js`
 - and the browser **automatically picks up** on your changes and re-renders the current code
@@ -43,6 +44,12 @@ again, we recommend you to enable autosave in your editor of choice, so that you
 
 under vs-code, you can enable autosave through the `File` -> `Auto Save` menu entry
 ```
+
+````{image} media/box-model.png
+:alt: vite setup
+:width: 600px
+:align: center
+````
 
 +++
 
