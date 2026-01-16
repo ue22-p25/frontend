@@ -11,7 +11,7 @@ kernelspec:
   name: javascript
 language_info:
   name: javascript
-short_title: 'practice: your resume'
+short_title: your resume 2/2
 ---
 
 # putting it all together
@@ -31,7 +31,7 @@ tools = require('../js/tools'); tools.init()
   * the **content** is always the same
   * but the arrangement of the various pieces changes with the viewport width
 
-+++
+---
 
 ## a sample cv
 
@@ -49,6 +49,8 @@ tools = require('../js/tools'); tools.init()
 tools.sample_from_stem("../samples/26-monarque/resume", {sources_show: false})
 ```
 
+---
+
 ## where to find the example
 
 * previous example can be found together with the course   
@@ -59,16 +61,17 @@ tools.sample_from_stem("../samples/26-monarque/resume", {sources_show: false})
 * note that some of the other examples of the course  
   can be found in the `samples/` folder
 
-+++
+---
 
 ## publishing
 
 * once you're satisfied
 * and provided that you have no problem with your resumé being **publicly available**
 * you can **easily publish it on `github.io`** (see next slide)
-* plus tons of other opportunities around as well
+* plus tons of other opportunities around as well  
+  e.g. google for *'free online static web hosting'
 
-+++
+---
 
 ### publishing on github.io
 
@@ -85,7 +88,7 @@ assuming your github slug is `myid`
 
 see <https://pages.github.com/> for details
 
-+++
+---
 
 ## another example
 

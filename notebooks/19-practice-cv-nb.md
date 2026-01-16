@@ -11,10 +11,10 @@ kernelspec:
   name: javascript
 language_info:
   name: javascript
-short_title: draft your own CV
+short_title: your resume 1/2
 ---
 
-# practice: your CV
+# draft your own CV
 
 ## setup
 
