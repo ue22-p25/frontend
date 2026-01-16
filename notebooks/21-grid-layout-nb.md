@@ -22,19 +22,19 @@ tools = require('../js/tools'); tools.init()
 
 ## purpose
 
-* create grid-based layouts, obviously
-* `grid` is now available in [all popular modern browsers](https://caniuse.com/#feat=css-grid)
+to create grid-based layouts, obviously
 
 ````{admonition} historical note
+:class: dropdown
 
-creating this kind of layout has been historically a challenging task
+creating this kind of layout has been a challenging task in the past
 
 * the `<table>` tag has long been overused to address that sort of needs
 * twitter's `bootstrap` has been used for this too at some point
 * **do not use** these tools for that in 202x !
 ````
 
-+++
+---
 
 ## ex1 - proportional columns
 
@@ -57,6 +57,8 @@ all this in one property:
 :align: center
 :width: 400px
 ```
+
+---
 
 ```{code-cell}
 :tags: [remove-input]
@@ -122,7 +124,7 @@ we could have written `repeat(4, 1fr)` instead of `1fr 1fr 1fr 1fr`
 ```
 ````
 
-+++
+---
 
 ## ex2 - partially fixed columns
 
@@ -138,6 +140,8 @@ and now
 * the first column has a fixed size
 * the third column has a size proportional to the page width
 * and columns 2 and 4 equally share whatever is left in width
+
+---
 
 ```{code-cell}
 :tags: [remove-input]
@@ -172,19 +176,38 @@ grid2_css = `.container {
 tools.sample_from_strings({html: grid_html, css: grid2_css}, {id: 'grid-2', start_with: 'css', height: "16em"})
 ```
 
+---
+
 ## ex3 - on rows too
 
 in the previous examples :
 
 * we have **not imposed** anything on **the height** of the result
 * each box gets its height based on its content
-* it is also possible - although less often needed  
-  to fix a height globally and arrange the rows accordingly
 
-* only change is to add on the grid:
-  * `height: 100vh` to say we want to use all viewport height
-  * `grid-template-rows: 50px 1fr 100px;`  
-    which specifies how to use vertical space
+
+it is also possible - although less often needed  
+  * to fix a height globally and arrange the rows accordingly
+  * only change is to add on the grid:
+    * `height: 100vh` to say we want to use all viewport height
+    * `grid-template-rows: 50px 1fr 100px;`  
+      which specifies how to use vertical space
+
+
+::::{admonition} width and height do not behave quite the same !
+:class: tip dropdown admonition-small
+
+you may not have realized it yet, but because in Western languages we read from
+left to right and top to bottom, the horizontal and vertical directions are not
+quite symmetrical when it comes to page layout
+
+think of the width of a document as something fixed (by the device screen size),
+but its height depends on the content...
+
+this is why setting `grid-template-rows` is less often needed than setting `grid-template-columns`
+ ::::
+
+---
 
 ```{code-cell}
 :tags: [remove-input]
@@ -220,6 +243,8 @@ grid3_css = `.container {
 tools.sample_from_strings({html: grid_html, css: grid3_css}, {start_with: 'css', height: "16em"})
 ```
 
+---
+
 ## assignment: the css-tricks page
 
 browse quickly - but entirely - the very good introduction to grids
@@ -232,69 +257,13 @@ so as to get a good grip of what's achievable
 you may also complete this game  <https://cssgridgarden.com/> at home if you feel like it
 ````
 
-+++
+---
 
-## more vs-code tricks
+## use vs-code tricks
 
-+++
+see a few tricks to help you take full advantage of vs-code's features, and notably to
 
-### insert a wrapping tag
-
-when using these technologies, you are often in a position to **add wrapping tags** in your html
-
-to do this easily under vs-code :
-
-* select the text you want to wrap
-* enter the palette - the swiss knife in vs-code  
-  (mac: ⌘-⇧-p - Windows ⌃-⇧-p - in doubt, ask google)
-
-* type `Emmet wrap with abbreviation`
-* enter the tag name
-
-+++
-
-in pictures: if you need to add a wrapping `<div>` / `</div>` around some text, select it
-
-```{image} media/vs-code-0.png
-:align: center
-:width: 500px
-```
-
-+++
-
-then activate the palette and search for 'emmet: wrap with abbreviation'
-
-```{image} media/vs-code-1.png
-:align: center
-:width: 500px
-```
-
-+++
-
-select that function, you will be prompted for the name of the wrapping tag
-
-```{image} media/vs-code-2.png
-:align: center
-:width: 500px
-```
-
-+++
-
-### custom keybinding
-
-it is rather straightforward to attach a custom keybinding to that function if you use it often  
-start with .. the palette, of course
-
-```{image} media/vs-code-3.png
-:align: center
-:width: 500px
-```
-
-+++
-
-for example here, we just type 'Alt-o' and the shortcut gets recorded from now on
-
-```{image} media/vs-code-4.png
-:align: center
-:width: 500px
-```
+- [format your code](61-vs-code-tricks-nb#label-format-document)
+- [indent and outdent code blocks](61-vs-code-tricks-nb#label-indent-outdent)
+- [use Emmet wrap](61-vs-code-tricks-nb#label-emmet-wrap) to easily insert a `<div>` in your HTML
+- [define keyboard shortcuts](61-vs-code-tricks-nb#label-custom-keybinding) to speed up your coding

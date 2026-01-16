@@ -21,26 +21,39 @@ short_title: VS-code tricks
 tools = require('../js/tools'); tools.init()
 ```
 
+---
+
+(label-palette)=
+## the palette
+
+the palette is the swiss knife of vs-code  
+you activate it with `⌘-⇧-p` (mac) or `⌃-⇧-p` (windows)
+
+---
+
+(label-format-document)=
 ## `Format Document`
 
-with this command (use the palette to reach it) you can ask vs-code to re-format the whole document
+with this command [use the palette to reach it](#label-palette) 
+you can ask vs-code to re-format the whole document
 
 ```{admonition} tip
 :class: tip
-    
+
 it may be wise to stage your file first  
 even if you can also undo of course, like always under vscode
 ```
 
-+++
+---
 
+(label-indent-outdent)=
 ## `Indent Line` and `Outdent Line`
 
 bound to `⌘ [` et `⌘ ]` respectively
 
 select a block, these keys will help you move the code left or right
 
-+++
+---
 
 ## emmet
 
@@ -73,21 +86,60 @@ you get
 </div>
 ```
 
-+++
+---
 
-## `emmet wrap`
+(label-emmet-wrap)=
 
-with `Emmet: wrap with abbreviation` (use the palette)  
-you can easily wrap a piece of html inside a newly-created tag
+## insert a wrapping tag
 
-+++
+`emmet wrap`
+
+one often needs to **add wrapping tags** in your html  
+typically wrap a `<div>` around a whole HTML fragment to create sophisticated layouts
+
+to do this easily under vs-code :
+
+* select the text you want to wrap
+* in [the palette](#label-palette) type `Emmet wrap with abbreviation`
+* enter the tag name
+
+---
+
+in pictures: if you need to add a wrapping `<div>` / `</div>` around some text  
+select it (can be multiple lines)
+
+```{image} media/vs-code-0.png
+:align: center
+:width: 500px
+```
+
+---
+
+then [activate the palette](#label-palette) and search for 'emmet: wrap with abbreviation'
+
+```{image} media/vs-code-1.png
+:align: center
+:width: 500px
+```
+
+---
+
+select that function, you will be prompted for the name of the wrapping tag
+
+```{image} media/vs-code-2.png
+:align: center
+:width: 500px
+```
+
+
+---
 
 ## matching tags
 
 check out the extensions named "`Auto Rename Tags`"  
 with that in place, when you change e.g. a `<div>` into a `<span>`, the matching `</div>` gets renamed automatically as well
 
-+++
+---
 
 ## multiple cursors
 
@@ -100,20 +152,32 @@ several ways to use this feature
 * select a block and use `Add cursors to Line Ends` 
   to get one cursor on each of the selected lines
 
-for more info, check out this page <https://code.visualstudio.com/docs/editor/codebasics#_multiple-selections-multicursor>
+for more info, check out this page  
+<https://code.visualstudio.com/docs/editor/codebasics#_multiple-selections-multicursor>
 
 and/or on youtube, search for `vscode multiple cursor`
 
-+++
+---
 
-## keyboard shortcuts
+(label-custom-keybinding)=
+## custom keybinding
 
-it is easy to assign these functions to a keyboard shortcut
+it is rather straightforward to attach a custom keybinding to a vs-code function
+that you use often  
+start with .. [the palette](#label-palette), of course  
+locate the function, and click the gear icon on its right hand side
 
-* search the function in the palette
-* move the mouse over the function name  
-  a gear icon `⚙` appears on the right hand side
+```{image} media/vs-code-3.png
+:align: center
+:width: 500px
+```
 
-* click that
+---
 
-and/or search in the vs-code documentation, or ask google or chatgpt
+for example here, we just type 'Alt-o' and the shortcut gets recorded  
+from then on you can just press that key combo to trigger the function
+
+```{image} media/vs-code-4.png
+:align: center
+:width: 500px
+```
