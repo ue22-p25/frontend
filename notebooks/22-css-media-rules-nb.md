@@ -156,7 +156,7 @@ another way to use media rules is to conditionnally apply a CSS `<link>` tag fro
 
 ---
 
-## practice
+## practice - responsive grid
 
 1. open the example below in a separate window  
    and observe behaviour on narrow, mid-size, and large viewport

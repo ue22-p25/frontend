@@ -21,6 +21,8 @@ short_title: in / out-of flow
 tools = require('../js/tools'); tools.init()
 ```
 
+---
+
 ## default is in-flow
 
 most of the elements we have seen so far are said to be *in-flow* :
@@ -28,7 +30,7 @@ most of the elements we have seen so far are said to be *in-flow* :
 * i.e. they show up in the order where they appear in the source
 * at a position determined by the elements before them
 
-+++
+---
 
 ## out-of-flow is available too
 
@@ -43,9 +45,9 @@ here we demonstrate the use of `position: sticky` to achieve this *pinned header
 there is also a  - very **old-school** - `position: fixed` that can be used, but it has only drawbacks, so we'll stay away from that
 ````
 
-+++
+---
 
-## `sticky` example : a pinned header
+## `position: sticky` : a pinned header
 
 ```{code-cell}
 :tags: [remove-input]
@@ -74,6 +76,11 @@ sticky_css = `
     border: 3px solid red;
 }
 
+div {
+  border-radius: 10px;
+  padding: 10px;
+}
+
 div:not(#header) {
     /* outline borders */
     border: 2px solid blue;
@@ -84,25 +91,29 @@ div:not(#header) {
 }`
 
 tools.sample_from_strings({html: sticky_html, css: sticky_css},
-                          {start_with: 'css', height: '16em'})
+                          {start_with: 'css', height: '200px', iframe_max_height: '200'})
 ```
+
+---
 
 ## see also
 
-* this topic is described [at greater length in this MDN article](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flow_Layout/In_Flow_and_Out_of_Flow)
-* css-tricks also has [a blog post dedicated to floats](https://css-tricks.com/all-about-floats/)
-* **WARNING** : advised for **advanced users only**  
+::::{admonition} advised for **advanced users only**
+:class: warning
+these techniques are available, but :
   * beginners should probably not try to use this at first
   * as mix-and-match of `display` and `position` settings can quickly become rather confusing  
   * see these as **last resort**, only if grid/flex really won't work for you
+::::
 
-+++
+this being said if you want to dig deeper into this topic :
 
-## extras
+* this topic is described [at greater length in this MDN article](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flow_Layout/In_Flow_and_Out_of_Flow)
+* css-tricks also has [a blog post dedicated to floats](https://css-tricks.com/all-about-floats/)
 
-optional topics :
+---
 
-* see property `z-index` to define what is on the front or in the back
-* **experts** : if you believe you have a full understanding 
-  of how CSS layouts work, you should [give this test a shot](https://css-tricks.com/how-well-do-you-know-css-layout/)  
-  (you will feel more humble afterwards ;-)
+## `z-index`
+
+when using out-of-flow elements, you may want to control what appears on top of what  
+see property `z-index` to define what is on the front or in the back

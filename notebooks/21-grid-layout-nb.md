@@ -252,18 +252,7 @@ browse quickly - but entirely - the very good introduction to grids
 so as to get a good grip of what's achievable
 
 ````{admonition} optional game
-:class: seealso
+:class: seealso dropdown
 
 you may also complete this game  <https://cssgridgarden.com/> at home if you feel like it
 ````
-
----
-
-## use vs-code tricks
-
-see a few tricks to help you take full advantage of vs-code's features, and notably to
-
-- [format your code](61-vs-code-tricks-nb#label-format-document)
-- [indent and outdent code blocks](61-vs-code-tricks-nb#label-indent-outdent)
-- [use Emmet wrap](61-vs-code-tricks-nb#label-emmet-wrap) to easily insert a `<div>` in your HTML
-- [define keyboard shortcuts](61-vs-code-tricks-nb#label-custom-keybinding) to speed up your coding
