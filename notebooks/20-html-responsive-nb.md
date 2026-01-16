@@ -29,7 +29,7 @@ tools = require('../js/tools'); tools.init()
 * a responsive page **adapts** its layout to the **device size**
   * technically the visible area is called the **viewport**
 
-+++
+---
 
 this means that for example, we want to obtain different layouts for the same content, depending on the screen size  
 
@@ -40,16 +40,15 @@ this means that for example, we want to obtain different layouts for the same co
 the same content seen through different viewport geometries
 ```
 
-+++
-
-### logical zoom
+::::{admonition} logical zoom
 
 * be aware also that **all browsers** have a feature that let users artificially zoom in and out
   * e.g. on Chrome on the mac, this is activated with `⌘ +` and `⌘ -`
 * this also triggers changes, to which
   **responsive** pages are expected to **react** properly
+::::
 
-+++
+---
 
 ## default layout policy
 
@@ -64,39 +63,44 @@ the same content seen through different viewport geometries
 :align: center
 ```
 
-+++
+---
 
 ##  `display` property : basic policies
 
 * layout policy is primarily materialized in the **`display` property**
-* values `inline`, `block` and `inline-block` account for these legacy "document-oriented" policies
-  * have been supported from the very beginning of the Web
+* its value can be
+  * `display: inline` - this is the default for `<span>`
+  * `display: block` - this is the default for `<div>`
+* these account for these legacy "document-oriented" policies  
+  that have been supported from the very beginning of the Web
   * well illustrated [on this page on css-tricks.com](https://css-tricks.com/almanac/properties/d/display/)
 
-+++
+---
 
 ## `display` - modern alternatives
 
-more modern values include :
+good news is, there are more modern values, especially designed for responsive layouts:
 
-* `grid` (**2-dimensional**) like the name suggests,  
+* `display: grid` (**2-dimensional**) like the name suggests,  
   allows to define a **rectangular area** as an array of rows and columns
 
-* `flex` (**1-dimensional**) a flexible layout,  
+* `display: flex` (**1-dimensional**) a flexible layout,  
   with more control on how children will **fill the available space**
 
-we will study these 2 policies in separate notebooks
+we will study these 2 policies in the following notebooks
 
-+++
+---
 
 ## `display: none`
 
-* as an aside,
-* one specific value for the `display` property is `none`
-* in that case the element is present in the DOM
-* but it does not show up at all in the rendered page
+ther's also a special value worth mentioning here:
 
-+++
+* one specific value is `display: none`
+* in that case the element is still present in the DOM
+* but it **won't show up at all** in the rendered page
+* very often used in JavaScript to temporarily hide/show elements (more on JS later)
+
+---
 
 ### `display: none` illustrated
 
@@ -107,10 +111,7 @@ display_none_html = `<p> an element can easily be 'hidden' from the output </p>
 
 <p id="do-not-show"> let us hide this part altogether </p>
 
-<p> in that case it won't show up at all, as if
-it were not in the DOM at all - although it is present,
-can be easily retrieved and turned back on,
-using e.g. JavaScript (not demo'ed here though)</p>`
+<p> the #do-not-show node is not rendered</p>`
 
 display_none_css = `#do-not-show {
     display: none;
