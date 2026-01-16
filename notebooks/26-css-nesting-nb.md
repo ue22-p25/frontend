@@ -15,18 +15,18 @@ short_title: CSS nesting
 
 # CSS nesting
 
-a very useful tool to keep - at least to try and keep - your CSS code from ending up as a bowl of  spaguettis
-
 ```{code-cell}
 :tags: [remove-cell]
 tools = require('../js/tools'); tools.init()
 ```
 
-## why
+## purpose
 
 * mostly CSS nesting is about writing less, and more structured, code
+* a very useful tool to keep your CSS code from ending up as a bowl of spaghettis  
+  (or at leat try to)
 
-+++
+---
 
 ## example: without nesting
 
@@ -78,10 +78,13 @@ div.second>*:nth-child(2) {
 }
 `
 
-tools.sample_from_strings({html, css}, {id: 'without-nesting', separate_show: false, start_with: 'html'})
+tools.sample_from_strings({html, css}, {
+    id: 'without-nesting', separate_show: false, start_with: 'css'})
 ```
 
-## example with nesting
+---
+
+## same with nesting
 
 with nesting, we can simply keep the rules in the same logical structure as the HTML tree  
 that is to say, we could rewrite the above like so
@@ -135,8 +138,11 @@ div.second {
 }
 `
 
-tools.sample_from_strings({html, css}, {id: 'with_nesting', separate_show: false, start_with: 'css', height: '35em'})
+tools.sample_from_strings({html, css}, {
+    id: 'with_nesting', separate_show: false, start_with: 'css', height: '35em'})
 ```
+
+---
 
 ## how does it work ?
 
@@ -154,8 +160,30 @@ the corresponding properties (`color: black`) will apply to selector
 
 and as you can see on line 12, this can be nested as deeply as you need..
 
-+++
+---
+
+## what with the `&` ?
+
+the `&` character is a placeholder for the **full selector** of the parent rule  
+so it's helpful if you need to distinguish between ambiguous cases
+
+consider for example the following snippet:
+```css
+.card {
+  &.active { ... } /* means .card.active */
+  & .highlight { ... } /* means .card .highlight */
+  .title { ... }  /* means .card .title */
+}
+```
+
+so as you can see here, the `&` is sometimes optional, however it's often
+clearer to use it explicitly so as to avoid confusion
+
+---
 
 ## why is it cool ?
 
-as mentioned in the intro, this feature is **very useful** as it helps keep some sense in the flow of css, which otherwise quickly becomes a very challenging task
+as mentioned in the intro, this feature is **very useful** as it helps keep some
+sense in the flow of css, which otherwise quickly becomes a very challenging
+task, as the css code grows in size and complexity (that is to say, very
+quickly..)
