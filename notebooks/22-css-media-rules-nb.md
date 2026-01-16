@@ -21,6 +21,8 @@ short_title: css @media rules
 tools = require('../js/tools'); tools.init()
 ```
 
+---
+
 ## purpose
 
 as per [this article on w3schools](https://www.w3schools.com/cssref/css3_pr_mediaquery.asp) :
@@ -35,7 +37,7 @@ as per [this article on w3schools](https://www.w3schools.com/cssref/css3_pr_medi
 > * resolution
 > * printing, ...
 
-+++
+---
 
 ## example - width
 
@@ -69,7 +71,9 @@ media_width_css = `body {
 tools.sample_from_strings({html: media_width_html, css: media_width_css}, {start_with: 'css'})
 ```
 
-### common pitfall
+---
+
+## common pitfall
 
 * in this first example, note that
   * either the default `body` rule **must come first**
@@ -80,7 +84,7 @@ tools.sample_from_strings({html: media_width_html, css: media_width_css}, {start
 * so it is a good practice to use **more specific rules** in a media clause  
   hence our `html>body` (for instance)
 
-+++
+---
 
 ## example - print
 
@@ -112,65 +116,52 @@ body {
 tools.sample_from_strings({html: media_print_html, css: media_print_css}, {start_with: 'css'})
 ```
 
-## `<link>` examples
+---
 
-another way to use media rules is from the `<head>` tag
+## `<link media=...>` 
+
+another way to use media rules is to conditionnally apply a CSS `<link>` tag from the `<head>` node
 
 ```html
 <link rel="stylesheet"
     <!-- NOTE the new media attribute here -->
     media="screen and (min-width: 900px)"
     href="widescreen.css">
-<link rel="stylesheet"
-    media="screen and (max-width: 600px)"
-    href="smallscreen.css">
 ```
 
-+++
-
-````{admonition} reminder
-:class: note
-
-remember that `<html>` contains 2 sons, a `<head>` and a `<body>`
-````
-
-+++
+---
 
 ## devel tools and multi-device
 
 * the devel tools - on chrome at least allow to simulate other devices - like popular phones and tablets
-
-+++
 
 ```{image} media/devel-tools-devices.png
 :align: center
 :width: 500px
 ```
 
-+++
+---
 
 ```{image} media/devel-tools-phone.png
 :align: center
 :width: 500px
 ```
 
-+++
+---
 
 ## see also
 
 * [this w3schools page](https://www.w3schools.com/cssref/css3_pr_mediaquery.asp) has more details 
   on the admissible **syntax for media rules**
 
-+++
+---
 
 ## practice
 
-1. open the example below in a separate window
-
-  * observe behaviour on narrow, mid-size, and large viewport
-1. write an HTML document and related CSS that mimicks it
-
-  * at least for viewports smaller and larger than 512px
+1. open the example below in a separate window  
+   and observe behaviour on narrow, mid-size, and large viewport
+1. write an HTML document and related CSS that mimicks it  
+   at least for viewports smaller and larger than 512px
 
 ```{code-cell}
 :tags: [remove-input]
