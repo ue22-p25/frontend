@@ -117,6 +117,7 @@ there are many variants in the way to build a URL, and we'll touch on that durin
 
 ---
 
+(label-relative-urls)=
 ### relative URLs
 
 it is possible to omit some parts of the URL; 
