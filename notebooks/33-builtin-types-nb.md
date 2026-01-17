@@ -11,7 +11,6 @@ kernelspec:
   name: javascript
 language_info:
   name: javascript
-short_title: bultin types
 ---
 
 # JS builtin types
@@ -21,6 +20,8 @@ short_title: bultin types
 tools = require('../js/tools'); tools.init()
 ```
 
+---
+
 ## nothing but the usual
 
 * set of builtin types similar to Python's offering
@@ -28,16 +29,7 @@ tools = require('../js/tools'); tools.init()
 * containers : arrays (lists), maps (dicts) and sets
 * objects
 
-````{admonition} notes on using notebooks
-:class: warning admonition-small
-
-as mentioned earlier, all variables should be declared with either `let` or `const`  
-however, in a notebook this is inconvenient because one **cannot declare** the **same variable twice** in the same scope  
-and so using `let` would prevent us from re-evaluating the same cell twice  
-in order to remind you of the necessity to declare everything, we will add `/*let*/` chunks when using a new variable    
-````
-
-+++
+---
 
 ## atomic types
 
@@ -71,7 +63,7 @@ s1 == s2
 google for `bigint` for error-free calculus on integers - in much the same way as Python's `int`
 ````
 
-+++
+---
 
 ### atomic types (continued)
 
@@ -170,7 +162,7 @@ for a deeper study, see javascript.info:
 * [on strings](https://javascript.info/string)
 * [operators on booleans](https://javascript.info/logical-operators)
 
-+++
+---
 
 ## arrays
 
@@ -284,7 +276,7 @@ actually there is also a ~~`for .. in`~~ statement (see below), but beware that 
 and for this reason we recommend against it for beginners 
 ````
 
-+++
+---
 
 ### iterating using indices, aka. `enumerate` in python
 
@@ -322,7 +314,7 @@ and a notable example is e.g. when iterating over the result of `element.querySe
 that we'll see in the next chapter, but it's worth outlining this already - [see also the cheatsheet](cheatsheet)
 ````
 
-+++
+---
 
 ### more on arrays
 
@@ -333,7 +325,7 @@ that we'll see in the next chapter, but it's worth outlining this already - [see
 
 * for more details, see on *javascript.info* [this article on Arrays](https://javascript.info/array) and [this one on related methods](https://javascript.info/array-methods)
 
-+++
+---
 
 ### shared references (advanced)
 
@@ -381,7 +373,7 @@ ref1
 :align: center
 ```
 
-+++
+---
 
 ## args are passed by reference (advanced)
 
@@ -503,7 +495,7 @@ for (let k of map.keys()) {
 
 * read the [section on maps and sets on javascript.info](https://javascript.info/map-set)
 
-+++
+---
 
 ## objects
 
@@ -541,7 +533,7 @@ the syntax for JavaScript objects, as well as the *key/value* vocabulary, make t
 **do not get confused though**, JavaScript objects are much more alike Python class instances
 ````
 
-+++
+---
 
 ### more examples
 
@@ -758,7 +750,7 @@ and observe that you can navigate the inner structure of the object
 rather than a flat text representation that traditional languages have used us to
 ````
 
-+++
+---
 
 ### class instances are objects
 
