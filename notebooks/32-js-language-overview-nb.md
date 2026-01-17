@@ -21,35 +21,19 @@ short_title: 30,000 ft overview
 tools = require('../js/tools'); tools.init()
 ```
 
+---
+
 ## preamble
 
-+++
-
-* from now on, we will very briefly cover **some** features of the language
+* in this notebook, we will very briefly cover **some** features of the language
 * for a more thorough study, refer to [this excellent tutorial on javascript.info](https://javascript.info/)
 * as we go, we will point at a selection of chapters in that tuto
 * students interested should probably read it through
 
-+++
+also remember that we focus on the **browser runtime** here  
+refer to [this screenshot to spot the browser console](10-html-basics-nb.md#label-repl)
 
-## various runtimes
-
-+++
-
-* FYI, JavaScript is not restricted to being used in a browser
-* among others, the [`node.js` runtime](https://nodejs.org/en/about/) can be used e.g. to power a backend web server, or simply from a regular terminal:
-
-```bash
-$ node
-Welcome to Node.js v12.5.0.
-Type ".help" for more information.
-> console.log("hello world")
-hello world
-> process.exit()
-$ 
-```
-
-+++
+---
 
 ## `console.log()` function
 
@@ -64,65 +48,106 @@ console.log(1, "two", [3, "four"])
 ````{admonition} super useful for debugging
 :class: tip
 
-if the argument is an object, it will be displayed as a collapsible with togglable arrows `→` / `↓`, and that lets you explore the data structure  
-try `console.log(window)` in the browser to see that in action
+if the argument is an object, it will be displayed as a collapsible with togglable arrows `→` / `↓`  
+so you can explore the data structure interactively  
+try `console.log(window)` in the browser console to see that in action
 ````
 
-+++
+see also below [how to format strings with backticks](#label-backticks) a la Python f-strings
+
+---
 
 ## syntax
 
 * the syntax is similar to C, C++ and Java
 * unlike Python, indentation does not matter
-* `;` is commonly used at the end of each statement (although this is **not mandatory**)
+* `;` is commonly used at the end of each statement (although this is **not mandatory**)[^semicolon]
+
 * 2 styles of comments
 
-```{code-cell}
-:tags: [raises-exception]
+  ```{code-cell}
+  :tags: [raises-exception]
 
-// this is a comment, no need to close
-// but must be repeated on each line
+  // this is a comment, no need to close
+  // but must be repeated on each line
 
-// you may end all statements with a ;
-let a = 10;
+  // you may end all statements with a ;
+  let a = 10;
 
-// but that's not mandatory
-let b = a * a
+  // but that's not mandatory
+  let b = a * a
 
-/* this is another comment
-   everything including newlines
-   is ignored until the matching
-*/
-```
+  /* this is another comment
+     everything including newlines
+     is ignored until the matching
+  */
+  ```
+
+[^semicolon]: being a Pythonist at heart, I prefer omitting semicolons whenever possible; this is not a very widespread practice though if I'm being honest
 
 ### tests and loops
 
 * `if` and `while` statements are similar to C
-* `for` are a little more awkward - we'll come back to that
+
+  ::::{grid} 2
+
+  ```{code-cell}
+
+  // conditional if
+  if (a == 10) {
+      console.log("YES", a)
+  } else if (a == 12) {
+      //
+  } else {
+      //
+  }
+  ```
+
+  ```{code-cell}
+
+  while (a >= 5) {
+      console.log(a)
+      a -= 3
+  }
+  ```
+
+  ::::
+
+---
+
+### `==` vs `===`
+
+talking of tests, a common pitfall for newcomers is the difference between `==` and `===`[^equality-operators]
+
+* `==` : loose equality, performs type coercion if needed
+* `===` : strict equality, no type coercion
 
 ```{code-cell}
-:tags: [gridwidth-1-2]
+console.log( 10 == '10' )    // true - loose equality
+console.log( 10 === '10' )   // false - strict equality
+```
 
-// conditional if
-if (a == 10) {
-    console.log("YES 10")
-} else if (a == 12) {
-    //
-} else {
-    //
+[^equality-operators]: this resonates a bit, but not quite exactly, with Python that has `==` and `is` to compare values vs identities
+
+---
+
+### C-style `for` loop
+
+* C- or Java-like iteration loops are supported - although seldom needed
+
+```{code-cell}
+for (let i=0; i<2; i++) {
+    console.log(i)
 }
 ```
 
-```{code-cell}
-:tags: [gridwidth-1-2]
+````{admonition} seldom the right way
+this is **not the right way** to iterate over an array as we'll see later on
+````
 
-while (a >= 5) {
-    console.log(a)
-    a -= 3
-}
-```
+---
 
-###   switch
+### `switch`
 
 the switch statement in JavaScript
 is similar to the ones in C++ and Java  
@@ -148,30 +173,14 @@ switch (a) {
 ```
 
 ````{admonition} more on the switch statement
-:class: note
+:class: tip dropdown admonition-small
 
 if the switch statement is new to you, please refer to this [full article on javascript.info](https://javascript.info/switch)
 ````
 
-+++
-
-### C-style `for` loop
-
-* C- or Java-like iteration loops are supported - although seldom needed
-
-````{admonition} seldom the right way
-this is **not the right way** to iterate over an array as we'll see later on
-````
-
-```{code-cell}
-for (let i=0; i<2; i++) {
-    console.log(i)
-}
-```
+---
 
 ## variables
-
-+++
 
 ### declaration
 
@@ -180,14 +189,8 @@ for (let i=0; i<2; i++) {
   * core language has some **basic types**
 * variables should be **explicitly declared** using one of the keywords `let` or `const`
 
-````{admonition} link in tuto
-:class: admonition-small
-
-see more on this topic on javascript.info at this link <https://javascript.info/variables>
-````
-
+::::{grid} 2
 ```{code-cell}
-:tags: [gridwidth-1-2]
 
 let n = 10
 console.log(typeof(n))
@@ -197,14 +200,15 @@ n += 20
 ```
 
 ```{code-cell}
-:tags: [gridwidth-1-2]
 
 const s = "hello world"
 typeof(s)
 
-// we could not do this because declared with const
+// we could not do this
+// because declared with const
 // s += ' john'
 ```
+::::
 
 ````{admonition} prefer const when relevant
 :class: note
@@ -212,9 +216,15 @@ typeof(s)
 use `const` instead of `let` when declaring a constant variable
 ````
 
-+++
+````{admonition} link in tuto
+:class: admonition-small dropdown tip
 
-### Python-style unpacking assignment
+see more on this topic on javascript.info at this link <https://javascript.info/variables>
+````
+
+---
+
+### Python-style unpacking
 
 ```{code-cell}
 // there is a form of parallel assignment
@@ -222,8 +232,10 @@ use `const` instead of `let` when declaring a constant variable
 
 let [py, thon] = [10, 20]
 
-py + thon
+console.log(py, thon)
 ```
+
+---
 
 ### object unpacking
 
@@ -231,7 +243,7 @@ anticipating a bit, but there's a very handy construction that looks a bit like 
 
 ```{code-cell}
 // you receive some data from the outside
-const data = {height: 100, width: 200, radius: 20, linewidth: 5} // possibly much richer
+const data = {height: 100, width: 200, radius: 20, linewidth: 5}
 
 // and you're interested in extracting width and height
 // in two variables of the same name; easy !
@@ -240,56 +252,31 @@ const {height, width} = data
 console.log(height, width)
 ```
 
+---
+
 ## variable scope
 
 * like in all other languages, there is a need to limit the scope of a variable  
   so that variable `x` in 2 distinct functions do not clash
 
-* JS uses **lexical nested scope**:
+* JS uses **lexical nested scope**:  
   a variable is visible only within its **code block** (the stuff within `{}`)
 
-````{admonition} unlike Python
-:class: admonition-x-small
+::::{admonition} unlike Python
+:class: admonition-small
 
-this is unlike Python, where a variable scope is the **function**
-````
+this is like in C/C++, and unlike Python where a variable's scope is the whole function
+::::
 
-+++
-
-### scope illustrated
-
-```{code-cell}
-:tags: [raises-exception]
-
-// this is a global variable
-let variable = "global"
-
-function foo() {
-    // this local declaration
-    // hides the global variable
-    let variable = "local"
-    console.log("in foo():", variable)
-}
-
-console.log("in global context:", variable)
-foo()
-```
-
-### declaring variables with `let`
-
-* (a lot of) legacy code uses the ~~`var`~~ construct to declare variables - but **this is dangerous !!**
-* you should **always** declare your variables with **`let`** or **`const`** 
-
-````{admonition} cannot use let twice
+::::{admonition} cannot use `let` twice
 :class: warning
 
-when declaring a variable with `let`, it cannot be declared a second time within the same block  
-so in the context of notebooks, a drawback of this is that you cannot run a cell twice if it uses a toplevel `let`
-````
+you cannot declare the same variable twice in the same block
+::::
 
-+++
+---
 
-### blocks are delimited by `{}`
+### blocks `{}` and scope illustrated
 
 the elementary unit for scope is the **block** - which is materialized by `{}`
 
@@ -308,23 +295,25 @@ let variable2 = "outermost"
 console.log("level 0", variable2)
 ```
 
-````{admonition} note
-:class: note
+---
 
-this is like in C/C++, and unlike Python where a variable's scope is the whole function
-````
+### do **not** use `var` !
 
-+++
+* (a lot of) legacy code uses the `var` construct to declare variables - but **this is dangerous !!**
+* JS being lax, it may accept a code where you don't declare a variable at all  
+  note that in this case you're actually using a global variable - which is bad practice !
+* bottom line: you should **always declare your variables with `let` or `const`**
+
+---
 
 ## globals
 
 context (browser components mostly) is exposed to programer through a set of **global variables**, e.g.
 
-* `document` to access the DOM
-* `window`, remember `setTimeout()`
+* `window` - the browser window
+* `document` to access the DOM, remember `getElementById()`
 * `console` like in `console.log()`
 * `this` - a tricky one
-
 
 ````{admonition} depends on the runtime
 :class: admonition-small
@@ -332,35 +321,32 @@ context (browser components mostly) is exposed to programer through a set of **g
 of course there is for example no `window` global in the context of the `node.js` interpreter !
 ````
 
-+++
-
 ````{admonition} cannot inspect the browser globals from here
-:class: warning
+:class: warning dropdown admonition-small
 
-as it turns out, the notebook's JavaScript engine is an instance of `node.js`,  
-and so is not **browser-related**, so we could **not** inspect 
-the `document` or `window` variables from right here  
-
+as it turns out, the code embedded in these notebooks is executed by an instance of `node.js`  
+for this reason so we could **not** inspect the `document` or `window` variables from right here  
 but of course you can do so from the browser's console though
 ````
 
-+++
+---
 
+(label-backticks)=
 ## formatting with backticks
 
 in JS, the backticks <code>&#96;&#96;</code> feature reminds of Python's f-strings
 
 ```{code-cell}
 let [x, y] = [100, 200]
-```
 
-```{code-cell}
 // the `` is very similar to Python's f-strings
 // except that you use ${expression} 
 // note the extra $ as compared to Python
 
 console.log(`x = ${x} and x+y = ${x+y}`)
 ```
+
+---
 
 ## functions
 
@@ -379,13 +365,39 @@ foo(10, 20)
 ```{code-cell}
 // a more fashionable way - similar to Python's lambdas
 
-const bar = (x, y) => console.log(`${x} + ${y} = ${x+y}`)
-
-// can use { } if the code is more than one-line
-const bar2 = (x, y) => { console.log(`${x} + ${y} = ${x+y}`) }
-
-bar(10, 20)
+const bar = (x, y) => console.log(`from bar: ${x} + ${y} = ${x+y}`)
+bar(100, 200)
 ```
+
+```{code-cell}
+// you can use { } if the code is more than one-line
+// but make sure to explicitly use 'return' if you do !
+const bar2 = (x, y) => {
+    let [x2, y2] = [x**2, y**2]
+    return x2+y2;
+}
+
+bar2(10, 20)
+```
+
+---
+
+### loose parameter binding
+
+* JavaScript is **very permissive**; for example, number of args is not checked
+
+```{code-cell}
+function fuzzy(x, y, z) {
+    console.log(`x = ${x}  y = ${y} z = ${z}`)
+}
+fuzzy(10)
+fuzzy(10, 20)
+fuzzy("abc", "def", "ghi")
+// and even this !
+fuzzy("abc", "def", "ghi", "trashed")
+```
+
+---
 
 ### duck typing
 
@@ -401,20 +413,7 @@ function foo(x, y) {
 foo('abc', 'def')
 ```
 
-### loose binding
-
-* JavaScript is **very permissive**; for example, number of args is not checked
-
-```{code-cell}
-function fuzzy(x, y, z) {
-    console.log(`x = ${x}  y = ${y} z = ${z}`)
-}
-fuzzy(10)
-fuzzy(10, 20)
-fuzzy("abc", "def", "ghi")
-// and even this !
-fuzzy("abc", "def", "ghi", "trashed")
-```
+---
 
 ### `this`
 
@@ -433,6 +432,8 @@ function show_this() {
 show_this()
 ```
 
+---
+
 ## exceptions
 
 JavaScript supports exceptions, just like Python, with the same bubbling mechanism  
@@ -447,15 +448,11 @@ try {
 }
 ```
 
+---
+
 ## classes
 
 as of ES2015, the language has a proper `class` statement
-
-````{admonition} no classes in JS before ES6
-:class: admonition-small dropdown
-
-FYI, older JavaScript did not have a builtin class mechanism, and used other - quite cryptic - ways to create pseudo-classes
-````
 
 ```{code-cell}
 class Vector {
@@ -476,14 +473,23 @@ let vector = new Vector(10, 20)
 vector.display()
 ```
 
-````{admonition} cannot run this cell twice under Jupyter
+````{admonition} old-school pseudo classes in JS before ES6
+:class: admonition-small dropdown warning
+
+FYI, older JavaScript did not have a builtin class mechanism, and used other - quite cryptic - ways to create pseudo-classes  
+you may come across such older-school code that uses techniques typically involving a `prototype` thingy  
+but just stay away from that when you write new code, and just stick to the new idiom !
+````
+
+
+<!-- ````{admonition} cannot run this cell twice under Jupyter
 :class: warning dropdown
 
 here again, when executing this under Jupyter, running this cell twice will cause an error  
 this is because, just like with `let`, the language **won't let** you define the same `Vector` class **twice** in the same scope
-````
+```` -->
 
-+++
+---
 
 ### notes on classes
 
@@ -498,14 +504,7 @@ this is because, just like with `let`, the language **won't let** you define the
 
 * of course, inheritance is supported too; see `extends` and `super()` for details
 
-````{admonition} old-school classes
-:class: dropdown note
-
-you may come across older-school code that uses other techniques - typically involving a `prototype` thingy  
-just stay awy from that when you write new code,and just stick to the new idiom
-````
-
-+++ {"tags": ["level_intermediate"]}
+---
 
 ### get / set (advanced)
 
@@ -514,12 +513,8 @@ just stay awy from that when you write new code,and just stick to the new idiom
 * through **getter** and **setter** functions
 * that intercept read/write attempts on the attribute
 
-+++ {"tags": ["level_intermediate"]}
-
-### get / set example
-
 ```{code-cell}
-:tags: [level_intermediate, gridwidth-1-2]
+// get / set example
 
 class Temperature {
     constructor(temperature) {
@@ -568,3 +563,5 @@ temp.kelvin = -10
 
 temp
 ```
+
+---

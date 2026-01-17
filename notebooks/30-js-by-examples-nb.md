@@ -34,12 +34,25 @@ JavaScript
 * it is a full-fledged **programming language**
 * and provides for **behaviour**
 
-````{admonition} focusing on the the browser runtime
+````{admonition} focusing on the the browser runtime (♡)
 :class: note dropdown
+:label: label-browser-runtime
 
-(♡) as mentioned earlier, one can also write "regular" programs in JS using the `node.js`&nbsp;runtime
+for your information, one can also write "regular" programs in JS using the `node.js`&nbsp;runtime
 
-however in this course we concentrate on **JavaScript as the programming language of the Web browser**
+
+```bash
+# here how to start a node.js session
+$ node
+Welcome to Node.js v12.5.0.
+Type ".help" for more information.
+> console.log("hello world")
+hello world
+> process.exit()
+$
+```
+however in this course we focus on **JavaScript for the Web browser**
+
 ````
 
 
@@ -50,8 +63,8 @@ however in this course we concentrate on **JavaScript as the programming languag
 
 * runs **inside the browser**(♡)
 * has direct **access to the DOM**
-* so it can freely **manipulate the HTML**  
-* in order to add / remove / **modify content**  
+* so it can freely **manipulate the HTML**
+* in order to add / remove / **modify content**
 * and/or dynamically **change properties**
 * in response to e.g. **user-triggered events**
 

@@ -211,6 +211,7 @@ this is where **debug messages** end up (if any; here of course there are none)
 
 ---
 
+(label-repl)=
 ### the REPL
 
 the area with the `> ` is the REPL (i.e. Read, Eval, Print Loop)  - juste like the `>>> ` with Python  
