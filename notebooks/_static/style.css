@@ -356,3 +356,13 @@ div.CodeMirror-lines div.CodeMirror-code pre.CodeMirror-line {
   }
 
 }
+
+/* the right-hand-side toc made more compact
+   stolen from the git course
+   not used for now though as only 32 js lang overview
+   would benefit from it...
+*/
+/* ul.text-sm.leading-6>li>a {
+    padding-top: 0;
+    padding-bottom: 0;
+} */
