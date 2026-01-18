@@ -13,9 +13,24 @@ language_info:
   name: javascript
 ---
 
-(cheatsheet)=
+(label-cheatsheet)=
+
 # cheatsheet
 
-+++
+{download}`click here to open our cheatsheet <_static/cheatsheet.html>`
 
-<iframe src="_static/cheatsheet.html" width="100%" height="700px"></iframe>
+---
+## ... or
+
+```{code-cell}
+:tags: [remove-cell]
+import * as tools from "../js/tools.js"; await tools.init()
+```
+
+```{code-cell}
+:tags: [remove-input]
+
+await tools.sample_from_stem(
+  "_static/cheatsheet",
+  {sources_show: false, separate_width: "1000px", separate_height: "800px"},)
+```
