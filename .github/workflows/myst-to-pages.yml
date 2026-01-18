@@ -50,7 +50,7 @@ jobs:
       - name: Install requirements.txt
         run: "if [ -f requirements.txt ]; then pip install -r requirements.txt; fi"
       - name: Install JS kernel
-        run: npm install -g ijavascript && ijsinstall
+        run: npm install -g deno && deno jupyter --install
       - name: Build HTML Assets
         run: (cd notebooks; myst build --execute --html)
       - name: Setup Pages
