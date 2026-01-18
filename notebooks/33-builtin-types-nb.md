@@ -29,6 +29,17 @@ tools = require('../js/tools'); tools.init()
 * containers : arrays (lists), maps (dicts) and sets
 * objects
 
+::::{admonition} why the `/*let*/` and `/*const*/` comments ?
+:class: warning admonition-small
+:label: label-let-const
+
+as mentioned earlier, all variables should be declared with either `let` or `const`  
+
+but sometimes we will simply reuse the same variable name in several cells for illustration purposes  
+when that happens, and to remind you of the necessity to declare everything, we
+will add `/*let*/` or `/*const*/` when using a new variable. ::::
+::::
+
 ---
 
 ## atomic types
@@ -36,6 +47,8 @@ tools = require('../js/tools'); tools.init()
 * `number` is the default type for numeric values  
 * `boolean` may be `true` or `false`
 * `string` is, well, for strings
+
+::::{grid} 2
 
 ```{code-cell}
 :tags: [gridwidth-1-2]
@@ -46,17 +59,20 @@ tools = require('../js/tools'); tools.init()
 (100 ** 9) % 11
 ```
 
+:::{div}
 ```{code-cell}
 :tags: [gridwidth-1-2]
 
 // strings with ' or "
 
-/*let*/ s1 = "abc" + 'def'
-/*let*/ s2 = 'ab' + "cdef"
+let s1 = "abc" + 'def'
+let s2 = 'ab' + "cdef"
 s1 == s2
 ```
+:::
+::::
 
-````{admonition} attention
+````{admonition} all numbers are floating point
 :class: warning
 
 **beware** that `number` is similar to Python's `float` -- so **with imprecision !**  
@@ -73,11 +89,14 @@ google for `bigint` for error-free calculus on integers - in much the same way a
   * some expressions return `undefined` instead of raising an exception
 * `NaN` is "Not a Number"
 
+::::{grid} 2
+
 ```{code-cell}
 :tags: [gridwidth-1-2]
 
-// in anticipation: let's create an object
-/*let*/ object = { x: 10, y: 20}
+// in anticipation:
+// let's create an object
+let object = { x: 10, y: 20}
 
 // in Python this would trigger an exception
 // but not is JS
@@ -85,13 +104,19 @@ google for `bigint` for error-free calculus on integers - in much the same way a
 console.log(object.z)
 ```
 
+:::{div}
 ```{code-cell}
 :tags: [gridwidth-1-2]
 
-// unlike Python
+// this also does not 
+// work like in Python
 
 3 * "abc"
 ```
+:::
+::::
+
+---
 
 ### boolean operators
 
@@ -105,6 +130,8 @@ the syntax for boolean operators is here again inherited from C / C++ / Java:
   - not: `!`
 ```
 
+::::{grid} 2
+
 ```{code-cell}
 :tags: [gridwidth-1-2]
 
@@ -113,6 +140,7 @@ if (true && true) {
 }
 ```
 
+:::{div}
 ```{code-cell}
 :tags: [gridwidth-1-2]
 
@@ -120,27 +148,36 @@ if (true || false) {
     console.log("logical or is ||")
 }
 ```
+:::
+::::
 
 ```{code-cell}
 if ( ! false) console.log("not is ! ")
 ```
 
+---
+
 ### strings
 
-**litteral** string: very much alike Python - can use single or double quotes
+**litteral** string:  
+very much alike Python - can use single or double quotes
 
 ```{code-cell}
-/*const*/ message = "hello world"    // or 'hello world'
+const message = "hello world"    // or 'hello world'
 ```
 
-**formatted** string: the equivalent of *f-strings* is <code><i>&#96;made with ${expression} inside backticks&#96;</i></code>
+**formatted** string:  
+[remember the equivalent of *f-strings*](32-js-language-overview-nb#label-backticks) is
+<code><i>&#96;made with ${expression} inside backticks&#96;</i></code>
 
 ```{code-cell}
-/*let*/ x = 10
-/*let*/ s = `format expression like ${x*x} in a string`
+let x = 10
+let s = `format expression like ${x*x} in a string`
 s
 ```
 
+::::{admonition} equivalent in Python
+:class: dropdown
 ```python
 # which in Python would be
 
@@ -153,14 +190,17 @@ s = f"format expression like {x*x} in a string"
 
 console.log(`length of s is ${s.length}`)
 ```
+::::
 
-### see also
+::::{admonition} more on strings
+:class: tip dropdown admonition-small
 
 for a deeper study, see javascript.info:
 
 * [on numbers](https://javascript.info/number)
 * [on strings](https://javascript.info/string)
 * [operators on booleans](https://javascript.info/logical-operators)
+::::
 
 ---
 
@@ -168,23 +208,27 @@ for a deeper study, see javascript.info:
 
 * similar to Python's `list`s
 
-```{code-cell}
-:tags: [gridwidth-1-2]
+::::{grid} 2
 
+```{code-cell}
 // arrays can be heterogeous
 
-/*let*/ array1 = [1, "two"]
+let array1 = [1, "two"]
 
 // you can also create an
 // empty instance explicitly
 
-/*let*/ array2 = new Array()
+let array2 = new Array()
+
+// or simply
+let array3 = []
 ```
 
-```{code-cell}
-:tags: [gridwidth-1-2]
+:::{div}
 
-// insert at the end: push (not append)
+```{code-cell}
+
+// insert at the end: push() (not append)
 
 array2.push(3)
 array2.push("four")
@@ -193,32 +237,41 @@ console.log(array2)
 ```
 
 ```{code-cell}
-:tags: [gridwidth-1-2]
 
-// and get it back
+// and get it back with pop()
 
 array2.pop()
 ```
 
+:::
+
+::::
+
+---
+
 ### common operations on arrays
 
-```{code-cell}
-:tags: [gridwidth-1-2]
+::::{grid} 2
 
+```{code-cell}
 // use the concat method
 
-/*let*/ array = array1.concat(array2)
+let array = array1.concat(array2)
 array
 ```
 
+:::{div}
 ```{code-cell}
-:tags: [gridwidth-1-2]
 
 // and NOT addition,
 // it does NOT work like in Python
 
 array1 + array2
 ```
+:::
+::::
+
+::::{grid} 2
 
 ```{code-cell}
 :tags: [gridwidth-1-2]
@@ -228,6 +281,7 @@ array1 + array2
 array[2]
 ```
 
+:::{div}
 ```{code-cell}
 :tags: [gridwidth-1-2]
 
@@ -235,11 +289,17 @@ array[2]
 
 array.length
 ```
+:::
+::::
+
+---
 
 ### searching in array
 
 * like with Python lists, searching in an array is **linear** in its length
 * so like in Python if you need fast access, use a *Map* instead (more on this right away)
+
+::::{grid} 2
 
 ```{code-cell}
 :tags: [gridwidth-1-2]
@@ -249,6 +309,7 @@ array.length
 console.log(array.indexOf(3))
 ```
 
+:::{div}
 ```{code-cell}
 :tags: [gridwidth-1-2]
 
@@ -256,34 +317,44 @@ console.log(array.indexOf(3))
 
 console.log(array.indexOf("absent"))
 ```
+:::
+::::
 
-### iterating over values of an array
+---
+
+### `for .. of`: iterating over values
 
 * using **`for .. of`** it is possible to iterate through an array like in Python:
+* notice the use of `let` to define a variable **local to the `for` loop**
+
+:::::{grid} 2
 
 ```{code-cell}
+
 for (let x of array1) {
     console.log(x)
 }
 ```
 
-* notice the use of `let` to define a variable **local** to the `for` loop
-
-````{admonition} for .. in
+::::{div}
+:::{admonition} `for .. in`
 :class: warning admonition-small
 
-actually there is also a ~~`for .. in`~~ statement (see below), but beware that it is **a little misleading**,  
-and for this reason we recommend against it for beginners 
-````
+actually there is also a `for .. in` statement  
+but beware that it is **a little misleading**,  
+mor eon this below but for now:  
+**not recommended** it for beginners
+:::
+::::
+:::::
 
 ---
 
-### iterating using indices, aka. `enumerate` in python
+### `for .. in`: iterating over indices
 
-+++ {"tags": ["gridwidth-1-2"]}
+this is a little bit like when using `enumerate()` in Python
 
-* using `for .. in` iterates over **indices**
-  but see also the warning on next slide
+::::{grid} 2
 
 ```{code-cell}
 :tags: [gridwidth-1-2]
@@ -293,79 +364,107 @@ for (let i in array1) {
 }
 ```
 
-````{admonition} WARNING about for .. in
+:::{div}
+
+* using `for .. in` iterates over **indices**
+  but wait, it can behave oddly...
+:::
+
+::::
+
+::::{admonition} WARNING about `for .. in`
+:class: error admonition-small
 
 comparing `for .. in` with `enumerate()` is an oversimplification  
-with some data structures, `for (x in obj)` will iterate over more than the natural indices !
+with some data structures, `for (x in obj)` will iterate over **more than the natural indices** !
 
 in fact, the indexes that `for .. in` will iterate over are *strings* ! which is, well, insane...
 
-```js
+```{code-cell}
 tab = [10, 20]
 
 for (let i in tab)
     console.log(`value=${i} type=${typeof i}`)
-->     
-value=0 type=string
-value=1 type=string
 ```
 
 and a notable example is e.g. when iterating over the result of `element.querySelectorAll()`  
-that we'll see in the next chapter, but it's worth outlining this already - [see also the cheatsheet](cheatsheet)
-````
+that we'll see in the next chapter, but it's worth outlining this already  
+[see also the cheatsheet](cheatsheet-nb)
+::::
 
 ---
 
-### more on arrays
+### other stuff on arrays
 
 * like always, there are many more methods available, like  
   `.sort()`, `.reverse()`  
   `.join()`, `.slice()`, `.splice()`,  
   `.shift()`, `.unshift()`
 
-* for more details, see on *javascript.info* [this article on Arrays](https://javascript.info/array) and [this one on related methods](https://javascript.info/array-methods)
+::::{admonition} more on arrays
+:class: tip dropdown admonition-small
+
+for more details, see on *javascript.info* 
+- [this article on Arrays](https://javascript.info/array) 
+- and [this one on related methods](https://javascript.info/array-methods)
+::::
 
 ---
 
-### shared references (advanced)
+## shared references (advanced)
 
 * **exactly like in Python**, objects can be accessed from several references  
 * so you need to shallow- or deep-copy depending on your needs
 
-```{code-cell}
-:tags: [gridwidth-1-2]
+  ::::{grid} 2
 
-/*let*/ ref1 = [["shared", "data"], "unshared"]
-ref1
-```
+  ```{code-cell}
+  :tags: [gridwidth-1-2]
 
-```{code-cell}
-:tags: [gridwidth-1-2]
+  let ref1 = [
+    ["shared", "data"],
+     "unshared"]
+  ref1
+  ```
 
-// slice() works like Python's [:]
-// so it's a shallow copy
+  :::{div}
+  ```{code-cell}
+  :tags: [gridwidth-1-2]
 
-/*let*/ ref2 = ref1.slice()
-ref2
-```
+  // slice() works like Python's [:]
+  // so it's a shallow copy
 
-```{code-cell}
-:tags: [gridwidth-1-2]
+  let ref2 = ref1.slice()
+  ref2
+  ```
+  :::
+  ::::
 
-// changing data from ref2
+  ::::{grid} 2
 
-ref2[0][0] = "from 2 - deep"
-ref2[1] = "from 2 - shallow"
-ref2
-```
+  ```{code-cell}
+  :tags: [gridwidth-1-2]
 
-```{code-cell}
-:tags: [gridwidth-1-2]
+  // changing data from ref2
 
-// impacts ref1 but not on first level
-// because it is a shallow copy
-ref1
-```
+  ref2[0][0] = "from 2 - deep"
+  ref2[1] = "from 2 - shallow"
+  ref2
+  ```
+
+  :::{div}
+  ```{code-cell}
+  :tags: [gridwidth-1-2]
+
+  // impacts ref1
+  // but not on first level
+  // because it is a shallow copy
+  ref1
+  ```
+  :::
+  ::::
+
+---
 
 ### pythontutor illustration
 
@@ -389,12 +488,16 @@ function side_effect(arg) {
     arg[1] *= 1000
 }
 
-/*let*/ list = [0, 1, 2]
+let list = [0, 1, 2]
 side_effect(list)
 list
 ```
 
+---
+
 ### arguments passing is loosely checked
+
+::::{grid} 2
 
 ```{code-cell}
 // just display arguments
@@ -403,30 +506,44 @@ function foo(x, y, z) {
 }
 ```
 
+:::{div}
 ```{code-cell}
-:tags: [gridwidth-1-2]
-
 // works fine, of course
 foo(1, 2, 3)
 ```
+:::
+::::
+
+::::{grid} 2
 
 ```{code-cell}
 :tags: [gridwidth-1-2]
 
-// works fine TOO !
+// missing param ? works fine TOO !
+
 foo(1, 2)
 ```
 
+:::{div}
 ```{code-cell}
-// and this one AS WELL !!
+// extra param ? this one AS WELL !!
+
 foo(1, 2, 3, 4)
 ```
+:::
+::::
+
+---
 
 ### more on arguments (advanced)
 
 * unlike Python there is no named arguments  ~~`foo(arg0=10)`~~
 * and no argument with default values
 * there is however a way to deal with a **variable number of arguments**
+* make sure to [also check out the section on optional parameters later on](#label-optional-parameters)
+
+
+::::{grid} 2
 
 ```{code-cell}
 // equivalent to Python's
@@ -438,20 +555,24 @@ function bar(x, y, ...arguments) {
     console.log(`arguments=${arguments}`)
     // the arguments object can be iterated on
     for (let arg of arguments) {
-        console.log(arg)
+        console.log("iter over", arg)
     }
 }
 
-// with this call, the 2 extra args are captured
+// with this call
+// the 2 extra args are captured
 bar(1, 2, 3, 4)
 ```
+
+:::{div}
+:class: admonition-small
 
 ```{code-cell}
 // and the other way around
 // with the so-called spread operator
 
 function foo(x, y, z) {
-    // just to illustrate the mapping
+    // just to illustrate how mapping works
     console.log({x, y, z})
 }
 
@@ -462,6 +583,12 @@ L = [1, 2, 3]
 //    construction with objects earlier too)
 foo(...L)
 ```
+:::
+::::
+
+---
+xxx here xxx
+---
 
 ## hash-based data types
 
@@ -473,7 +600,7 @@ foo(...L)
 ```{code-cell}
 :tags: [gridwidth-1-2]
 
-/*let*/ map = new Map()
+let map = new Map()
 
 map.set('key1', 'value1')
 map.set(1000, 'value1000')
@@ -510,7 +637,7 @@ for (let k of map.keys()) {
 // notice that, unlike in Python
 // we don't need to put quotes around key names
 
-/*let*/ bond = {
+let bond = {
     first_name: "James",
     last_name: "Bond",
 }
@@ -545,15 +672,15 @@ the syntax for JavaScript objects, as well as the *key/value* vocabulary, make t
 // note that the values MUST BE
 // valid JS expressions
 
-/*let*/ options = {
-    
+let options = {
+
     // quotes are not needed in the key
     // if it looks like a variable
     margin_left: '10px',
-    
+
     // but it's allowed to put them
     'margin_right': '20px',
-    
+
     // and required if the key is odd
     // (can be any string really)
     // so here with a space inside
@@ -566,7 +693,7 @@ the syntax for JavaScript objects, as well as the *key/value* vocabulary, make t
 
 /*let*/ x = 10
 
-/*let*/ options2 = {
+let options2 = {
     // and, oddity, just this
     x,
     // replaces x: x
@@ -582,7 +709,7 @@ the syntax for JavaScript objects, as well as the *key/value* vocabulary, make t
 
 // how to concatenate objects
 
-/*let*/ options3 = {
+let options3 = {
     margin_top: '30px',
     // that's how objects can be concatenated
     ...options,
@@ -595,7 +722,7 @@ the syntax for JavaScript objects, as well as the *key/value* vocabulary, make t
 
 // how to shallow-copy
 
-/*let*/ copy = {...options}
+let copy = {...options}
 copy.add = 'more'
 
 copy
@@ -692,6 +819,9 @@ function demo() {
 demo()
 ```
 
+---
+
+(label-optional-parameters)=
 ### typical usage for optional parameters
 
 the parameter-passing mechanism is not as powerful as Python  
@@ -764,7 +894,7 @@ class Person {
     }
 }
 
-/*let*/ person = new Person("John", "Doe")
+let person = new Person("John", "Doe")
 
 typeof(person)
 ```
@@ -779,7 +909,7 @@ function change_object(obj) {
     obj.first_name = 'BOOM'
 }
 
-/*let*/ person2 = new Person('John Doe')
+let person2 = new Person('John Doe')
 change_object(person2)
 person2
 ```
