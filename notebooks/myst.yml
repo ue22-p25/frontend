@@ -5,7 +5,7 @@ project:
   # I suspect the intention was maybe to use this for the title tooltip ?
   # in any case as of now 2024 june the title is used for the tooltip too (a bit silly)
   # and I can't see where this is used
-  description: "CIC 1A - Mines Paris PSL - frontend"
+  description: "Mines Paris PSL - CIC 1A - frontend"
   # this one causes additional buttons to be shown 
   # in the upper right area (close to the github button)
   license: CC-BY-NC-SA-4.0
@@ -19,8 +19,7 @@ project:
     - PSL
     - UE22
     - git
-  date: 2025-06-01
-  # bibliography: []
+  date: 2026-01-15
 
 site:
   #template: book-theme
