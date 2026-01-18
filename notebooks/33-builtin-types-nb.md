@@ -171,8 +171,8 @@ const message = "hello world"    // or 'hello world'
 <code><i>&#96;made with ${expression} inside backticks&#96;</i></code>
 
 ```{code-cell}
-let x = 10
-let s = `format expression like ${x*x} in a string`
+let a = 10
+let s = `format expression like ${a*a} in a string`
 s
 ```
 
@@ -181,8 +181,8 @@ s
 ```python
 # which in Python would be
 
-x = 10
-s = f"format expression like {x*x} in a string"
+a = 10
+s = f"format expression like {a*a} in a string"
 ```
 
 ```{code-cell}
@@ -587,8 +587,6 @@ foo(...L)
 ::::
 
 ---
-xxx here xxx
----
 
 ## hash-based data types
 
@@ -602,10 +600,10 @@ xxx here xxx
 
 let map = new Map()
 
-map.set('key1', 'value1')
-map.set(1000, 'value1000')
+map.set('name', 'John')
+map.set('age', 12)
 
-map.get(1000)
+console.log(`${map.get('name')} is ${map.get('age')} years old`)
 ```
 
 ```{code-cell}
@@ -614,7 +612,7 @@ map.get(1000)
 // iterating over map
 
 for (let k of map.keys()) {
-    console.log(`key=${k}, value=${map.get(k)}`)
+    console.log(`key=${k}, value=${map.get(k)} of type ${typeof map.get(k)}`)
 }
 ```
 
@@ -631,20 +629,24 @@ for (let k of map.keys()) {
   * in that they can hold attributes (Python vocabulary)
   * that in JavaScript are called key-value pairs
 
+::::{grid} 2
+
 ```{code-cell}
 :tags: [gridwidth-1-2]
 
-// notice that, unlike in Python
-// we don't need to put quotes around key names
+// notice that, unlike in Python we
+// don't need quotes around key names
 
 let bond = {
     first_name: "James",
     last_name: "Bond",
 }
 
-console.log(`my name is ${bond.last_name}`)
+console.log(
+    `my name is ${bond.last_name}`)
 ```
 
+:::{div}
 ```{code-cell}
 :tags: [gridwidth-1-2]
 
@@ -652,17 +654,63 @@ console.log(`my name is ${bond.last_name}`)
 
 'first_name' in bond
 ```
+:::
+::::
 
 ````{admonition} JS objects vs Python dicts
-:class: attention
+:class: attention dropdown
 
-the syntax for JavaScript objects, as well as the *key/value* vocabulary, make them **look like** Python dictionaries  
-**do not get confused though**, JavaScript objects are much more alike Python class instances
+the syntax for JavaScript objects, as well as the *key/value* vocabulary  
+make them **look like Python dictionaries**  
+**do not get confused though**, JavaScript objects are much more alike Python instances !
 ````
 
 ---
 
-### more examples
+## class instances are objects
+
+the `class` construct allows to name your own type  
+and instances of that type are objects just like the previous example
+
+::::{grid} 2
+```{code-cell}
+:tags: [gridwidth-1-2]
+
+class Person {
+    constructor(first, last) {
+        this.first_name = first
+        this.last_name = last
+    }
+}
+
+let person = new Person("James", "Bond")
+
+typeof(person)
+```
+
+:::{div}
+```{code-cell}
+:tags: [gridwidth-1-2]
+
+// objects are passed by reference too
+// so this function can modify its object argument
+
+function change_object(obj) {
+    obj.first_name = 'BOOM'
+}
+
+let person2 = new Person('John', 'Doe')
+change_object(person2)
+person2
+```
+:::
+::::
+
+---
+
+### examples
+
+::::{grid} 2
 
 ```{code-cell}
 :tags: [gridwidth-1-2]
@@ -686,12 +734,15 @@ let options = {
     // so here with a space inside
     'margin space': true,
 }
+
+options
 ```
 
+:::{div}
 ```{code-cell}
 :tags: [gridwidth-1-2]
 
-/*let*/ x = 10
+let x = 10
 
 let options2 = {
     // and, oddity, just this
@@ -700,9 +751,17 @@ let options2 = {
     y: 20,
     z: 30
 }
-```
 
-### more examples (2)
+options2
+```
+:::
+::::
+
+---
+
+### more examples
+
+::::{grid} 2
 
 ```{code-cell}
 :tags: [gridwidth-1-2]
@@ -711,12 +770,15 @@ let options2 = {
 
 let options3 = {
     margin_top: '30px',
-    // that's how objects can be concatenated
+    // how objects can be concatenated
     ...options,
     ...options2
 }
+
+options3
 ```
 
+:::{div}
 ```{code-cell}
 :tags: [gridwidth-1-2]
 
@@ -727,17 +789,12 @@ copy.add = 'more'
 
 copy
 ```
+:::
+::::
 
-### accessing object keys
+---
 
-* you can access an attribute with either of these 2 forms
-  * `object.first_name`
-  * `object['first_name']`
-* the difference being that
-  * `object.first_name` takes the key name literally
-  * `object[expr]` **evaluates** `expr`, that should give a key name
-
-### iterations
+### iteration over object keys
 
 several options; probably the safest is
 
@@ -755,44 +812,17 @@ for (let key of Object.keys(bond)) {
 }
 ```
 
-+++ {"tags": ["level_advanced"]}
+---
 
-### computing keys when building objects (advanced)
+### unpacking objects (reminder)
 
-and also, because there is no difference between
+this is also known as deconstructing / reconstructing  
+and these are truly all over the place in modern JavaScript code
 
-```{code-cell}
-:tags: [level_advanced, gridwidth-1-2]
-
-/* const */ with_quotes = {'a': 1}
-```
+#### unpacking an array
 
 ```{code-cell}
-:tags: [level_advanced, gridwidth-1-2]
-
-/* const */ without_quotes = {a: 1}
-```
-
-```{code-cell}
-:tags: [level_advanced]
-
-// we need a way to express that a field name is actually an expression
-// that we want to evaluate (could also be a simple variable)
-
-/* const */ [begin, end] = ['a', 'b']
-/*                 ↓           ↓        */
-/* const */ obj = {[begin + end]: 1}
-obj
-```
-
-### unpacking objects
-
-there are a lot of fancy ways to deal with objects; this is also known as deconstructing / reconstructing
-
-and these are truly all over the place in modern JavScript code, so you'd better have heard of these
-
-```{code-cell}
-// here let is mandatory
+// similar to Python's tuple unpacking
 
 {
     let [a1, a2] = [100, 200]
@@ -800,29 +830,35 @@ and these are truly all over the place in modern JavScript code, so you'd better
 }
 ```
 
-there a similar destructuring assignment on objects
+---
+
+#### unpacking an object
+
+there is a similar destructuring assignment on objects
 
 ```{code-cell}
-function demo() {
-    const example_obj = {name: "doe",
-                         phone: '0123456',
-                         other: 'some stuff'}
-
-    // extract only a subset of the object
-    // and assign them into variables
-    // with the same names
-    const {name, phone} = example_obj
-
-    console.log(`variable name is ${name}, phone is ${phone}`)
+const example_obj = {
+    name: "doe",
+    phone: '0123456',
+    other: 'some stuff',
 }
 
-demo()
+function demo(obj) {
+    // extract only a subset of the object keys
+    // and assign them into variables with the same names
+    const {name, phone} = obj
+
+    console.log(
+        `variable name is ${name}, phone is ${phone}`)
+}
+
+demo(example_obj)
 ```
 
 ---
 
 (label-optional-parameters)=
-### typical usage for optional parameters
+### object as optional parameters
 
 the parameter-passing mechanism is not as powerful as Python  
 but here's a common pattern to define optional parameters with default values
@@ -850,6 +886,8 @@ foo("something")
 
 foo("else", {height: 800})
 ```
+
+---
 
 ### `console.log()` and objects
 
@@ -882,34 +920,25 @@ rather than a flat text representation that traditional languages have used us t
 
 ---
 
-### class instances are objects
+### accessing object keys (advanced)
+
+a reminder too:
+
+* you can access an attribute with either of these 2 forms
+  * `object.first_name`
+  * `object['first_name']`
+* the difference being that
+  * `object.first_name` takes the key name literally
+  * `object[expr]` **evaluates** `expr`, that should give a key name
 
 ```{code-cell}
-:tags: [gridwidth-1-2]
+:tags: [level_advanced]
 
-class Person {
-    constructor(first, last) {
-        this.first_name = first
-        this.last_name = last
-    }
-}
+// we need a way to express that a field name is actually an expression
+// that we want to evaluate (could also be a simple variable)
 
-let person = new Person("John", "Doe")
-
-typeof(person)
+const obj = {["comp" + "uted"]: 1}
+obj
 ```
 
-```{code-cell}
-:tags: [gridwidth-1-2]
-
-// objects are passed by reference too
-// so this function can modify its object argument
-
-function change_object(obj) {
-    obj.first_name = 'BOOM'
-}
-
-let person2 = new Person('John Doe')
-change_object(person2)
-person2
-```
+---
