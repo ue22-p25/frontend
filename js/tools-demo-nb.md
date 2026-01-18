@@ -4,33 +4,35 @@ jupytext:
   text_representation:
     extension: .md
     format_name: myst
+    format_version: 0.13
+    jupytext_version: 1.18.1
 kernelspec:
-  display_name: JavaScript (Node.js)
-  language: javascript
-  name: javascript
-language_info:
-  name: javascript
-short_title: JS intro
+  name: deno
+  display_name: Deno
+  language: typescript
 ---
 
 # displaying code samples
 
----
+## init() with deno-jupyter
 
-## init()
+the regular way to import this - for regular book notebooks is as follows  
+tools.init will evaluate all cells, and inject the global css style
 
-```{code-cell}
-// the code to force a reload
-delete require.cache[require.resolve('../js/tools')]
+```js
+import * as tools from "../js/tools.js"
+await tools.init()
 ```
 
-```{code-cell}
-// this will evaluate all cells, and inject the global css style
-tools = require('../js/tools'); tools.init()
-undefined
+```{code-cell} typescript
+// the code to force a reload - using let because we keep on doing that
+let tools = await import(`../js/tools.js?ts=${Date.now()}`)
+await tools.init()
 ```
 
-```{code-cell}
+just checking the notebook gets evaluated properly
+
+```{code-cell} typescript
 /* customized look for output cells */
 20 * 300
 ```
@@ -54,13 +56,9 @@ by default, the `id` option is computed from `html` - be wary to specify differe
 
 ---
 
-### select which source to display (html, css, js)
+### setting global options
 
-```{code-cell}
-// clean up and reload
-delete require.cache[require.resolve('../js/tools')]
-tools = require('../js/tools')
-
+```{code-cell} typescript
 tools.set_options({
     debug: true,
 })
@@ -68,28 +66,55 @@ tools.set_options({
 undefined
 ```
 
-```{code-cell}
-// by default, all 3 even if void
+---
 
-tools.sample_from_strings({'html': 'HELLO'}, {id: 'hello'})
+### select which source to display (html, css, js)
+
+```{code-cell} typescript
+// clean up and reload
+tools = await import(`../js/tools.js?ts=${Date.now()}`)
 ```
 
-```{code-cell}
+```{code-cell} typescript
+// by default, all 3 even if void
+
+await tools.sample_from_strings({'html': 'HELLO'}, {id: 'hello'})
+```
+
+```{code-cell} typescript
 // use the options to remove one of the 3
 // btw here the html is off so nothing shows up at all
 
-tools.sample_from_strings({html: 'HELLO'}, {id: 'empty', html_show: false})
+await tools.sample_from_strings({html: 'HELLO'}, {id: 'empty', html_show: false})
+```
+
+---
+
+### remove the cell input
+
+```{code-cell} typescript
+:tags: [remove-input]
+await tools.sample_from_strings( {
+    html: `use
+    <br>
+    &lt;code&gt;:tags: [remove-input]&lt;/code&gt;
+    <br>
+    to hide the input`
+    },
+    {id: 'remove-input'}
+)
 ```
 
 ---
 
 ### start with another view
 
-```{code-cell}
+```{code-cell} typescript
 // we can start on something else than html
-tools.sample_from_strings(
+await tools.sample_from_strings(
     {html: 'HELLO', js: 'console.log("Hi")'},
-// one could also say css_show: false to hide the css tab, but it's inferred here
+// one could also say css_show: false to hide the css tab,
+// but it's inferred here
     {id: 'id3', start_with: 'js'})
 ```
 
@@ -97,8 +122,8 @@ tools.sample_from_strings(
 
 ### high left (1)
 
-```{code-cell}
-tools.sample_from_strings(
+```{code-cell} typescript
+await tools.sample_from_strings(
     {html: 'HELLO\n'.repeat(20)},
     {id: 'high-input'})
 ```
@@ -107,8 +132,8 @@ tools.sample_from_strings(
 
 ### high left with height (11)
 
-```{code-cell}
-tools.sample_from_strings(
+```{code-cell} typescript
+await tools.sample_from_strings(
     {html: 'HELLO\n'.repeat(20)},
     {id: 'high-input-height', height: '15cap'})
 ```
@@ -117,8 +142,8 @@ tools.sample_from_strings(
 
 ### high right (2)
 
-```{code-cell}
-tools.sample_from_strings(
+```{code-cell} typescript
+await tools.sample_from_strings(
     {html: '<p>HELLO</p>'.repeat(20)},
     {id: 'high-output', width: '69%'}
 )
@@ -128,38 +153,12 @@ tools.sample_from_strings(
 
 ### specifying sizes
 
-```{code-cell}
+```{code-cell} typescript
 // can set: width - min_width - height - min_height - font_size
 // or     : output_min_width
-tools.sample_from_strings(
+await tools.sample_from_strings(
     {html: 'HELLO'},
     {id: 'font_size', 'font_size': '30px'})
-```
-
----
-
-## from plain strings
-
-```{code-cell}
-// clean up and reload
-delete require.cache[require.resolve('../js/tools')]
-tools = require('../js/tools')
-undefined
-```
-
-```{code-cell}
-fragment1 = `<html>
-  <head>
-     <!-- various document-wide declarations -->
-  </head>
-  <body>
-     <!-- the actual document contents -->
-     Hello
-  </body>
-</html>
-`
-
-tools.sample_from_strings({html: fragment1})
 ```
 
 ---
@@ -168,19 +167,16 @@ tools.sample_from_strings({html: fragment1})
 
 ### without the separate button
 
-```{code-cell}
+```{code-cell} typescript
 // clean up and reload
-delete require.cache[require.resolve('../js/tools')]
-tools = require('../js/tools')
+tools = await import(`../js/tools.js?ts=${Date.now()}`)
 undefined
 ```
 
-```{code-cell}
-:scrolled: true
-
+```{code-cell} typescript
 // in general, no need to worry about sizes, provided that the sources
 // take a reasonable space
-tools.sample_from_stem(
+await tools.sample_from_stem(
     "../samples/30-js-intro-01-on-off",
     {id: 'separate_off', start_with: 'css', separate_show: false})
 ```
@@ -189,18 +185,17 @@ tools.sample_from_stem(
 
 ### with the separate button
 
-```{code-cell}
+```{code-cell} typescript
 // clean up and reload
-delete require.cache[require.resolve('../js/tools')]
-tools = require('../js/tools')
+tools = await import(`../js/tools.js?ts=${Date.now()}`)
 undefined
 ```
 
-```{code-cell}
+```{code-cell} typescript
 // here the autosizing mode would pick a very high window
 // because the JS script is very large
 // so we keep this under control
-tools.sample_from_stem(
+await tools.sample_from_stem(
     "../samples/30-js-intro-02-svgcircles",
     {id: 'separate_on',
      separate_label: 'In new window', separate_show: true,
@@ -212,19 +207,16 @@ tools.sample_from_stem(
 
 ## no code, just the result - with separate
 
-```{code-cell}
+```{code-cell} typescript
 // clean up and reload
-delete require.cache[require.resolve('../js/tools')]
-tools = require('../js/tools')
+tools = await import(`../js/tools.js?ts=${Date.now()}`)
 undefined
 ```
 
-```{code-cell}
-:scrolled: true
-
+```{code-cell} typescript
 // the default is separate_show = true
 
-tools.sample_from_stem(
+await tools.sample_from_stem(
     "../samples/44-spinning-wheel/spinning-wheel",
     {id: 'spinning-wheel',
      sources_show: false,
@@ -239,19 +231,18 @@ tools.sample_from_stem(
 
 **beware** because we re-use the same stem twice, we need to provide our own id
 
-```{code-cell}
+```{code-cell} typescript
 // clean up and reload
-delete require.cache[require.resolve('../js/tools')]
-tools = require('../js/tools')
+tools = await import(`../js/tools.js?ts=${Date.now()}`)
 undefined
 ```
 
-```{code-cell}
+```{code-cell} typescript
 // here because we use the same code exactly
 // we need to provide a unique id
 // otherwise we mess with the previous sample
 
-tools.sample_from_stem(
+await tools.sample_from_stem(
     "../samples/44-spinning-wheel/spinning-wheel",
     {id: 'duplicate', height: '20em', sources_show: false, separate_show: false})
 ```
@@ -260,15 +251,14 @@ tools.sample_from_stem(
 
 ## the calculator
 
-```{code-cell}
+```{code-cell} typescript
 // clean up and reload
-delete require.cache[require.resolve('../js/tools')]
-tools = require('../js/tools')
+tools = await import(`../js/tools.js?ts=${Date.now()}`)
 undefined
 ```
 
-```{code-cell}
-tools.sample_from_stem(
+```{code-cell} typescript
+await tools.sample_from_stem(
     "../samples/46-calculator",
     {sources_show: false, separate_show: false, height: '500px'})
 ```
@@ -277,36 +267,35 @@ tools.sample_from_stem(
 
 ## escaping
 
-```{code-cell}
+```{code-cell} typescript
 // clean up and reload
-delete require.cache[require.resolve('../js/tools')]
-tools = require('../js/tools')
+tools = await import(`../js/tools.js?ts=${Date.now()}`)
 undefined
 ```
 
-```{code-cell}
+```{code-cell} typescript
 // NOT WORKING
 
-html_with_tags = `<b>NOT WORKING</b>
+let html_with_tags = `<b>NOT WORKING</b>
 <p> a paragraph with a &lt;tag&gt; tag inside </p>
 
 there is a need to escape even more than that, see next attempt
 `
 
-tools.sample_from_strings(
+await tools.sample_from_strings(
     {html: html_with_tags},
     {css_show: false, js_show: false}
 )
 ```
 
-```{code-cell}
+```{code-cell} typescript
 :tags: [raises-exception]
 
 html_with_tags = `<b> YES ! - need to double escape like this:</b>
 <p> a paragraph with a &amp;lt;tag&amp;gt; tag inside </p>
 `
 
-tools.sample_from_strings(
+await tools.sample_from_strings(
     {html: html_with_tags},
     {css_show: false, js_show: false, id: 'escaped'}
 )
@@ -318,8 +307,7 @@ tools.sample_from_strings(
 
 this function allows to set default options globally
 
-```{code-cell}
-
+```{code-cell} typescript
 tools.set_options({
     font_size: '6px',
     min_width: '200px',
@@ -330,8 +318,8 @@ tools.set_options({
 
 and then the defaults will be used in subsequent calls
 
-```{code-cell}
-tools.sample_from_strings(
+```{code-cell} typescript
+await tools.sample_from_strings(
     {html: '<p> this sample uses the global options set previously </p>'},
     {id: 'global-options-sample'})
 ```

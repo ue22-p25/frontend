@@ -12,19 +12,16 @@
 
 "use strict"
 
-// const { sep } = require('path')
-// const { text } = require('stream/consumers')
+import { join, dirname } from 'https://deno.land/std@0.208.0/path/mod.ts'
 
-
-// a micro-templating engine - only supports ${variable}
-const fs = require('fs')
+// Get the directory of the current file (Deno equivalent of __dirname)
+const __dirname = dirname(new URL(import.meta.url).pathname)
 
 function render(template_name, context) {
   // find a template in the same folder as this file
   // and replace  ${key} by context[key]
-  const path = require('path')
-  const fullname = path.join(__dirname, template_name)
-  let template = fs.readFileSync(fullname, 'utf-8')
+  const fullname = join(__dirname, template_name)
+  let template = Deno.readTextFileSync(fullname)
   return template.replace(/\$\{(\w+)\}/g, (_, k) => {
     if (!(k in context)) {
       console.error(`Missing template variable: ${k}`);
@@ -34,10 +31,15 @@ function render(template_name, context) {
 }
 
 function hash(word) {
-  const crypto = require('crypto')
-  const sha1 = crypto.createHash('sha1')
-  sha1.update(word)
-  return `id-${sha1.digest('hex')}`
+  // Simple hash function that works synchronously
+  // Not cryptographically secure, but suitable for generating IDs
+  let hash = 0
+  for (let i = 0; i < word.length; i++) {
+    const char = word.charCodeAt(i)
+    hash = ((hash << 5) - hash) + char
+    hash = hash & hash // Convert to 32bit integer
+  }
+  return `id-${Math.abs(hash).toString(16)}`
 }
 
 // helper to compute default height
@@ -67,7 +69,7 @@ function max_line_width_s(code_s) {
 }
 
 function read_style(path) {
-  const css = fs.readFileSync(path, 'utf-8')
+  const css = Deno.readTextFileSync(path)
   return `<style>${css}</style>`
 }
 
@@ -90,16 +92,14 @@ function sample_from_stem(stem, options) {
   if (! ('id' in options))
     options.id = `x${hash(stem)}`
 
-  const fs = require('fs')
-
 	let fullname_html = `${stem}.html`
 	let fullname_css  = `${stem}.css`
 	let fullname_js   = `${stem}.js`
 
   let html, css, js
-	try {html = fs.readFileSync(fullname_html, 'utf8')} catch {}
-	try {css = fs.readFileSync(fullname_css, 'utf8')} catch {}
-	try {js = fs.readFileSync(fullname_js, 'utf8')} catch {}
+	try {html = Deno.readTextFileSync(fullname_html)} catch {}
+	try {css = Deno.readTextFileSync(fullname_css)} catch {}
+	try {js = Deno.readTextFileSync(fullname_js)} catch {}
 
   if ( ! html && ! css && !js)
     return $$.html(`<div>no code found from stem
@@ -124,7 +124,7 @@ function set_options(user_options) {
   default_options = {...default_options, ...user_options}
 }
 
-function sample_from_strings(code, options) {
+async function sample_from_strings(code, options) {
   options = options || {}
   let {html, css, js} = code
   // the default for showing pieces is, are they present at all
@@ -226,13 +226,15 @@ function sample_from_strings(code, options) {
 
   // for debug purposes
   if (options.debug)
-     fs.writeFileSync(`embedded_${id}.html`, embedded, 'utf-8')
+     Deno.writeTextFileSync(`embedded_${id}.html`, embedded)
 
-	$$.html(embedded)
+  await Deno.jupyter.display(
+    {"text/html": embedded}, {raw: true})
+  return undefined
 }
 
 
-function init(options) {
+async function init(options) {
   options = options || {}
   const {init_style, init_script} = options
   // the style that makes the in[] and out[] labels less conspicuous
@@ -249,10 +251,8 @@ function init(options) {
     embedded += `<script>${render("template-init-codemirror.js", context)}</script>`
     embedded += `<script defer>${render("template-init-codemirror-defer.js", context)}</script>`
   }
-  $$.html(embedded)
+  await Deno.jupyter.display(
+    {"text/html": embedded}, {raw: true})
 }
 
-exports.init = init
-exports.sample_from_strings = sample_from_strings
-exports.sample_from_stem = sample_from_stem
-exports.set_options = set_options
+export { init, sample_from_strings, sample_from_stem, set_options }
