@@ -358,11 +358,19 @@ div.CodeMirror-lines div.CodeMirror-code pre.CodeMirror-line {
 }
 
 /* the right-hand-side toc made more compact
-   stolen from the git course
-   not used for now though as only 32 js lang overview
+   initially stolen from the git course
+   not used for now though
+   but useful for authoring
+   mostly only 32 js lang overview and 33 builtin types
    would benefit from it...
 */
 /* ul.text-sm.leading-6>li>a {
+    --toc-font-size: 10px;
     padding-top: 0;
     padding-bottom: 0;
+    font-size: var(--toc-font-size);
+    line-height: 1.3em;
+    code {
+        font-size: var(--toc-font-size);
+    }
 } */
