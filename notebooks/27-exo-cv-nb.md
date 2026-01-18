@@ -44,7 +44,7 @@ import * as tools from "../js/tools.js"; await tools.init()
 ```{code-cell}
 :tags: [remove-input]
 
-/*await*/ tools.sample_from_stem("../samples/26-monarque/resume", {sources_show: false})
+await tools.sample_from_stem("../samples/26-monarque/resume", {sources_show: false})
 ```
 
 ---

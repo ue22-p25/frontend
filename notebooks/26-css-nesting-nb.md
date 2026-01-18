@@ -76,7 +76,7 @@ div.second>*:nth-child(2) {
 }
 `
 
-/*await*/ tools.sample_from_strings({html: flat_html, css: flat_css}, {
+await tools.sample_from_strings({html: flat_html, css: flat_css}, {
     id: 'without-nesting', separate_show: false, start_with: 'css'})
 ```
 
@@ -136,7 +136,7 @@ div.second {
 }
 `
 
-/*await*/ tools.sample_from_strings({html: nested_html, css: nested_css}, {
+await tools.sample_from_strings({html: nested_html, css: nested_css}, {
     id: 'with_nesting', separate_show: false, start_with: 'css', height: '35em'})
 ```
 

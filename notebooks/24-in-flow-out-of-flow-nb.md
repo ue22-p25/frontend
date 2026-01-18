@@ -88,7 +88,7 @@ div:not(#header) {
     background-color: #fafafa;
 }`
 
-/*await*/ tools.sample_from_strings({html: sticky_html, css: sticky_css},
+await tools.sample_from_strings({html: sticky_html, css: sticky_css},
                           {start_with: 'css', height: '200px', iframe_max_height: '200'})
 ```
 

@@ -36,7 +36,7 @@ import * as tools from "../js/tools.js"; await tools.init()
 ```{code-cell}
 :tags: [remove-input]
 
-/*await*/ tools.sample_from_stem("../samples/18-sections", {separate_width: '1000px', separate_height: '800px'})
+await tools.sample_from_stem("../samples/18-sections", {separate_width: '1000px', separate_height: '800px'})
 ```
 
 ---
@@ -89,7 +89,7 @@ circle {
   fill: yellow;
 }`
 
-/*await*/ tools.sample_from_strings({html: svg_html, css: svg_css})
+await tools.sample_from_strings({html: svg_html, css: svg_css})
 ```
 
 ---
@@ -104,7 +104,7 @@ here's a simple example - just for a glimpse
 ```{code-cell}
 :tags: [remove-input]
 
-/*await*/ tools.sample_from_stem("../samples/18-canvas-basic",
+await tools.sample_from_stem("../samples/18-canvas-basic",
   {
     start_with: 'js',
     separate_width: '700px',

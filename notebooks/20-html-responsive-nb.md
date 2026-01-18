@@ -115,5 +115,5 @@ let display_none_css = `#do-not-show {
     display: none;
     background-color: red;
 }`
-/*await*/ tools.sample_from_strings({html: display_none_html, css: display_none_css})
+await tools.sample_from_strings({html: display_none_html, css: display_none_css})
 ```

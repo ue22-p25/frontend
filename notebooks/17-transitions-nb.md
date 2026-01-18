@@ -47,7 +47,7 @@ of course this applies to some properties only, e.g. **lengths** or **colors**:
 :tags: [remove-input]
 :label: transition-code
 
-/*await*/ tools.sample_from_stem(
+await tools.sample_from_stem(
   "../samples/17-transition1", 
   {
     start_with: 'css',
@@ -105,7 +105,7 @@ it's possible to be more specific here of course
 ```{code-cell}
 :tags: [remove-input]
 
-/*await*/ tools.sample_from_stem(
+await tools.sample_from_stem(
   "../samples/17-transition2", 
   {
     separate_width: '1200px',
@@ -142,7 +142,7 @@ with e.g. `growing.style.width = '200px'`
 ```{code-cell}
 :tags: [remove-input]
 
-/*await*/ tools.sample_from_stem(
+await tools.sample_from_stem(
   "../samples/17-transition3", {start_with: 'js'})
 ```
 

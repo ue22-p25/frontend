@@ -102,7 +102,7 @@ let grid1_css = `.container {
     grid-area: footer;
     background-color: #7fa998;
 }`
-/*await*/ tools.sample_from_strings({html: grid_html, css: grid1_css}, {id: 'grid-1', start_with: 'css', height: "16em"})
+await tools.sample_from_strings({html: grid_html, css: grid1_css}, {id: 'grid-1', start_with: 'css', height: "16em"})
 ```
 
 ````{admonition} notes
@@ -171,7 +171,7 @@ let grid2_css = `.container {
     background-color: #7fa998;
 }`
 
-/*await*/ tools.sample_from_strings({html: grid_html, css: grid2_css}, {id: 'grid-2', start_with: 'css', height: "16em"})
+await tools.sample_from_strings({html: grid_html, css: grid2_css}, {id: 'grid-2', start_with: 'css', height: "16em"})
 ```
 
 ---
@@ -238,7 +238,7 @@ let grid3_css = `.container {
     background-color: #7fa998;
 }
 `
-/*await*/ tools.sample_from_strings({html: grid_html, css: grid3_css}, {start_with: 'css', height: "16em"})
+await tools.sample_from_strings({html: grid_html, css: grid3_css}, {start_with: 'css', height: "16em"})
 ```
 
 ---

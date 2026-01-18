@@ -86,7 +86,7 @@ a {
     border-radius: 8px;
     text-decoration: none;
 }`
-/*await*/ tools.sample_from_strings({html: link_html, css: link_css}, {start_with: "css"})
+await tools.sample_from_strings({html: link_html, css: link_css}, {start_with: "css"})
 ```
 
 ::::{admonition} what with `target` thing ?

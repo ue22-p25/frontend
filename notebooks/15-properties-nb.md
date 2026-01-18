@@ -44,7 +44,7 @@ let text_css = `.text {
     color: darkolivegreen;
 }
 `;
-/*await*/ tools.sample_from_strings({html: text_html, css: text_css}, {start_with: 'css'})
+await tools.sample_from_strings({html: text_html, css: text_css}, {start_with: 'css'})
 ```
 
 ---
@@ -61,7 +61,7 @@ the example below illustrates how to load and use them in your page
 ```{code-cell}
 :tags: [remove-input]
 
-/*await*/ tools.sample_from_stem("../samples/15-font-demo")
+await tools.sample_from_stem("../samples/15-font-demo")
 ```
 
 ::::{admonition} notes (1): a single CSS rule
@@ -121,7 +121,7 @@ the example below illustrates how to load and use them in your page
 ```{code-cell}
 :tags: [remove-input]
 
-/*await*/ tools.sample_from_strings({
+await tools.sample_from_strings({
     html :
     `<div>
 ︙→ ⇀ « » ❯ × ∑ ∀α ∃ε ∈ x² © …
@@ -159,7 +159,7 @@ some characters can be inserted with the `&...;` notation using nicknames, like 
 
 :::{code-cell}
 :tags: [remove-input]
-/*await*/ tools.sample_from_strings({
+await tools.sample_from_strings({
     html :
     `<div>
 here's how to obtain an HTML tag:
@@ -260,7 +260,7 @@ let box1_css = `p.box1 {
     border-bottom-style: solid;
 }`
 
-/*await*/ tools.sample_from_strings({html: box1_html, css: box1_css}, { start_with: 'css' })
+await tools.sample_from_strings({html: box1_html, css: box1_css}, { start_with: 'css' })
 ```
 
 ::::{admonition} another example: margin and border
@@ -298,7 +298,7 @@ let box2_css = `p.box2 {
     border-top-left-radius: 5px;
 }`
 
-/*await*/ tools.sample_from_strings({html: box2_html, css: box2_css}, { start_with: 'css' })
+await tools.sample_from_strings({html: box2_html, css: box2_css}, { start_with: 'css' })
 ```
 
 ::::
@@ -408,7 +408,7 @@ span {
     padding: 2px 10px;
 }
 `
-/*await*/ tools.sample_from_strings({html: shorthand_html, css: shorthand_css}, {start_with: 'css'})
+await tools.sample_from_strings({html: shorthand_html, css: shorthand_css}, {start_with: 'css'})
 ```
 
 ::::

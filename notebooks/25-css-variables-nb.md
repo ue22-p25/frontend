@@ -50,7 +50,7 @@ let's see how that can be done
 ```{code-cell}
 :tags: [remove-input]
 
-/*await*/ tools.sample_from_stem('../samples/25-simple-vars', {'start_with': 'css'})
+await tools.sample_from_stem('../samples/25-simple-vars', {'start_with': 'css'})
 ```
 
 ---
@@ -63,7 +63,7 @@ a document that can be displayed in light mode or dark mode, depending on user p
 ```{code-cell}
 :tags: [remove-input]
 
-/*await*/ tools.sample_from_stem('../samples/25-dark-mode', {
+await tools.sample_from_stem('../samples/25-dark-mode', {
   'start_with': 'css', //height: '35em', iframe_max_height: '350',
 })
 ```

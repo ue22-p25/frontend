@@ -54,7 +54,7 @@ p {
   background-color: var(--main-bg-color);
 }
 `
-/*await*/ tools.sample_from_strings({html: cssvar_html, css: cssvar_css})
+await tools.sample_from_strings({html: cssvar_html, css: cssvar_css})
 ```
 
 ## filling the void

@@ -64,7 +64,7 @@ try {
   separate_css = fs.readFileSync("hello.css", "utf8")
 }
 
-/*await*/ tools.sample_from_strings({html: separate_html, css: separate_css})
+await tools.sample_from_strings({html: separate_html, css: separate_css})
 ```
 
 ````{admonition} self-closing tags
@@ -163,7 +163,7 @@ div {
 </style>
 `
 
-/*await*/ tools.sample_from_strings({html: embedded_html})
+await tools.sample_from_strings({html: embedded_html})
 ```
 
 ---
@@ -192,7 +192,7 @@ more on this later on
 
 </div>`
 
-/*await*/ tools.sample_from_strings({html: embedded_html}, {id: 'embedded2'})
+await tools.sample_from_strings({html: embedded_html}, {id: 'embedded2'})
 ```
 
 ---

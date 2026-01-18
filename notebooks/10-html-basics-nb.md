@@ -52,7 +52,7 @@ let fragment1 = `<html>
   </body>
 </html>`
 
-/*await*/ tools.sample_from_strings(
+await tools.sample_from_strings(
   {html: fragment1}, {id: 'fragment1', separate_show: false})
 ```
 
@@ -127,7 +127,7 @@ you need to reproduce this:
 
 // need to set an id as the default is to hash the html content
 // and we will reuse this later down the page
-/*await*/ tools.sample_from_strings(
+await tools.sample_from_strings(
     {html: fragment1},
     {id: 'fragment1_2', height: '12em', separate_show: false})
 ```
@@ -284,7 +284,7 @@ let fragment_unclosed = `<p> do not do this
 <li> but they will hurt eventually
 `
 
-/*await*/ tools.sample_from_strings({html: fragment_unclosed}, {separate_show: false})
+await tools.sample_from_strings({html: fragment_unclosed}, {separate_show: false})
 ```
 
 ### do this instead
@@ -299,7 +299,7 @@ let fragment_closed = `<p> do this instead </p>
 </ul>
 `
 
-/*await*/ tools.sample_from_strings({html: fragment_closed}, {separate_show: false})
+await tools.sample_from_strings({html: fragment_closed}, {separate_show: false})
 ```
 
 ---

@@ -66,7 +66,7 @@ let media_width_css = `body {
   }
 }`
 
-/*await*/ tools.sample_from_strings({html: media_width_html, css: media_width_css}, {start_with: 'css'})
+await tools.sample_from_strings({html: media_width_html, css: media_width_css}, {start_with: 'css'})
 ```
 
 ---
@@ -111,7 +111,7 @@ body {
   }
 }`
 
-/*await*/ tools.sample_from_strings({html: media_print_html, css: media_print_css}, {start_with: 'css'})
+await tools.sample_from_strings({html: media_print_html, css: media_print_css}, {start_with: 'css'})
 ```
 
 ---
@@ -164,5 +164,5 @@ another way to use media rules is to conditionnally apply a CSS `<link>` tag fro
 ```{code-cell}
 :tags: [remove-input]
 
-/*await*/ tools.sample_from_stem("../samples/22-exo-grid", {sources_show: false})
+await tools.sample_from_stem("../samples/22-exo-grid", {sources_show: false})
 ```

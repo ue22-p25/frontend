@@ -70,7 +70,7 @@ a:hover:link {
     text-decoration: none;
 }`
 
-/*await*/ tools.sample_from_strings({html: hover_html, css: hover_css}, {start_with: 'css'})
+await tools.sample_from_strings({html: hover_html, css: hover_css}, {start_with: 'css'})
 ```
 
 ````{admonition} 2 pseudo-classes
@@ -119,7 +119,7 @@ li {
     font-size: 200%;
 }`
 
-/*await*/ tools.sample_from_strings({html: rank_html, css: rank_css}, {start_with: 'css'})
+await tools.sample_from_strings({html: rank_html, css: rank_css}, {start_with: 'css'})
 ```
 
 ---
@@ -167,7 +167,7 @@ div > span {
 }
 `
 
-/*await*/ tools.sample_from_strings({html: under_html, css: under_css}, {start_with: 'css'})
+await tools.sample_from_strings({html: under_html, css: under_css}, {start_with: 'css'})
 ```
 
 ---
@@ -212,7 +212,7 @@ h1 ~ p {
 }
 `
 
-/*await*/ tools.sample_from_strings({html: sibling_html, css: sibling_css}, {start_with: 'css', id: 'siblings'})
+await tools.sample_from_strings({html: sibling_html, css: sibling_css}, {start_with: 'css', id: 'siblings'})
 ```
 
 ---

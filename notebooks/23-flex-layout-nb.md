@@ -76,7 +76,7 @@ body {
 }
 `
 
-/*await*/ tools.sample_from_strings({html: flex1_html, css: flex1_css}, {id: 'flex1', start_with: 'css'})
+await tools.sample_from_strings({html: flex1_html, css: flex1_css}, {id: 'flex1', start_with: 'css'})
 ```
 
 ---
@@ -112,7 +112,7 @@ body { border: none; }
 }
 `
 
-/*await*/ tools.sample_from_strings({html: flex2_html, css: flex2_css}, {id: 'flex2', start_with: 'css'})
+await tools.sample_from_strings({html: flex2_html, css: flex2_css}, {id: 'flex2', start_with: 'css'})
 ```
 
 ---
@@ -146,7 +146,7 @@ mimick the layout below
 ```{code-cell}
 :tags: [remove-input]
 
-/*await*/ tools.sample_from_stem("../samples/23-exo-flex", {sources_show: false})
+await tools.sample_from_stem("../samples/23-exo-flex", {sources_show: false})
 ```
 
 ::::{admonition} tip: `width: 100%`

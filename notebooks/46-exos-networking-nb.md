@@ -36,7 +36,7 @@ the result would look like this
 ```{code-cell}
 :tags: [remove-input]
 
-/*await*/ tools.sample_from_stem("../samples/49-xkcd/xkcd", 
+await tools.sample_from_stem("../samples/49-xkcd/xkcd", 
                        {sources_show: false, separate_height: '750px', separate_width: '820px'})
 ```
 

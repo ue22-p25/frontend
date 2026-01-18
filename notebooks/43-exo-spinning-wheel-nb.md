@@ -26,7 +26,7 @@ import * as tools from "../js/tools.js"; await tools.init()
 ```{code-cell}
 :tags: [remove-input]
 
-/*await*/ tools.sample_from_stem("../samples/44-spinning-wheel/spinning-wheel", {id: 'finished', sources_show: false})
+await tools.sample_from_stem("../samples/44-spinning-wheel/spinning-wheel", {id: 'finished', sources_show: false})
 ```
 
 ---
@@ -109,7 +109,7 @@ your html part could look like the following
 ```{code-cell}
 :tags: [remove-input]
 
-/*await*/ tools.sample_from_stem(
+await tools.sample_from_stem(
     '../samples/44-spinning-wheel/spinning-wheel',
    {id: 'source-only', css_show: false, js_show: false, output_show: false, height: '18em'})
 ```

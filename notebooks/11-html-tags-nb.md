@@ -44,7 +44,7 @@ and in this case you can insert a simple linebreak
 instead using the &amp;lt;br&amp;gt; tag
 </p>
 `
-/*await*/ tools.sample_from_strings({html: text_fragment}, {id: 'hello'})
+await tools.sample_from_strings({html: text_fragment}, {id: 'hello'})
 ```
 
 ---
@@ -81,7 +81,7 @@ and for that use a &lt;span&gt; tag.</p>
       contain several paragraphs</p>
   <p> then a "div" tag is more suitable</p>
 </div>`
-/*await*/ tools.sample_from_strings({html: group_html})
+await tools.sample_from_strings({html: group_html})
 ```
 
 :::{admonition} what with the `style` thing ?
@@ -111,7 +111,7 @@ you will find &amp;lt;div&amp;gt; elements all over the place
             font-size: x-small;">
   bottom<br>right
 </div>`;
-/*await*/ tools.sample_from_strings({html: group2_html})
+await tools.sample_from_strings({html: group2_html})
 ```
 
 ---
@@ -143,7 +143,7 @@ let ul_fragment = `<div><p> a typical bullet list with a &amp;lt;ul&amp;gt; tag<
 </ul>
 </div>
 `;
-/*await*/ tools.sample_from_strings({html: ul_fragment})
+await tools.sample_from_strings({html: ul_fragment})
 ```
 
 ```{admonition} ordered list
@@ -174,7 +174,7 @@ Y = np.sin(X)
 plt.plot(X, Y)
 </pre></code>
 </p>`
-/*await*/ tools.sample_from_strings({html: code_fragment})
+await tools.sample_from_strings({html: code_fragment})
 ```
 
 ---
@@ -200,7 +200,7 @@ let hyperlink_fragment = `some text with
   a hyperlink
 </a>
 in the middle`;
-/*await*/ tools.sample_from_strings({html: hyperlink_fragment})
+await tools.sample_from_strings({html: hyperlink_fragment})
 ```
 
 ````{admonition} opening in another tab
@@ -254,7 +254,7 @@ and the hyperlink below will bring you right down to the anchor</p>
 and then some more text
 </p>
 `
-/*await*/ tools.sample_from_strings({html: redirect_fragment})
+await tools.sample_from_strings({html: redirect_fragment})
 ```
 
 ---
@@ -291,7 +291,7 @@ td {
 }
 `
 
-/*await*/ tools.sample_from_strings({html: table_html, css: table_css})
+await tools.sample_from_strings({html: table_html, css: table_css})
 ```
 
 ```{admonition} historical note
@@ -319,7 +319,7 @@ let headers_fragment = `<h1> toplevel title </h1>
 <h3> other subsublevel </h3>
 <h2> second sublevel title </h2>`
 
-/*await*/ tools.sample_from_strings({html: headers_fragment}, {height: '18em'})
+await tools.sample_from_strings({html: headers_fragment}, {height: '18em'})
 ```
 
 ```{admonition} use together with semantic tags
@@ -335,7 +335,7 @@ let section_fragment = `<section>
   <p> section content </p>
   <p> another paragraph ...</p>
 </section>`
-/*await*/ tools.sample_from_strings({html: section_fragment})
+await tools.sample_from_strings({html: section_fragment})
 ```
 
 ```{admonition} these tags are a bit old-school
@@ -375,5 +375,5 @@ or <u>underline</u> or <s>strike-through</s>
 <br>
 that of course <u><b><i>can be combined</i></b></u>
 </p>`
-/*await*/ tools.sample_from_strings({html: styling_fragment})
+await tools.sample_from_strings({html: styling_fragment})
 ```

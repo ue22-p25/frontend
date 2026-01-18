@@ -62,7 +62,7 @@ let id_css = `/* will apply ONLY to elements that are tagged <p>
 p#only-me {
     background-color: pink;
 }`
-/*await*/ tools.sample_from_strings({html: id_html, css: id_css}, {start_with: 'html'})
+await tools.sample_from_strings({html: id_html, css: id_css}, {start_with: 'html'})
 ```
 
 ````{admonition} no need for the tag
@@ -100,7 +100,7 @@ p.no {
     background-color: red;
 }
 `;
-/*await*/ tools.sample_from_strings({html: class_html, css: class_css})
+await tools.sample_from_strings({html: class_html, css: class_css})
 ```
 
 ---
@@ -209,7 +209,7 @@ let specificity_css = `p {
   color: blue;
 }`
 
-/*await*/ tools.sample_from_strings({html: specificity1_html, css: specificity_css})
+await tools.sample_from_strings({html: specificity1_html, css: specificity_css})
 ```
 
 ---
@@ -230,7 +230,7 @@ then id wins
 Lorem ipsum dolor sit amet.
 </p>
 `
-/*await*/ tools.sample_from_strings({html: specificity2_html, css: specificity_css})
+await tools.sample_from_strings({html: specificity2_html, css: specificity_css})
 ```
 
 ---
@@ -250,7 +250,7 @@ then class wins
 Lorem ipsum dolor sit amet.
 </p>
 `
-/*await*/ tools.sample_from_strings({html: specificity3_html, css: specificity_css})
+await tools.sample_from_strings({html: specificity3_html, css: specificity_css})
 ```
 
 ---
@@ -268,7 +268,7 @@ finally there is no ambiguity
 Lorem ipsum dolor sit amet.
 </p>
 `
-/*await*/ tools.sample_from_strings({html: specificity4_html, css: specificity_css})
+await tools.sample_from_strings({html: specificity4_html, css: specificity_css})
 ```
 
 ---
@@ -292,7 +292,7 @@ let inherit_css = `.inheritance {
     font-family: times;
 }`
 
-/*await*/ tools.sample_from_strings({html: inherit_html, css: inherit_css})
+await tools.sample_from_strings({html: inherit_html, css: inherit_css})
 ```
 
 ---
