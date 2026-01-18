@@ -133,7 +133,9 @@ click on 'Open in new window' to see a cheatsheet that contains all this
 ```{code-cell}
 :tags: [remove-input]
 
-tools.sample_from_stem("_static/cheatsheet", {sources_show: false})
+/*await*/ tools.sample_from_stem(
+  "_static/cheatsheet",
+  {sources_show: false, separate_width: "1000px", separate_height: "800px"},)
 ```
 
 ````{admonition} other ways to access the cheatsheet

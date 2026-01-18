@@ -93,8 +93,8 @@ in this first version we are going to use globally defined functions
 ```{code-cell}
 :tags: [remove-input]
 
-tools.sample_from_stem("../samples/34-events-and-callbacks-01",
-                       {separate_show: true, start_with: 'js', 
+/*await*/ tools.sample_from_stem("../samples/34-events-and-callbacks-01",
+                       {separate_show: true, start_with: 'js',
                         separate_width: "600px", height: 'js'})
 ```
 
@@ -230,8 +230,8 @@ document.addEventListener(
 ```{code-cell}
 :tags: [remove-input]
 
-tools.sample_from_stem("../samples/34-events-and-callbacks-02",
-                       {separate_show: true, start_with: 'js', 
+/*await*/ tools.sample_from_stem("../samples/34-events-and-callbacks-02",
+                       {separate_show: true, start_with: 'js',
                         separate_width: "600px", height: 'js'})
 ```
 

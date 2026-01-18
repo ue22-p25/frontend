@@ -89,7 +89,7 @@ in the following example :
 ```{code-cell}
 :tags: [remove-input]
 
-tools.sample_from_stem("../samples/30-js-intro-01-on-off", {start_with: 'js'})
+/*await*/ tools.sample_from_stem("../samples/30-js-intro-01-on-off", {start_with: 'js'})
 ```
 
 ---
@@ -143,7 +143,7 @@ in this further example :
 ```{code-cell}
 :tags: [remove-input]
 
-tools.sample_from_stem("../samples/30-js-intro-02-svgcircles", {
+/*await*/ tools.sample_from_stem("../samples/30-js-intro-02-svgcircles", {
   height: "30em", start_with: 'js'})
 ```
 
@@ -217,7 +217,7 @@ in this further example :
 ```{code-cell}
 :tags: [remove-input]
 
-tools.sample_from_stem("../samples/30-js-intro-03-canvas",
+/*await*/ tools.sample_from_stem("../samples/30-js-intro-03-canvas",
                        {separate_show: true, start_with: 'js'})
 ```
 

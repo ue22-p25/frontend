@@ -381,7 +381,7 @@ with some data structures, `for (x in obj)` will iterate over **more than the na
 in fact, the indexes that `for .. in` will iterate over are *strings* ! which is, well, insane...
 
 ```{code-cell}
-tab = [10, 20]
+const tab = [10, 20]
 
 for (let i in tab)
     console.log(`value=${i} type=${typeof i}`)
@@ -549,12 +549,12 @@ foo(1, 2, 3, 4)
 // equivalent to Python's
 // def bar(x, y, *args):
 
-function bar(x, y, ...arguments) {
+function bar(x, y, ...args) {
     // display what we receive
     console.log(`x=${x}, y=${y}`)
-    console.log(`arguments=${arguments}`)
-    // the arguments object can be iterated on
-    for (let arg of arguments) {
+    console.log(`args=${args}`)
+    // the args object can be iterated on
+    for (let arg of args) {
         console.log("iter over", arg)
     }
 }
@@ -576,7 +576,7 @@ function foo(x, y, z) {
     console.log({x, y, z})
 }
 
-L = [1, 2, 3]
+const L = [1, 2, 3]
 
 // just like foo(*L) in Python
 //   (remember we've seen the same
@@ -896,7 +896,7 @@ foo("else", {height: 800})
 ```{code-cell}
 :tags: [gridwidth-1-2]
 
-vector = {x: 1, y: 2}
+const vector = {x: 1, y: 2}
 
 // it may be tempting to write
 console.log(`vector = ${vector}`)
