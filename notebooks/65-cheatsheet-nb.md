@@ -24,13 +24,14 @@ language_info:
 
 ```{code-cell}
 :tags: [remove-cell]
-import * as tools from "../js/tools.js"; await tools.init()
+// import * as tools from "../js/tools.js"; await tools.init()
+tools = require('../js/tools'); tools.init()
 ```
 
 ```{code-cell}
 :tags: [remove-input]
 
-await tools.sample_from_stem(
+tools.sample_from_stem(
   "_static/cheatsheet",
   {sources_show: false, separate_width: "1000px", separate_height: "800px"},)
 ```
