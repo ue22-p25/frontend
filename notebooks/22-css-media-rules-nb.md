@@ -44,9 +44,9 @@ as per [this article on w3schools](https://www.w3schools.com/cssref/css3_pr_medi
 ```{code-cell}
 :tags: [remove-input]
 
-threshold = '500px'
+let threshold = '500px'
 
-media_width_html = `<body>Click above to open
+let media_width_html = `<body>Click above to open
 in a separate window, turn on
 devel tools to see the window size, and resize
 the window so the width becomes smaller
@@ -54,7 +54,7 @@ or larger than ${threshold}
 <br><b>NOTE:</b> make sure your zoom factor is 100%
 </body>`
 
-media_width_css = `body {
+let media_width_css = `body {
     background-color: #fae3d9; /* light pink */
 }
 
@@ -68,7 +68,7 @@ media_width_css = `body {
   }
 }`
 
-tools.sample_from_strings({html: media_width_html, css: media_width_css}, {start_with: 'css'})
+/*await*/ tools.sample_from_strings({html: media_width_html, css: media_width_css}, {start_with: 'css'})
 ```
 
 ---
@@ -91,7 +91,7 @@ tools.sample_from_strings({html: media_width_html, css: media_width_css}, {start
 ```{code-cell}
 :tags: [remove-input]
 
-media_print_html = `<body class="media">
+let media_print_html = `<body class="media">
 It is often very useful to tweak the print
 layout, in terms of margins and the like.
 <hr>
@@ -99,7 +99,7 @@ Click above to open in a separate window,
 and pretend to print so you get a preview;
 </body>`
 
-media_print_css = `/* our body tag has a media class
+let media_print_css = `/* our body tag has a media class
  * with this trick the order now won't matter */
 body {
     font-family: Trebuchet MS;
@@ -113,12 +113,12 @@ body {
   }
 }`
 
-tools.sample_from_strings({html: media_print_html, css: media_print_css}, {start_with: 'css'})
+/*await*/ tools.sample_from_strings({html: media_print_html, css: media_print_css}, {start_with: 'css'})
 ```
 
 ---
 
-## `<link media=...>` 
+## `<link media=...>`
 
 another way to use media rules is to conditionnally apply a CSS `<link>` tag from the `<head>` node
 
@@ -166,5 +166,5 @@ another way to use media rules is to conditionnally apply a CSS `<link>` tag fro
 ```{code-cell}
 :tags: [remove-input]
 
-tools.sample_from_stem("../samples/22-exo-grid", {sources_show: false})
+/*await*/ tools.sample_from_stem("../samples/22-exo-grid", {sources_show: false})
 ```

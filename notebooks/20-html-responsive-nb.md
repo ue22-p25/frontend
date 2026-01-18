@@ -107,15 +107,15 @@ ther's also a special value worth mentioning here:
 ```{code-cell}
 :tags: [remove-input]
 
-display_none_html = `<p> an element can easily be 'hidden' from the output </p>
+let display_none_html = `<p> an element can easily be 'hidden' from the output </p>
 
 <p id="do-not-show"> let us hide this part altogether </p>
 
 <p> the #do-not-show node is not rendered</p>`
 
-display_none_css = `#do-not-show {
+let display_none_css = `#do-not-show {
     display: none;
     background-color: red;
 }`
-tools.sample_from_strings({html: display_none_html, css: display_none_css})
+/*await*/ tools.sample_from_strings({html: display_none_html, css: display_none_css})
 ```

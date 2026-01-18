@@ -63,7 +63,7 @@ all this in one property:
 ```{code-cell}
 :tags: [remove-input]
 
-grid_html = `<div class="container">
+let grid_html = `<div class="container">
   <div id="item-a">
     the header<br>blabla
   </div>
@@ -78,7 +78,7 @@ grid_html = `<div class="container">
   </div>
 </div>`
 
-grid1_css = `.container {
+let grid1_css = `.container {
   display: grid;
   grid-template-columns:
     1fr 1fr 1fr 1fr;
@@ -104,7 +104,7 @@ grid1_css = `.container {
     grid-area: footer;
     background-color: #7fa998;
 }`
-tools.sample_from_strings({html: grid_html, css: grid1_css}, {id: 'grid-1', start_with: 'css', height: "16em"})
+/*await*/ tools.sample_from_strings({html: grid_html, css: grid1_css}, {id: 'grid-1', start_with: 'css', height: "16em"})
 ```
 
 ````{admonition} notes
@@ -146,7 +146,7 @@ and now
 ```{code-cell}
 :tags: [remove-input]
 
-grid2_css = `.container {
+let grid2_css = `.container {
   display: grid;
   grid-template-columns:
     100px 1fr 5% 1fr;
@@ -173,7 +173,7 @@ grid2_css = `.container {
     background-color: #7fa998;
 }`
 
-tools.sample_from_strings({html: grid_html, css: grid2_css}, {id: 'grid-2', start_with: 'css', height: "16em"})
+/*await*/ tools.sample_from_strings({html: grid_html, css: grid2_css}, {id: 'grid-2', start_with: 'css', height: "16em"})
 ```
 
 ---
@@ -212,7 +212,7 @@ this is why setting `grid-template-rows` is less often needed than setting `grid
 ```{code-cell}
 :tags: [remove-input]
 
-grid3_css = `.container {
+let grid3_css = `.container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-areas:
@@ -240,7 +240,7 @@ grid3_css = `.container {
     background-color: #7fa998;
 }
 `
-tools.sample_from_strings({html: grid_html, css: grid3_css}, {start_with: 'css', height: "16em"})
+/*await*/ tools.sample_from_strings({html: grid_html, css: grid3_css}, {start_with: 'css', height: "16em"})
 ```
 
 ---

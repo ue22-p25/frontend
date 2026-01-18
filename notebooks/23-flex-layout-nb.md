@@ -52,7 +52,7 @@ by default, `direction: row`, `wrap: nowrap`
 ```{code-cell}
 :tags: [remove-input]
 
-flex1_html = `<div class="container">
+let flex1_html = `<div class="container">
 <div class="item"> Dolor quiquia </div>
 <div class="item"> aliquam </div>
 <div class="item"> sed numquam </div>
@@ -60,7 +60,7 @@ flex1_html = `<div class="container">
 <div class="item"> quisquam modi. </div>
 </div>`
 
-flex1_css = `/* the important part is just this */
+let flex1_css = `/* the important part is just this */
 .container {
     display: flex;
     justify-content: space-evenly;
@@ -78,7 +78,7 @@ body {
 }
 `
 
-tools.sample_from_strings({html: flex1_html, css: flex1_css}, {id: 'flex1', start_with: 'css'})
+/*await*/ tools.sample_from_strings({html: flex1_html, css: flex1_css}, {id: 'flex1', start_with: 'css'})
 ```
 
 ---
@@ -90,7 +90,7 @@ identical except that we specify `flex-wrap: wrap`
 ```{code-cell}
 :tags: [remove-input]
 
-flex2_html = `<div class="container">
+let flex2_html = `<div class="container">
 <div class="item"> Dolor quiquia </div>
 <div class="item"> aliquam </div>
 <div class="item"> sed numquam </div>
@@ -98,7 +98,7 @@ flex2_html = `<div class="container">
 <div class="item"> quisquam modi. </div>
 </div>`
 
-flex2_css = `.container {
+let flex2_css = `.container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
@@ -114,7 +114,7 @@ body { border: none; }
 }
 `
 
-tools.sample_from_strings({html: flex2_html, css: flex2_css}, {id: 'flex2', start_with: 'css'})
+/*await*/ tools.sample_from_strings({html: flex2_html, css: flex2_css}, {id: 'flex2', start_with: 'css'})
 ```
 
 ---
@@ -148,7 +148,7 @@ mimick the layout below
 ```{code-cell}
 :tags: [remove-input]
 
-tools.sample_from_stem("../samples/23-exo-flex", {sources_show: false})
+/*await*/ tools.sample_from_stem("../samples/23-exo-flex", {sources_show: false})
 ```
 
 ::::{admonition} tip: `width: 100%`

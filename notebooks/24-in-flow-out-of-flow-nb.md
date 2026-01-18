@@ -52,7 +52,7 @@ there is also a  - very **old-school** - `position: fixed` that can be used, but
 ```{code-cell}
 :tags: [remove-input]
 
-sticky_html = `
+let sticky_html = `
 <div id="header">
   I am a header with <code>position: sticky</code><br>
   my background is made transparent on purpose
@@ -63,7 +63,7 @@ sticky_html = `
 
 <div>you can see the header sticks at the top !</div>`
 
-sticky_css = `
+let sticky_css = `
 #header {
     position: sticky;
     top: 6px;
@@ -90,7 +90,7 @@ div:not(#header) {
     background-color: #fafafa;
 }`
 
-tools.sample_from_strings({html: sticky_html, css: sticky_css},
+/*await*/ tools.sample_from_strings({html: sticky_html, css: sticky_css},
                           {start_with: 'css', height: '200px', iframe_max_height: '200'})
 ```
 

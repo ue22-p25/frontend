@@ -35,7 +35,7 @@ let's consider this very small code
 ```{code-cell}
 :tags: [remove-input]
 
-html = `
+let flat_html = `
 <div class="first">
 <p class="one"> a first div element</p>
 <p class="two"> with two paragraphs</p>
@@ -47,7 +47,7 @@ html = `
 </div>
 `
 
-css = `
+let flat_css = `
 div {
     padding: 10px 20px;
     margin: 20px;
@@ -78,7 +78,7 @@ div.second>*:nth-child(2) {
 }
 `
 
-tools.sample_from_strings({html, css}, {
+/*await*/ tools.sample_from_strings({html: flat_html, css: flat_css}, {
     id: 'without-nesting', separate_show: false, start_with: 'css'})
 ```
 
@@ -92,7 +92,7 @@ that is to say, we could rewrite the above like so
 ```{code-cell}
 :tags: [remove-input]
 
-html = `
+let nested_html = `
 <div class="first">
 <p class="one"> a first div element</p>
 <p class="two"> with two paragraphs</p>
@@ -104,7 +104,7 @@ html = `
 </div>
 `
 
-css = `
+let nested_css = `
 div {
     padding: 10px 20px;
     margin: 20px;
@@ -138,7 +138,7 @@ div.second {
 }
 `
 
-tools.sample_from_strings({html, css}, {
+/*await*/ tools.sample_from_strings({html: nested_html, css: nested_css}, {
     id: 'with_nesting', separate_show: false, start_with: 'css', height: '35em'})
 ```
 
