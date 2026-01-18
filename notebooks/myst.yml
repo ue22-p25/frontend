@@ -20,16 +20,16 @@ project:
     - UE22
     - git
   date: 2026-01-15
-  downloads:
-    - file: "_static/cheatsheet.html"
-      title: "DOM & JS cheatsheet"
-      description: "A handy cheatsheet for DOM manipulation and JS syntax"
-      type: "text/html"
-      id: "cheatsheet"
-    - file: "_static/cheatsheet.css"
-      title: "DOM & JS cheatsheet (CSS file)"
-      description: "The CSS file used to style the cheatsheet"
-      type: "text/css"
+  # downloads:
+  #   - file: "_static/cheatsheet.html"
+  #     title: "DOM & JS cheatsheet"
+  #     description: "A handy cheatsheet for DOM manipulation and JS syntax"
+  #     type: "text/html"
+  #     id: "cheatsheet"
+  #   - file: "_static/cheatsheet.css"
+  #     title: "DOM & JS cheatsheet (CSS file)"
+  #     description: "The CSS file used to style the cheatsheet"
+  #     type: "text/css"
 
 site:
   #template: book-theme
