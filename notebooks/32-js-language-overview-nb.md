@@ -48,8 +48,10 @@ console.log(1, "two", [3, "four"])
 ````{admonition} super useful for debugging
 :class: tip
 
-if the argument is an object, it will be displayed as a collapsible with togglable arrows `→` / `↓`  
-so you can explore the data structure interactively  
+if the argument is an object:  
+* it will be displayed as a collapsible with togglable arrows `→` / `↓`  
+* so you can explore the data structure interactively
+
 try `console.log(window)` in the browser console to see that in action
 ````
 

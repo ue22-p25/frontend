@@ -252,6 +252,7 @@ will result in this tree
 ```{image} media/abstract-syntax.excalidraw.svg
 :width: 400px
 :align: center
+:label: label-dom-tree
 ```
 ````
 `````
