@@ -5,11 +5,9 @@ jupytext:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: JavaScript (Node.js)
-  language: javascript
-  name: javascript
-language_info:
-  name: javascript
+  name: deno
+  display_name: Deno
+  language: typescript
 short_title: grid layout
 ---
 
@@ -17,7 +15,7 @@ short_title: grid layout
 
 ```{code-cell}
 :tags: [remove-cell]
-tools = require('../js/tools'); tools.init()
+import * as tools from "../js/tools.js"; await tools.init()
 ```
 
 ## purpose

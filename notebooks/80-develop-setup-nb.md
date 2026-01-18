@@ -5,11 +5,9 @@ jupytext:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: JavaScript (Node.js)
-  language: javascript
-  name: javascript
-language_info:
-  name: javascript
+  name: deno
+  display_name: Deno
+  language: typescript
 short_title: course requirements
 ---
 
@@ -17,7 +15,7 @@ short_title: course requirements
 
 ```{code-cell}
 :tags: [ remove-cell ]
-tools = require('../js/tools'); tools.init()
+import * as tools from "../js/tools.js"; await tools.init()
 ```
 
 as usual you can enjoy this course with no local installation, and use the pure

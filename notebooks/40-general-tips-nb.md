@@ -6,11 +6,9 @@ jupytext:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: JavaScript (Node.js)
-  language: javascript
-  name: javascript
-language_info:
-  name: javascript
+  name: deno
+  display_name: Deno
+  language: typescript
 short_title: coding tips
 author: Benoit Gschwind
 date: 2023-01-01
@@ -20,7 +18,7 @@ date: 2023-01-01
 
 ```{code-cell}
 :tags: [remove-cell]
-tools = require('../js/tools'); tools.init()
+import * as tools from "../js/tools.js"; await tools.init()
 ```
 
 * first do not think on coding, but think about what do you want to achieve

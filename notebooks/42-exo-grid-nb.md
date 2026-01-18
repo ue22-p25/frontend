@@ -6,12 +6,10 @@ jupytext:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: JavaScript (Node.js)
-  language: javascript
-  name: javascript
-language_info:
-  name: javascript
-short_title: a dynamic grid
+  name: deno
+  display_name: Deno
+  language: typescript
+short_title: "a dynamic grid"
 ---
 
 # practice : a dynamic grid
