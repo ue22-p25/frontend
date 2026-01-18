@@ -44,10 +44,9 @@ this is the preferred method
 * in the `<head>` part of your html
 
 ```{code-cell}
-:cell_style: center
 :tags: [remove-input]
 
-separate_html = `
+let separate_html = `
 <html>
   <head>
     <!-- this is the line that matters -->
@@ -59,11 +58,9 @@ separate_html = `
 </html>
 `
 
-/* const */ fs = require('fs')
-/* const */ separate_css = fs.readFileSync('hello.css', 'utf8')
+let separate_css = Deno.readTextFileSync("hello.css")
 
-
-tools.sample_from_strings({html: separate_html, css: separate_css})
+/*await*/ tools.sample_from_strings({html: separate_html, css: separate_css})
 ```
 
 ````{admonition} self-closing tags
@@ -150,7 +147,7 @@ back to the topic of injecting CSS in the page
 ```{code-cell}
 :tags: [remove-input]
 
-embedded_html = `<div> CSS can be inlined right into the HTML
+let embedded_html = `<div> CSS can be inlined right into the HTML
     as a &amp;lt;style&amp;gt; tag
 </div>
 
@@ -162,7 +159,7 @@ div {
 </style>
 `
 
-tools.sample_from_strings({html: embedded_html})
+/*await*/ tools.sample_from_strings({html: embedded_html})
 ```
 
 ---
@@ -191,7 +188,7 @@ more on this later on
 
 </div>`
 
-tools.sample_from_strings({html: embedded_html})
+/*await*/ tools.sample_from_strings({html: embedded_html}, {id: 'embedded2'})
 ```
 
 ---

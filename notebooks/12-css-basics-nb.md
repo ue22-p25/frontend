@@ -73,11 +73,11 @@ you can also filter the list of properties
 ```{code-cell}
 :tags: [remove-input]
 
-link_html = `<a href="https://www.google.com" target="_">
+let link_html = `<a href="https://www.google.com" target="_">
 link to google
 </a>
 `
-link_css = `/* change these properties
+let link_css = `/* change these properties
    on all <a> elements in the page */
 a {
     font-family: times;
@@ -88,7 +88,7 @@ a {
     border-radius: 8px;
     text-decoration: none;
 }`
-tools.sample_from_strings({html: link_html, css: link_css}, {start_with: "css"})
+/*await*/ tools.sample_from_strings({html: link_html, css: link_css}, {start_with: "css"})
 ```
 
 ::::{admonition} what with `target` thing ?

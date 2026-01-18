@@ -51,20 +51,20 @@ an element that is unique in your document can be attached a **unique** identifi
 ```{code-cell}
 :tags: [remove-input]
 
-id_html = `<p id="only-me">This paragraph has an id 'only-me'</p>
+let id_html = `<p id="only-me">This paragraph has an id 'only-me'</p>
 
 <p>this one does not</p>
 
 <p id="another-id">this one has id 'another-id'</p>
 `
-id_css = `/* will apply ONLY to elements that are tagged <p>
+let id_css = `/* will apply ONLY to elements that are tagged <p>
  * AND whose id is 'only-me' - and actually there's only one 
  */
 
 p#only-me {
     background-color: pink;
 }`
-tools.sample_from_strings({html: id_html, css: id_css}, {start_with: 'html'})
+/*await*/ tools.sample_from_strings({html: id_html, css: id_css}, {start_with: 'html'})
 ```
 
 ````{admonition} no need for the tag
@@ -87,13 +87,13 @@ note that we have written `p#only-me`, but in this case `#only-me` would be quit
 ```{code-cell}
 :tags: [remove-input]
 
-class_html = `<p class="yes">yes 1</p>
+let class_html = `<p class="yes">yes 1</p>
 <p class="no">no 1</p>
 <p class="yes">yes 2</p>
 <p class="no">no 2</p>
 <p class="yes no">yes and no</p>
 `
-class_css = `/* applies to all <p> elts
+let class_css = `/* applies to all <p> elts
    with the 'yes' class */
 p.yes {
     color: green;
@@ -102,7 +102,7 @@ p.no {
     background-color: red;
 }
 `;
-tools.sample_from_strings({html: class_html, css: class_css})
+/*await*/ tools.sample_from_strings({html: class_html, css: class_css})
 ```
 
 ---
@@ -187,7 +187,7 @@ in the 4 examples below, the CSS is unchanged throughout; we will see
 ```{code-cell}
 :tags: [remove-input]
 
-specificity1_html = `<!-- the style
+let specificity1_html = `<!-- the style
      attribute trumps all -->
 
 <p class="myclass"
@@ -197,7 +197,7 @@ specificity1_html = `<!-- the style
 Lorem ipsum dolor sit amet.
 </p>`
 
-specificity_css = `p {
+let specificity_css = `p {
   color: green;
   font-weight: bold;
   font-size: 40px;
@@ -211,7 +211,7 @@ specificity_css = `p {
   color: blue;
 }`
 
-tools.sample_from_strings({html: specificity1_html, css: specificity_css})
+/*await*/ tools.sample_from_strings({html: specificity1_html, css: specificity_css})
 ```
 
 ---
@@ -221,7 +221,7 @@ tools.sample_from_strings({html: specificity1_html, css: specificity_css})
 ```{code-cell}
 :tags: [remove-input]
 
-specificity2_html = `<!--
+let specificity2_html = `<!--
 if we drop the style=
 then id wins
 -->
@@ -232,7 +232,7 @@ then id wins
 Lorem ipsum dolor sit amet.
 </p>
 `
-tools.sample_from_strings({html: specificity2_html, css: specificity_css})
+/*await*/ tools.sample_from_strings({html: specificity2_html, css: specificity_css})
 ```
 
 ---
@@ -242,7 +242,7 @@ tools.sample_from_strings({html: specificity2_html, css: specificity_css})
 ```{code-cell}
 :tags: [remove-input]
 
-specificity3_html = `<!--
+let specificity3_html = `<!--
 if we further drop the id=
 then class wins
 -->
@@ -252,7 +252,7 @@ then class wins
 Lorem ipsum dolor sit amet.
 </p>
 `
-tools.sample_from_strings({html: specificity3_html, css: specificity_css})
+/*await*/ tools.sample_from_strings({html: specificity3_html, css: specificity_css})
 ```
 
 ---
@@ -262,7 +262,7 @@ tools.sample_from_strings({html: specificity3_html, css: specificity_css})
 ```{code-cell}
 :tags: [remove-input]
 
-specificity4_html = `<!--
+let specificity4_html = `<!--
 finally there is no ambiguity
 -->
 
@@ -270,7 +270,7 @@ finally there is no ambiguity
 Lorem ipsum dolor sit amet.
 </p>
 `
-tools.sample_from_strings({html: specificity4_html, css: specificity_css})
+/*await*/ tools.sample_from_strings({html: specificity4_html, css: specificity_css})
 ```
 
 ---
@@ -281,7 +281,7 @@ tools.sample_from_strings({html: specificity4_html, css: specificity_css})
 :cell_style: center
 :tags: [remove-input]
 
-inherit_html = `<div class="inheritance">
+let inherit_html = `<div class="inheritance">
   <p> You can use inheritance to avoid setting</p>
   <ul>
     <li> a lot of different elements</li>
@@ -289,12 +289,12 @@ inherit_html = `<div class="inheritance">
   </ul>
 </div>`
 
-inherit_css = `.inheritance {
+let inherit_css = `.inheritance {
     color: maroon;
     font-family: times;
 }`
 
-tools.sample_from_strings({html: inherit_html, css: inherit_css})
+/*await*/ tools.sample_from_strings({html: inherit_html, css: inherit_css})
 ```
 
 ---

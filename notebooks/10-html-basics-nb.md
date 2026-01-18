@@ -44,7 +44,7 @@ the overall structure of a HTML document is composed of two parts, a **header** 
 ```{code-cell}
 :tags: [remove-input]
 
-fragment1 = `<html>
+let fragment1 = `<html>
   <head>
      <!-- various document-wide declarations -->
   </head>
@@ -54,7 +54,8 @@ fragment1 = `<html>
   </body>
 </html>`
 
-tools.sample_from_strings({html: fragment1}, {separate_show: false})
+/*await*/ tools.sample_from_strings(
+  {html: fragment1}, {id: 'fragment1', separate_show: false})
 ```
 
 ---
@@ -128,9 +129,9 @@ you need to reproduce this:
 
 // need to set an id as the default is to hash the html content
 // and we will reuse this later down the page
-tools.sample_from_strings(
+/*await*/ tools.sample_from_strings(
     {html: fragment1},
-    {id: 'fragment1', height: '12em', separate_show: false})
+    {id: 'fragment1_2', height: '12em', separate_show: false})
 ```
 
 ```{admonition} check out the URL
@@ -279,13 +280,13 @@ it is the basis for navigating the document in the ***Elements*** devel tools ta
 ```{code-cell}
 :tags: [remove-input]
 
-fragment_unclosed = `<p> do not do this
+let fragment_unclosed = `<p> do not do this
 <ul>
 <li> unclosed tags <b>look like</b> they work
 <li> but they will hurt eventually
 `
 
-tools.sample_from_strings({html: fragment_unclosed}, {separate_show: false})
+/*await*/ tools.sample_from_strings({html: fragment_unclosed}, {separate_show: false})
 ```
 
 ### do this instead
@@ -293,14 +294,14 @@ tools.sample_from_strings({html: fragment_unclosed}, {separate_show: false})
 ```{code-cell}
 :tags: [remove-input]
 
-fragment_closed = `<p> do this instead </p>
+let fragment_closed = `<p> do this instead </p>
 <ul>
 <li> always close your tags </li>
 <li> clean up behind yourself </li>
 </ul>
 `
 
-tools.sample_from_strings({html: fragment_closed}, {separate_show: false})
+/*await*/ tools.sample_from_strings({html: fragment_closed}, {separate_show: false})
 ```
 
 ---

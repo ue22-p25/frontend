@@ -34,9 +34,10 @@ tools = require('../js/tools'); tools.init()
 :cell_style: center
 :tags: [remove-input]
 
-text_html = `<p class="text">
+let text_html = `<p class="text">
 a sample text</p>`;
-text_css = `.text {
+
+let text_css = `.text {
     font-family: times;
     font-size: 30px;
     font-weight: bold;
@@ -45,7 +46,7 @@ text_css = `.text {
     color: darkolivegreen;
 }
 `;
-tools.sample_from_strings({html: text_html, css: text_css}, {start_with: 'css'})
+/*await*/ tools.sample_from_strings({html: text_html, css: text_css}, {start_with: 'css'})
 ```
 
 ---
@@ -62,7 +63,7 @@ the example below illustrates how to load and use them in your page
 ```{code-cell}
 :tags: [remove-input]
 
-tools.sample_from_stem("../samples/15-font-demo")
+/*await*/ tools.sample_from_stem("../samples/15-font-demo")
 ```
 
 ::::{admonition} notes (1): a single CSS rule
@@ -122,7 +123,7 @@ tools.sample_from_stem("../samples/15-font-demo")
 ```{code-cell}
 :tags: [remove-input]
 
-tools.sample_from_strings({
+/*await*/ tools.sample_from_strings({
     html :
     `<div>
 ︙→ ⇀ « » ❯ × ∑ ∀α ∃ε ∈ x² © …
@@ -160,7 +161,7 @@ some characters can be inserted with the `&...;` notation using nicknames, like 
 
 :::{code-cell}
 :tags: [remove-input]
-tools.sample_from_strings({
+/*await*/ tools.sample_from_strings({
     html :
     `<div>
 here's how to obtain an HTML tag:
@@ -243,11 +244,11 @@ click on *Open in new window* and use inspector on the `<p>` element
 ```{code-cell}
 :tags: [remove-input]
 
-box1_html = `<p class="box1">
+let box1_html = `<p class="box1">
 a box
 </p>`
 
-box1_css = `p.box1 {
+let box1_css = `p.box1 {
     font-size: x-large;
     background-color: #ccc;
 
@@ -261,7 +262,7 @@ box1_css = `p.box1 {
     border-bottom-style: solid;
 }`
 
-tools.sample_from_strings({html: box1_html, css: box1_css}, { start_with: 'css' })
+/*await*/ tools.sample_from_strings({html: box1_html, css: box1_css}, { start_with: 'css' })
 ```
 
 ::::{admonition} another example: margin and border
@@ -273,11 +274,11 @@ again with also *margin* and *border-radius* - nothing really new, but you can s
 ```{code-cell}
 :tags: [remove-input]
 
-box2_html = `<p class="box2">
+let box2_html = `<p class="box2">
 a second box
 </p>`
 
-box2_css = `p.box2 {
+let box2_css = `p.box2 {
     font-size: x-large;
 
     background-color: #ccc;
@@ -299,7 +300,7 @@ box2_css = `p.box2 {
     border-top-left-radius: 5px;
 }`
 
-tools.sample_from_strings({html: box2_html, css: box2_css}, { start_with: 'css' })
+/*await*/ tools.sample_from_strings({html: box2_html, css: box2_css}, { start_with: 'css' })
 ```
 
 ::::
@@ -390,13 +391,13 @@ use the inspector from the devel tools to check the individual properties of the
 ```{code-cell}
 :tags: [remove-input]
 
-shorthand_html = `<div>
+let shorthand_html = `<div>
   some <span>text</span>
 with shorthand properties
 </div>
 `
 
-shorthand_css = `body{
+let shorthand_css = `body{
     font: italic 10pt "Arial", serif;
 }
 div {
@@ -409,7 +410,7 @@ span {
     padding: 2px 10px;
 }
 `
-tools.sample_from_strings({html: shorthand_html, css: shorthand_css}, {start_with: 'css'})
+/*await*/ tools.sample_from_strings({html: shorthand_html, css: shorthand_css}, {start_with: 'css'})
 ```
 
 ::::

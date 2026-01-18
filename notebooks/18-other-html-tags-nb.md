@@ -38,7 +38,7 @@ tools = require('../js/tools'); tools.init()
 ```{code-cell}
 :tags: [remove-input]
 
-tools.sample_from_stem("../samples/18-sections", {separate_width: '1000px', separate_height: '800px'})
+/*await*/ tools.sample_from_stem("../samples/18-sections", {separate_width: '1000px', separate_height: '800px'})
 ```
 
 ---
@@ -67,14 +67,14 @@ find out more on these by yourselves
 ```{code-cell}
 :tags: [remove-input]
 
-svg_html=`<h1>my first SVG</h1>
+let svg_html=`<h1>my first SVG</h1>
 
 <svg width="200" height="200">
   <circle cx="50" cy="50" r="20" />
   <rect x="50" y="20" width="150" height="150" />
 </svg>`
 
-svg_css = `svg {
+let svg_css = `svg {
   border: 1px solid black;
 }
 rect {
@@ -91,7 +91,7 @@ circle {
   fill: yellow;
 }`
 
-tools.sample_from_strings({html: svg_html, css: svg_css})
+/*await*/ tools.sample_from_strings({html: svg_html, css: svg_css})
 ```
 
 ---
@@ -106,7 +106,7 @@ here's a simple example - just for a glimpse
 ```{code-cell}
 :tags: [remove-input]
 
-tools.sample_from_stem("../samples/18-canvas-basic",
+/*await*/ tools.sample_from_stem("../samples/18-canvas-basic",
   {
     start_with: 'js',
     separate_width: '700px',

@@ -30,7 +30,7 @@ observe that newlines do not matter in HTML source code, usually they are treate
 ```{code-cell}
 :tags: [remove-input]
 
-text_fragment = `<p>
+let text_fragment = `<p>
 it is wise to always embed your text
 in a text tag like &amp;lt;p&amp;gt;,
 that stands for paragraph,
@@ -46,7 +46,7 @@ and in this case you can insert a simple linebreak
 instead using the &amp;lt;br&amp;gt; tag
 </p>
 `
-tools.sample_from_strings({html: text_fragment}, {id: 'hello'})
+/*await*/ tools.sample_from_strings({html: text_fragment}, {id: 'hello'})
 ```
 
 ---
@@ -69,7 +69,7 @@ tools.sample_from_strings({html: text_fragment}, {id: 'hello'})
 ```{code-cell}
 :tags: [remove-input]
 
-group_html = `<p> a paragraph may  
+let group_html = `<p> a paragraph may  
 <span style="background-color: #ddd;">
       contain a fragment
 </span>
@@ -83,7 +83,7 @@ and for that use a &lt;span&gt; tag.</p>
       contain several paragraphs</p>
   <p> then a "div" tag is more suitable</p>
 </div>`
-tools.sample_from_strings({html: group_html})
+/*await*/ tools.sample_from_strings({html: group_html})
 ```
 
 :::{admonition} what with the `style` thing ?
@@ -100,7 +100,7 @@ elements by changing their background color
 ```{code-cell}
 :tags: [remove-input]
 
-group2_html = `<div>
+let group2_html = `<div>
 the &amp;lt;div&amp;gt; tag is an essential unit brick
 for creating a page layout<br>
 if you inspect a real page, 
@@ -113,7 +113,7 @@ you will find &amp;lt;div&amp;gt; elements all over the place
             font-size: x-small;">
   bottom<br>right
 </div>`;
-tools.sample_from_strings({html: group2_html})
+/*await*/ tools.sample_from_strings({html: group2_html})
 ```
 
 ---
@@ -136,7 +136,7 @@ however if your layout is sophisticated enough, you will probably end up with mo
 ```{code-cell}
 :tags: [remove-input]
 
-ul_fragment = `<div><p> a typical bullet list with a &amp;lt;ul&amp;gt; tag</p>
+let ul_fragment = `<div><p> a typical bullet list with a &amp;lt;ul&amp;gt; tag</p>
 <br> <code>ul</code> stands for "unordered list"
 <br> <code>li</code> stands for "list item"
 <ul>
@@ -145,7 +145,7 @@ ul_fragment = `<div><p> a typical bullet list with a &amp;lt;ul&amp;gt; tag</p>
 </ul>
 </div>
 `;
-tools.sample_from_strings({html: ul_fragment})
+/*await*/ tools.sample_from_strings({html: ul_fragment})
 ```
 
 ```{admonition} ordered list
@@ -165,7 +165,7 @@ and observe that the bullets become numbered
 ```{code-cell}
 :tags: [remove-input]
 
-code_fragment = `<p>for inserting code that should be kept as-is
+let code_fragment = `<p>for inserting code that should be kept as-is
 
 <code><pre>
 import numpy as np
@@ -176,7 +176,7 @@ Y = np.sin(X)
 plt.plot(X, Y)
 </pre></code>
 </p>`
-tools.sample_from_strings({html: code_fragment})
+/*await*/ tools.sample_from_strings({html: code_fragment})
 ```
 
 ---
@@ -197,12 +197,12 @@ typical **hyperlink** reads like this
 ```{code-cell}
 :tags: [remove-input]
 
-hyperlink_fragment = `some text with 
+let hyperlink_fragment = `some text with 
 <a href="https://www.google.com/" target="_">
   a hyperlink
 </a>
 in the middle`;
-tools.sample_from_strings({html: hyperlink_fragment})
+/*await*/ tools.sample_from_strings({html: hyperlink_fragment})
 ```
 
 ````{admonition} opening in another tab
@@ -239,7 +239,7 @@ we have not yet seen how to create this gray thingy, please admit it for now
 ```{code-cell}
 :tags: [remove-input]
 
-redirect_fragment = `
+let redirect_fragment = `
 <p>let us simulate a page with some content (the gray area below)<br>
 we have put <b>a named anchor right below this area</b></p>
 
@@ -256,7 +256,7 @@ and the hyperlink below will bring you right down to the anchor</p>
 and then some more text
 </p>
 `
-tools.sample_from_strings({html: redirect_fragment})
+/*await*/ tools.sample_from_strings({html: redirect_fragment})
 ```
 
 ---
@@ -268,7 +268,7 @@ use the `<table>` tag in to display tabular data (think, *e.g.* a spreadsheet)
 ```{code-cell}
 :tags: [remove-input]
 
-table_html = `Use a &amp;lt;table&amp;gt; tag <b>only for data</b>
+let table_html = `Use a &amp;lt;table&amp;gt; tag <b>only for data</b>
 and not for layouts, there are other,
 and much better tools, for creating fancy layouts
 <table>
@@ -281,7 +281,7 @@ and much better tools, for creating fancy layouts
   </tbody>
 </table>`
 
-table_css = `
+let table_css = `
 th {
     border: 3px solid red;
     padding: 20px;
@@ -293,7 +293,7 @@ td {
 }
 `
 
-tools.sample_from_strings({html: table_html, css: table_css})
+/*await*/ tools.sample_from_strings({html: table_html, css: table_css})
 ```
 
 ```{admonition} historical note
@@ -315,13 +315,13 @@ especially if your goal is to create  grid-based layouts, that we will cover lat
 ```{code-cell}
 :tags: [remove-input]
 
-headers_fragment = `<h1> toplevel title </h1>
+let headers_fragment = `<h1> toplevel title </h1>
 <h2> first sublevel title </h2>
 <h3> and so on </h3>
 <h3> other subsublevel </h3>
 <h2> second sublevel title </h2>`
 
-tools.sample_from_strings({html: headers_fragment}, {height: '18em'})
+/*await*/ tools.sample_from_strings({html: headers_fragment}, {height: '18em'})
 ```
 
 ```{admonition} use together with semantic tags
@@ -330,14 +330,14 @@ So wrapping up, you will often find structures like this in real-world pages:
 ```{code-cell}
 :tags: [remove-input]
 
-section_fragment = `<section>
+let section_fragment = `<section>
   <header>
     <h2> section title </h2>
   </header>
   <p> section content </p>
   <p> another paragraph ...</p>
 </section>`
-tools.sample_from_strings({html: section_fragment})
+/*await*/ tools.sample_from_strings({html: section_fragment})
 ```
 
 ```{admonition} these tags are a bit old-school
@@ -367,7 +367,7 @@ the right way to go is often **to use classes**, that we study later on
 ```{code-cell}
 :tags: [remove-input]
 
-styling_fragment = `<p>
+let styling_fragment = `<p>
 there are tags for direct styling but <b>please note that their usage is discouraged</b> as generally you will style your own classes instead
 </p>
 
@@ -377,5 +377,5 @@ or <u>underline</u> or <s>strike-through</s>
 <br>
 that of course <u><b><i>can be combined</i></b></u>
 </p>`
-tools.sample_from_strings({html: styling_fragment})
+/*await*/ tools.sample_from_strings({html: styling_fragment})
 ```

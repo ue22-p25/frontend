@@ -52,7 +52,7 @@ that is set only on `<a>` tags that have a `href=` attribute
 ```{code-cell}
 :tags: [remove-input]
 
-hover_html = `<div>
+let hover_html = `<div>
   <a href="https://minesparis.psl.eu/" target="_">
     this is a link - hover mouse here
   </a>
@@ -64,7 +64,7 @@ hover_html = `<div>
   </a>
 </div>`
 
-hover_css = `/* <a> elements under a .part2
+let hover_css = `/* <a> elements under a .part2
    and that have both pseudo-classes */
 a:hover:link {
     font-size: 200%;
@@ -72,7 +72,7 @@ a:hover:link {
     text-decoration: none;
 }`
 
-tools.sample_from_strings({html: hover_html, css: hover_css}, {start_with: 'css'})
+/*await*/ tools.sample_from_strings({html: hover_html, css: hover_css}, {start_with: 'css'})
 ```
 
 ````{admonition} 2 pseudo-classes
@@ -99,7 +99,7 @@ note that here we build a selector that applies on elements that have **both** p
 ```{code-cell}
 :tags: [remove-input]
 
-rank_html = `<ul>
+let rank_html = `<ul>
   <li>the first bullet</li>
   <li>the 2nd bullet</li>
   <li>the 3rd bullet</li>
@@ -109,8 +109,9 @@ rank_html = `<ul>
   <li>the 7th bullet</li>
   <li>the 8th bullet</li>
 </ul>
-`;
-rank_css = `li:nth-child(2n+1) {
+`
+
+let rank_css = `li:nth-child(2n+1) {
   background-color: #fee; /* pink-ish */
 }
 li:nth-child(3n) {
@@ -118,8 +119,9 @@ li:nth-child(3n) {
 }
 li {
     font-size: 200%;
-}`;
-tools.sample_from_strings({html: rank_html, css: rank_css}, {start_with: 'css'})
+}`
+
+/*await*/ tools.sample_from_strings({html: rank_html, css: rank_css}, {start_with: 'css'})
 ```
 
 ---
@@ -148,7 +150,7 @@ here the `div` and the `p` parts are selectors themselves, they can be any more 
 ```{code-cell}
 :tags: [remove-input]
 
-under_html = `<div>
+let under_html = `<div>
   <p>
     a <span> span </span> as the div's grandson
   </p>
@@ -156,7 +158,7 @@ under_html = `<div>
 </div>
 `
 
-under_css = `/* a <span> anywhere under <div> */
+let under_css = `/* a <span> anywhere under <div> */
 div span {
    color: red;
 }
@@ -167,7 +169,7 @@ div > span {
 }
 `
 
-tools.sample_from_strings({html: under_html, css: under_css}, {start_with: 'css'})
+/*await*/ tools.sample_from_strings({html: under_html, css: under_css}, {start_with: 'css'})
 ```
 
 ---
@@ -189,7 +191,7 @@ two elements are siblings iff they have the same parent
 ```{code-cell}
 :tags: [remove-input]
 
-sibling_html = `<section>
+let sibling_html = `<section>
   <p>some header</p>
   <h1>title</h1>
   <p>paragraph 1</p>
@@ -198,7 +200,7 @@ sibling_html = `<section>
 </section>
 `
 
-sibling_css = `
+let sibling_css = `
 /* siblings have the same parent */
 
 /* all <p> immediately after a <h1> */
@@ -212,7 +214,7 @@ h1 ~ p {
 }
 `
 
-tools.sample_from_strings({html: sibling_html, css: sibling_css}, {start_with: 'css', id: 'siblings'})
+/*await*/ tools.sample_from_strings({html: sibling_html, css: sibling_css}, {start_with: 'css', id: 'siblings'})
 ```
 
 ---
