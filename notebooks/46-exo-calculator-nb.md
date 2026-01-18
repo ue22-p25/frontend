@@ -31,5 +31,5 @@ tools = require('../js/tools'); tools.init()
 ```{code-cell}
 :tags: [remove-input]
 
-tools.sample_from_stem("../samples/46-calculator", {sources_show: false})
+/*await*/ tools.sample_from_stem("../samples/46-calculator", {sources_show: false})
 ```

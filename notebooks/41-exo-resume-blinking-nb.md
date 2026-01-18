@@ -47,7 +47,7 @@ in any case you should obtain something like this
 ```{code-cell}
 :tags: [remove-input]
 
-tools.sample_from_stem("../samples/41-resume-blinking", {sources_show: false})
+/*await*/ tools.sample_from_stem("../samples/41-resume-blinking", {sources_show: false})
 ```
 
 ## tip #1 : run code upon load
