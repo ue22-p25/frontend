@@ -165,7 +165,7 @@ $(loaded)
 ```{code-cell}
 :tags: [remove-input]
 
-tools.sample_from_stem("../samples/61-jquery-colors", {start_with: 'js'})
+/*await*/ tools.sample_from_stem("../samples/61-jquery-colors", {start_with: 'js'})
 ```
 
 ````{admonition} note

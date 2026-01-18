@@ -46,8 +46,8 @@ although with a rather ugly syntax !
 ```{code-cell}
 :tags: [remove-input]
 
-cssvar_html = `<p>using a CSS variable</p>`;
-cssvar_css = `/* declaration */
+let cssvar_html = `<p>using a CSS variable</p>`
+let cssvar_css = `/* declaration *
 :root {
   --main-bg-color: #eab0d9;
 }
@@ -56,7 +56,7 @@ p {
   background-color: var(--main-bg-color);
 }
 `
-tools.sample_from_strings({html: cssvar_html, css: cssvar_css})
+/*await*/ tools.sample_from_strings({html: cssvar_html, css: cssvar_css})
 ```
 
 ## filling the void

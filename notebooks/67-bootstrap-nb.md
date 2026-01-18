@@ -48,7 +48,7 @@ like for jQuery, the hype is on the wane, so learning bootstrap in 2024 or later
 ```{code-cell}
 :tags: [remove-input]
 
-tools.sample_from_stem("../samples/62-bootstrap", {height: "30em"})
+/*await*/ tools.sample_from_stem("../samples/62-bootstrap", {height: "30em"})
 ```
 
 ````{admonition} see also
