@@ -34,19 +34,19 @@ tools = require('../js/tools'); tools.init()
 ````{admonition} examples
 :class: tip admonition-small
 
-* we have already seen the `load` event, that is rather crucial
+* we have already seen the `DOMContentLoaded` event, that is rather crucial
 * there are also builtin events for keyboard / mouse interaction, illustrated on the next example (we use `click` and `keydown`)
 * for more details, see [this section in javascript.info](https://javascript.info/event-details) on all the available events
 ````
 
-+++
+---
 
 ## callbacks
 
 events are handled using **callbacks**
 
 * callbacks are functions that are triggered when an event occur
-* to get a function to be called on a given event, you have to use the `addEventListener`
+* to get a function to be called on a given event, you have to use `addEventListener()`
 * the callback function typically receives an **event** object as a parameter
 
 `````{admonition} for example
@@ -76,15 +76,15 @@ this is possible because JS is so flexible/lenient with respect to argument pass
 ````
 `````
 
-+++
+---
 
-### `addEventListener`
+### `addEventListener()`
 
 * a fundamental tool to register a callback with an event
 * available on most objects (not only `window`, often used on a DOM element)
 * again, observe on the example below, how the callback **receives the event** in parameter
 
-+++
+---
 
 ### example: `load`, `click` and `keydown
 
@@ -98,17 +98,19 @@ in this first version we are going to use globally defined functions
                         separate_width: "600px", height: 'js'})
 ```
 
+---
+
+### timeline
+
 here's a timeline of what is going on
 
 ```{image} media/callbacks-chain.excalidraw.svg
 :align: center
 ```
 
-+++
+---
 
 ### example - observations
-
-+++
 
 notice from the example :
 
@@ -128,8 +130,6 @@ also notice that the actual content of the `event` object depends on the event t
 it is helpful to use `console.log(event)` in the callback, and to inspect the event object in the console, to get the list of all its attributes
 ````
 
-+++
-
 ````{admonition} global variables
 :class: note admonition-small
 
@@ -138,11 +138,9 @@ and so here, we'd be in trouble if our application used another library that def
 we will see in a moment how to rewrite this example into a code that **leaks no global variable**  
 ````
 
-+++
+---
 
 ## other types of events
-
-+++
 
 ### time-related events
 
@@ -166,9 +164,9 @@ so if you have a big chunk of code to run, you can use this to avoid blocking th
 you will have to explicity split your code into chunks, though
 ````
 
-+++
+---
 
-### code-generated events
+### code-generated events (optional)
 
 you can create your own event by code, e.g. :
 
@@ -182,7 +180,7 @@ document.body.addEventListener('myevent', foo, false)
 document.body.dispatchEvent(event)
 ```
 
-+++
+---
 
 ## anonymous functions
 
@@ -199,17 +197,7 @@ for this reason, JavaScript has 2 convenient ways to create anonymous functions:
   const mylambda0 = function (arg0, arg1) { /* some code here */ }
   ```
 
-+++
-
-````{admonition} functions vs arrow functions
-:class: attention admonition-smaller
-
-* /!\ Both variants are valid, even if the new one looks nicer
-* with the fat arrow, `{}` and `return` can be sometimes omitted
-* also, there are subtle differences about the `this` variable, not covered here
-````
-
-+++
+---
 
 ### anonymous function usage
 
@@ -223,9 +211,9 @@ document.addEventListener(
 )
 ```
 
-+++
+---
 
-## previous example using arrow functions
+### previous example using arrow functions
 
 ```{code-cell}
 :tags: [remove-input]
@@ -235,6 +223,51 @@ document.addEventListener(
                         separate_width: "600px", height: 'js'})
 ```
 
+---
+
+### functions vs arrow functions
+
+* ⚠️ Both variants `function` and `=>` are valid, even if the new one looks nicer
+* for single-expression functions, with the fat arrow, if you omit the `{}` then `return` is implicit
+
+::::{grid} 2
+
+:::{div}
+
+```{code-cell}
+:class: admonition-x-small
+const arrow_no_brackets = (a) => a*2
+const arrow_with_brackets = (a) => { a*2 }
+
+console.log("arrow without brackets:",
+            arrow_no_brackets(3))
+console.log("⚠️ arrow with brackets: ⚠️",
+            arrow_with_brackets(3))
+```
+:::
+
+:::{div}
+
+```{code-cell}
+:class: admonition-x-small
+const function_with_return = function (a) { return a*2 }
+const function_no_return = function (a) { a*2 }
+
+console.log("function with return:",
+            function_with_return(3))
+console.log("⚠️function without return: ⚠️",
+            function_no_return(3))
+```
+:::
+::::
+
+:::{admonition} another subtlety: `this`
+:class: dropdown
+also, there are subtle differences about the `this` variable, not covered here
+:::
+
+---
+
 ## limits of callbacks
 
 * highly recommended to study the [introduction to callbacks in javascript.info](https://javascript.info/callbacks)
@@ -242,7 +275,7 @@ document.addEventListener(
 * which is that you need to split your code into pieces, and fit the pieces into functions
 * it easily becomes hard to read and modify, especially if there is logic involved
 
-+++
+---
 
 ````{admonition} you can skip the rest
 :class: danger
@@ -250,11 +283,12 @@ document.addEventListener(
 the remainder of this notebook is for advanced readers
 ````
 
-+++
+---
 
 ## closures
 
-* it is rather frequent that a callback needs to access data that sits **outside of the function context**
+* it is rather frequent that a callback needs to access a variable  
+  that sits **outside of the function context**
 * it is safe to use lexically-bound variables inside the callback
 * see the `context` variable in the example below
 
@@ -264,13 +298,22 @@ the remainder of this notebook is for advanced readers
 we say it's safe, and indeed it is, but **only if you use `let` or `const`**  
 declaring a variable with `var`, or even worse, not declaring it at all, will **not work** as you expect
 ````
+see also [this thorough article on closures on `javascript.info`](https://javascript.info/closure)
 
-````{admonition} use your browser console
-:class: error
+
+---
+
+### closure example
+
+````{admonition} run in your browser console
+:class: error admonition-small dropdown
 
 we don't run this code here, as we're moving outside of the notebook's comfort zone with this code  
 feel free to cut and paste the code into your web browser's console
 ````
+
+:::{div}
+:class: admonition-x-small
 
 ```js
 // here the 'context' variable is not visible
@@ -278,7 +321,7 @@ feel free to cut and paste the code into your web browser's console
 {  // <- this is the block where 'context' is visible
   let context = {a:1, b:2}
   setTimeout(
-  // here the 'context' variable is visible and remain valid
+  // here the 'context' variable is visible and remains valid
   // even if we leave the block
     () => console.log("in the callback: ", context),
     1000)
@@ -290,14 +333,15 @@ feel free to cut and paste the code into your web browser's console
 try {
   context
 } catch(err) {
-  console.log(`OOPS ${err.message}`)
+  console.log(`OOPS not visible in global scope ${err.message}`)
 }
 
 // BUT: wait for 2s and see the callback still triggers properly
 // it means that the 'context' variable somehow is still alive
 ```
+:::
 
-+++
+---
 
 ### takeaway
 
@@ -306,7 +350,7 @@ try {
 * but it is still reachable from the callback
 * as it was *captured* in the closure
 
-+++
+---
 
 ## `let` *vs* `var`
 
@@ -341,17 +385,11 @@ function ok() {
 ok()
 ```
 
+---
+
 ### takeaway
 
 * take home message is: **never use `var` declarations**
 * it is old-fashioned and **badly broken**
 
-+++
-
-## see also
-
-* thorough article on closures <https://javascript.info/closure>
-
-+++
-
-***
+---

@@ -103,7 +103,7 @@ however the code can quickly become the *callback hell* by cascading callbacks
 
 * which does not scale very well, because an essentially **sequential** business ends up creating a **deeply nested** program structure  
 
-```{image} media/callback-hell.png
+```{image} media/callbacks-hell.png
 :align: center
 :width: 450px
 ```
