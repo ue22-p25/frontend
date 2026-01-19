@@ -275,16 +275,26 @@ article main table {
 .admonition-smaller {
     font-size: smaller;
     line-height: 1.2;
+    & pre>code>span {
+        font-size: smaller !important;
+    }
 }
 
 .admonition-small {
     font-size: small;
     line-height: 1.2;
+    & pre>code>span {
+        font-size: small !important;
+    }
 }
 
 .admonition-x-small {
     font-size: x-small;
     line-height: 1.2;
+
+    & pre>code>span {
+        font-size: x-small !important;
+    }
 }
 
 /* slight gradient for corriges */
