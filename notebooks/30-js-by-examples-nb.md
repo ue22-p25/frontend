@@ -209,8 +209,8 @@ but more on this in the next notebook
 
 in this further example :
 
-* clicking in the canvas causes it to randomize itself
 * we create two visible elements: a `<div>` label, and a `<canvas>` graphic area
+* clicking in the canvas causes it to randomize itself
 
 ---
 
