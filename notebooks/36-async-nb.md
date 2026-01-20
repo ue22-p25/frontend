@@ -48,7 +48,7 @@ try {
 ````
 `````
 
-+++
+---
 
 ##  problem statement
 
@@ -61,11 +61,12 @@ try {
 
   ```{image} media/wtf-per-minute.png
   :align: center
+  :width: 60%
   ```
 
 but seriously though, let us consider some typical situations where concurrency is key
 
-+++
+---
 
 ### page loading issue
 
@@ -74,32 +75,29 @@ but seriously though, let us consider some typical situations where concurrency 
   * for instance your code cannot spot an element in the DOM if it was not yet created
   * you cannot use a given JavaScript library if its code has not finished loading
 
-+++
+---
 
 ### networking from JS
 
-* the naive paradigm is: the browser sends a request to the server, and displays the result
+* the naive paradigm is: users types in a URL (or clicks a link), the browser sends a
+  request to the server, and displays the (HTML) result
 * this is **not good enough** ! - consider the case of pagination in an e-commerce website
   * if we had only that approach, would bring to permanent page changes (harsh pagination)
-* so instead, the client (JS side) needs to be able to sends its own http requests (♡)
+* so instead, the client (JS side) needs to be able to sends its own http requests [^https]
   * and to receive results not as HTML, but as pure data - typically JSON
 * so it can change the page content **without reloading an entire page** (soft pagination)
   * same thing for example to get information about the basket
 * this is [where the fetch() API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) comes in
-  * see also: the TP on xkcd where we will practise this thoroughly
+  * see also: [the TP on xkcd](49-exos-networking-nb#label-tp-xkcd) and [the TP on chatbot](49-exos-networking-nb#label-tp-chatbot) where we will practise this thoroughly
 
-````{admonition} (♡)
-:class: note
+[^https]: typically, API calls are also sent over HTTPS, but anyway
 
-typically, the page sends back API calls to its server over HTTPS
-````
-
-+++
+---
 
 ## callbacks hell
 
 so far we have seen one tool to deal with concurrency: *callbacks*  
-however the code can quickly become the *callback hell* by cascading callbacks  
+however the code can quickly become what is known as *the callbacks hell*
 
 * which does not scale very well, because an essentially **sequential** business ends up creating a **deeply nested** program structure  
 
@@ -118,22 +116,30 @@ we have a set of **linear** tasks (load page, arm callbacks, trigger callbacks)
 and that results in this pattern of **nested** callbacks
 ````
 
+---
+
+## the solutions
+
 to mitigate this issue, we have 2 additional tools
 
 * promises
 * `async`/`await`
 
-+++
+---
 
 ## promise example with `fetch()`
 
-to illustrate the notion of promises, we will see how the browser would typically **send its own HTTP requests**  
+to illustrate the notion of promises:  
+we see how the browser typically **sends its own HTTP requests**
+
 our example is about fetching some DNA samples on `www.ebi.ac.uk`, but the content is not really important, it's just an example..  
 for instance, the same technique can be used as-is to send API calls
 
 to achieve this we have a builtin function called **`fetch()`**, that **returns a promise** object
 
-```js
+```{code} js
+:linenos:
+:emphasize-lines: 8,11,14
 // let us start with defining a few URLs
 
 // NOTE that they do NOT return HTML, it's actually PLAIN TEXT
@@ -147,16 +153,18 @@ URL_small = 'https://www.ebi.ac.uk/ena/browser/api/embl/AE000789?download=true'
 URL_large = 'https://www.ebi.ac.uk/ena/browser/api/embl/CP010053?download=true'
 
 // an invalid URL - used later for error management
-URL_broken = 'http://some-invalid/web/site'
+URL_broken = 'https://some-invalid/web/site'
 ```
 
-+++
+---
 
 ### fetching a small file
 
 that done, we can fetch one URL (the small one for starters) with this code:
 
-```js
+```{code} js
+:linenos:
+:emphasize-lines: 3-5
 // fetching a URL would typically be done like this
 
 fetch(URL_small)
@@ -172,7 +180,7 @@ as you can see, this causes 2 things:
 next, we'll redo it with a larger file,
 that takes a longer time, to get a better understanding
 
-+++
+---
 
 ### again with a larger file
 
@@ -182,8 +190,12 @@ run the following code, and observe that:
 
 * the http request is sort of "running on its own"
 * during all the time it takes to fetch the data, we can still run code !
+* observe in particular how the last `console.log()` runs **immediately**  
+  and **before** the fetch is complete
 
-```js
+```{code} js
+:linenos:
+:emphasize-lines: 4-6
 // again with a larger file
 // observe how the network activity happens "in the background"
 
@@ -192,14 +204,12 @@ fetch(URL_large)
     .then(text => console.log(`received ${text.length} characters`))
 
 // proceed to running these immediately
-console.log("I am still alive")
-
-10 * 2000
+console.log("I am still alive...", 10 * 2000)
 ```
 
-## promises
+---
 
-+++
+## promises
 
 ### `.then()`
 
@@ -209,8 +219,6 @@ creating a promise is like starting a separate task, it will be **processed in p
 
 and you can use `.then()` to specify what should happen next
 (i.e. when the promise is complete)
-
-+++
 
 ````{admonition} the gory details about .then()
 :class: seealso dropdown
@@ -232,8 +240,6 @@ where
   whose result is the result of `function_ok`
 ````
 
-+++
-
 ````{admonition} pending, fulfilled, or rejected
 :class: seealso dropdown admonition-small
 
@@ -247,7 +253,7 @@ but well, if only for your curiosity:
   * or it can fail, and its state becomes ***`rejected`***
 ````
 
-+++
+---
 
 ### `.then().then()`
 
@@ -273,8 +279,6 @@ the reason for splitting the process in two is for more flexibility
 this way we could inspect the HTTP headers without the need to wait for the whole response  
 ````
 
-+++
-
 ````{admonition} another chaining example
 :class: seealso dropdown admonition-smaller
 
@@ -295,7 +299,7 @@ Promise.resolve(5)
 ```
 ````
 
-+++
+---
 
 ## as a function
 
@@ -306,10 +310,10 @@ let us now rewrite our code **into a proper function**, so we can use it on any 
 
 URL_small = 'https://www.ebi.ac.uk/ena/browser/api/embl/AE000789?download=true'
 URL_large = 'https://www.ebi.ac.uk/ena/browser/api/embl/CP010053?download=true'
-URL_broken = 'http://some-invalid/web/site'
+URL_broken = 'https://some-invalid/web/site'
 ```
 
-+++
+---
 
 ### without error management
 
@@ -320,7 +324,7 @@ for the sake of simplicity, we just display:
 - and we return the actual body
 
 ```js
-/* const */ get_url1 = (url) => {
+const get_url1 = (url) => {
     // hope for the best (no error handling)
     let promise = fetch(url)
         .then(response => {
@@ -344,6 +348,7 @@ since our function returns a promise, we use it with `.then()`, just like we did
 
 ```js
 // let us display the first 20 characters in the file
+
 get_url1(URL_small)
     .then(text => console.log(`first 20 characters >${text.slice(0, 20)}<...`))
 ```
@@ -351,7 +356,8 @@ get_url1(URL_small)
 ````{admonition} reminder
 :class: warning
 
-let us stress again that the static HTML version of this notebook does not tell the whole story, make sure to run the code in your browser console
+let us stress again that you need to make sure to run the code in your browser console !  
+the static HTML version of this notebook does not tell the whole story...
 ````
 
 but when called on a broken URL, this code raises an exception:
@@ -360,11 +366,9 @@ but when called on a broken URL, this code raises an exception:
 get_url1(URL_broken)
 ```
 
-+++
-
 so we need some tool to handle errors, and that's the purpose of `.catch()`
 
-+++
+---
 
 ### `.catch()`
 
@@ -373,13 +377,13 @@ so we need some tool to handle errors, and that's the purpose of `.catch()`
 * a common pattern is to apply it **to the last `.then()` in the chain**
 * this way, any error occurring **at any stage** in the chain gets captured
 
-````{admonition} if you've read the small prints
+````{admonition} if you've read the gory details above
 :class: tip admonition-small dropdown
 
 this means that `catch(failureCallback)` is short for `then(null, failureCallback)`
 ````
 
-+++
+---
 
 ### with error management
 
@@ -387,7 +391,7 @@ so we can come up with a second iteration, where we **take care of errors**
 to this end, we add a `catch()` at the end
 
 ```js
-/* const */ get_url2 = (url) => {
+const get_url2 = (url) => {
     // let's get rid of the promise variable, not needed
     return fetch(url)
         .then(response => {
@@ -410,7 +414,7 @@ to this end, we add a `catch()` at the end
 }
 ```
 
-+++ {"cell_style": "center"}
+---
 
 ### `.catch()` recalls exception handling
 
@@ -431,16 +435,17 @@ get_url2(URL_small)
     })
 ```
 
-+++
+---
 
-````{admonition} no more pyramid of doom
-:class: dropdown tip admonition-small
+### no more pyramid of doom
 
 with this model, we can now avoid the pyramid of doom, using chaining  
 which means that this code (not runnable of course)
 
-```js
+```{code} js
+:linenos:
 // nested / pyramidal
+
 doSomething(function(result) {
   doSomethingElse(result, function(newResult) {
     doThirdThing(newResult, function(finalResult) {
@@ -452,7 +457,8 @@ doSomething(function(result) {
 
 becomes this linear form, that much better describes the logic
 
-```js
+```{code} js
+:linenos:
 doSomething()
   .then(function(result) {
      return doSomethingElse(result)
@@ -465,49 +471,53 @@ doSomething()
   })
  .catch(failureCallback)
 ```
-````
 
-+++
+---
 
 ## `async` / `await`
 
 hopefully you are now convinced that promises are cooler than callbacks - for this kind of processing at least  
-however the syntax is still a little awkward, and so in order to still improve readability, these 2 keywords have been introduced
+however the syntax is still a little awkward, and so in order to further improve readability, these 2 keywords have been introduced:
 
-+++
+---
 
 ### `async` functions
 
 with `async` we can create a function that **returns a `Promise` by default**  
-moreover, all functions that return a `Promise`, including `.fetch()`, are called asynchronous functions
+moreover, all functions that return a `Promise`, including `.fetch()`,  
+are called **asynchronous functions**
 
-+++
+---
 
 ### the `await` keyword
 
-the `await` keyword allows to wait for **the result** of a promise (as opposed to getting the promise itself)
+the `await` keyword allows to **wait for the result** of a promise (as opposed to getting the promise itself !)
 
-````{admonition} limitation
+:::{admonition} limitation on where `await` can be used
+:class: warning admonition-small dropdown
 
-in general, `await` can only be used inside an `async` function  
-for convenience though, it is more and more also supported at the interpreter toplevel, so hopefully that won't be an issue
-````
+in general, `await` can only be used **inside an `async` function**  
+for convenience though, it is more and more also supported at the **interpreter
+toplevel**, so hopefully that won't be an issue
+:::
 
-+++
+---
 
 ### `async get_url()`
 
 let us see how we could take advantage of these new features to rewrite `get_url()`
 
-```js
-//                  ↓↓↓↓↓
-/*const*/ get_url = async (url) => {
+```{code} js
+:linenos:
+:emphasize-lines: 1-2,4-5,7-8
+//              ↓↓↓↓↓
+const get_url = async (url) => {
     try {
         //         ↓↓↓↓↓
         response = await fetch(url)
         console.log(`status=${response.status}`)
-        //     ↓↓↓↓↓
-        text = await response.text()
+        //         ↓↓↓↓↓
+        let text = await response.text()
         console.log(`length=${text.length}`)
         return text
     } catch(err) {
@@ -519,7 +529,8 @@ let us see how we could take advantage of these new features to rewrite `get_url
 ````{admonition} worth noticing
 
 * the function is defined with the `async` keyword
-* each time an asynchronous function is called, it is `await`*ed*; which means we wait for the promise to complete
+* each time an asynchronous function is called, it is `await`*ed*  
+  which means we wait for the promise to complete
 * this time, error management can be done through a regular `try/catch` instruction
 
 and as a result, the code pretty much looks exactly like what we would have written in a synchronous world,
@@ -529,11 +540,11 @@ with the extra benefit that it is actually running asynchronously !
 and here is how we would use this code
 
 ```js
-/* const */ text = await get_url(URL_small)
+let text = await get_url(URL_small)
 console.log(`first 20 characters >${text.slice(0, 20)}<...`)
 ```
 
-+++
+---
 
 ## see also
 
@@ -544,7 +555,7 @@ this is just an overview, refer to
 * also [this article on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises) can come in handy about promises too
 * and [the javascript.info article about `async/await`](https://javascript.info/async-await)
 
-+++
+---
 
 ````{admonition} you can skip the rest
 :class: danger
@@ -552,11 +563,9 @@ this is just an overview, refer to
 the remainder of this notebook is for advanced readers
 ````
 
-+++ {"tags": ["level_advanced"]}
+---
 
 ## optional (advanced) features
-
-+++ {"cell_style": "center", "tags": ["level_advanced"]}
 
 ### promises run as coroutines
 
@@ -574,7 +583,7 @@ for (let url of [URL_broken, URL_small, URL_large])
     get_url(url)
 ```
 
-+++ {"cell_style": "center", "tags": ["level_advanced"]}
+---
 
 ### `Promise.all()`
 
@@ -596,6 +605,6 @@ contents = await Promise.all(promises)
           console.log(`all ${results.length} jobs are done - storing in 'contents'`)
           return results
          })
-// then you find in contents[0] .. contents[2] the 3 texts returned 
+// then you find in contents[0] .. contents[2] the 3 texts returned
 // first one being undefined because the url is broken
 ```

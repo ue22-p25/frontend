@@ -25,6 +25,7 @@ the common objective here is: how to talk directly to an (http) API from JS
 
 +++
 
+(label-tp-xkcd)=
 ````{admonition} xkcd
 :class: seealso
 
@@ -41,6 +42,7 @@ the result would look like this
                        {sources_show: false, separate_height: '750px', separate_width: '820px'})
 ```
 
+(label-tp-chatbot)=
 ````{admonition} chatbot
 :class: seealso
 
