@@ -47,13 +47,13 @@ div.CodeMirror-lines div.CodeMirror-code pre.CodeMirror-line {
    mostly only 32 js lang overview and 33 builtin types
    would benefit from it...
 */
-/* ul.text-sm.leading-6>li>a {
-    --toc-font-size: 10px;
+ul.text-sm.leading-6>li>a {
+    /* --toc-font-size: 10px; */
     padding-top: 0;
     padding-bottom: 0;
     font-size: var(--toc-font-size);
-    line-height: 1.3em;
+    line-height: 1.4em;
     code {
         font-size: var(--toc-font-size);
     }
-} */
+}
