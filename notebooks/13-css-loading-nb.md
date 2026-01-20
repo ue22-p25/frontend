@@ -58,7 +58,13 @@ let separate_html = `
 </html>
 `
 
-let separate_css = Deno.readTextFileSync("hello.css")
+let separate_css
+try {
+   separate_css = Deno.readTextFileSync("hello.css")
+} catch(e) {
+  const fs = require('fs')
+  separate_css = fs.readFileSync("hello.css", "utf8")
+}
 
 /*await*/ tools.sample_from_strings({html: separate_html, css: separate_css})
 ```
@@ -87,10 +93,10 @@ where
   ::::{admonition} what does the `s` stand for ?
   :class: info dropdown admonition-small
 
-  the final `s` in `https` stands for **secure**; indeed `https` is mostly `http`, 
-  but with 
+  the final `s` in `https` stands for **secure**; indeed `https` is mostly `http`,
+  but with
 
-  * an encryption layer (to avoid man-in-the-middle attacks), 
+  * an encryption layer (to avoid man-in-the-middle attacks),
   * and also certificates to make sure that you really talk to whom you intend to
   ::::
 - `hostname.io` is a **hostname**; before the browser can actually send a packet to that host,
@@ -117,7 +123,7 @@ there are many variants in the way to build a URL, and we'll touch on that durin
 (label-relative-urls)=
 ### relative URLs
 
-it is possible to omit some parts of the URL; 
+it is possible to omit some parts of the URL;  
 and that's exactly what we've done when we wrote `href="hello.css"` in our `<head>` above
 
 imagine if you have loaded a document as, say `https://hostname.io/the/path/to/content`  
