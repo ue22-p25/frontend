@@ -313,22 +313,27 @@ feel free to cut and paste the code into your web browser's console
 ````
 
 :::{div}
-:class: admonition-x-small
+:class: admonition-small
 
-```js
+```{code} js
+:linenos:
+:emphasize-lines: 3,13,19
 // here the 'context' variable is not visible
 
 {  // <- this is the block where 'context' is visible
+
   let context = {a:1, b:2}
   setTimeout(
   // here the 'context' variable is visible and remains valid
   // even if we leave the block
     () => console.log("in the callback: ", context),
-    1000)
+    2000)
   console.log("NOW timeout armed")
-}
 
-// here neither, let us prove it:
+}  // <- end of context's scope
+
+// and so from here 'context' is no longer visible
+// let us prove it:
 
 try {
   context
