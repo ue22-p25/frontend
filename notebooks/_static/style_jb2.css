@@ -271,31 +271,47 @@ article main table {
 }
  */
 
-/* standard admonition classes */
-.admonition-smaller {
-    font-size: smaller;
-    line-height: 1.2;
-    & pre>code>span {
-        font-size: smaller !important;
+/*
+  our standard admonition size classes
+  can be used on code blocks too
+*/
+.admonition-small, .admonition-smaller, .admonition-x-small, .admonition-xx-small {
+    line-height: 1.25;
+    & pre {
+        line-height: 1.3 !important;
+        & > code {
+            line-height: 1.3 !important;
+            & > span[data-line-number] {
+                line-height: 1.3 !important;
+            }
+        }
     }
 }
-
 .admonition-small {
     font-size: small;
-    line-height: 1.2;
     & pre>code>span {
         font-size: small !important;
     }
 }
-
+.admonition-smaller {
+    font-size: smaller;
+    & pre>code>span {
+        font-size: smaller !important;
+    }
+}
 .admonition-x-small {
     font-size: x-small;
-    line-height: 1.2;
-
     & pre>code>span {
         font-size: x-small !important;
     }
 }
+.admonition-xx-small {
+    font-size: xx-small;
+    & pre>code>span {
+        font-size: xx-small !important;
+    }
+}
+
 
 /* slight gradient for corriges */
 .corrige {
