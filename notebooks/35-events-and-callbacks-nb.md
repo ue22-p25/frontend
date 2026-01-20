@@ -277,6 +277,12 @@ also, there are subtle differences about the `this` variable, not covered here
 
 ---
 
+## practice: a dynamic grid - step 2
+
+you can now go and finish [the TP on the dynamic grid on github](42-exo-grid-nb#label-tp-grid) !
+
+---
+
 ````{admonition} you can skip the rest
 :class: danger
 
@@ -299,7 +305,6 @@ we say it's safe, and indeed it is, but **only if you use `let` or `const`**
 declaring a variable with `var`, or even worse, not declaring it at all, will **not work** as you expect
 ````
 see also [this thorough article on closures on `javascript.info`](https://javascript.info/closure)
-
 
 ---
 
@@ -396,5 +401,3 @@ ok()
 
 * take home message is: **never use `var` declarations**
 * it is old-fashioned and **badly broken**
-
----

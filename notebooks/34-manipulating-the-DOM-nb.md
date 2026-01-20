@@ -149,7 +149,7 @@ click on 'Open in new window' to see a cheatsheet that contains all this
 
 ## practice: a dynamic grid - step 1
 
-now could be a [right time to start the dynamic grid exercise on github](https://github.com/ue22-p25/web-grid)
+now could be a [right time to start the dynamic grid exercise on github](42-exo-grid-nb#label-tp-grid) !
 
 start with just Step 1:
 
