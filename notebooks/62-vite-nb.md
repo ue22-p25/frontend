@@ -26,7 +26,7 @@ tools = require('../js/tools'); tools.init()
 
 ## what is vite ?
 
-are you **tired of reloading** the browser page after each and every single change in your sources ?  
+are you **tired of reloading** the browser page after each and every single change in your sources&nbsp;?  
 `vite` is what you're looking for ...
 
 with `vite`:
@@ -37,21 +37,21 @@ with `vite`:
 
 so, no more back and forth switching between applications; is that cool or what ?
 
-```{admonition} autosave
+````{admonition} autosave
 :class: dropdown tip
 
 again, we recommend you to enable autosave in your editor of choice, so that you don't even need to think about saving your changes; just edit, and the rest is automatic
 
 under vs-code, you can enable autosave through the `File` -> `Auto Save` menu entry
-```
 
-````{image} media/box-model.png
+```{image} media/vs-code-autosave.png
 :alt: vite setup
-:width: 600px
+:width: 380px
 :align: center
+```
 ````
 
-+++
+---
 
 ## how it works
 
@@ -83,7 +83,7 @@ it is almost always a **good idea to use a local web server** in development (as
 regardless of the extra convenience brought by vite
 ```
 
-+++
+---
 
 (label-install-nodejs)=
 ## basic install
@@ -93,7 +93,7 @@ we're going to use vite through a tool named `npx`; this tool will let us run vi
 however, we still need .. to install `npx` of course; fortunately it all boil down to installing `node.js`  
 just like a Python install comes with `pip`, `node` will come with `npm` and `npx`
 
-+++
+---
 
 ### installing `node` and `npx`
 
@@ -104,12 +104,16 @@ just like a Python install comes with `pip`, `node` will come with `npm` and `np
 super easy with `conda`  
 make sure to first activate the right conda virtual env if you have any
 
-```bash
+```{code} bash
+:linenos:
+:emphasize-lines: 2
 # this is true for all the commands in this section
 conda activate my-web-conda
 ```
 
-```bash
+```{code} bash
+:linenos:
+:emphasize-lines: 2
 # and then
 conda install conda-forge::nodejs
 
@@ -119,35 +123,39 @@ conda install conda-forge::nodejs
 
 ````
 
-+++
-
 ````{admonition} option 2: you do not yet have a conda env:
 :class: dropdown seealso
 
 in this case you can install node in the conda env in one go, i.e. right when you create it:
 
 
-```bash
+```{code} bash
+:linenos:
+:emphasize-lines: 1
 conda create -n my-web-conda python conda-forge::nodejs
 
 # or if you want specific versions:
 # conda create -n my-web-conda python=3.13 conda-forge::nodejs=24
 ```
 
-```bash
+```{code} bash
+:linenos:
+:emphasize-lines: 2
 # after which you must activate it, of course, as always
 conda activate my-web-conda
 ```
 ````
 
-+++
+---
 
 ````{admonition} checking for node and npm
 :class: dropdown important
 
 regardless of the option you choose, remember to activate your conda env
 
-```bash
+```{code} bash
+:linenos:
+:emphasize-lines: 1, 3-4
 conda activate my-web-conda
 
 node --version
@@ -155,21 +163,22 @@ npx --version
 ```
 ````
 
-+++
+---
 
 ````{admonition} global install ?
 :class: dropdown warning
 
 note that you can also do a traditional install of `vite` like this:
-```bash
+```{code} bash
 npm install -g vite
 ```
 in which case you can then directly run `vite` and no longer need to invoke `npx vite`
 
-more details on npx can be found e.g. here: <https://dev.to/orlikova/understanding-npx-1m4>
+more details on npx can be found e.g. here:  
+<https://dev.to/orlikova/understanding-npx-1m4>
 ````
 
-+++
+---
 
 ## how to use it ?
 
@@ -187,7 +196,7 @@ which as part of its display will show a line like
 
 and now, you know which port number to use; read on though...
 
-+++
+---
 
 ### caveats
 
@@ -198,16 +207,16 @@ i.e. if you just point your browser at
 `http://localhost:5173/`  
 you **won't get an answer**, unless you have a file named `index.html` in that folder
 
-so **you may need to say e.g. `http://localhost:5173/cv.html`**; pointing your browser at the root path will **not** display a list of available files in the folder - it returns 404 instead
+so **you may need to use instead** e.g. `http://localhost:5173/cv.html`  
+pointing your browser at the root path will **not** display a list of available files in the folder - it returns 404 instead
 ````
 
 ````{admonition} open the URL from the terminal
 :class: tip
 
 most terminal applications will let you click on that URL directly from the terminal display, using a modifier key like `Cmd` or `Ctrl` or `Alt`, depending on your OS and terminal application; under "Git Bash" on Windows for instance, just `Ctrl+Click` will do
-```
 
-however, this will work only if your file is named `index.html`,  
+however, this will work only if your file is named `index.html`
 ````
 
 ````{admonition} your terminal will hang
@@ -217,11 +226,13 @@ also, as usual, beware that **the terminal**  where you start `vite` **will beco
 so if there's anything else you need a terminal for, just create another one
 ````
 
-+++
+---
 
 ## conclusion
 
-there are additional features in `vite` in terms of `vite build`, but that's totally optional
+there are many additional features in `vite`, like `vite build`, but that's
+totally optional
 
-if you're serious about web development, using `vite` in development mode is a lifechanging experience  
-totally worth the small amount of time required to get used to it ;)
+if you're serious about web development, using `vite` in development mode is a
+lifechanging experience, totally worth the small amount of time required to get
+used to it ;)
