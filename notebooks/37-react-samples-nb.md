@@ -30,17 +30,19 @@ there is also a looooong list of examples here <https://reactjsexample.com>
 tools = require('../js/tools'); tools.init()
 ```
 
+---
+
 ## app #1: the dual-counters app
 
-the git repo for this app is <https://github.com/ue22-p25/web-react-counters>
+the git repo for this app is here <https://github.com/ue22-p25/frontend-react-counters>
 
 ````{admonition} read the assignment first
 :class: warning
 
-make sure to read the section "**app #1: the dual counters app**" section entirely before you start anything
+make sure to read this whole section "**app #1: the dual counters app**" entirely before you start anything
 ````
 
-+++
+---
 
 ### your assignment
 
@@ -50,9 +52,9 @@ make sure to read the section "**app #1: the dual counters app**" section entire
   and observe how the notion of component makes this task much easier than with
   the html/css/js paradigm
 
-+++
+---
 
-### what you'll need to know : getting started
+### getting started
 
 the simplest way to get started is (click the arrow to see the details of each step)
 
@@ -61,9 +63,10 @@ the simplest way to get started is (click the arrow to see the details of each s
 
 * you can for example leverage `conda` for that
 
-  ```shell
+  ```{code} shell
   # react-sandbox is just one arbitrary name
-  conda create -n react-sandbox -c conda-forge nodejs
+
+  conda create -n react-sandbox conda-forge::nodejs
   conda activate react-sandbox
   ```
 
@@ -71,6 +74,8 @@ the simplest way to get started is (click the arrow to see the details of each s
 
   ```shell
   # to check that you're all set
+  # as of Jan 2026, expect at least node v25 and npm v11
+
   node --version
   npm --version
   ```
@@ -125,9 +130,12 @@ changes made to the files on the disk, and will trigger any recompilation
 needed; bottom line is, you just need to save changes in vs-code, and the app
 reflects them immediately, not need to reload the page nor anything !
 
-+++
+But before going further, let us outline a few important points about React
+apps, that will help you understand better what you're doing
 
-### what you'll need to know: the framework
+---
+
+### repo layout
 
 the files of interest are mostly these (the other ones are just boilerplate that
 come with the project when you create it)
@@ -152,32 +160,32 @@ but wait, take a closer look, there's a large number of wtf's waiting for you
 here are some points of astonishment, as compared to what
 you might expect with respect to html/css/js, that deserve to be outlined:
 
-+++
+---
 
-#### no need to reload
+### no need to reload
 
 that's already a plus, as compared with the traditional page setup: **just save
 your changes**, and you see them right away; for people who code all day long,
 that is genuine relief !
 
-+++
+---
 
-#### the HTML is irrelevant
+### the HTML is irrelevant
 
 there is no html file; or rather, there's just one in `public/index.html` and if
-you look into it, it's vastly empty; actually, the html skeleton is **entirely
+you look into it, it's vastly empty; actually, the DOM content is **entirely
 built from the js code**, so there's no need for html
 
-+++
+---
 
-#### not quite JS, but JSX
+### not quite JS, but JSX
 
 the biggest surprises are in the JS code, which is actually **written in so-called
 JSX**; think of it as a preprocessor that will do a pass on the contents and
 create a plain JavaScript file from that.
 
 Let us start with a quick reading of the overview that can be found here:  
-<https://reactjs.org/docs/introducing-jsx.html>
+<https://react.dev/learn/writing-markup-with-jsx>
 
 then look at these  2 files `App.js` and `Counter.js`  
 I am sure you can guess what they do !  
@@ -185,15 +193,21 @@ You should notice at least things like
 
 * the way to import css right from the js side:
 
-  ```js
+  ```{code} js
+  :linenos:
+  :emphasize-lines: 3
   // explicit import of css
+
   import './App.css'
   ```
 
 * how JSX allows to mix HTML in the js side:
 
-  ```js
+  ```{code} js
+  :linenos:
+  :emphasize-lines: 3-4,6
   // some sort of mix between JS and HTML
+
   return (
     <div class="toplevel">
       <img src={logo} className="App-logo" alt="logo" />
@@ -203,15 +217,19 @@ You should notice at least things like
   )
   ```
 
-* also the notion of **components** is at work in the above fragment; here the
-  `<Counter>` thing denotes a piece of the app defined in another js file; that
-  makes the code written in this paradigm much more reusable
+* also the notion of **components** is at work in the above fragment  
+  here the `<Counter>` thing denotes a piece of the app **defined in another js
+  file**  
+  that makes the code written in this paradigm **much more reusable**
 
-* and of course a component can refer to other components, like here
+* and of course a component can refer to other components, like here in `Counter.js`
 
-  ```js
+  ```{code} js
+  :linenos:
+  :emphasize-lines: 4,6,8,12
   // here we have a mix of actual HTML tags (in lowercase)
   // and of components tags(Button, in CamelCase)
+
   return (
       <div class="counter">
         <span>{text} ({counter})</span>
@@ -226,11 +244,10 @@ You should notice at least things like
     )
   ```
 
-+++
+---
 
 * you can also notice how **JS variables** can be used **right in the HTML**  
-  when mentioned between `{}`, like e.g. this line above  
-  `<span>{text} ({counter})</span>`
+  when mentioned between `{}`, like e.g. on line 6 above
 
 ```{admonition} summary of some templating syntaxes
 :class: tip dropdown small
@@ -245,14 +262,23 @@ as a side note, this resonates with quite a few tools that have to do with some 
 | JSX              | `{name}` |
 ```
 
+---
 
-#### sharing data with `useState`
+### sharing data with `useState`
 
 
-so another very useful feature of React is `useState`; this line
+so another very useful feature of React is `useState`; this line in `Counter.js`
 
-```js
-const [counter, setCounter] = useState(0)
+```{code} js
+:linenos:
+:emphasize-lines: 5
+const Counter = (props) => {
+
+    const {text} = props
+
+    const [counter, setCounter] = useState(0)
+
+    ...
 ```
 
 declares 2 JS variables:
@@ -271,6 +297,8 @@ not only this is powerful, but it also efficient (under the hood React maintains
 a so-called virtual DOM, that allows it to compute the changes in memory, so it
 can only update the parts that need to be; but that's another story entirely...)
 
+---
+
 ### the assignment
 
 you can now get around to finish the assignment, which is to add a third counter in the app
@@ -285,7 +313,8 @@ the change should take you less than a minute
 **if you're ahead** you can also add a logo on top of the page - check out `App.css`
 that already has provisions for that
 
-+++
+---
+---
 
 ## app #2: a calculator
 
@@ -297,19 +326,25 @@ make sure to read the whole section entirely before you start anything
 
 about this app:
 
-* [the presentation page](https://reactjsexample.com/simple-but-well-styled-calculator-made-by-using-hooks/)
 * the related git repo is here
-  <https://github.com/ue22-p25/web-react-calculator>
-  which I actually forked from
-  <https://github.com/vasilykhromykh/React-Calculator-With-React-Hooks>
-  with purely cosmetic changes
+  <https://github.com/ue22-p25/frontend-react-calculator>
 
-+++
+:::{admonition} for the record
+:class: note dropdown admonition-small
+
+* this actually is a fork from this (apparently dead) repo  
+  `https://github.com/vasilykhromykh/React-Calculator-With-React-Hooks`  
+  with purely cosmetic changes
+* and there used to be a the presentation page - also dead - at  
+  `https://reactjsexample.com/simple-but-well-styled-calculator-made-by-using-hooks/`
+:::
+
+---
 
 ### your assignment
 
 * clone the (ue22-p25) repo
-* get it to work on your laptop (see above)
+* get it to work on your laptop (same as app #1, see above)
 * implement a new feature
   * for example: add a (global) 'Clear' button that is missing  
     (as the backspace-like icon only clears one character in the expression)
@@ -317,9 +352,9 @@ about this app:
   * or add more operations like // and % (integer division and modulo)
   * or whatever you deem interesting
 
-+++
+---
 
-### what you'll need to know: the framework
+### repo layout
 
 this time the code structure is a little simpler, this app does not define any
 component, so the files of interest are mostly these:
@@ -336,40 +371,43 @@ component, so the files of interest are mostly these:
 
 the new thing here is the use of SASS instead of CSS
 
-+++
+---
 
-#### not CSS, but SASS
+### not CSS, but SASS
 
-CSS is sometimes considered tedious and boring; so there are a few alternatives
-around, here we've picked SASS - see <https://sass-lang.com/guide> for more
-details  
-one visible difference is that there's no `{` or `}` or `;` like with Python,
-it's the indentation that is meaningful  
+CSS is sometimes considered tedious and boring  
+so there are a few alternatives around, here we've picked SASS  
+see <https://sass-lang.com/guide> for more details
+
+one visible difference is that there's no `{` or `}` or `;` like with Python, it's the indentation that is meaningful
+
 SASS has been popular for a long time as it supported variables and nesting,
 although these are now native in CSS
 
 anyway, the point here is that can easily use alternative / higher-level tools
 within the context of a React app.
 
-+++
+---
 
-#### inline components
+### inline components
 
 one other thing to notice is, this app does not have a `components/` folder;  
 it does use components though; search for example for `CalcButton` in `App.js` to see how it's done
 
-+++
+---
+---
 
 ## HOWTO start a react app from scratch
 
 Finally, FYI assuming you'd like to write your own app, there's a tool that
 creates the scaffolding for you:
 
-+++
+---
 
 ### create project skeleton
 
-this requires a network connection (and may take a little while...)  
+the following command will create a folder `react-myapp` with all the needed files  
+it requires a network connection (and may take a little while...)  
 it will also download a rather huge amount of libraries and dependencies, that go into the `node_modules` folder
 
 ```shell
@@ -379,14 +417,16 @@ npm create vite@latest react-myapp -- --template react
 ::::{admonition} alternative with `create-react-app` (CRA)
 :class: tip dropdown small
 
-note that the `create-react-app` tool is now deprecated in favor of `vite` as above, however you may still find references to it in various places; if you want to use it anyway, the command would have been instead
+note that the `create-react-app` tool is now deprecated in favor of `vite` as
+above, however you may still find references to it in various places; if you
+want to use it anyway, the command would have been instead
 
 ```shell
 npx create-react-app react-myapp
 ```
 ::::
 
-+++
+---
 
 ### run the watcher
 
