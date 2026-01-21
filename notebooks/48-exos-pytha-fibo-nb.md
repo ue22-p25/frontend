@@ -9,7 +9,6 @@ kernelspec:
   name: deno
   display_name: Deno
   language: typescript
-short_title: "fun with maths"
 short_title: "Pythagore and Fibonacci"
 ---
 
