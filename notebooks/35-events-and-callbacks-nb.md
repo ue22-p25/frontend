@@ -277,6 +277,12 @@ also, there are subtle differences about the `this` variable, not covered here
 
 ---
 
+## practice: blinking background
+
+now could be the right time to see [the exercise on a blinking background](41-exo-blinking-background-nb#label-blinking-demo) !
+
+---
+
 ## practice: a dynamic grid - step 2
 
 you can now go and finish [the TP on the dynamic grid on github](42-exo-grid-nb#label-tp-grid) !

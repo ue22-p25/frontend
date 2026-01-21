@@ -28,14 +28,21 @@ in this notebook :
 * a simple assignment
 * plus a few tips to get started
 
-+++
+---
 
 ## assignment
 
-create or reuse a HTML document as a collection of 3 files; it can be your resumé, in that case however you may want to commit them first...
+create or reuse a HTML document as a collection of 3 files
+
+::::{admonition} commit your files first
+
+it can be your resumé, or any other; if they have ay value (e.g. your resumé),
+don't forget to commit them first...
+::::
 
 1. make sure the html `<head>` loads **both** the css and js companions
-2. then edit the JavaScript code, so that the **background alternates** every 1 second between 2 different colours  
+2. then edit the JavaScript code, so that the **background alternates** every 1
+   second between 2 different colours  
    note that there are many approaches to achieving this, and at least 2:
 
      * either changing properties directly on the DOM,
@@ -44,15 +51,17 @@ create or reuse a HTML document as a collection of 3 files; it can be your resum
 
 in any case you should obtain something like this
 
+(label-blinking-demo)=
+
 ```{code-cell}
 :tags: [remove-input]
 
 /*await*/ tools.sample_from_stem("../samples/41-resume-blinking", {sources_show: false})
 ```
 
-## tip #1 : run code upon load
+---
 
-+++
+## tip #1 : run code upon load
 
 so, you want to start some code - say call function `start()` - **right after the page loads**
 
@@ -75,11 +84,11 @@ because:
 - at the time when `start('some-data')` gets executed, your page is **still in the middle** of the loading phase ! 
 - you might be lucky and this may work just fine for you, but then it is *just a coincidence* and **that is not right**
 
-+++
+---
 
 ### the proper way
 
-the proper way is to attach a **callback** to the page **`load`** event
+the proper way is to attach a **callback** to the document's **`DOMContentLoaded`** event
 
 ```javascript
 // attach an (anonymous) function to the 'load' event
@@ -91,33 +100,29 @@ document.addEventListener(
 
 this time, `start()` will get **called later** at a time where you can be sure the document is entirely **loaded**
 
-+++
+---
 
 ## tip #2: implementing a cyclic task
 
-```{admonition} let or const
-:class: admonition-small warning
-
-remember, in the notebook it is inconvenient to use `let` or `const`, but make sure to declare all your variables in your code
-```
-
 implementing a cyclic task was done in example 2 already; as a reminder it is based on `setInterval()`:
 
-```js
+```{code} js
+:linenos:
+:emphasize-lines: 11
 // not mandatory, but with this soft switch
 // we could easily turn the blinking on and off
-/*let*/ active = true;
+let active = true;
 
 function one_step() {
     if (active)
         console.log("beep");
 }
 
-// start the cyclic job: call one_step() every 1s
-/*const*/ interval = setInterval(one_step, 1000)
+// start the cyclic job: will call one_step() every 1s
+const interval = setInterval(one_step, 1000)
 ```
 
-+++
+---
 
 ````{admonition} single tasking vs multi tasking
 :class: note
@@ -135,7 +140,7 @@ however with such an approach, the Python interpreter **can't do anything else**
 notice how here with JS, the browser is still able to **do other things** ! 
 ````
 
-+++
+---
 
 ### turning it off
 
@@ -145,11 +150,11 @@ with the code above, we have 2 options to do that
 1. just do `active = false`
    in that case the cyclic task is still there, but does nothing
 2. or cancel the cyclic task altogether, like so
-   ```js
+   ```{code} js
    clearInterval(interval)
    ```
 
-+++
+---
 
 ## tip #3: the browser cache (yet again)
 
@@ -161,18 +166,18 @@ the browser cache thingy applies exactly the same with CSS and with JS
 remember to **use Shift-reload**, or other cache-cleaning tool, if changes in a file do not seem to kick in
 ````
 
-+++
+---
 
 ## tip #4 : use devel tools
 
 * crucially important to get familiar with these tools
-* and to turn to them **as soon as something does not behave**
+* and to turn to them **as soon as anything seems to ge wrong**
 * here you will need to use the most useful ones :
   * *Elements*
   * *Console*
   * and to a lesser extent, *Sources*
 
-+++
+---
 
 ### Devel Tools : *Elements*
 
@@ -185,54 +190,53 @@ as mentioned earlier already, you can
 * see the computed values for each property
 * interactively change a property and see effect immediately
 
-+++
+---
 
 ### visualizing a changed property
+
+to quickly see the effect of a changed property  
+of course once you're satisfied you should put it back in your CSS or JS code...
 
 ```{image} media/devel-tools-change-properties.png
 :align: center
 :width: 500px
 ```
 
-+++
+---
 
 ### Devel Tools : the *Console* REPL
-
-+++
 
 * the place where lands the output of `console.log` of course quite useful for naive debugging
 * **and** that lets you **run JavaScript** on the fly much like the Python interpreter does  
   (this is known as a REPL = Read Eval Print Loop)
 
-+++
-
 ```{image} media/devel-tools-console-1.png
 :align: center
-:width: 500px
+:width: 450px
 ```
 
-+++
+---
 
 ```{image} media/devel-tools-console-2.png
 :align: center
 :width: 500px
 ```
 
-+++
+---
 
 ```{image} media/devel-tools-console-3.png
 :align: center
 :width: 500px
 ```
 
-+++
+---
 
 ```{image} media/devel-tools-console-4.png
 :align: center
 :width: 500px
 ```
 
-+++
+---
 
 ### Devel Tools : *Sources*
 
@@ -247,7 +251,7 @@ occasionnally useful to browse the code actually loaded
 :width: 500px
 ```
 
-+++
+---
 
 ### Devel Tools : debugger
 
@@ -262,7 +266,7 @@ the *Sources* tab has buit-in debugging features
 :width: 500px
 ```
 
-+++
+---
 
 ### more on devel tools
 

@@ -12,6 +12,8 @@ kernelspec:
 language_info:
   name: javascript
 short_title: coding tips
+author: Benoit Gschwind
+date: 2023-01-01
 ---
 
 # how to code: general tips
