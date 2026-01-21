@@ -12,6 +12,7 @@ kernelspec:
 language_info:
   name: javascript
 short_title: "miscell on codepen"
+author: Basile Marchand
 ---
 
 # practice : on codepen

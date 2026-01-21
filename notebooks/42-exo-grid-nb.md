@@ -11,7 +11,7 @@ kernelspec:
   name: javascript
 language_info:
   name: javascript
-short_title: "dynamic grid"
+short_title: a dynamic grid
 ---
 
 # practice : a dynamic grid

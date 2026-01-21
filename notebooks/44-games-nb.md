@@ -21,6 +21,8 @@ short_title: "tic-tac-toe + minesweeper"
 tools = require('../js/tools'); tools.init()
 ```
 
+---
+
 ## tic-tac-toe
 
 write a tic-tac-toe game, something like this - there is a lot of room for improvement !
@@ -31,6 +33,8 @@ write a tic-tac-toe game, something like this - there is a lot of room for impro
 /*await*/ tools.sample_from_stem("../samples/45-tic-tac-toe/tic-tac-toe",
                        {sources_show: false, separate_height: '400px', separate_width: '400px'})
 ```
+
+---
 
 ## minesweeper
 

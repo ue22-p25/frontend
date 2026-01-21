@@ -11,7 +11,7 @@ kernelspec:
   name: javascript
 language_info:
   name: javascript
-short_title: "networking apps"
+short_title: "xkcd + chatbot + pixels-war"
 ---
 
 # practice : networking apps
@@ -21,9 +21,9 @@ short_title: "networking apps"
 tools = require('../js/tools'); tools.init()
 ```
 
-the common objective here is: how to talk directly to an (http) API from JS
+the common objective here is: how to talk directly to an (https) API from JS
 
-+++
+---
 
 (label-tp-xkcd)=
 ````{admonition} xkcd
@@ -42,6 +42,8 @@ the result would look like this
                        {sources_show: false, separate_height: '750px', separate_width: '820px'})
 ```
 
+---
+
 (label-tp-chatbot)=
 ````{admonition} chatbot
 :class: seealso
@@ -51,7 +53,7 @@ clone the repo below, and follow the instructions
 <https://github.com/ue22-p25/web-chatbot.git>
 ````
 
-+++
+---
 
 ````{admonition} pixels-war
 :class: seealso

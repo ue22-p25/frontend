@@ -11,15 +11,19 @@ kernelspec:
   name: javascript
 language_info:
   name: javascript
-short_title: "fun with maths"
+short_title: "Pythagore and Fibonacci"
 ---
 
-# practice : Pythoagore and Fibonacci
+# practice : Pythagore and Fibonacci
 
 ```{code-cell}
 :tags: [remove-cell]
 tools = require('../js/tools'); tools.init()
 ```
+
+two activities to explore mathematical concepts visually
+
+---
 
 ````{admonition} pythagore
 :class: seealso
@@ -35,6 +39,8 @@ the sample app is not responsive, you will need to open it in a separate window
 /*await*/ tools.sample_from_stem("../samples/48-pythagore/pythagore",
                        {sources_show: false, separate_height: '1000px', separate_width: '800px'})
 ```
+
+---
 
 ````{admonition} fibonacci and the golden number
 :class: seealso

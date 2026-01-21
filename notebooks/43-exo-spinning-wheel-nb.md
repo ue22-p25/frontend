@@ -21,6 +21,8 @@ short_title: "a spinning wheel"
 tools = require('../js/tools'); tools.init()
 ```
 
+---
+
 ## what it should look like
 
 ```{code-cell}
@@ -29,61 +31,46 @@ tools = require('../js/tools'); tools.init()
 /*await*/ tools.sample_from_stem("../samples/44-spinning-wheel/spinning-wheel", {id: 'finished', sources_show: false})
 ```
 
+---
+
 ## recommended steps
 
-the notebooks will probably not have covered everything you need to know to do this
-
+the notebooks will probably not have covered everything you need to know to do this  
 so, like always: **use your favorite search engine**
-
-+++
 
 ### step #1
 
 make the base layout with dummy button and svg area
 
-+++
-
 ### step #2
 
-draw circles on the base layout using java script (inline script is ok)
-
-+++
+draw circles on the base layout using JS (inline script is ok)
 
 ### step #3
 
 change color and style of painted circle
 
-+++
-
 ### step #4
 
 animate the color to make transition
-
-+++
 
 ### step #5
 
 fix the animation to give the desired look
 
-+++
-
 ### step #6
 
-make the animation stopable
-
-+++
+make the animation stoppable
 
 ### step #7
 
-make the animation startabel/stopable by pressing the button
-
-+++
+make the animation startable/stoppable by pressing the button
 
 ### step #8
 
 cleanup the code, and cleanup again
 
-+++
+---
 
 ## a few hints
 
@@ -104,9 +91,9 @@ for example (but that's entirely up to you)
 * it may be helpful to create a convenience function that creates an SVG element inside a container that is found through its id;  
   e.g. `create_spinning_wheel("spin-container")` would create (and return) a `SpinningWheel` instance inside (the element found by selector) `#spin-container`
 
-+++
+---
 
-## also remember that
+### to create SVG elements in JS
 
 * svg elements need to be created with the right namespace, i.e.:
 
@@ -115,9 +102,9 @@ const svgNS = "http://www.w3.org/2000/svg";
 let dot = document.createElementNS(svgNS, 'circle');
 ```
 
-+++
+---
 
-## the  HTML part
+### a possible HTML start
 
 your html part could look like the following
 
@@ -129,38 +116,26 @@ your html part could look like the following
    {id: 'source-only', css_show: false, js_show: false, output_show: false, height: '18em'})
 ```
 
-## observe
+---
 
-* the HTML document is mostly empty, and gets populated by program
+### how to start on the JS side
 
-* as usual now, the way we attach a callback to the `load` event
-
-+++
-
-## observe (2)
-
-* how tedious it is to have to pass all arguments to the class constructor - because JavaScript does not support (yet?) default values parameters  
-  in similar situations, a common practice is to impose only a small set of required parameters, and then to accept a single `options` argument
-  
-so one could offer instead:
+- one possible way to design your JS code could be to define a `SpinningWheel` class like this :
 
 ```javascript
-SpinningWheel(radius, options) {
-   ...
+class SpinningWheel {
+    constructor(svg_element, cx, cy, cr, n_dots, r_dots, period,
+                bg_color, fg_color) {
+        ...
+    }
 }
 ```
 
-and allow callers to set specific parameters in the `options` object; for examples one could call
+- however, it's probably more interesting to try and use React to implement this !
 
-```javascript
-let spin = SpinningWheel(100,
-                         { bg_color: [200, 100, 50], period=500})
-```
-and have the `SpinningClass` code provide defaults for missing parameters.
+---
 
-+++
-
-### optional assignments
+## optional assignments
 
 early finishers can :
 
