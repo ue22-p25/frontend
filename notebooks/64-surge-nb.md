@@ -35,7 +35,7 @@ take a look at <https://surge.sh> for more details
 
 ## requirements: `npx`
 
-just like with `vite`, [you can run `surge` through `npx` - see here for details](label-install-nodejs)
+just like with `vite`, [you can run `surge` through `npx` - see here for details](#label-install-nodejs)
 
 +++
 
