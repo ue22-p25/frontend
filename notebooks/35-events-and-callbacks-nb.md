@@ -236,11 +236,11 @@ document.addEventListener(
 
 ```{code-cell}
 :class: admonition-x-small
-const arrow_no_brackets = (a) => a*2
+const arrow_without_brackets = (a) => a*2
 const arrow_with_brackets = (a) => { a*2 }
 
 console.log("arrow without brackets:",
-            arrow_no_brackets(3))
+            arrow_without_brackets(3))
 console.log("⚠️ arrow with brackets: ⚠️",
             arrow_with_brackets(3))
 ```
@@ -251,12 +251,12 @@ console.log("⚠️ arrow with brackets: ⚠️",
 ```{code-cell}
 :class: admonition-x-small
 const function_with_return = function (a) { return a*2 }
-const function_no_return = function (a) { a*2 }
+const function_without_return = function (a) { a*2 }
 
 console.log("function with return:",
             function_with_return(3))
 console.log("⚠️function without return: ⚠️",
-            function_no_return(3))
+            function_without_return(3))
 ```
 :::
 ::::
@@ -328,7 +328,7 @@ feel free to cut and paste the code into your web browser's console
 
 ```{code} js
 :linenos:
-:emphasize-lines: 3,13,19
+:emphasize-lines: 3,9,13,19
 // here the 'context' variable is not visible
 
 {  // <- this is the block where 'context' is visible
