@@ -20,37 +20,57 @@ permissions:
   contents: read
   pages: write
   id-token: write
+
 # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
 # However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
 concurrency:
   group: "pages"
   cancel-in-progress: false
 
-# this is no longer needed as we serve from info-mines.paris
-# required for MyST
+# this is no longer needed as we serve from hostnames
+# in our own domain info-mines.paris
 # env:
-#   # `BASE_URL` determines the website is served from, including CSS & JS assets
-#   # You may need to change this to `BASE_URL: ''`
 #   BASE_URL: /${{ github.event.repository.name }}
-
 
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
+    # define a unique conda environment name for this run
+    env:
+      CONDA_ENV_NAME: "myst-env-${{ github.run_id }}"
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
         with:
-          node-version: 24
-      - name: Install MyST Markdown
-        run: npm install -g mystmd
+          clean: true
+      - name: Setup conda
+        uses: conda-incubator/setup-miniconda@v3
+        with:
+          python-version: 3.14
+          activate-environment: ${{ env.CONDA_ENV_NAME || 'myst-env' }}
+          use-mamba: true
       - name: Install requirements.txt
-        run: "if [ -f requirements.txt ]; then pip install -r requirements.txt; fi"
+        shell: bash -l {0}
+        run: |
+          [ -f requirements.txt ] && pip install -r requirements.txt
+      - name: Setup Node.js
+        shell: bash -l {0}
+        run: |
+          python --version
+          pip --version
+          conda install conda-forge::nodejs=24 -y
       - name: Install JS kernel
-        run: npm install -g deno && deno jupyter --install
+        shell: bash -l {0}
+        run: |
+          npm install -g deno
+          deno jupyter --install --force
+      - name: Install MyST Markdown
+        shell: bash -l {0}
+        run: npm install -g mystmd
       - name: Build HTML Assets
-        run: (cd notebooks; myst build --execute --html)
+        shell: bash -l {0}
+        working-directory: ./notebooks
+        run: myst build --execute --html
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
@@ -60,6 +80,10 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+      - name: Cleanup conda env
+        if: always() # CRITICAL: Runs even if the build crashes
+        run: |
+          conda env remove -n ${{ env.CONDA_ENV_NAME }}
 
     environment:
       name: github-pages
