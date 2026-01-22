@@ -43,34 +43,32 @@ jobs:
         uses: actions/checkout@v4
         with:
           clean: true
-      - name: Setup conda
-        uses: conda-incubator/setup-miniconda@v3
-        with:
-          python-version: 3.14
-          activate-environment: ${{ env.CONDA_ENV_NAME || 'myst-env' }}
-          use-mamba: true
+      - name: "Create conda env w/ Py3.14 and NodeJS 25"
+        shell: bash -l {0}
+        run: |
+          conda create -y -n ${{ env.CONDA_ENV_NAME }} -c conda-forge --strict-channel-priority python=3.14 conda-forge::nodejs=25
       - name: Install requirements.txt
         shell: bash -l {0}
         run: |
+          conda activate ${{ env.CONDA_ENV_NAME }}
           [ -f requirements.txt ] && pip install -r requirements.txt
-      - name: Setup Node.js
-        shell: bash -l {0}
-        run: |
-          python --version
-          pip --version
-          conda install conda-forge::nodejs=24 -y
       - name: Install JS kernel
         shell: bash -l {0}
         run: |
+          conda activate ${{ env.CONDA_ENV_NAME }}
           npm install -g deno
           deno jupyter --install --force
       - name: Install MyST Markdown
         shell: bash -l {0}
-        run: npm install -g mystmd
+        run: |
+          conda activate ${{ env.CONDA_ENV_NAME }}
+          npm install -g mystmd
       - name: Build HTML Assets
         shell: bash -l {0}
         working-directory: ./notebooks
-        run: myst build --execute --html
+        run: |
+          conda activate ${{ env.CONDA_ENV_NAME }}
+          myst build --execute --html
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
@@ -81,6 +79,7 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
       - name: Cleanup conda env
+        shell: bash -l {0}
         if: always() # CRITICAL: Runs even if the build crashes
         run: |
           conda env remove -n ${{ env.CONDA_ENV_NAME }}
