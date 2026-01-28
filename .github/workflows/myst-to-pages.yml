@@ -56,14 +56,22 @@ jobs:
           if [ -f requirements.txt ]; then
             pip install -r requirements.txt
           fi
+      - name: Install & Register Deno Kernel
+        run: |
+          source venv/bin/activate
+          npm install deno
+          # so that jupyter finds deno in the next steps
+          echo "$(pwd)/node_modules/.bin" >> $GITHUB_PATH
+          # use the relative path for this step
+          ./node_modules/.bin/deno jupyter --install --force
       - name: Install MyST Markdown
         run: |
           source venv/bin/activate
           npm install mystmd
       - name: Build HTML Assets
-        working-directory: notebooks/
         run: |
           source venv/bin/activate
+          cd notebooks
           npx myst build --execute --html
       - name: Setup Pages
         uses: actions/configure-pages@v5
