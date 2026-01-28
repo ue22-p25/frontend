@@ -3,6 +3,8 @@
 # - go to the Settings -> Environments tab
 #   then select the 'github-pages' environment
 #   and make sure the branch of interest (here main) is allowed in the 'Branch protection rules' area
+# - also for using a self-hosted runner, make sure you have set it up properly
+#   github.com/$ORGA -> Settings -> Actions -> Runner groups -> Default Group -> Allow public repositories
 
 name: Deploy MyST to GitHub Pages
 
@@ -32,57 +34,46 @@ concurrency:
 # env:
 #   BASE_URL: /${{ github.event.repository.name }}
 
+
 jobs:
   build-and-deploy:
-    runs-on: self-hosted
-    # define a unique conda environment name for this run
-    env:
-      CONDA_ENV_NAME: "myst-env-${{ github.run_id }}"
+    # runs-on: self-hosted
+    # tmp to ensure boxtops
+    runs-on: [self-hosted, docker]
+    container:
+      image: dockerhub.pl.sophia.inria.fr/python-nodejs:latest
+    # this is so we can use source
+    defaults:
+      run:
+        shell: bash
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          clean: true
-      - name: "Create conda env w/ Py3.14 and NodeJS 25"
-        shell: bash -l {0}
+        uses: actions/checkout@v5
+      - name: "Python venv & requirements.txt"
         run: |
-          conda create -y -n ${{ env.CONDA_ENV_NAME }} -c conda-forge --strict-channel-priority python=3.14 conda-forge::nodejs=25
-      - name: Install requirements.txt
-        shell: bash -l {0}
-        run: |
-          conda activate ${{ env.CONDA_ENV_NAME }}
-          [ -f requirements.txt ] && pip install -r requirements.txt
-      - name: Install JS kernel
-        shell: bash -l {0}
-        run: |
-          conda activate ${{ env.CONDA_ENV_NAME }}
-          npm install -g deno
-          deno jupyter --install --force
+          python3 -m venv venv
+          source venv/bin/activate
+          if [ -f requirements.txt ]; then
+            pip install -r requirements.txt
+          fi
       - name: Install MyST Markdown
-        shell: bash -l {0}
         run: |
-          conda activate ${{ env.CONDA_ENV_NAME }}
-          npm install -g mystmd
+          source venv/bin/activate
+          npm install mystmd
       - name: Build HTML Assets
-        shell: bash -l {0}
-        working-directory: ./notebooks
+        working-directory: notebooks/
         run: |
-          conda activate ${{ env.CONDA_ENV_NAME }}
-          myst build --execute --html
+          source venv/bin/activate
+          npx myst build --execute --html
       - name: Setup Pages
-        uses: actions/configure-pages@v3
+        uses: actions/configure-pages@v5
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           path: './notebooks/_build/html'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-      - name: Cleanup conda env
-        shell: bash -l {0}
-        if: always() # CRITICAL: Runs even if the build crashes
-        run: |
-          conda env remove -n ${{ env.CONDA_ENV_NAME }}
 
     environment:
       name: github-pages
