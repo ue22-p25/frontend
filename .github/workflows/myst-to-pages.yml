@@ -39,7 +39,7 @@ jobs:
   build-and-deploy:
     # runs-on: self-hosted
     # tmp to ensure boxtops
-    runs-on: [self-hosted, docker]
+    runs-on: self-hosted
     container:
       image: dockerhub.pl.sophia.inria.fr/python-nodejs:latest
     # this is so we can use source
