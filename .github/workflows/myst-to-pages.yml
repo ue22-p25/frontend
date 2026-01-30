@@ -70,7 +70,6 @@ jobs:
         run: |
           source venv/bin/activate
           cd notebooks
-          # all at once seemed too much; this takes around 2'30'' on boxtops
           npx myst build --execute --html --execute-parallel 2
       - name: Setup Pages
         uses: actions/configure-pages@v5
