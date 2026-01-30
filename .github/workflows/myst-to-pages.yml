@@ -65,7 +65,7 @@ jobs:
       - name: Install MyST Markdown
         run: |
           source venv/bin/activate
-          npm install mystmd
+          npm install mystmd thebe-core thebe thebe-lite
       - name: Build HTML Assets
         run: |
           source venv/bin/activate
