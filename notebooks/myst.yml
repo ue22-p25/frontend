@@ -20,6 +20,8 @@ project:
     - UE22
     - git
   date: 2026-01-15
+  jupyter:
+    lite: true
   # downloads:
   #   - file: "_static/cheatsheet.html"
   #     title: "DOM & JS cheatsheet"
