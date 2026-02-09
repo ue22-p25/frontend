@@ -74,12 +74,12 @@ let group_html = `<p> a paragraph may
 that we want to keep together,
 typically for styling purposes,
 but that is inline (no linebreak),
-and for that use a &lt;span&gt; tag.</p>
+and for that use a &amp;lt;span&amp;gt; tag.</p>
 
 <div style="background-color: #ddd;">
   <p> when you need to create a group that
       contain several paragraphs</p>
-  <p> then a "div" tag is more suitable</p>
+  <p> then a &amp;lt;div&amp;gt; tag is more suitable</p>
 </div>`
 await tools.sample_from_strings({html: group_html})
 ```
@@ -135,7 +135,7 @@ however if your layout is sophisticated enough, you will probably end up with mo
 :tags: [remove-input]
 
 let ul_fragment = `<div><p> a typical bullet list with a &amp;lt;ul&amp;gt; tag</p>
-<br> <code>ul</code> stands for "unordered list"
+<code>ul</code> stands for "unordered list"
 <br> <code>li</code> stands for "list item"
 <ul>
 <li> the first bullet </li>
@@ -157,7 +157,7 @@ and observe that the bullets become numbered
 
 ## code-like: `<pre>` and `<code>`
 
-* `<pre>` stands for preformatted
+* `<pre>` stands for preformatted (line breaks and spaces are kept as-is)
 * `<code>` is for a terminal-like font and style
 
 ```{code-cell}
@@ -229,9 +229,9 @@ if you need a hyperlink to point, not at the beginning of this page, but somewhe
 here's an example of a page that has a named anchor (below the gray area) and a hyperlink to that location
 
 ````{admonition} do not worry about that gray blob for now
-:class: admonition-small
+:class: admonition-small dropdown
 
-we have not yet seen how to create this gray thingy, please admit it for now
+we have not yet seen how to create this gray thingy below, please admit it for now
 ````
 
 ```{code-cell}
@@ -297,11 +297,11 @@ await tools.sample_from_strings({html: table_html, css: table_css})
 ```{admonition} historical note
 :class: warning dropdown
 
-in the early ages of HTML, tables were a;; over the place, for creating fancy layouts 
+in the early ages of HTML, tables were all over the place, for creating fancy layouts
 (e.g., a page that has several columns, side by side)
 
-however, we strongly recommend that you stay away from that for the moment,  
-especially if your goal is to create  grid-based layouts, that we will cover later on
+however, we strongly recommend that you **do not use `<table>` for layouts**,  
+especially if your goal is to create grid-based layouts, that we will cover later on
 ```
 
 ---
