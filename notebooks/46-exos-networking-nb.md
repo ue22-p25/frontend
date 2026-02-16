@@ -58,5 +58,5 @@ clone the repo below, and follow the instructions
 
 build a small app that will let us paint a commonly shared image one pixel at a time  
 clone the repo below, and follow the instructions  
-<https://github.com/ue22-p25/web-pixels-war>
+<https://github.com/ue22-p25/frontend-pixels-war>
 ````
