@@ -940,3 +940,7 @@ obj
 ```
 
 ---
+
+### Wat ?
+
+And now for a bit of fun: the famous ["Wat" lightning talk by Gary Bernhardt](https://www.destroyallsoftware.com/talks/wat) is a must-watch for JavaScript programmers
