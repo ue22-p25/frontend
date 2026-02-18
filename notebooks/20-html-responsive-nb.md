@@ -26,10 +26,12 @@ import * as tools from "../js/tools.js"; await tools.init()
   * even on the computer, windows can be **resized** arbitrarily
 * a responsive page **adapts** its layout to the **device size**
   * technically the visible area is called the **viewport**
+* and also to the nature of the device (e.g. screen vs print)
 
 ---
 
-this means that for example, we want to obtain different layouts for the same content, depending on the screen size  
+this means that for example, we want to obtain different layouts for the same
+content, depending on the screen size  
 
 ```{figure} media/responsive-layouts.excalidraw.svg
 :align: center
