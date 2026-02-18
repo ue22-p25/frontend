@@ -307,6 +307,28 @@ so in this case the properies are fetched from their parent (the `<div>` element
 
 ---
 
+### inheritance - what
+
+Not all properties are inherited though  
+In CSS, typography and color properties usually inherit by default (making it
+easy to style a whole page at once), while box-model properties (like border,
+margin, padding, and width) do not. If borders inherited, every single nested
+element would get its own box, creating a visual nightmare!
+
+````{grid} 2
+```{card} some inherited properties
+`color`, `font-family`, `font-size`,
+`line-height`, `text-align`,
+`visibility`, `cursor`,
+```
+
+```{card} some non-inherited properties
+`border`, `margin`, `padding`, `width`, `height`, `background`, `position`, `display`, `z-index`
+```
+````
+
+---
+
 ### inheritance & the `body` rule
 
 so, it is common practice to create a rule for the `body` element  
