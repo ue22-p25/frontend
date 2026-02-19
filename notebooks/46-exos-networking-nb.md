@@ -28,7 +28,7 @@ the common objective here is: how to talk directly to an (https) API from JS
 :class: seealso
 
 build a small app that will let us browse the collection of drawings by xkcd - a lot like <https://xkcd.com> but with just the navigation buttons and the images; clone the repo below, and follow the instructions  
-<https://github.com/ue22-p25/web-xkcd.git>
+<https://github.com/ue22-p25/frontend-xkcd.git>
 
 the result would look like this
 ````
@@ -48,7 +48,7 @@ await tools.sample_from_stem("../samples/49-xkcd/xkcd",
 
 build your own chatbox using a mistral-7B LLM (other models available too)  
 clone the repo below, and follow the instructions  
-<https://github.com/ue22-p25/web-chatbot.git>
+<https://github.com/ue22-p25/frontend-chatbot.git>
 ````
 
 ---
