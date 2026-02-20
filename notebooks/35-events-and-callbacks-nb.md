@@ -33,7 +33,8 @@ import * as tools from "../js/tools.js"; await tools.init()
 :class: tip admonition-small
 
 * we have already seen the `DOMContentLoaded` event, that is rather crucial
-* there are also builtin events for keyboard / mouse interaction, illustrated on the next example (we use `click` and `keydown`)
+* there are also builtin events for keyboard / mouse interaction,  
+  illustrated on the next example (we use `click` and `keydown`)
 * for more details, see [this section in javascript.info](https://javascript.info/event-details) on all the available events
 ````
 
@@ -79,7 +80,7 @@ this is possible because JS is so flexible/lenient with respect to argument pass
 ### `addEventListener()`
 
 * a fundamental tool to register a callback with an event
-* available on most objects (not only `window`, often used on a DOM element)
+* available on most objects (not only `document`, often used on a DOM element)
 * again, observe on the example below, how the callback **receives the event** in parameter
 
 ---
@@ -112,15 +113,10 @@ here's a timeline of what is going on
 
 notice from the example :
 
-````{admonition} cascading
-:class: seealso
-see how `addEventListener()` are cascaded, which is a very typical pattern in JS code
-````
-
 ````{admonition} the contents of event
 :class: tip admonition-smaller
 
-also notice that the actual content of the `event` object depends on the event type:
+notice that the actual content of the `event` object depends on the event type:
 
 * the `keydown` event has a `event.key` that exposes the keyboard key
 * the `click` event has `event.offsetX` that exposes the click coordinates
@@ -211,7 +207,7 @@ document.addEventListener(
 
 ---
 
-### previous example using arrow functions
+### the example with arrow functions
 
 ```{code-cell}
 :tags: [remove-input]
@@ -221,12 +217,17 @@ await tools.sample_from_stem("../samples/34-events-and-callbacks-02",
                         separate_width: "600px", height: 'js'})
 ```
 
+````{admonition} cascading
+:class: seealso
+notice how `addEventListener()` are cascaded, which is a very typical pattern in JS code
+````
+
 ---
 
 ### functions vs arrow functions
 
 * ⚠️ Both variants `function` and `=>` are valid, even if the new one looks nicer
-* for single-expression functions, with the fat arrow, if you omit the `{}` then `return` is implicit
+* **Warning about return values**: study carefully the following example:
 
 ::::{grid} 2
 
@@ -317,7 +318,7 @@ see also [this thorough article on closures on `javascript.info`](https://javasc
 ````{admonition} run in your browser console
 :class: error admonition-small dropdown
 
-we don't run this code here, as we're moving outside of the notebook's comfort zone with this code  
+we don't run this code here, as we're sliding outside of the notebook's comfort zone..  
 feel free to cut and paste the code into your web browser's console
 ````
 
@@ -347,7 +348,7 @@ feel free to cut and paste the code into your web browser's console
 try {
   context
 } catch(err) {
-  console.log(`OOPS not visible in global scope ${err.message}`)
+  console.log(`OOPS not visible in global scope: ${err.message}`)
 }
 
 // BUT: wait for 2s and see the callback still triggers properly

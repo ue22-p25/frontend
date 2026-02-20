@@ -82,8 +82,8 @@ but seriously though, let us consider some typical situations where concurrency 
 * this is **not good enough** ! - consider the case of pagination in an e-commerce website
   * if we had only that approach, would bring to permanent page changes (harsh pagination)
 * so instead, the client (JS side) needs to be able to sends its own http requests [^https]
-  * and to receive results not as HTML, but as pure data - typically JSON
-* so it can change the page content **without reloading an entire page** (soft pagination)
+  * and to receive results **not as HTML, but as pure data** - typically JSON
+* so it can change the page content without reloading an entire page (soft pagination)
   * same thing for example to get information about the basket
 * this is [where the fetch() API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) comes in
   * see also: [the TP on xkcd](49-exos-networking-nb#label-tp-xkcd) and [the TP on chatbot](49-exos-networking-nb#label-tp-chatbot) where we will practise this thoroughly
