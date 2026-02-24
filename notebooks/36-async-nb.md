@@ -24,10 +24,10 @@ import * as tools from "../js/tools.js"; await tools.init()
 
 for various technical reasons, running asynchronous JS code is sometimes outside of the comfort zone for a Jupyter notebook environment
 
-if things do not run smoothly from within Jupyter, and/or if you are reading this in static HTML format, you may want to copy-paste the code and run it in **right in your browser console** instead
+if things do not run smoothly from within Jupyter, and/or if you are reading this in static HTML format, you may want to copy-paste the code and **run it right in your browser console** instead
 
-````{admonition} the gory details
-:class: danger admonition-small dropdown
+<!-- ````{admonition} the gory details
+:class: danger admonition-x-small dropdown
 
 actually `fetch()` was not a builtin in the *node.js* runtime until recently; if you still want to run `fetch()` in node, here's a recipe for loading the `node-fetch` extra lib
 
@@ -43,7 +43,7 @@ try {
     /*const*/ fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args))
 }
 ```
-````
+```` -->
 `````
 
 ---
@@ -66,7 +66,7 @@ but seriously though, let us consider some typical situations where concurrency 
 
 ---
 
-### page loading issue
+### ex1: page loading issue
 
 * the browser starts displaying the page long before it is all loaded
 * plus, in most cases, code **order matters**:
@@ -75,7 +75,7 @@ but seriously though, let us consider some typical situations where concurrency 
 
 ---
 
-### networking from JS
+### ex2: networking from JS
 
 * the naive paradigm is: users types in a URL (or clicks a link), the browser sends a
   request to the server, and displays the (HTML) result
@@ -85,7 +85,7 @@ but seriously though, let us consider some typical situations where concurrency 
   * and to receive results **not as HTML, but as pure data** - typically JSON
 * so it can change the page content without reloading an entire page (soft pagination)
   * same thing for example to get information about the basket
-* this is [where the fetch() API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) comes in
+* this is where [the fetch() tool](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) comes in
   * see also: [the TP on xkcd](49-exos-networking-nb#label-tp-xkcd) and [the TP on chatbot](49-exos-networking-nb#label-tp-chatbot) where we will practise this thoroughly
 
 [^https]: typically, API calls are also sent over HTTPS, but anyway
@@ -104,7 +104,7 @@ however the code can quickly become what is known as *the callbacks hell*
 :width: 450px
 ```
 
-* (and it gets even worse if any kind of logic is involved)
+* and it gets even worse if any kind of logic (if, while) is involved..
 
 ````{admonition} we have seen an example already
 :class: admonition-smaller
@@ -116,12 +116,30 @@ and that results in this pattern of **nested** callbacks
 
 ---
 
-## the solutions
+## better tools: promises and async
 
 to mitigate this issue, we have 2 additional tools
 
 * promises
 * `async`/`await`
+
+---
+
+## digression: the REPL
+
+before going further, it's important to remember the logic of the REPL:
+
+* REPL = Read, Evaluate, Print, Loop
+* when you run a line of code, the REPL evaluates it, and prints the result
+* andwhen there are **several** expressions in the line, it evaluates them all
+* but it will print **only the last result**
+
+```{code} js
+// when this block is copied in the console, it will print .. 6
+10 * 100
+10 * 200
+2*3
+```
 
 ---
 
@@ -131,11 +149,12 @@ to illustrate the notion of promises:
 we see how the browser typically **sends its own HTTP requests**
 
 our example is about fetching some DNA samples on `www.ebi.ac.uk`, but the content is not really important, it's just an example..  
-for instance, the same technique can be used as-is to send API calls
+and notably, the same technique can be used as-is **to send API calls**
 
 to achieve this we have a builtin function called **`fetch()`**, that **returns a promise** object
 
 ```{code} js
+:class: admonition-x-small
 :linenos:
 :emphasize-lines: 8,11,14
 // let us start with defining a few URLs
@@ -162,8 +181,7 @@ that done, we can fetch one URL (the small one for starters) with this code:
 
 ```{code} js
 :linenos:
-:emphasize-lines: 3-5
-// fetching a URL would typically be done like this
+:emphasize-lines: 1-3
 
 fetch(URL_small)
     .then(response =>  response.text())
@@ -193,7 +211,7 @@ run the following code, and observe that:
 
 ```{code} js
 :linenos:
-:emphasize-lines: 4-6
+:emphasize-lines: 4-6,9
 // again with a larger file
 // observe how the network activity happens "in the background"
 
@@ -211,7 +229,8 @@ console.log("I am still alive...", 10 * 2000)
 
 ### `.then()`
 
-typically, you use a library function that returns a promise - like here with `fetch()`  
+typically, you use a library function that **returns a promise**  
+like here: `fetch()` is such a function that returns a promise
 
 creating a promise is like starting a separate task, it will be **processed in parallel** !
 
@@ -261,7 +280,7 @@ specifically, in these examples above, what happens is
 
 * by sending a `fetch()` we initiate an HTTP request
 * the corresponding promise will be fulfilled **as soon as the HTTP headers are received**
-* it (the promise returned by `fetch()`) returns a `Response` object,  
+* the promise returned by `fetch()` returns a `Response` object,  
   that in turn has a `.text()` method, that returns .. a promise, whose value is the full response body
 
 ````{admonition} the content is JSON ?
@@ -271,13 +290,13 @@ our use case is to fetch a plain text file; if the URL contained JSON instead, w
 ````
 
 ````{admonition} why 2 phases ?
-:class: dropdown tip admonition-small
+:class: dropdown tip
 
 the reason for splitting the process in two is for more flexibility  
 this way we could inspect the HTTP headers without the need to wait for the whole response  
 ````
 
-````{admonition} another chaining example
+````{admonition} promises created by program
 :class: seealso dropdown admonition-smaller
 
 here's another illustration, this time with a promise created programatically
@@ -303,8 +322,9 @@ Promise.resolve(5)
 
 let us now rewrite our code **into a proper function**, so we can use it on any URL
 
-```js
-// for convenience, just in case
+```{code} js
+:class: admonition-x-small
+// for convenience, just in case we need to copy that again
 
 URL_small = 'https://www.ebi.ac.uk/ena/browser/api/embl/AE000789?download=true'
 URL_large = 'https://www.ebi.ac.uk/ena/browser/api/embl/CP010053?download=true'
@@ -321,7 +341,9 @@ for the sake of simplicity, we just display:
 - the size of the response payload
 - and we return the actual body
 
-```js
+```{code} js
+:linenos:
+:emphasize-lines: 1,3-4,10,12,14,16
 const get_url1 = (url) => {
     // hope for the best (no error handling)
     let promise = fetch(url)
@@ -342,7 +364,7 @@ const get_url1 = (url) => {
 ```
 
 and here is how we could use it  
-since our function returns a promise, we use it with `.then()`, just like we did with `fetch()`
+since **our function returns a promise**, we use it with `.then()`, just like we did with `fetch()`
 
 ```js
 // let us display the first 20 characters in the file
@@ -388,7 +410,9 @@ this means that `catch(failureCallback)` is short for `then(null, failureCallbac
 so we can come up with a second iteration, where we **take care of errors**  
 to this end, we add a `catch()` at the end
 
-```js
+```{code} js
+:linenos:
+:emphasize-lines: 1,4,8,14,17
 const get_url2 = (url) => {
     // let's get rid of the promise variable, not needed
     return fetch(url)
@@ -494,9 +518,9 @@ the `await` keyword allows to **wait for the result** of a promise (as opposed t
 :::{admonition} limitation on where `await` can be used
 :class: warning admonition-small dropdown
 
-in general, `await` can only be used **inside an `async` function**  
+in general, **`await` can only be used inside an `async` function**  
 for convenience though, it is more and more also supported at the **interpreter
-toplevel**, so hopefully that won't be an issue
+toplevel** (right in the REPL)
 :::
 
 ---
@@ -517,9 +541,9 @@ const get_url = async (url) => {
         //         ↓↓↓↓↓
         let text = await response.text()
         console.log(`length=${text.length}`)
-        return text
+       return text
     } catch(err) {
-        console.log(`OOPS with url=${url}`, err)
+       console.log(`OOPS with url=${url}`, err)
     }
 }
 ```
@@ -532,7 +556,7 @@ const get_url = async (url) => {
 * this time, error management can be done through a regular `try/catch` instruction
 
 and as a result, the code pretty much looks exactly like what we would have written in a synchronous world,
-with the extra benefit that it is actually running asynchronously !
+with the extra benefit that it is actually running asynchronously&nbsp;!
 ````
 
 and here is how we would use this code
@@ -563,11 +587,11 @@ the remainder of this notebook is for advanced readers
 
 ---
 
-## optional (advanced) features
+## benefits of promises
 
 ### promises run as coroutines
 
-* let us observe what happens if we create several promises at the same time
+* let us observe what happens if we create **several promises at the same time**
 * remember that promise creation returns *immediately*  
   (we've seen the REPL working right after we had created our promise earlier)
 
@@ -588,21 +612,22 @@ for (let url of [URL_broken, URL_small, URL_large])
 * but now, when running several things in parallel like this,
   we may need to **also retrieve their results**
 
-* that is the point of `Promise.all()` - [and similar](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise#static_methods)
-* that create a promise from a collection of promises
-* and wait for some/all of them to complete
+* that is the point of `Promise.all()` - [and similar tools](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise#static_methods)
+* that creates a promise from a collection of promises
+* waits for some/all of them to complete
+* and exposes the results as an array
 
-```js
+```{code} js
+:class: admonition-small
+:linenos:
+:emphasize-lines: 6
 // could also use .map(), but let's keep it simple
 promises = [
    get_url(URL_broken), get_url(URL_small), get_url(URL_large)
 ]
 
 contents = await Promise.all(promises)
-    .then((results) => {
-          console.log(`all ${results.length} jobs are done - storing in 'contents'`)
-          return results
-         })
-// then you find in contents[0] .. contents[2] the 3 texts returned
-// first one being undefined because the url is broken
+// then, once all fetches have completed,
+// you find in contents[0] .. contents[2] the 3 texts returned
+// e.g. first one being undefined because the url is broken
 ```
