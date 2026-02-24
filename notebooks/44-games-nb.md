@@ -41,6 +41,6 @@ write a minesweeper game; again you can do better than this :)
 ```{code-cell}
 :tags: [remove-input]
 
-await tools.sample_from_stem("../samples/45-minesweeper/minesweeper2",
+await tools.sample_from_stem("../samples/45-minesweeper/minesweeper",
                        {sources_show: false, separate_height: '700px', separate_width: '600px'})
 ```
