@@ -95,6 +95,13 @@ just like a Python install comes with `pip`, `node` will come with `npm` and `np
 
 ### installing `node` and `npx`
 
+```{admonition} mac arm (M1..M4): use nodejs 24
+:class: admonition-small danger
+as of early 2026, the latest nodejs for Macs with the
+apple chipset is 25 and appears to be broken,
+use version 24 if that's the case for you
+```
+
 
 ````{admonition} option 1: you already have a conda env
 :class: dropdown seealso
