@@ -25,6 +25,6 @@ We'll touch on React as well, but the goal is to give you a solid foundation in 
 
 ```{admonition} Developer guide
 :class: tip dropdown
-This course is intended to be read online as a static website (see link above);
+This course is intended to be read online as a static website (see link above);  
 for making changes to the source code, please refer to the [developer guide](80-develop-setup-nb.md), on how to set up a local environment.
 ```

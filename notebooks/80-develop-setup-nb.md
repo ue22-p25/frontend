@@ -18,75 +18,23 @@ short_title: course requirements
 import * as tools from "../js/tools.js"; await tools.init()
 ```
 
-as usual you can enjoy this course with no local installation, and use the pure
-HTML version here  
-<https://frontend.info-mines.paris/>
+before 2026 we were using ijavascript as the JavaScript kernel for Jupyter, but
+unfortunately it seems that it is not compatible with nodejs 22, and the repo
+seems to be unmaintained;  
+so we have swapped to the `deno` kernel, which is easier to install and apparently
+more heavily maintained
 
-if however you plan on reading this course locally on your computer, or you need
-to edit the notebooks source, there are a few specific requirements that need to
-be fulfilled.
-
-+++
-
-## foreword
-
-```{admonition} WARNING for Windows users
-:class: warning
-
-note that on Windows, last time I checked the installation instructions below 
-involve the installation of some Visual-Studio components, which is a little intrusive and
-take a looonng time...
-```
+so to setup your computer to read this course locally on your computer, and/or
+to edit the notebooks source, refer to  
+`.github/workflows/myst-to-pages.yml`  
+that spells out the CI configuration that builds the static site on GitHub
 
 +++
 
-## create a virtualenv with Python and nodejs
-
-in one go: will install jointly Python and nodejs !
+## build in devel mode
 
 ```bash
-# you can pick another name for the env if you want of course
-# warning: as of 2026-02 it still seems that nodejs 20 is required
-# more about that in https://github.com/n-riesco/ijavascript/issues/297
-
-conda create -n ue22-p25-frontend python=3.13 conda-forge::nodejs=20
-
-# and of course activate it
-conda activate ue22-p25-frontend
-```
-
-+++
-
-## install Jupyter
-
-```bash
-# like always
-# this is for Jupyter and related tools
-# and is needed for the JS kernel too,
-# and for MyST too as a consequence
-
-pip install -r requirements.txt
-```
-
-+++
-
-## install the JavaScript kernel for Jupyter and/or MyST
-
-These notebooks use a JavaScript kernel - of course...
-
-```bash
-npm install -g ijavascript
-ijsinstall
-```
-
-+++
-
-## install MyST and build html site
-
-```bash
-# install MyST
-npm install mystmd
-
 # to build the static site in watch mode
-cd notebooks; npx myst start --execute
+cd notebooks
+npx myst start --execute
 ```
